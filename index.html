@@ -4,7 +4,9 @@
   <script src="static/res/jquery-ui.min.js"></script>
   <script src="static/js/bootstrap.min.js"></script>
   <script src="static/js/index.js"></script>
+  <script src="static/js/bootstrap-dropdowns-enhancement.js"></script>
   <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap-dropdowns-enhancement.css">
   <link rel="stylesheet" type="text/css" href="static/css/index.css">
   <link rel="stylesheet" type="text/css" href="static/css/main.css">
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -15,27 +17,87 @@
     <h2 class="filters"> Filters:
       <div class="btn-group" role="group" aria-label="...">
         <div class="dropdown filter-dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+          <button class="btn btn-default dropdown-toggle" type="button" id="petTypeMenu" data-toggle="dropdown" data-placeholder="false" aria-expanded="true">
             Pet Type
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
             <li role="presentation">
-              <a role="menuitem" tabindex="-1" href="#">Pet 1</a>
+              <input type="checkbox" id="dog">
+              <label for="dog">Dog</label>
             </li>
             <li role="presentation">
-              <a rowle="menuitem" tabindex="-1" href="#">Pet 2</a>
+              <input type="checkbox" id="cat">
+              <label for="cat">Cat</label>
             </li>
             <li role="presentation">
-              <a role="menuitem" tabindex="-1" href="#">Pet 3</a>
+              <input type="checkbox" id="snake">
+              <label for="snake">Snake</label>
             </li>
           </ul>
         </div>
       </div>
     <div class="btn-group" role="group" aria-label="...">
       <div class="dropdown filter-dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-          Pet Type
+        <button class="btn btn-default dropdown-toggle" type="button" id="sitterTypeMenu" data-toggle="dropdown" aria-expanded="true">
+          Sitter Type
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">Pet 1</a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">Pet 2</a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">Pet 3</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="...">
+      <div class="dropdown filter-dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="durationMenu" data-toggle="dropdown" aria-expanded="true">
+          Duration
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">Pet 1</a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">Pet 2</a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">Pet 3</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="...">
+      <div class="dropdown filter-dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="paymentMenu" data-toggle="dropdown" aria-expanded="true">
+          Payment
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">Pet 1</a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">Pet 2</a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">Pet 3</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="...">
+      <div class="dropdown filter-dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="distanceMenu" data-toggle="dropdown" aria-expanded="true">
+          Distance
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
