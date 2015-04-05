@@ -1,0 +1,20 @@
+#searchingFor{
+  float:right;
+  position:relative;
+  border: 1px solid #ccc;
+  border-radius:4px;
+  padding:4px;
+  margin-bottom:5px;
+}
+#searchParamsLabel{
+  display:inline-block;
+  margin:0px auto;
+  max-width:100%;
+  vertical-align:middle;
+}
+#searchParams{
+  vertical-align:middle;
+}
+#header{
+  margin-top:10px !important;
+}
