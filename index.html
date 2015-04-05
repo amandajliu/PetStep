@@ -13,9 +13,9 @@
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="page-header feed-header">
+  <div class="page-header feed-header" id="header">
     <h1> PetHub <small>Connecting Pet Owners and Pet Sitters</small></h1>
-    <h2 class="filters"> Filters:
+    <h4 class="filters">Filters:
       <div class="btn-group" role="group" aria-label="...">
         <div class="dropdown filter-dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="petTypeMenu" data-toggle="dropdown" data-placeholder="false" aria-expanded="true">
@@ -125,7 +125,8 @@
         </button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="distanceMenu">
           <li role="presentation">
-            <label for="dist">Distance from your location:</label>
+            <!--<label for="dist">Distance from your location:</label>-->
+            <p style="display:block; margin-bottom:0; padding-top:3px; padding-right:20px; clear:both; white-space:nowrap; margin-left:6px; max-width:100%">Distance from your location:</p>
             <input type="text" id="dist" readonly style="border:0; color:#f6931f; font-weight:bold; margin:5px">
             <div id="slider" class="ui-slider"></div>
           </li>
@@ -150,7 +151,14 @@
         </ul>
       </div>
     </div>
-  </h2>
+    <div id="searchingFor" class="btn-group" role="group" aria-label="..." style="height:34px">
+        <h5 id="searchParamsLabel">Searching for:</h5>
+        <input type="text" id="searchParams" readonly style="height:100%"
+
+  </h4>
+
+
+  </div>
   </div>
   <div class="feed">
 
