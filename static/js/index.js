@@ -1,6 +1,21 @@
 $(document).ready(function(){
   $('#sortByDistance').attr('checked','checked');
+  $('input').change(function(){
+    $('#searchParams').html("");
+    var newSearchParams = [];
+    var checked = $('input:checked').each(function(){
+      if($(this).attr('id') != "sortByDistance" && $(this).attr('id') != "sortBySitterName"){
+        var label = $("label[for='" + $(this).attr('id')+"']").html();
+        console.log(label);
+        newSearchParams.push(label);
+      }
+    });
+    for(var i=0; i < newSearchParams.length;  i++){
+      var newParam = '<div class="param"> '+newSearchParams[i]+" </div>"
+      $('#searchParams').html($('#searchParams').html() + newParam);
+    }
 
+  })
 
 
 })
