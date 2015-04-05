@@ -11,6 +11,49 @@
 </head>
 <body>
 
+
+	<!-- User page header, contains logo, home button, and user drop down menu (when logged in) -->
+	<div class='page-header' style="display:inline-block; width:100%; margin-top: 0px">
+
+		<!-- Logo, in the future will link to the home page -->
+		<div class='col-md-4'>
+			<h1> PetHub </h1>
+		</div>
+
+		<!-- Home 'button' -->
+		<div class='col-md-2 col-md-offset-4'>
+			<h1> Home </h1>
+		</div>
+
+		<!-- User dropdown menu, dynamically updated with username and prof pic when logged in -->
+		<div class="col-md-2 btn-group dropdown filter-dropdown" role="group" aria-label="...">
+          	<button class="btn btn-default dropdown-toggle" type="button" id="userMenu" data-toggle="dropdown" aria-expanded="true">
+            <img class='mainProfilePic' src='Parakeet.jpg' style='height: 60px; width: 60px; margin-right: 3px'>
+            Cornelio
+            <span class="caret"></span>
+         	</button>
+          	<ul class="dropdown-menu" role="menu" aria-labelledby="userMenu">
+            	<li role="userMenuOptions">
+            		Favorites
+            		<span class='glyphicon glyphicon-star'></span>
+            	</li>
+            	<li role="userMenuOptions">
+            		Messages
+            		<span class='glyphicon glyphicon-envelope'></span>
+            	</li>
+            	<li role="userMenuOptions">
+            		History
+            	</li>
+            	<li role="userMenuOptions">
+            		Settings
+            	</li>
+            	<li role="userMenuOptions">
+            		Logout
+            	</li>
+          	</ul>
+		</div>
+	</div>
+
 	<div class='profileBar container panel panel-default'>
 		<div class='row'>
 			<div class='col-md-4'>
@@ -19,7 +62,8 @@
 			<div class='col-md-8'>
 				<div class='container-fluid'>
 					<div class='row'>
-						<div class='col-md-12'><h1>Cornelio Rosales <small>Owner of Fluffy (Snake) </small></h1></div>
+						<div class='col-md-12'><h1>Cornelio Rosales</h1></div>
+						<div class='col-md-12' style="margin-bottom: 0px; left: 20px"><p>Owner of Fluffy (Snake)</p></div>
 						<div class='col-md-6'><h4>Owner Rating: <span id='ownerRating'>
 							<span class='glyphicon glyphicon-star'></span>
 							<span class='glyphicon glyphicon-star'></span>
@@ -31,10 +75,11 @@
 						</div>
 
 						<div class='col-md-8'>
-							<div class='well well-lg'>Bio: Hi! I'm Cornelio and I have a pet snake named Fluffy.  I am looking for professional sitters who have experience with snakes. </div>
+							<h4>Biography:</h4>
+							<div class='well well-lg'>Hi! I'm Cornelio and I have a pet snake named Fluffy.  I am looking for professional sitters who have experience with snakes. </div>
 						</div>
 						<div class='col-md-4'>
-							<button type='button' class='btn btn-default'>Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>
+							<button type='button' class='btn btn-default' style="margin-top: 10px">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>
 						</div>
 					</div>
 				</div>
@@ -42,6 +87,7 @@
 		</div>
 	</div>
 
+	<!-- First set of tabs and their labels, default bootstrap -->
 	<div class='profileTabs container'>
 	<div class='panel with-nav-tabs panel-default'>
 	<div class='panel-heading'>
@@ -68,5 +114,8 @@
 	</div>
 	</div>
 	</div>
+
+	<!-- Second set of tabs and their labels, from external library -->
+
 </body>
 </html>
