@@ -21,7 +21,7 @@
             Pet Type
             <span class="caret"></span>
           </button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <ul class="dropdown-menu" role="menu" aria-labelledby="petTypeMenu">
             <li role="presentation">
               <input type="checkbox" id="dog">
               <label for="dog">Dog</label>
@@ -39,57 +39,79 @@
       </div>
     <div class="btn-group" role="group" aria-label="...">
       <div class="dropdown filter-dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="sitterTypeMenu" data-toggle="dropdown" aria-expanded="true">
+        <button class="btn btn-default dropdown-toggle" type="button" id="sitterTypeMenu" data-toggle="dropdown" data-placeholder="false" aria-expanded="true">
           Sitter Type
           <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <ul class="dropdown-menu" role="menu" aria-labelledby="sitterTypeMenu">
           <li role="presentation">
-            <a role="menuitem" tabindex="-1" href="#">Pet 1</a>
+            <input type="checkbox" id="professional">
+            <label for="professional">Professional</label>
           </li>
           <li role="presentation">
-            <a role="menuitem" tabindex="-1" href="#">Pet 2</a>
-          </li>
-          <li role="presentation">
-            <a role="menuitem" tabindex="-1" href="#">Pet 3</a>
+            <input type="checkbox" id="casual">
+            <label for="casual">Casual</label>
           </li>
         </ul>
       </div>
     </div>
     <div class="btn-group" role="group" aria-label="...">
       <div class="dropdown filter-dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="durationMenu" data-toggle="dropdown" aria-expanded="true">
+        <button class="btn btn-default dropdown-toggle" type="button" id="durationMenu" data-placeholder="false" data-toggle="dropdown" aria-expanded="true">
           Duration
           <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <ul class="dropdown-menu" role="menu" aria-labelledby="durationMenu">
           <li role="presentation">
-            <a role="menuitem" tabindex="-1" href="#">Pet 1</a>
+            <input type="checkbox" id="oneday">
+            <label for="oneday">1 day</label>
           </li>
           <li role="presentation">
-            <a role="menuitem" tabindex="-1" href="#">Pet 2</a>
+            <input type="checkbox" id="1wk">
+            <label for="1wk">Less than 1 week</label>
           </li>
           <li role="presentation">
-            <a role="menuitem" tabindex="-1" href="#">Pet 3</a>
+            <input type="checkbox" id="1wkmonth">
+            <label for="1wkmonth">1 week to 1 month</label>
+          </li>
+          <li role="presentation">
+            <input type="checkbox" id="halfyr">
+            <label for="halfyr">1 month to 6 months</label>
+          </li>
+          <li class="divider"></li>
+          <li role="presentation">
+            <input type="checkbox" id="routine">
+            <label for="routine">Routine</label>
+          </li>
+          <li role="presentation">
+            <input type="checkbox" id="onetime">
+            <label for="onetime">One-time</label>
           </li>
         </ul>
       </div>
     </div>
     <div class="btn-group" role="group" aria-label="...">
       <div class="dropdown filter-dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="paymentMenu" data-toggle="dropdown" aria-expanded="true">
+        <button class="btn btn-default dropdown-toggle" type="button" id="paymentMenu" data-placeholder="false" data-toggle="dropdown" aria-expanded="true">
           Payment
           <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <ul class="dropdown-menu" role="menu" aria-labelledby="paymentMenu">
           <li role="presentation">
-            <a role="menuitem" tabindex="-1" href="#">Pet 1</a>
+            <input type="checkbox" id="_$_">
+            <label for="_$_">$</label>
           </li>
           <li role="presentation">
-            <a role="menuitem" tabindex="-1" href="#">Pet 2</a>
+            <input type="checkbox" id="_$$_">
+            <label for="_$$_">$$</label>
           </li>
           <li role="presentation">
-            <a role="menuitem" tabindex="-1" href="#">Pet 3</a>
+            <input type="checkbox" id="_$$$_">
+            <label for="_$$$_">$$$</label>
+          </li>
+          <li role="presentation">
+            <input type="checkbox" id="negotiable">
+            <label for="negotiable">Negotiable</label>
           </li>
         </ul>
       </div>
@@ -100,7 +122,7 @@
           Distance
           <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <ul class="dropdown-menu" role="menu" aria-labelledby="distanceMenu">
           <li role="presentation">
             <a role="menuitem" tabindex="-1" href="#">Pet 1</a>
           </li>
@@ -109,6 +131,24 @@
           </li>
           <li role="presentation">
             <a role="menuitem" tabindex="-1" href="#">Pet 3</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="...">
+      <div class="dropdown filter-dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="sortBy_owner" data-toggle="dropdown" aria-expanded="true">
+          Sorted by Distance
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="sortBy_owner">
+          <li role="presentation">
+            <input type="radio" id="sortBySitterName" name="sortBy_owner_menu">
+            <label for="sortBySitterName">Sorted by Sitter Last Name</label>
+          </li>
+          <li role="presentation">
+            <input type="radio" id="sortByDistance" name="sortBy_owner_menu">
+            <label for="sortByDistance">Sorted by Distance</label>
           </li>
         </ul>
       </div>
