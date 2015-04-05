@@ -1,15 +1,164 @@
 <html>
 <head>
   <script src="static/res/jquery.min.js"></script>
-  <script src="static/res/jquery-ui.min.js"></script>
+  <script src="static/res/jquery-ui.custom/jquery-ui.min.js"></script>
   <script src="static/js/bootstrap.min.js"></script>
   <script src="static/js/index.js"></script>
+  <script src="static/js/bootstrap-dropdowns-enhancement.js"></script>
   <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="static/res/jquery-ui.custom/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap-dropdowns-enhancement.css">
   <link rel="stylesheet" type="text/css" href="static/css/index.css">
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="header feedHeader">
+  <div class="page-header feed-header" id="header">
+    <h1> PetHub <small>Connecting Pet Owners and Pet Sitters</small></h1>
+    <h4 class="filters">Filters:
+      <div class="btn-group" role="group" aria-label="...">
+        <div class="dropdown filter-dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="petTypeMenu" data-toggle="dropdown" data-placeholder="false" aria-expanded="true">
+            Pet Type
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="petTypeMenu">
+            <li role="presentation">
+              <input type="checkbox" id="dog">
+              <label for="dog">Dog</label>
+            </li>
+            <li role="presentation">
+              <input type="checkbox" id="cat">
+              <label for="cat">Cat</label>
+            </li>
+            <li role="presentation">
+              <input type="checkbox" id="snake">
+              <label for="snake">Snake</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <div class="btn-group" role="group" aria-label="...">
+      <div class="dropdown filter-dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="sitterTypeMenu" data-toggle="dropdown" data-placeholder="false" aria-expanded="true">
+          Sitter Type
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="sitterTypeMenu">
+          <li role="presentation">
+            <input type="checkbox" id="professional">
+            <label for="professional">Professional</label>
+          </li>
+          <li role="presentation">
+            <input type="checkbox" id="casual">
+            <label for="casual">Casual</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="...">
+      <div class="dropdown filter-dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="durationMenu" data-placeholder="false" data-toggle="dropdown" aria-expanded="true">
+          Duration
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="durationMenu">
+          <li role="presentation">
+            <input type="checkbox" id="oneday">
+            <label for="oneday">1 day</label>
+          </li>
+          <li role="presentation">
+            <input type="checkbox" id="1wk">
+            <label for="1wk">Less than 1 week</label>
+          </li>
+          <li role="presentation">
+            <input type="checkbox" id="1wkmonth">
+            <label for="1wkmonth">1 week to 1 month</label>
+          </li>
+          <li role="presentation">
+            <input type="checkbox" id="halfyr">
+            <label for="halfyr">1 month to 6 months</label>
+          </li>
+          <li class="divider"></li>
+          <li role="presentation">
+            <input type="checkbox" id="routine">
+            <label for="routine">Routine</label>
+          </li>
+          <li role="presentation">
+            <input type="checkbox" id="onetime">
+            <label for="onetime">One-time</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="...">
+      <div class="dropdown filter-dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="paymentMenu" data-placeholder="false" data-toggle="dropdown" aria-expanded="true">
+          Payment
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="paymentMenu">
+          <li role="presentation">
+            <input type="checkbox" id="_$_">
+            <label for="_$_">$</label>
+          </li>
+          <li role="presentation">
+            <input type="checkbox" id="_$$_">
+            <label for="_$$_">$$</label>
+          </li>
+          <li role="presentation">
+            <input type="checkbox" id="_$$$_">
+            <label for="_$$$_">$$$</label>
+          </li>
+          <li role="presentation">
+            <input type="checkbox" id="negotiable">
+            <label for="negotiable">Negotiable</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="...">
+      <div class="dropdown filter-dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="distanceMenu" data-toggle="dropdown" aria-expanded="true">
+          Distance
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="distanceMenu">
+          <li role="presentation">
+            <!--<label for="dist">Distance from your location:</label>-->
+            <p style="display:block; margin-bottom:0; padding-top:3px; padding-right:20px; clear:both; white-space:nowrap; margin-left:6px; max-width:100%">Distance from your location:</p>
+            <input type="text" id="dist" readonly style="border:0; color:#f6931f; font-weight:bold; margin:5px">
+            <div id="slider" class="ui-slider"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="...">
+      <div class="dropdown filter-dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="sortBy_owner" data-toggle="dropdown" aria-expanded="true">
+          Sorted by Distance
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="sortBy_owner">
+          <li role="presentation">
+            <input type="radio" id="sortBySitterName" name="sortBy_owner_menu">
+            <label for="sortBySitterName">Sorted by Sitter Last Name</label>
+          </li>
+          <li role="presentation">
+            <input type="radio" id="sortByDistance" name="sortBy_owner_menu">
+            <label for="sortByDistance">Sorted by Distance</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="searchingFor" class="btn-group" role="group" aria-label="..." style="height:34px">
+        <h5 id="searchParamsLabel">Searching for:</h5>
+        <input type="text" id="searchParams" readonly style="height:100%"
 
+  </h4>
+
+
+  </div>
   </div>
   <div class="feed">
 
