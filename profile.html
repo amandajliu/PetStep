@@ -1,9 +1,9 @@
 <html>
 <head>
   <script src="static/res/jquery.min.js"></script>
-  <script src="static/res/jquery-ui.min.js"></script>
+  <!-- <script src="static/res/jquery-ui.min.js"></script> -->
   <script src="static/js/bootstrap.min.js"></script>
-  <script src="static/js/index.js"></script>
+  <script src="static/js/profile.js"></script>
   <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="static/css/index.css">
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<div class='profileBar container panel panel-primary'>
+	<div class='profileBar container panel panel-default'>
 		<div class='row'>
 			<div class='col-md-4'>
 				<img class='mainProfilePic img-responsive img-rounded' src='Parakeet.jpg'>
@@ -42,7 +42,31 @@
 		</div>
 	</div>
 
-	<div class='profileTabs'>
+	<div class='profileTabs container'>
+	<div class='panel with-nav-tabs panel-default'>
+	<div class='panel-heading'>
+		<ul class='nav nav-tabs nav-justified'>
+			<li role='presentation' class='main-tabs active'id='tab-public-activity'><a>Public Activity</a></li>
+			<li role='presentation' class='main-tabs' id='tab-favorites'><a>Favorites</a></li>
+			<li role='presentation' class='main-tabs' id='tab-reviews'><a>Reviews</a></li>
+			<li role='presentation' class='main-tabs' id='tab-history'><a>History</a></li>
+			<li role='presentation' class='main-tabs' id='tab-pets'><a>Pets</a></li>
+			<li role='presentation' class='main-tabs' id='tab-active-listings'><a>Active Listings</a></li>
+			<li role='presentation' class='main-tabs' id='tab-messages'><a>Messages</a></li>
+		</ul>
+	</div>
+	<div class='panel-body'>
+	<div class='tab-content'>
+		<div class='main-panes tab-pane active' id='pane-public-activity'>Public Activity</div>
+		<div class='main-panes tab-pane' id='pane-favorites'>Favorites</div>
+		<div class='main-panes tab-pane' id='pane-reviews'>Reviews</div>
+		<div class='main-panes tab-pane' id='pane-history'>History</div>
+		<div class='main-panes tab-pane' id='pane-pets'>Pets</div>
+		<div class='main-panes tab-pane' id='pane-active-listings'>Active Listings</div>
+		<div class='main-panes tab-pane' id='pane-messages'>Messages</div>
+	</div>
+	</div>
+	</div>
 	</div>
 </body>
 </html>
