@@ -18,3 +18,35 @@ h1 {
 .filter-dropdown {
   position: relative;
 }
+
+.dark-primary-color {
+  color: #455A64;
+}
+
+.primary-color {
+  color: #607D8B;
+}
+
+.light-primary-color {
+  color: #CFD8DC;
+}
+
+.text-icon-color {
+  color: #FFFFFF;
+}
+
+.accent-color {
+  color: #9E9E9E;
+}
+
+.primary-text-color {
+  color: #212121;
+}
+
+.secondary-text-color {
+  color: #727272;
+}
+
+.divider-color {
+  color: #B6B6B6;
+}
