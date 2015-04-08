@@ -23,6 +23,7 @@
   border-radius:4px;*/
 
   height:40px;
+  display: inline-block;
 }
 #header{
   margin-top:10px !important;
