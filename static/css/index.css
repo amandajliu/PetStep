@@ -6,6 +6,10 @@
   padding:4px;
   margin-right:10px;
   top:30px;
+  width: 400px;
+  overflow-x: scroll;
+  white-space: nowrap;
+  overflow-y: hidden;
 }
 #searchParamsLabel{
   display:inline-block;
@@ -14,11 +18,12 @@
   vertical-align:middle;
 }
 #searchParams{
-  vertical-align:middle;
+  /*vertical-align:middle;
   border: 1px solid #ccc;
-  border-radius:4px;
-  overflow: -moz-scrollbars-vertical;
-  overflow-y: scroll;
+  border-radius:4px;*/
+
+  width:auto;
+  height:40px;
 }
 #header{
   margin-top:10px !important;
