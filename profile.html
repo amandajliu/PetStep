@@ -8,6 +8,7 @@
   <script src="static/js/profile.js"></script>
   <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="static/css/main.css">
+  <link rel="stylesheet" type="text/css" href="static/css/activityFeed.css">
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <!--<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>-->
   <link rel="stylesheet" type="text/css" href="static/css/profile.css">
@@ -55,7 +56,7 @@
 		</div>
 	</div>
 
-	<div class='profileBar container panel panel-default' style='background-color: #E8F5E9' width='100%'>
+	<div class='profileBar container panel panel-default' style='background-color: #E8F5E9'>
 		<div class='row'>
 			<div class='col-md-4'>
 				<img class='mainProfilePic img-responsive img-rounded' src='Parakeet.jpg' style='margin-top: 10px'>
@@ -89,11 +90,12 @@
 	</div>
 
 	<!-- First set of tabs and their labels, default bootstrap -->
-	<div class='profileTabs container' width='100%'>
-	<div class='panel with-nav-tabs panel-default' width='100%'>
-	<div class='panel-heading' width='100%'>
-		<ul class='nav nav-tabs nav-justified' width='100%'>
-			<li role='presentation' class='main-tabs active'id='tab-public-activity'><a>Public Activity</a></li>
+	<div class='profileTabs container' >
+	<div class='panel with-nav-tabs panel-default'>
+	<div class='panel-heading'>
+		<ul class='nav nav-tabs nav-justified'>
+			<li role='presentation' class='main-tabs active'id='tab-public-activity'><a>Public Activity</a>
+      </li>
 			<li role='presentation' class='main-tabs' id='tab-favorites'><a>Favorites</a></li>
 			<li role='presentation' class='main-tabs' id='tab-reviews'><a>Reviews</a></li>
 			<li role='presentation' class='main-tabs' id='tab-history'><a>History</a></li>
@@ -104,7 +106,46 @@
 	</div>
 	<div class='panel-body'>
 	<div class='tab-content'>
-		<div class='main-panes tab-pane active' id='pane-public-activity'>Public Activity</div>
+		<div class='main-panes tab-pane active' id='pane-public-activity'>
+
+      <div class="activityFeed">
+
+        <div class="feedInfo">
+          <div class="profileFeedDiv">
+            <img class="profileFeed" src="Parakeet.jpg"/>
+          </div>
+          <h4 class="feedText">Cornelio just posted a new listing!</h4>
+          <br>
+          <h6 class="feedTime">3 days ago</h6>
+        </div>
+        <div class="feedImgDiv">
+          <img class="feedImg" src="static/images/fluffy0.jpg"/>
+        </div>
+      </div>
+
+      <div class="activityFeed">
+        <div class="feedInfo">
+          <div class="profileFeedDiv">
+            <img class="profileFeed" src="static/images/lilyPaxton.jpg"/>
+          </div>
+          <h4 class="feedText"><a>Lily Paxton</a> wrote a <a>review</a> about Cornelio and Fluffy.</h4>
+          <br>
+          <h6 class="feedTime">a week ago</h6>
+        </div>
+      </div>
+
+      <div class="activityFeed">
+        <div class="feedInfo">
+          <div class="profileFeedDiv">
+            <img class="profileFeed" src="static/images/fluffy0.jpg"/>
+          </div>
+
+          <h4 class="feedText">Happy birthday! Fluffy just turned 2 years old!</h4>
+          <br>
+          <h6 class="feedTime">1 month ago</h6>
+        </div>
+      </div>
+    </div>
 		<div class='main-panes tab-pane' id='pane-favorites'>Favorites</div>
 		<div class='main-panes tab-pane' id='pane-reviews'>Reviews</div>
 		<div class='main-panes tab-pane' id='pane-history'>History</div>
