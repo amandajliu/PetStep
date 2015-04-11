@@ -13,17 +13,55 @@
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="page-header feed-header" id="header" style="display:inline-block; width:100%">
-    <div style="float:left">
-    <div><h1> PetHub <small>Connecting Pet Owners and Pet Sitters</small></h1></div>
-    <div><h4 class="filters">Filters:
-      <div class="btn-group" role="group" aria-label="...">
-        <div class="dropdown filter-dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="petTypeMenu" data-toggle="dropdown" data-placeholder="false" aria-expanded="true">
-            Pet Type
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="petTypeMenu">
+  <div class="container">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand"><h2 style="margin:0px">PetHub</h2>
+      </span>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+        <li>
+          <p class="navbar-text">
+            Connecting Pet Owners and Pet Sitters
+          </p>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Username <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Go to Profile</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+    <!-- second navbar -->
+  <div class="container-fluid">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-primary">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Pet Type <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
             <li role="presentation">
               <input type="checkbox" id="dog">
               <label for="dog">Dog</label>
@@ -37,129 +75,117 @@
               <label for="snake">Snake</label>
             </li>
           </ul>
-        </div>
-      </div>
-    <div class="btn-group" role="group" aria-label="...">
-      <div class="dropdown filter-dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="sitterTypeMenu" data-toggle="dropdown" data-placeholder="false" aria-expanded="true">
-          Sitter Type
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="sitterTypeMenu">
-          <li role="presentation">
-            <input type="checkbox" id="professional">
-            <label for="professional">Professional</label>
-          </li>
-          <li role="presentation">
-            <input type="checkbox" id="casual">
-            <label for="casual">Casual</label>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="btn-group" role="group" aria-label="...">
-      <div class="dropdown filter-dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="durationMenu" data-placeholder="false" data-toggle="dropdown" aria-expanded="true">
-          Duration
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="durationMenu">
-          <li role="presentation">
-            <input type="checkbox" id="oneday">
-            <label for="oneday">1 day</label>
-          </li>
-          <li role="presentation">
-            <input type="checkbox" id="1wk">
-            <label for="1wk">Less than 1 week</label>
-          </li>
-          <li role="presentation">
-            <input type="checkbox" id="1wkmonth">
-            <label for="1wkmonth">1 week to 1 month</label>
-          </li>
-          <li role="presentation">
-            <input type="checkbox" id="halfyr">
-            <label for="halfyr">1 month to 6 months</label>
-          </li>
-          <li class="divider"></li>
-          <li role="presentation">
-            <input type="checkbox" id="routine">
-            <label for="routine">Routine</label>
-          </li>
-          <li role="presentation">
-            <input type="checkbox" id="onetime">
-            <label for="onetime">One-time</label>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="btn-group" role="group" aria-label="...">
-      <div class="dropdown filter-dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="paymentMenu" data-placeholder="false" data-toggle="dropdown" aria-expanded="true">
-          Payment
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="paymentMenu">
-          <li role="presentation">
-            <input type="checkbox" id="_$_">
-            <label for="_$_">$</label>
-          </li>
-          <li role="presentation">
-            <input type="checkbox" id="_$$_">
-            <label for="_$$_">$$</label>
-          </li>
-          <li role="presentation">
-            <input type="checkbox" id="_$$$_">
-            <label for="_$$$_">$$$</label>
-          </li>
-          <li role="presentation">
-            <input type="checkbox" id="negotiable">
-            <label for="negotiable">Negotiable</label>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="btn-group" role="group" aria-label="...">
-      <div class="dropdown filter-dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="distanceMenu" data-toggle="dropdown" aria-expanded="true">
-          Distance
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="distanceMenu">
-          <li role="presentation">
-            <!--<label for="dist">Distance from your location:</label>-->
-            <p style="display:block; margin-bottom:0; padding-top:3px; padding-right:20px; clear:both; white-space:nowrap; margin-left:6px; max-width:100%">Distance from your location:</p>
-            <input type="text" id="dist" readonly style="border:0; color:#f6931f; font-weight:bold; margin:5px">
-            <div id="slider" class="ui-slider"></div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="btn-group" role="group" aria-label="...">
-      <div class="dropdown filter-dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="sortBy_owner" data-toggle="dropdown" aria-expanded="true">
-          Sorted by Distance
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="sortBy_owner">
-          <li role="presentation">
-            <input type="radio" id="sortBySitterName" name="sortBy_owner_menu">
-            <label for="sortBySitterName">Sorted by Sitter Last Name</label>
-          </li>
-          <li role="presentation">
-            <input type="radio" id="sortByDistance" name="sortBy_owner_menu">
-            <label for="sortByDistance">Sorted by Distance</label>
-          </li>
-        </ul>
-      </div>
-    </div>
+        </li>
 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Sitter Type <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation">
+              <input type="checkbox" id="professional">
+              <label for="professional">Professional</label>
+            </li>
+            <li role="presentation">
+              <input type="checkbox" id="casual">
+              <label for="casual">Casual</label>
+            </li>
+          </ul>
+        </li>
 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Duration <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation">
+              <input type="checkbox" id="oneday">
+              <label for="oneday">1 day</label>
+            </li>
+            <li role="presentation">
+              <input type="checkbox" id="1wk">
+              <label for="1wk">Less than 1 week</label>
+            </li>
+            <li role="presentation">
+              <input type="checkbox" id="1wkmonth">
+              <label for="1wkmonth">1 week to 1 month</label>
+            </li>
+            <li role="presentation">
+              <input type="checkbox" id="halfyr">
+              <label for="halfyr">1 month to 6 months</label>
+            </li>
+            <li class="divider"></li>
+            <li role="presentation">
+              <input type="checkbox" id="routine">
+              <label for="routine">Routine</label>
+            </li>
+            <li role="presentation">
+              <input type="checkbox" id="onetime">
+              <label for="onetime">One-time</label>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Payment<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation">
+              <input type="checkbox" id="_$_">
+              <label for="_$_">$</label>
+            </li>
+            <li role="presentation">
+              <input type="checkbox" id="_$$_">
+              <label for="_$$_">$$</label>
+            </li>
+            <li role="presentation">
+              <input type="checkbox" id="_$$$_">
+              <label for="_$$$_">$$$</label>
+            </li>
+            <li role="presentation">
+              <input type="checkbox" id="negotiable">
+              <label for="negotiable">Negotiable</label>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Distance <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation">
+              <!--<label for="dist">Distance from your location:</label>-->
+              <p style="display:block; margin-bottom:0; padding-top:3px; padding-right:20px; clear:both; white-space:nowrap; margin-left:6px; max-width:100%">Distance from your location:</p>
+              <input type="text" id="dist" readonly style="border:0; color:#f6931f; font-weight:bold; margin:5px">
+              <div id="slider" class="ui-slider"></div>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sorted by Distance <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation">
+              <input type="radio" id="sortBySitterName" name="sortBy_owner_menu">
+              <label for="sortBySitterName">Sorted by Sitter Last Name</label>
+            </li>
+            <li role="presentation">
+              <input type="radio" id="sortByDistance" name="sortBy_owner_menu">
+              <label for="sortByDistance">Sorted by Distance</label>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Searching for:</a></li>
+        <li>
+          <div id="searchParamsContainer">
+            <div id="searchParams">
+            </div>
+          </div>
+        </li>
 
-  </h4></div></div>
-  <div id="searchingFor" class="btn-group" role="group" aria-label="..." style="height:70px">
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!--<div id="searchingFor" class="btn-group" role="group" aria-label="..." style="height:70px">
       <h5 id="searchParamsLabel">Searching for:</h5>
       <div id="searchParams"></div>
-  </div>
+  </div> -->
 
 
 

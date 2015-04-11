@@ -17,26 +17,43 @@
   max-width:100%;
   vertical-align:middle;
 }
+
+#searchParamsContainer {
+  height: 70px;
+  width: 350px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+}
 #searchParams{
   /*vertical-align:middle;
   border: 1px solid #ccc;
   border-radius:4px;*/
-
-  height:40px;
-  display: inline-block;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  border-spacing: 2px;
 }
 #header{
   margin-top:10px !important;
 }
 .param{
-  float:left;
   font-size:15px;
   color:white;
   background-color:#ccc;
   margin:2px;
   padding:4px;
+  width: 150px;
+  height: 60px;
+  text-wrap: none;
   border-radius:4px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 .ui-slider{
   margin:10px;
 }
+
+
+/* Second nav bar style */

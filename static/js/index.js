@@ -8,7 +8,7 @@ var changeTags = function(){
     }
   });
   for(var i=0; i < newSearchParams.length;  i++){
-    var newParam = '<div class="param"> '+newSearchParams[i]+" </div>"
+    var newParam = '<article class="param"> '+newSearchParams[i]+" </article>"
     $('#searchParams').html(newParam + $('#searchParams').html());
   }
 }
