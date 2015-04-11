@@ -22,8 +22,8 @@
   border: 1px solid #ccc;
   border-radius:4px;*/
 
+  width:auto;
   height:40px;
-  display: inline-block;
 }
 #header{
   margin-top:10px !important;
