@@ -13,10 +13,11 @@
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="page-header feed-header" id="header" style="display:inline-block; width:100%">
-    <div style="float:left">
+  <div class = "page-header feed-header" id="header">
     <div><h1> PetHub <small>Connecting Pet Owners and Pet Sitters</small></h1></div>
-    <div><h4 class="filters">Filters:
+  </div>
+  <div class="feed-header" id="filterHeader">
+    <h4 class="filters">Filters:
       <div class="btn-group" role="group" aria-label="...">
         <div class="dropdown filter-dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="petTypeMenu" data-toggle="dropdown" data-placeholder="false" aria-expanded="true">
@@ -154,12 +155,17 @@
     </div>
 
 
+      <div id="searchingFor" class="btn-group" role="group" aria-label="...">
+          
 
-  </h4></div></div>
-  <div id="searchingFor" class="btn-group" role="group" aria-label="..." style="height:70px">
-      <h5 id="searchParamsLabel">Searching for:</h5>
-      <div id="searchParams"></div>
-  </div>
+            <div id="searchParams"></div>
+
+      </div>
+
+  </h4>
+
+
+
 
 
 
