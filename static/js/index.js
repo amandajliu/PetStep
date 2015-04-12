@@ -40,8 +40,7 @@ $(document).ready(function(){
     changeTags();
     changeDist();
   });
-  var marg = $('#feedNav').css('height');
-  $('#feedContainer').css('margin-top', marg);
+
 
   /*slideup layer on listings*/
   $('.petListing').hover(
@@ -52,7 +51,13 @@ $(document).ready(function(){
       $(this).find('div.listingInfo').slideUp("slow");
     }
   )
+
 });
+
+$(window).load(function() {
+  var marg = $('#_header').css('height');
+  $('#feedContainer').css('margin-top', marg);
+})
 
 $(function(){
   $('#slider').slider({
