@@ -105,15 +105,25 @@
   cursor:pointer;
   color:#bdbdbd;
   background-color:white;
+  -webkit-filter: blur(.3px);
 }
 .active{
-  background-color:#bdbdbd !important;
+  background-color:#607B8D !important;
   color:white !important;
   border:0px;
   padding-top:2px;
   padding-bottom:2px;
   box-shadow: 1px 1px 0.5px #a9a9a9;
-  z-index:5l
+  z-index:5;
+  -webkit-filter: blur(0px) !important;
+}
+#sitterButton{
+  border-top-left-radius:2px;
+  border-bottom-left-radius:2px;
+}
+#ownerButton{
+  border-top-right-radius:2px;
+  border-bottom-right-radius:2px;
 }
 /*.petListing, .ownerListing{
   background-color:white;
