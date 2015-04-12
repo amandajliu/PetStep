@@ -44,6 +44,10 @@ $(document).ready(function(){
 
   });
 
+
+
+
+
   $("#slider").on('slidechange', function(event, ui){
     $('#searchParams').html("");
     changeTags();
@@ -52,7 +56,7 @@ $(document).ready(function(){
 
 
   /*slideup layer on listings*/
-  $('.petListing').hover(
+  $('.listing').hover(
     function(){
       if (!this.wasClicked) {
         $(this).find('div.listingInfo').slideDown();
@@ -83,6 +87,43 @@ $(document).ready(function(){
 $(window).load(function() {
   var marg = $('#_header').css('height');
   $('#feedContainer').css('margin-top', marg);
+
+  $('.personListing').addClass('hide');
+  $('#sitterButton').click(function(){
+    $(this).addClass('active');
+    $('#ownerButton').removeClass('active');
+    $('.petListing').removeClass('hide');
+    $('.personListing').addClass('hide');
+    $container.masonry('destroy');
+    $container = $('#feedContainer');
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector:'.petListing',
+        'isFitWidth':true
+      });
+
+    })
+
+
+  })
+
+  $('#ownerButton').click(function(){
+    $(this).addClass('active');
+    $('#sitterButton').removeClass('active');
+    $('.personListing').removeClass('hide');
+    $('.petListing').addClass('hide');
+    $container.masonry('destroy');
+    $container = $('#feedContainer');
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector:'.personListing',
+        'isFitWidth':true
+      });
+
+    })
+
+
+  })
 })
 
 $(function(){
@@ -106,13 +147,14 @@ $(function(){
   $('#dist').val("< "+Math.pow(10,$('#slider').slider("value")) + " mile");
   $('#searchParams').html(initDistDiv);
 });
-
 $(function(){
-  var $container = $('#feedContainer');
+  $container = $('#feedContainer');
   $container.imagesLoaded(function(){
     $container.masonry({
       itemSelector:'.petListing',
       'isFitWidth':true
     });
+
   })
+
 })
