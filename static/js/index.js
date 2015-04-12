@@ -34,6 +34,23 @@ $(document).ready(function(){
     changeTags();
 
   });
+  $('.personListing').addClass('hide'); //default to petlisting
+  $('#sitterButton').click(function(){
+    $(this).addClass('active');
+    $('#ownerButton').removeClass('active');
+    $('.petListing').removeClass('hide');
+    populateFeed('.petListing');
+    $('.personListing').addClass('hide');
+  })
+
+  $('#ownerButton').click(function(){
+    $(this).addClass('active');
+    $('#sitterButton').removeClass('active');
+    $('.personListing').removeClass('hide');
+    populateFeed('.personListing');
+    $('.petListing').addClass('hide');
+
+  })
 
   $("#slider").on('slidechange', function(event, ui){
     $('#searchParams').html("");
@@ -43,7 +60,7 @@ $(document).ready(function(){
 
 
   /*slideup layer on listings*/
-  $('.petListing').hover(
+  $('.listing').hover(
     function(){
       $(this).find('div.listingInfo').slideDown("slow");
     },
@@ -90,3 +107,14 @@ $(function(){
     });
   })
 })
+
+var populateFeed = function(c){
+  var $container = $('#feedContainer');
+  $container.imagesLoaded(function(){
+    $container.masonry({
+      itemSelector:c,
+      'isFitWidth':true
+    });
+  })
+
+}
