@@ -40,6 +40,18 @@ $(document).ready(function(){
     changeTags();
     changeDist();
   });
+
+
+  /*slideup layer on listings*/
+  $('.petListing').hover(
+    function(){
+      $(this).find('div.listingInfo').slideDown("slow");
+    },
+    function(){
+      $(this).find('div.listingInfo').slideUp("slow");
+    }
+  )
+
 });
 
 $(window).load(function() {
