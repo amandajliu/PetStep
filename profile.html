@@ -6,9 +6,12 @@
   <script src="static/js/bootstrap.min.js"></script>
   <script src="static/js/mustache.min.js"></script>
   <script src="static/js/profile.js"></script>
+  <script src="static/js/modernizer.js"></script>
+  <!-- <script src="static"></script> -->
   <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="static/css/main.css">
   <link rel="stylesheet" type="text/css" href="static/css/activityFeed.css">
+  <link rel="stylesheet" type="text/css" href="static/css/timeline.css">
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <!--<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>-->
   <link rel="stylesheet" type="text/css" href="static/css/profile.css">
@@ -30,7 +33,7 @@
 		<!-- User dropdown menu, dynamically updated with username and prof pic when logged in -->
 		<div class="col-md-2 btn-group dropdown filter-dropdown" role="group" aria-label="...">
           	<button class="btn btn-default dropdown-toggle" type="button" id="userMenu" data-toggle="dropdown" aria-expanded="true" style='background-color: #E8F5E9'>
-            <img class='mainProfilePic img-circle' src='Parakeet.jpg' style='height: 60px; width: 60px; margin-right: 3px'>
+            <img class='mainProfilePic img-circle' src='static/images/Parakeet.jpg' style='height: 60px; width: 60px; margin-right: 3px'>
             Cornelio
             <span class="caret"></span>
          	</button>
@@ -59,7 +62,7 @@
 	<div class='profileBar container panel panel-default' style='background-color: #E8F5E9'>
 		<div class='row'>
 			<div class='col-md-4'>
-				<img class='mainProfilePic img-responsive img-rounded' src='Parakeet.jpg' style='margin-top: 10px'>
+				<img class='mainProfilePic img-responsive img-rounded' src='static/images/Parakeet.jpg' style='margin-top: 10px'>
 			</div>
 			<div class='col-md-8'>
 				<div class='container-fluid'>
@@ -112,7 +115,7 @@
 
         <div class="feedInfo">
           <div class="profileFeedDiv">
-            <img class="profileFeed" src="Parakeet.jpg"/>
+            <img class="profileFeed" src="static/images/Parakeet.jpg"/>
           </div>
           <h4 class="feedText">Cornelio just posted a new listing!</h4>
           <br>
@@ -148,7 +151,85 @@
     </div>
 		<div class='main-panes tab-pane' id='pane-favorites'>Favorites</div>
 		<div class='main-panes tab-pane' id='pane-reviews'>Reviews</div>
-		<div class='main-panes tab-pane' id='pane-history'>History</div>
+		<div class='main-panes tab-pane' id='pane-history'>
+      <h1>History</h1>
+      <section id="cd-timeline" class="cd-container">
+        <div class="cd-timeline-block">
+    			<div class="cd-timeline-img cd-picture">
+    			</div> <!-- cd-timeline-img -->
+
+    			<div class="cd-timeline-content">
+    				<h2>Title of section 1</h2>
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+    				<a href="#0" class="cd-read-more">Read more</a>
+    				<span class="cd-date">Jan 14</span>
+    			</div> <!-- cd-timeline-content -->
+    		</div> <!-- cd-timeline-block -->
+
+    		<div class="cd-timeline-block">
+    			<div class="cd-timeline-img cd-movie">
+    			</div> <!-- cd-timeline-img -->
+
+    			<div class="cd-timeline-content">
+    				<h2>Title of section 2</h2>
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
+    				<a href="#0" class="cd-read-more">Read more</a>
+    				<span class="cd-date">Jan 18</span>
+    			</div> <!-- cd-timeline-content -->
+    		</div> <!-- cd-timeline-block -->
+
+    		<div class="cd-timeline-block">
+    			<div class="cd-timeline-img cd-picture">
+    			</div> <!-- cd-timeline-img -->
+
+    			<div class="cd-timeline-content">
+    				<h2>Title of section 3</h2>
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
+    				<a href="#0" class="cd-read-more">Read more</a>
+    				<span class="cd-date">Jan 24</span>
+    			</div> <!-- cd-timeline-content -->
+    		</div> <!-- cd-timeline-block -->
+
+    		<div class="cd-timeline-block">
+    			<div class="cd-timeline-img cd-location">
+    			</div> <!-- cd-timeline-img -->
+
+    			<div class="cd-timeline-content">
+    				<h2>Title of section 4</h2>
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+    				<a href="#0" class="cd-read-more">Read more</a>
+    				<span class="cd-date">Feb 14</span>
+    			</div> <!-- cd-timeline-content -->
+    		</div> <!-- cd-timeline-block -->
+
+    		<div class="cd-timeline-block">
+    			<div class="cd-timeline-img cd-location">
+    			</div> <!-- cd-timeline-img -->
+
+    			<div class="cd-timeline-content">
+    				<h2>Title of section 5</h2>
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
+    				<a href="#0" class="cd-read-more">Read more</a>
+    				<span class="cd-date">Feb 18</span>
+    			</div> <!-- cd-timeline-content -->
+    		</div> <!-- cd-timeline-block -->
+
+    		<div class="cd-timeline-block">
+    			<div class="cd-timeline-img cd-movie">
+    			</div> <!-- cd-timeline-img -->
+
+    			<div class="cd-timeline-content">
+    				<h2>Final Section</h2>
+    				<p>This is the content of the last section</p>
+    				<span class="cd-date">Feb 26</span>
+    			</div> <!-- cd-timeline-content -->
+    		</div> <!-- cd-timeline-block -->
+
+
+
+      </section>
+
+    </div>
 		<div class='main-panes tab-pane' id='pane-pets'>Pets</div>
 		<div class='main-panes tab-pane' id='pane-active-listings'>Active Listings</div>
 		<div class='main-panes tab-pane' id='pane-messages'>Messages</div>
