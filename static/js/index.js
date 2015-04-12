@@ -40,9 +40,12 @@ $(document).ready(function(){
     changeTags();
     changeDist();
   });
-  var marg = $('#feedNav').css('height');
-  $('#feedContainer').css('margin-top', marg);
 });
+
+$(window).load(function() {
+  var marg = $('#_header').css('height');
+  $('#feedContainer').css('margin-top', marg);
+})
 
 $(function(){
   $('#slider').slider({
