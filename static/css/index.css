@@ -21,7 +21,7 @@
 #searchParamsContainer {
   height: 70px;
   width: 350px;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
 
 }

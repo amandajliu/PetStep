@@ -1,7 +1,16 @@
+var toggleUser = function() {
+  // TODO: Remove pet pics and place sitters <-> Remove sitters and place pet pics
+}
+
 var changeTags = function(){
 
   var newSearchParams = [];
   var checked = $('input:checked').each(function(){
+    if($(this).attr('id') == "userToggle") {
+      toggleUser();
+      return;
+    }
+
     if($(this).attr('id') != "sortByDistance" && $(this).attr('id') != "sortBySitterName"){
       var label = $("label[for='" + $(this).attr('id')+"']").html();
       newSearchParams.push(label);
@@ -45,13 +54,30 @@ $(document).ready(function(){
   /*slideup layer on listings*/
   $('.petListing').hover(
     function(){
-      $(this).find('div.listingInfo').slideDown("slow");
+      if (!this.wasClicked) {
+        $(this).find('div.listingInfo').slideDown();
+      }
     },
     function(){
-      $(this).find('div.listingInfo').slideUp("slow");
+      if (!this.wasClicked) {
+        $(this).find('div.listingInfo').slideUp();
+      }
     }
-  )
+  );
 
+  $('.petListing').click(
+    function() {
+
+      console.log(this.wasClicked);
+      if(!this.wasClicked) {
+        $(this).find('div.listingInfo').slideDown();
+        this.wasClicked = true;
+      } else {
+        $(this).find('div.listingInfo').slideUp();
+        this.wasClicked = false;
+      }
+    }
+  );
 });
 
 $(window).load(function() {
