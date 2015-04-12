@@ -39,12 +39,11 @@ $(document).ready(function(){
     $('#searchParams').html("");
     changeTags();
     changeDist();
-  })
-
-
-
-
+  });
+  var marg = $('#feedNav').css('height');
+  $('#feedContainer').css('margin-top', marg);
 });
+
 $(function(){
   $('#slider').slider({
     value:-1,
@@ -66,3 +65,13 @@ $(function(){
   $('#dist').val("< "+Math.pow(10,$('#slider').slider("value")) + " mile");
   $('#searchParams').html(initDistDiv);
 });
+
+$(function(){
+  var $container = $('#feedContainer');
+  $container.imagesLoaded(function(){
+    $container.masonry({
+      itemSelector:'.petListing',
+      'isFitWidth':true
+    });
+  })
+})

@@ -4,6 +4,9 @@
   display:inline-block;
   margin:0px auto;
 }
+a{
+  cursor:pointer;
+}
 .feedTime{
   color:#969AAB;
 }
