@@ -74,6 +74,9 @@
   border-radius:7px;
   overflow:hidden;
 }
+.listingImgDiv{
+  border-radius:7px;
+}
 /*.petListing, .ownerListing{
   background-color:white;
   border:1px solid #eee;
@@ -89,5 +92,17 @@
 .listingImg{
   width:400px;
   height:auto;
+}
+
+.listingInfo{
+  width:400px;
+  height:100%;
+  display:none;
+  padding:0px;
+  position:absolute;
+  background-color: black;
+  opacity:0.6;
+  bottom:0px;
+  color:white;
 }
 /* Second nav bar style */
