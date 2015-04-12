@@ -43,8 +43,12 @@ $(document).ready(function(){
     changeTags();
 
   });
-
-
+  $('.filter').hover(function(){
+    $(this).css('background-color','#e7e7e7');
+  },
+  function(){
+    $(this).css('background-color','#f8f8f8');
+  });
 
 
 
