@@ -69,10 +69,8 @@ $(document).ready(function(){
     }
   );
 
-  $('.petListing').click(
+  $('.listing').click(
     function() {
-
-      console.log(this.wasClicked);
       if(!this.wasClicked) {
         $(this).find('div.listingInfo').slideDown();
         this.wasClicked = true;
