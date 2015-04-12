@@ -67,7 +67,7 @@
   padding:5px;
   /*margin-top: 120px ! important;*/
 }
-.petListing, .ownerListing{
+.petListing, .personListing{
   /*width:500px;*/
   margin:5px;
   float:left;
@@ -75,8 +75,41 @@
   border-radius:7px;
   overflow:hidden;
 }
+.hide{
+  display:none;
+  top:-9999px !important;
+  left:-9999px !important;
+}
 .listingImgDiv{
   border-radius:7px;
+}
+.navbar-center{
+  margin:0px auto;
+  vertical-align:middle;
+  display:inline-block;
+  float:none;
+  text-align:center;
+  margin-left:20%;
+  margin-top:10px;
+}
+.switch{
+  display:inline-block;
+  padding-left:5px;
+  padding-right:5px;
+  border: 1px solid #bdbdbd;
+  margin:-1.5px;
+  cursor:pointer;
+  color:#bdbdbd;
+  background-color:white;
+}
+.active{
+  background-color:#bdbdbd !important;
+  color:white !important;
+  border:0px;
+  padding-top:2px;
+  padding-bottom:2px;
+  box-shadow: 1px 1px 0.5px #a9a9a9;
+  z-index:5l
 }
 /*.petListing, .ownerListing{
   background-color:white;
@@ -105,5 +138,6 @@
   opacity:0.6;
   bottom:0px;
   color:white;
+  padding:10px;
 }
 /* Second nav bar style */
