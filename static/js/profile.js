@@ -17,18 +17,17 @@ $(document).ready(function($){
 	$timeline_block.each(function(){
 		if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
 			$(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
-			console.log($(this).find('.cd-timeline-img, .cd-timeline-content'))
 		}
 	});
 
 	//on scolling, show/animate timeline blocks when enter the viewport
 	$(window).on('scroll', function(){
-		$timeline_block.each(function(){
-			console.log($(this).offset().top);
-			console.log($(window).scrollTop()+$(window).height()*0.80);
-			if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.80 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
-				$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
-			}
-		});
+		if ($('#tab-history')[0].className == "main-tabs active" ) {
+			$timeline_block.each(function(){
+				if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.80 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+					$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+				}
+			});
+		}
 	});
 });
