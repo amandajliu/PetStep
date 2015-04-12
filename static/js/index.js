@@ -34,23 +34,10 @@ $(document).ready(function(){
     changeTags();
 
   });
-  $('.personListing').addClass('hide'); //default to petlisting
-  $('#sitterButton').click(function(){
-    $(this).addClass('active');
-    $('#ownerButton').removeClass('active');
-    $('.petListing').removeClass('hide');
-    populateFeed('.petListing');
-    $('.personListing').addClass('hide');
-  })
 
-  $('#ownerButton').click(function(){
-    $(this).addClass('active');
-    $('#sitterButton').removeClass('active');
-    $('.personListing').removeClass('hide');
-    populateFeed('.personListing');
-    $('.petListing').addClass('hide');
 
-  })
+
+
 
   $("#slider").on('slidechange', function(event, ui){
     $('#searchParams').html("");
@@ -74,6 +61,43 @@ $(document).ready(function(){
 $(window).load(function() {
   var marg = $('#_header').css('height');
   $('#feedContainer').css('margin-top', marg);
+
+  $('.personListing').addClass('hide');
+  $('#sitterButton').click(function(){
+    $(this).addClass('active');
+    $('#ownerButton').removeClass('active');
+    $('.petListing').removeClass('hide');
+    $('.personListing').addClass('hide');
+    $container.masonry('destroy');
+    $container = $('#feedContainer');
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector:'.petListing',
+        'isFitWidth':true
+      });
+
+    })
+
+
+  })
+
+  $('#ownerButton').click(function(){
+    $(this).addClass('active');
+    $('#sitterButton').removeClass('active');
+    $('.personListing').removeClass('hide');
+    $('.petListing').addClass('hide');
+    $container.masonry('destroy');
+    $container = $('#feedContainer');
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector:'.personListing',
+        'isFitWidth':true
+      });
+
+    })
+
+
+  })
 })
 
 $(function(){
@@ -97,24 +121,14 @@ $(function(){
   $('#dist').val("< "+Math.pow(10,$('#slider').slider("value")) + " mile");
   $('#searchParams').html(initDistDiv);
 });
-
 $(function(){
-  var $container = $('#feedContainer');
+  $container = $('#feedContainer');
   $container.imagesLoaded(function(){
     $container.masonry({
       itemSelector:'.petListing',
       'isFitWidth':true
     });
+
   })
+
 })
-
-var populateFeed = function(c){
-  var $container = $('#feedContainer');
-  $container.imagesLoaded(function(){
-    $container.masonry({
-      itemSelector:c,
-      'isFitWidth':true
-    });
-  })
-
-}
