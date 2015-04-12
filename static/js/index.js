@@ -42,6 +42,16 @@ $(document).ready(function(){
   });
   var marg = $('#feedNav').css('height');
   $('#feedContainer').css('margin-top', marg);
+
+  /*slideup layer on listings*/
+  $('.petListing').hover(
+    function(){
+      $(this).find('div.listingInfo').slideDown("slow");
+    },
+    function(){
+      $(this).find('div.listingInfo').slideUp("slow");
+    }
+  )
 });
 
 $(function(){
