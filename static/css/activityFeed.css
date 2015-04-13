@@ -1,5 +1,5 @@
 
-.feedText, .feedInfo, .profileFeedDiv{
+.feedText, .feedInfo, .profileFeedDiv, .reviewText, .reviewInfo, .profileReviewDiv{
   color:black;
   display:inline-block;
   margin:0px auto;
@@ -7,30 +7,30 @@
 a{
   cursor:pointer;
 }
-.feedTime{
+.feedTime, .reviewTime{
   color:#969AAB;
 }
-.feedInfo{
+.feedInfo, .reviewInfo{
   margin:10px;
 }
-.feedText{
+.feedText, .reviewText{
   margin-left:10px;
 }
-.feedInfo{
+.feedInfo, .reviewInfo{
 
 
   width:98%;
 }
-.profileFeed{
+.profileFeed, .profileReview{
   height:100px;
   width:100px;
   display:inline-block;
 }
-.feedImg{
+.feedImg, .reviewImg{
   width:40%;
 
 }
-.feedImgDiv{
+.feedImgDiv, .reviewImgDiv{
   padding-top:20px;
   border-top:1px solid #ddd;
   max-width:auto;
