@@ -65,6 +65,8 @@ Main components
   padding: 2em 0;
   margin-top: 2em;
   margin-bottom: 2em;
+  background-color: #CFD8DC;
+  padding: 10px;
 }
 #cd-timeline::before {
   /* this is the vertical line */
@@ -123,24 +125,22 @@ Main components
   border-radius: 50%;
   box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
-.cd-timeline-img img {
+
+.icon {
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
+  color: #FFFFFF;
   display: block;
-  width: 24px;
-  height: 24px;
   position: relative;
-  left: 50%;
   top: 50%;
-  margin-left: -12px;
   margin-top: -12px;
 }
-.cd-timeline-img.cd-picture {
+.cd-timeline-img.cd-from {
   background: #75ce66;
 }
-.cd-timeline-img.cd-movie {
+.cd-timeline-img.cd-away {
   background: #c03b44;
-}
-.cd-timeline-img.cd-location {
-  background: #f0ca45;
 }
 @media only screen and (min-width: 1170px) {
   .cd-timeline-img {

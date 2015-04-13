@@ -109,9 +109,6 @@ $(window).load(function() {
       });
 
     })
-
-
-
   })
 
   $('#ownerButton').click(function(){
