@@ -62,7 +62,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav navbar-primary">
-        <li class="dropdown">
+        <li class="dropdown filter">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Pet Type <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
@@ -80,7 +80,7 @@
           </ul>
         </li>
 
-        <li class="dropdown">
+        <li class="dropdown filter">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Sitter Type <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
@@ -94,7 +94,7 @@
           </ul>
         </li>
 
-        <li class="dropdown">
+        <li class="dropdown filter">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Duration <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
@@ -124,7 +124,7 @@
             </li>
           </ul>
         </li>
-        <li class="dropdown">
+        <li class="dropdown filter">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Payment<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
@@ -145,7 +145,7 @@
             </li>
           </ul>
         </li>
-        <li class="dropdown">
+        <li class="dropdown filter">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Distance <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
@@ -156,16 +156,45 @@
             </li>
           </ul>
         </li>
-        <li class="dropdown">
+        <li class="dropdown filter sortPerson">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sorted by Distance <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-              <input type="radio" id="sortBySitterName" name="sortBy_owner_menu">
+              <input type="radio" class="sortBy" id="sortBySitterName" name="sortBy_person_menu">
               <label for="sortBySitterName">Sorted by Sitter Last Name</label>
             </li>
             <li role="presentation">
-              <input type="radio" id="sortByDistance" name="sortBy_owner_menu">
+              <input type="radio" class="sortBy" id="sortByDistance" name="sortBy_person_menu">
               <label for="sortByDistance">Sorted by Distance</label>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown filter sortPet">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sorted by Distance <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation">
+              <input type="radio" class="sortBy" id="sortByOwnerName" name="sortBy_pet_menu">
+              <label for="sortByOwnerName">Sorted by Owner Last Name A-Z</label>
+            </li>
+            <li role="presentation">
+              <input type="radio" class="sortBy" id="sortByDistance_pet" name="sortBy_pet_menu">
+              <label for="sortByDistance_pet">Sorted by Distance</label>
+            </li>
+            <li role="presentation">
+              <input type="radio" class="sortBy" id="sortByStart" name="sortBy_pet_menu">
+              <label for="sortByStart">Sorted by Start Date</label>
+            </li>
+            <li role="presentation">
+              <input type="radio" class="sortBy" id="sortByEnd" name="sortBy_pet_menu">
+              <label for="sortByEnd">Sorted by End Date</label>
+            </li>
+            <li role="presentation">
+              <input type="radio" class="sortBy" id="sortByPetType" name="sortBy_pet_menu">
+              <label for="sortByPetType">Sorted by Pet Type A-Z</label>
+            </li>
+            <li role="presentation">
+              <input type="radio" class="sortBy" id="sortByDuration" name="sortBy_pet_menu">
+              <label for="sortByDuration">Sorted by Duration</label>
             </li>
           </ul>
         </li>

@@ -7,7 +7,7 @@
   margin-right:10px;
   top:30px;
   width: 400px;
-  overflow-x: scroll;
+  overflow-x: auto;
   white-space: nowrap;
   overflow-y: hidden;
 }
@@ -19,10 +19,12 @@
 }
 
 #searchParamsContainer {
-  height: 70px;
-  width: 400px;
+  height: 50px;
+  width: 350px;
   overflow-x: auto;
   overflow-y: hidden;
+  margin-top:6px;
+  margin-right:10px;
 
 }
 #searchParams{
@@ -33,6 +35,7 @@
   table-layout: fixed;
   width: 100%;
   border-spacing: 2px;
+  height:40px;
 }
 #header{
   margin-top:10px !important;
@@ -44,7 +47,7 @@
   margin:2px;
   padding:4px;
   width: 150px;
-  height: 60px;
+  height: 30px;
   text-wrap: none;
   border-radius:4px;
   display: table-cell;
@@ -102,15 +105,25 @@
   cursor:pointer;
   color:#bdbdbd;
   background-color:white;
+  -webkit-filter: blur(.3px);
 }
 .active{
-  background-color:#bdbdbd !important;
+  background-color:#607B8D !important;
   color:white !important;
   border:0px;
   padding-top:2px;
   padding-bottom:2px;
   box-shadow: 1px 1px 0.5px #a9a9a9;
-  z-index:5l
+  z-index:5;
+  -webkit-filter: blur(0px) !important;
+}
+#sitterButton{
+  border-top-left-radius:2px;
+  border-bottom-left-radius:2px;
+}
+#ownerButton{
+  border-top-right-radius:2px;
+  border-bottom-right-radius:2px;
 }
 /*.petListing, .ownerListing{
   background-color:white;

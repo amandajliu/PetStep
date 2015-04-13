@@ -11,7 +11,7 @@ var changeTags = function(){
       return;
     }
 
-    if($(this).attr('id') != "sortByDistance" && $(this).attr('id') != "sortBySitterName"){
+    if($(this).attr('class') != "sortBy"){
       var label = $("label[for='" + $(this).attr('id')+"']").html();
       newSearchParams.push(label);
     }
@@ -43,8 +43,13 @@ $(document).ready(function(){
     changeTags();
 
   });
-
-
+  $('.sortPerson').css('display','none');
+  $('.filter').hover(function(){
+    $(this).css('background-color','#e7e7e7');
+  },
+  function(){
+    $(this).css('background-color','#f8f8f8');
+  });
 
 
 
@@ -90,6 +95,9 @@ $(window).load(function() {
   $('#sitterButton').click(function(){
     $(this).addClass('active');
     $('#ownerButton').removeClass('active');
+
+    $('.sortPet').css('display','block');
+    $('.sortPerson').css('display','none');
     $('.petListing').removeClass('hide');
     $('.personListing').addClass('hide');
     $container.masonry('destroy');
@@ -103,11 +111,15 @@ $(window).load(function() {
     })
 
 
+
   })
 
   $('#ownerButton').click(function(){
     $(this).addClass('active');
     $('#sitterButton').removeClass('active');
+
+    $('.sortPerson').css('display','block');
+    $('.sortPet').css('display','none');
     $('.personListing').removeClass('hide');
     $('.petListing').addClass('hide');
     $container.masonry('destroy');
