@@ -131,6 +131,11 @@ $(window).load(function() {
 
 
   })
+
+  $("#addListing").click(function() {
+    $('.form-containers').removeClass("hide");
+    return false;
+  })
 })
 
 $(function(){
