@@ -1,0 +1,411 @@
+<html>
+<head>
+  <!-- Default loads, native to project -->
+  <script src="static/res/jquery.min.js"></script>
+  <!-- <script src="static/res/jquery-ui.min.js"></script> -->
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/js/mustache.min.js"></script>
+  <script src="static/js/profile.js"></script>
+  <script src="static/js/modernizer.js"></script>
+  <!-- <script src="static"></script> -->
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
+  <link rel="stylesheet" type="text/css" href="static/css/activityFeed.css">
+  <link rel="stylesheet" type="text/css" href="static/css/timeline.css">
+  <link rel="stylesheet" type="text/css" href="static/css/profile.css">
+  <link rel="stylesheet" type="text/css" href="static/css/messages.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <!--<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>-->
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" id="_header">
+    <div class="container-fluid" style="height:100px;padding-top:10px; border-bottom:1px solid #e7e7e7">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand"><a href="index.html"><img src="static/images/PetHub-logo.png" style="height:70px;margin-top:-10px"/></a>
+        </span>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+        <ul class="nav navbar-nav navbar-left" style='margin-top:20px;'>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="index.html" style="padding-top:35px">Home</a>
+          </li>
+          <li class="dropdown" style="margin-right:40px">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class='img-circle' src='static/images/Cornelio.png' id="headerProfPic"> Cornelio <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="profile.html">Go to Profile</a></li>
+              <li><a href="#">Favorites</a></li>
+              <li><a href="#">Messages</a></li>
+              <li><a href="#">History</a></li>
+              <li><a href="#">Settings</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+	<div class='profileBar container panel panel-default' style='margin-top:130px'>
+		<div class='row'>
+			<div class='col-md-4'>
+				<img class='mainProfilePic img-responsive img-rounded' src='static/images/Cornelio.png' style='margin: 10px'>
+			</div>
+			<div class='col-md-8'>
+				<div class='container-fluid'>
+					<div class='row'>
+						<div class='col-md-12'><h1>Cornelio Rosales</h1></div>
+						<div class='col-md-12' id="profTitle"><p>Owner of Fluffy (Snake)</p></div>
+						<div class='col-md-6'><h4>Owner Rating: <span id='ownerRating'>
+							<span class='glyphicon glyphicon-star'></span>
+							<span class='glyphicon glyphicon-star'></span>
+							<span class='glyphicon glyphicon-star'></span>
+							<span class='glyphicon glyphicon-star-empty'></span>
+							<span class='glyphicon glyphicon-star-empty'></span>
+							</span></h4></div>
+						<div class='col-md-6'><h4>Sitter Rating: <span id='sitterRating'><small>Not Applicable</small></span></h4>
+						</div>
+          </div>
+          <div class="row">
+						<div class='col-md-6'>
+							<h4>Biography:</h4>
+						</div>
+						<div class='col-md-6'>
+							<button type='button' class='btn btn-default' id="editProfButton">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>
+						</div>
+					</div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class='well well-lg'>Hi! I'm Cornelio and I have a pet snake named Fluffy.  I am looking for professional sitters who have experience with snakes. </div>
+            </div>
+          </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Tabs and their labels, default bootstrap -->
+	<div class='profileTabs'>
+	<!-- <div class='panel with-nav-tabs panel-default'> -->
+
+
+  <div class="container">
+
+		<ul class='nav nav-tabs nav-justified tab-container panel-tabs'>
+			<li role='presentation' class='main-tabs active' id='tab-public-activity'><a>Public Activity</a>
+      </li>
+			<li role='presentation' class='main-tabs' id='tab-favorites'><a>Favorites</a></li>
+			<li role='presentation' class='main-tabs' id='tab-reviews'><a>Reviews</a></li>
+			<li role='presentation' class='main-tabs' id='tab-history'><a>History</a></li>
+			<li role='presentation' class='main-tabs' id='tab-pets'><a>Pets</a></li>
+			<li role='presentation' class='main-tabs' id='tab-active-listings'><a>Active Listings</a></li>
+			<li role='presentation' class='main-tabs' id='tab-messages'><a>Messages</a></li>
+		</ul>
+
+<!-- TAB CONTENT - Public Activity -->
+	<div class='tab-content tabbed-content'>
+		<div class='main-panes tab-pane active' id='pane-public-activity'>
+
+      <div class="activityFeed">
+
+        <div class="feedInfo">
+          <div class="profileFeedDiv">
+            <img class="profileFeed" src="static/images/Parakeet.jpg"/>
+          </div>
+          <h4 class="feedText">Cornelio just posted a new listing!</h4>
+          <br>
+          <h6 class="feedTime">3 days ago</h6>
+        </div>
+        <div class="feedImgDiv">
+          <img class="feedImg" src="static/images/fluffy0.jpg"/>
+        </div>
+      </div>
+
+      <div class="activityFeed">
+        <div class="feedInfo">
+          <div class="profileFeedDiv">
+            <img class="profileFeed" src="static/images/lilyPaxton.jpg"/>
+          </div>
+          <h4 class="feedText"><a>Lily Paxton</a> wrote a <a>review</a> about Cornelio and Fluffy.</h4>
+          <br>
+          <h6 class="feedTime">a week ago</h6>
+        </div>
+      </div>
+
+      <div class="activityFeed">
+        <div class="feedInfo">
+          <div class="profileFeedDiv">
+            <img class="profileFeed" src="static/images/fluffy0.jpg"/>
+          </div>
+
+          <h4 class="feedText">Happy birthday! Fluffy just turned 2 years old!</h4>
+          <br>
+          <h6 class="feedTime">1 month ago</h6>
+        </div>
+      </div>
+    </div>
+
+<!-- TAB CONTENT - Favorites -->
+		<div class='main-panes tab-pane' id='pane-favorites'>Favorites</div>
+
+<!-- TAB CONTENT - Reviews -->
+		<div class='main-panes tab-pane' id='pane-reviews'>
+      <div class="review">
+        <div class="reviewInfo">
+          <div class="profileReviewDiv">
+            <img class="profileReview" src="static/images/lilyPaxton.jpg"/>
+          </div>
+          <h4 class="reviewText"><a>Lily Paxton</a> wrote a <a>review</a> about Cornelio and Fluffy.</h4>
+          <br>
+          <h6 class="reviewTime">a week ago</h6>
+        </div>
+      </div>
+    </div>
+
+<!-- TAB CONTENT - History/Timeline -->
+		<div class='main-panes tab-pane' id='pane-history'>
+      <h1>History</h1>
+      <hr>
+      <section id="cd-timeline" class="cd-container">
+        <div class="cd-timeline-block">
+    			<div class="cd-timeline-img cd-from">
+            <span class="icon glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    			</div> <!-- cd-timeline-img -->
+
+    			<div class="cd-timeline-content">
+    				<h2>Title of section 1</h2>
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+    				<a href="#0" class="cd-read-more">Read more</a>
+    				<span class="cd-date">Jan 14</span>
+    			</div> <!-- cd-timeline-content -->
+    		</div> <!-- cd-timeline-block -->
+
+    		<div class="cd-timeline-block">
+    			<div class="cd-timeline-img cd-away">
+            <span class="icon glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    			</div> <!-- cd-timeline-img -->
+
+    			<div class="cd-timeline-content">
+    				<h2>Title of section 2</h2>
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
+    				<a href="#0" class="cd-read-more">Read more</a>
+    				<span class="cd-date">Jan 18</span>
+    			</div> <!-- cd-timeline-content -->
+    		</div> <!-- cd-timeline-block -->
+
+    		<div class="cd-timeline-block">
+    			<div class="cd-timeline-img cd-away">
+            <span class="icon glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    			</div> <!-- cd-timeline-img -->
+
+    			<div class="cd-timeline-content">
+    				<h2>Title of section 3</h2>
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
+    				<a href="#0" class="cd-read-more">Read more</a>
+
+    				<span class="cd-date">Jan 24</span>
+    			</div> <!-- cd-timeline-content -->
+    		</div> <!-- cd-timeline-block -->
+
+    		<div class="cd-timeline-block">
+    			<div class="cd-timeline-img cd-from">
+            <span class="icon glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    			</div> <!-- cd-timeline-img -->
+
+    			<div class="cd-timeline-content">
+    				<h2>Title of section 4</h2>
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+    				<a href="#0" class="cd-read-more">Read more</a>
+    				<span class="cd-date">Feb 14</span>
+    			</div> <!-- cd-timeline-content -->
+    		</div> <!-- cd-timeline-block -->
+
+    		<div class="cd-timeline-block">
+    			<div class="cd-timeline-img cd-from">
+            <span class="icon glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    			</div> <!-- cd-timeline-img -->
+
+    			<div class="cd-timeline-content">
+    				<h2>Title of section 5</h2>
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
+    				<a href="#0" class="cd-read-more">Read more</a>
+    				<span class="cd-date">Feb 18</span>
+    			</div> <!-- cd-timeline-content -->
+    		</div> <!-- cd-timeline-block -->
+
+    		<div class="cd-timeline-block">
+    			<div class="cd-timeline-img cd-away">
+            <span class="icon glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    			</div> <!-- cd-timeline-img -->
+
+    			<div class="cd-timeline-content">
+    				<h2>Final Section</h2>
+    				<p>This is the content of the last section</p>
+    				<span class="cd-date">Feb 26</span>
+    			</div> <!-- cd-timeline-content -->
+    		</div> <!-- cd-timeline-block -->
+
+
+
+      </section>
+
+    </div>
+
+<!-- TAB CONTENT - Pets -->
+		<div class='main-panes tab-pane' id='pane-pets'>
+
+    <!-- Bootstrap panel grouping of collapsable tabs for each pet -->
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default" id="panelPet1">
+          <!-- Each unexpanded tab has an expand icon, mini pet icon, and pet name -->
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-target="#collapsePetOne" class="collapsed">
+                <span class="glyphicon glyphicon-plus"></span>
+                <img class='petProfSm1 img-circle' src='static/images/fluffy0.jpg'>
+                Fluffy
+              </a>
+            </h4>
+          </div>
+          <!-- Each expanded tab has an a larger pet image, an edit button, more pet info, and add listing button-->
+          <div id="collapsePetOne" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="petExpandLeft col-md-2"> <!-- Contains pet image and edit button-->
+                <img class='petProfLg1 img-circle' src='static/images/fluffy0.jpg'>
+                <!-- TO-DO: Link to pet edit dialog -->
+                <button type='button' class='btn btn-default' id="editPetButton">Edit Pet  <span class='glyphicon glyphicon-pencil'></span></button>
+              </div>
+              <div class="petExpandMiddle col-md-8"> <!-- Contains additional pet info -->
+                <h2>Fluffy</h2>
+                <h4>Pet Biography</h4>
+                  <div class='well well-lg'>I was found by Ever on the Internet and made into the celebrity of this website. </div>
+                <h4>Medical Needs</h4>
+                  <div class='well well-lg'>I need to be milked or else I'll nibble on your toes lovingly and kill you. :3 </div>
+                <h4>Other Notes</h4>
+                  <div class='well well-lg'>I'm adorable! ^_^ </div>
+              </div>
+              <div class="petExpandRight col-md-2"> <!-- Contains add listing button-->
+                  <!-- TO-DO: Link to listing creation dialog -->
+                  <button type='button' class='btn btn-default'><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div> <!-- End of Pet Content Tab -->
+
+<!-- TAB CONTENT - Active Listings -->
+		<div class='main-panes tab-pane' id='pane-active-listings'>
+
+    <!-- Bootstrap panel grouping of collapsable tabs for each pet -->
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default" id="panelPet1">
+          <!-- Each unexpanded tab has an expand icon, mini pet icon, pet name, and date -->
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-target="#collapseListingOne" class="collapsed">
+                <span class="glyphicon glyphicon-plus"></span>
+                <img class='petProfSm1 img-circle' src='static/images/fluffy0.jpg'>
+                Fluffy, May 24th-28th, 2015
+              </a>
+            </h4>
+          </div>
+          <!-- Each expanded tab has an a larger pet image, an edit button, more pet info, and add listing button-->
+          <div id="collapseListingOne" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="petExpandLeft col-md-2"> <!-- Contains pet image and edit button-->
+                <img class='petProfLg1 img-circle' src='static/images/fluffy0.jpg'>
+                <!-- TO-DO: Link to pet edit dialog -->
+                <button type='button' class='btn btn-default' id="editListingButton">Edit Listing <span class='glyphicon glyphicon-pencil'></span></button>
+              </div>
+              <div class="petExpandMiddle col-md-2"> <!-- Contains listing categories -->
+                <h2>Fluffy</h2>
+                <h4 class="listingTitle"> Pet Type:</h4>
+                <h4 class="listingTitle"> Sitter Type:</h4>
+                <h4 class="listingTitle"> Duration:</h4>
+                <h4 class="listingTitle"> Payment:</h4>
+                <h4 class="listingTitle"> Distance:</h4>
+              </div>
+              <div class="petExpandRight col-md-3"> <!-- Contains listing details -->
+                <h2 id="secondColListing"> </h2>
+                <h4> Snake </h4>
+                <h4> Casual, Professional</h4>
+                <h4> May 24th-28th, 2015</h4>
+                <h4> $, $$, $$$, Negotiable</h4>
+                <h4> 25 mile radius</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="petExpandRight col-md-12"> <!-- Contains add listing button-->
+        <!-- TO-DO: Link to listing creation dialog -->
+        <button type='button' class='btn btn-default' id="addListingButton"><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
+      </div>
+
+      <br>
+    </div> <!-- End of Active Listings Tab -->
+
+<!-- TAB CONTENT - Messages -->
+		<div class='main-panes tab-pane' id='pane-messages'>
+      <div class='container'>
+        <div class='row'>
+        <div class='col-sm-3'>
+          <div class='row message-name'><div class='col-sm-10'>Name 1</div><div class='col-sm-1'><span class='glyphicon glyphicon-remove'></span></div></div>
+          <div class='row message-name'><div class='col-sm-10'>Name 2</div><div class='col-sm-1'><span class='glyphicon glyphicon-remove'></span></div></div>
+          <div class='row message-name'><div class='col-sm-10'>Name 3</div><div class='col-sm-1'><span class='glyphicon glyphicon-remove'></span></div></div>
+        </div>
+
+        <div class='col-sm-9'>
+          <div class='container'>
+          <div class='row'>
+            <div class='well well-sm m-person-1 col-xs-8'>
+            Hi! This is a message.
+            </div>
+          </div>
+          <div class='row'>
+            <div class='well well-sm m-person-2 col-xs-8 col-xs-offset-4'>
+            Hi! This is a response.
+          </div>
+          </div>
+        </div>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-md-12'>
+              <div class='input-group'>
+                <input type='text' class='form-control' placeholder='Type here...'>
+                <span class='input-group-btn'>
+                  <button class='btn btn-default' type='button'>Send</button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+	</div>
+	</div>
+  </div>
+
+</body>
+</html>
