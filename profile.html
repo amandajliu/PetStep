@@ -12,26 +12,62 @@
   <link rel="stylesheet" type="text/css" href="static/css/main.css">
   <link rel="stylesheet" type="text/css" href="static/css/activityFeed.css">
   <link rel="stylesheet" type="text/css" href="static/css/timeline.css">
+  <link rel="stylesheet" type="text/css" href="static/css/profile.css">
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <!--<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>-->
-  <link rel="stylesheet" type="text/css" href="static/css/profile.css">
 </head>
-<body style="background-color: #FFFFFF; color: #1A237E">
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" id="_header">
+    <div class="container-fluid" style="height:100px;padding-top:10px; border-bottom:1px solid #e7e7e7">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand"><a href="index.html"><img src="static/images/PetHub-logo.png" style="height:70px;margin-top:-10px"/></a>
+        </span>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+        <ul class="nav navbar-nav navbar-left" style='margin-top:20px;'>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown" style="margin-right:40px">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class='img-circle' src='static/images/Parakeet.jpg' style="width:60px; height:60px; margin-right:10px"> Johnny <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="profile.html">Go to Profile</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
 	<!-- User page header, contains logo, home button, and user drop down menu (when logged in) -->
-	<div class='page-header' style="display:inline-block; width:100%; margin-top: 0px; background-color: #A5D6A7">
+	<!-- <<div class='page-header' style="display:inline-block; width:100%; margin-top: 0px; background-color: #A5D6A7"> -->
 
 		<!-- Logo, in the future will link to the home page -->
-		<div class='col-md-4'>
+		<!-- <div class='col-md-4'>
 			<h1> PetHub </h1>
-		</div>
+		</div> -->
 
 		<!-- Home 'button' -->
-		<div class='col-md-2 col-md-offset-4'>
+		<!-- <div class='col-md-2 col-md-offset-4'>
 			<h1 style='margin-left: 80px'> <a href='index.html'>Home </a></h1>
-		</div>
+		</div> -->
 
 		<!-- User dropdown menu, dynamically updated with username and prof pic when logged in -->
-		<div class="col-md-2 btn-group dropdown filter-dropdown" role="group" aria-label="...">
+		<!-- <div class="col-md-2 btn-group dropdown filter-dropdown" role="group" aria-label="...">
           	<button class="btn btn-default dropdown-toggle" type="button" id="userMenu" data-toggle="dropdown" aria-expanded="true" style='background-color: #E8F5E9'>
             <img class='mainProfilePic img-circle' src='static/images/Parakeet.jpg' style='height: 60px; width: 60px; margin-right: 3px'>
             Cornelio
@@ -57,12 +93,12 @@
             	</li>
           	</ul>
 		</div>
-	</div>
+	</div> -->
 
-	<div class='profileBar container panel panel-default' style='background-color: #E8F5E9'>
+	<div class='profileBar container panel panel-default' style='margin-top:130px'>
 		<div class='row'>
 			<div class='col-md-4'>
-				<img class='mainProfilePic img-responsive img-rounded' src='static/images/Parakeet.jpg' style='margin-top: 10px'>
+				<img class='mainProfilePic img-responsive img-rounded' src='static/images/Parakeet.jpg' style='margin: 10px'>
 			</div>
 			<div class='col-md-8'>
 				<div class='container-fluid'>
@@ -78,26 +114,35 @@
 							</span></h4></div>
 						<div class='col-md-6'><h4>Sitter Rating: <span id='sitterRating'><small>Not Applicable</small></span></h4>
 						</div>
-
-						<div class='col-md-8'>
+          </div>
+          <div class="row">
+						<div class='col-md-6'>
 							<h4>Biography:</h4>
-							<div class='well well-lg' style='color: black'>Hi! I'm Cornelio and I have a pet snake named Fluffy.  I am looking for professional sitters who have experience with snakes. </div>
 						</div>
-						<div class='col-md-4'>
-							<button type='button' class='btn btn-default' style="margin-top: 10px; background-color: #81C784">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>
+						<div class='col-md-6'>
+							<button type='button' class='btn btn-default' style="margin-top: 10px;">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>
 						</div>
 					</div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class='well well-lg' style='color: black'>Hi! I'm Cornelio and I have a pet snake named Fluffy.  I am looking for professional sitters who have experience with snakes. </div>
+            </div>
+          </div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<!-- Tabs and their labels, default bootstrap -->
-	<div class='profileTabs container' >
-	<div class='panel with-nav-tabs panel-default'>
-	<div class='panel-heading'>
-		<ul class='nav nav-tabs nav-justified'>
-			<li role='presentation' class='main-tabs active'id='tab-public-activity'><a>Public Activity</a>
+	<!-- First set of tabs and their labels, default bootstrap -->
+	<div class='profileTabs'>
+	<!-- <div class='panel with-nav-tabs panel-default'> -->
+
+
+  <div class="container">
+
+
+		<ul class='nav nav-tabs nav-justified tab-container panel-tabs'>
+			<li role='presentation' class='main-tabs active' id='tab-public-activity'><a>Public Activity</a>
       </li>
 			<li role='presentation' class='main-tabs' id='tab-favorites'><a>Favorites</a></li>
 			<li role='presentation' class='main-tabs' id='tab-reviews'><a>Reviews</a></li>
@@ -106,11 +151,9 @@
 			<li role='presentation' class='main-tabs' id='tab-active-listings'><a>Active Listings</a></li>
 			<li role='presentation' class='main-tabs' id='tab-messages'><a>Messages</a></li>
 		</ul>
-	</div>
-	<div class='panel-body'>
-	<div class='tab-content'>
 
 <!-- TAB CONTENT - Public Activity -->
+	<div class='tab-content tabbed-content'>
 		<div class='main-panes tab-pane active' id='pane-public-activity'>
 
       <div class="activityFeed">
@@ -161,9 +204,11 @@
 <!-- TAB CONTENT - History/Timeline -->
 		<div class='main-panes tab-pane' id='pane-history'>
       <h1>History</h1>
+      <hr>
       <section id="cd-timeline" class="cd-container">
         <div class="cd-timeline-block">
-    			<div class="cd-timeline-img cd-picture">
+    			<div class="cd-timeline-img cd-from">
+            <span class="icon glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
     			</div> <!-- cd-timeline-img -->
 
     			<div class="cd-timeline-content">
@@ -175,7 +220,8 @@
     		</div> <!-- cd-timeline-block -->
 
     		<div class="cd-timeline-block">
-    			<div class="cd-timeline-img cd-movie">
+    			<div class="cd-timeline-img cd-away">
+            <span class="icon glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
     			</div> <!-- cd-timeline-img -->
 
     			<div class="cd-timeline-content">
@@ -187,19 +233,22 @@
     		</div> <!-- cd-timeline-block -->
 
     		<div class="cd-timeline-block">
-    			<div class="cd-timeline-img cd-picture">
+    			<div class="cd-timeline-img cd-away">
+            <span class="icon glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
     			</div> <!-- cd-timeline-img -->
 
     			<div class="cd-timeline-content">
     				<h2>Title of section 3</h2>
     				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
     				<a href="#0" class="cd-read-more">Read more</a>
+
     				<span class="cd-date">Jan 24</span>
     			</div> <!-- cd-timeline-content -->
     		</div> <!-- cd-timeline-block -->
 
     		<div class="cd-timeline-block">
-    			<div class="cd-timeline-img cd-location">
+    			<div class="cd-timeline-img cd-from">
+            <span class="icon glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
     			</div> <!-- cd-timeline-img -->
 
     			<div class="cd-timeline-content">
@@ -211,7 +260,8 @@
     		</div> <!-- cd-timeline-block -->
 
     		<div class="cd-timeline-block">
-    			<div class="cd-timeline-img cd-location">
+    			<div class="cd-timeline-img cd-from">
+            <span class="icon glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
     			</div> <!-- cd-timeline-img -->
 
     			<div class="cd-timeline-content">
@@ -223,7 +273,8 @@
     		</div> <!-- cd-timeline-block -->
 
     		<div class="cd-timeline-block">
-    			<div class="cd-timeline-img cd-movie">
+    			<div class="cd-timeline-img cd-away">
+            <span class="icon glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
     			</div> <!-- cd-timeline-img -->
 
     			<div class="cd-timeline-content">
@@ -294,8 +345,8 @@
 
 	</div>
 	</div>
-	</div>
-	</div>
+  </div>
+	<!-- </div> -->
 
 </body>
 </html>
