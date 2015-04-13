@@ -42,8 +42,8 @@ Layout CSS
   padding-bottom: 0px;
 }
 
-.panel-tabs {
-}
+/*.panel-tabs {
+}*/
 
 .tabbed-content {
     padding: 30px;
@@ -52,4 +52,48 @@ Layout CSS
     border-right: 1px solid #e7e7e7;
     border-left: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
+}
+#profTitle{
+  margin-bottom: 0px; 
+  left: 20px;
+}
+#headerProfPic{
+  width:60px; 
+  height:60px; 
+  margin-right:10px;
+}
+.well{
+  color: black;
+}
+.listingTitle{
+  font-weight: bold;
+}
+#secondColListing{
+  margin-top: 63px;
+}
+.petProfLg1{
+  height: 150px; 
+  width: 150px; 
+  position: absolute;
+} 
+.petProfSm1{
+  height: 60px; 
+  width: 60px;
+}
+#editPetButton{
+  position: relative;
+  top: 160px; 
+  left: 30px;
+}
+#editProfButton{
+  margin-bottom: 10px;
+}
+#addListingButton{
+  position: absolute; 
+  right: 0px;
+}
+#editListingButton{
+  position: relative;
+  top: 160px; 
+  left: 20px;
 }
