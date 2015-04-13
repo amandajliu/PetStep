@@ -38,7 +38,7 @@
 
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown" style="margin-right:40px">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class='img-circle' src='static/images/Parakeet.jpg' style="width:60px; height:60px; margin-right:10px"> Cornelio <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class='img-circle' src='static/images/Parakeet.jpg' id="headerProfPic"> Cornelio <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="profile.html">Go to Profile</a></li>
               <li><a href="#">Favorites</a></li>
@@ -64,7 +64,7 @@
 				<div class='container-fluid'>
 					<div class='row'>
 						<div class='col-md-12'><h1>Cornelio Rosales</h1></div>
-						<div class='col-md-12' style="margin-bottom: 0px; left: 20px"><p>Owner of Fluffy (Snake)</p></div>
+						<div class='col-md-12' id="profTitle"><p>Owner of Fluffy (Snake)</p></div>
 						<div class='col-md-6'><h4>Owner Rating: <span id='ownerRating'>
 							<span class='glyphicon glyphicon-star'></span>
 							<span class='glyphicon glyphicon-star'></span>
@@ -80,12 +80,12 @@
 							<h4>Biography:</h4>
 						</div>
 						<div class='col-md-6'>
-							<button type='button' class='btn btn-default' style="margin-bottom: 10px;">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>
+							<button type='button' class='btn btn-default' id="editProfButton">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>
 						</div>
 					</div>
           <div class="row">
             <div class="col-md-8">
-              <div class='well well-lg' style='color: black'>Hi! I'm Cornelio and I have a pet snake named Fluffy.  I am looking for professional sitters who have experience with snakes. </div>
+              <div class='well well-lg'>Hi! I'm Cornelio and I have a pet snake named Fluffy.  I am looking for professional sitters who have experience with snakes. </div>
             </div>
           </div>
 				</div>
@@ -260,7 +260,7 @@
             <h4 class="panel-title">
               <a data-toggle="collapse" data-target="#collapsePetOne" class="collapsed">
                 <span class="glyphicon glyphicon-plus"></span>
-                <img class='mainProfilePic img-circle' src='static/images/fluffy0.jpg' style='height: 60px; width: 60px'>
+                <img class='petProfSm1 img-circle' src='static/images/fluffy0.jpg'>
                 Fluffy
               </a>
             </h4>
@@ -269,22 +269,22 @@
           <div id="collapsePetOne" class="panel-collapse collapse">
             <div class="panel-body">
               <div class="petExpandLeft col-md-2"> <!-- Contains pet image and edit button-->
-                <img class='petProf1SM img-circle' src='static/images/fluffy0.jpg' style='height: 150px; width: 150px; position: absolute'>
+                <img class='petProfLg1 img-circle' src='static/images/fluffy0.jpg'>
                 <!-- TO-DO: Link to pet edit dialog -->
-                <button type='button' class='btn btn-default' style="position: relative;top: 160px; left: 30px">Edit Pet  <span class='glyphicon glyphicon-pencil'></span></button>
+                <button type='button' class='btn btn-default' id="editPetButton">Edit Pet  <span class='glyphicon glyphicon-pencil'></span></button>
               </div>
               <div class="petExpandMiddle col-md-8"> <!-- Contains additional pet info -->
                 <h2>Fluffy</h2>
                 <h4>Pet Biography</h4>
-                  <div class='well well-lg' style='color: black'>I was found by Ever on the Internet and made into the celebrity of this website. </div>
+                  <div class='well well-lg'>I was found by Ever on the Internet and made into the celebrity of this website. </div>
                 <h4>Medical Needs</h4>
-                  <div class='well well-lg' style='color: black'>I need to be milked or else I'll nibble on your toes lovingly and kill you. :3 </div>
+                  <div class='well well-lg'>I need to be milked or else I'll nibble on your toes lovingly and kill you. :3 </div>
                 <h4>Other Notes</h4>
-                  <div class='well well-lg' style='color: black'>I'm adorable! ^_^ </div>
+                  <div class='well well-lg'>I'm adorable! ^_^ </div>
               </div>
               <div class="petExpandRight col-md-2"> <!-- Contains add listing button-->
                   <!-- TO-DO: Link to listing creation dialog -->
-                  <button type='button' class='btn btn-default' style=""><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
+                  <button type='button' class='btn btn-default'><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
               </div>
             </div>
           </div>
@@ -305,7 +305,7 @@
             <h4 class="panel-title">
               <a data-toggle="collapse" data-target="#collapseListingOne" class="collapsed">
                 <span class="glyphicon glyphicon-plus"></span>
-                <img class='mainProfilePic img-circle' src='static/images/fluffy0.jpg' style='height: 60px; width: 60px'>
+                <img class='petProfSm1 img-circle' src='static/images/fluffy0.jpg'>
                 Fluffy, May 24th-28th, 2015
               </a>
             </h4>
@@ -314,9 +314,9 @@
           <div id="collapseListingOne" class="panel-collapse collapse">
             <div class="panel-body">
               <div class="petExpandLeft col-md-2"> <!-- Contains pet image and edit button-->
-                <img class='petProf1SM img-circle' src='static/images/fluffy0.jpg' style='height: 150px; width: 150px; position: absolute'>
+                <img class='petProfLg1 img-circle' src='static/images/fluffy0.jpg'>
                 <!-- TO-DO: Link to pet edit dialog -->
-                <button type='button' class='btn btn-default' style="position: relative;top: 160px; left: 20px">Edit Listing <span class='glyphicon glyphicon-pencil'></span></button>
+                <button type='button' class='btn btn-default' id="editListingButton">Edit Listing <span class='glyphicon glyphicon-pencil'></span></button>
               </div>
               <div class="petExpandMiddle col-md-2"> <!-- Contains listing categories -->
                 <h2>Fluffy</h2>
@@ -327,7 +327,7 @@
                 <h4 class="listingTitle"> Distance:</h4>
               </div>
               <div class="petExpandRight col-md-3"> <!-- Contains listing details -->
-                <h2 style="margin-top: 63px;"> </h2>
+                <h2 id="secondColListing"> </h2>
                 <h4> Snake </h4>
                 <h4> Casual, Professional</h4>
                 <h4> May 24th-28th, 2015</h4>
@@ -342,7 +342,7 @@
 
       <div class="petExpandRight col-md-12"> <!-- Contains add listing button-->
         <!-- TO-DO: Link to listing creation dialog -->
-        <button type='button' class='btn btn-default' style="position: absolute; right: 0px"><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
+        <button type='button' class='btn btn-default' id="addListingButton"><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
       </div>
 
       <br>
