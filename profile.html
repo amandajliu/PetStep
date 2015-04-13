@@ -92,7 +92,7 @@
 		</div>
 	</div>
 
-	<!-- First set of tabs and their labels, default bootstrap -->
+	<!-- Tabs and their labels, default bootstrap -->
 	<div class='profileTabs container' >
 	<div class='panel with-nav-tabs panel-default'>
 	<div class='panel-heading'>
@@ -109,6 +109,8 @@
 	</div>
 	<div class='panel-body'>
 	<div class='tab-content'>
+
+<!-- TAB CONTENT - Public Activity -->
 		<div class='main-panes tab-pane active' id='pane-public-activity'>
 
       <div class="activityFeed">
@@ -149,8 +151,14 @@
         </div>
       </div>
     </div>
+
+<!-- TAB CONTENT - Favorites -->
 		<div class='main-panes tab-pane' id='pane-favorites'>Favorites</div>
+
+<!-- TAB CONTENT - Reviews -->
 		<div class='main-panes tab-pane' id='pane-reviews'>Reviews</div>
+
+<!-- TAB CONTENT - History/Timeline -->
 		<div class='main-panes tab-pane' id='pane-history'>
       <h1>History</h1>
       <section id="cd-timeline" class="cd-container">
@@ -230,9 +238,60 @@
       </section>
 
     </div>
-		<div class='main-panes tab-pane' id='pane-pets'>Pets</div>
+
+<!-- TAB CONTENT - Pets -->
+		<div class='main-panes tab-pane' id='pane-pets'>
+
+    <!-- TO-DO: Add listing button at the bottom? right -->
+
+    <!-- Bootstrap panel grouping of collapsable tabs for each pet -->
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default" id="panel1">
+          <!-- Each unexpanded tab has an expand icon, mini pet icon, and pet name -->
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-target="#collapseOne" href="#collapseOne" class="collapsed">
+                <span class="glyphicon glyphicon-plus"></span>
+                <img class='mainProfilePic img-circle' src='static/images/fluffy0.jpg' style='height: 60px; width: 60px'>
+                Fluffy
+              </a>
+            </h4>
+          </div>
+          <!-- Each expanded tab has an a larger pet image, an edit button, more pet info, and add listing button-->
+          <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="petExpandLeft col-md-2"> <!-- Contains pet image and edit button-->
+                <img class='petProf1SM img-circle' src='static/images/fluffy0.jpg' style='height: 150px; width: 150px; position: absolute'>
+                <!-- TO-DO: Link to pet edit dialog -->
+                <button type='button' class='btn btn-default' style="position: relative;top: 160px; left: 30px">Edit Pet  <span class='glyphicon glyphicon-pencil'></span></button>
+              </div>
+              <div class="petExpandMiddle col-md-8"> <!-- Contains additional pet info -->
+                <h2>Fluffy</h2>
+                <h4>Pet Biography</h4>
+                  <div class='well well-lg' style='color: black'>I was found by Ever on the Internet and made into the celebrity of this website. </div>
+                <h4>Medical Needs</h4>
+                  <div class='well well-lg' style='color: black'>I need to be milked or else I'll nibble on your toes lovingly and kill you. :3 </div>
+                <h4>Other Notes</h4>
+                  <div class='well well-lg' style='color: black'>I'm adorable! ^_^ </div>
+              </div>
+              <div class="petExpandRight col-md-2"> <!-- Contains add listing button-->
+                  <!-- TO-DO: Link to listing creation dialog -->
+                  <button type='button' class='btn btn-default' style=""><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div> <!-- End of Pet Content Tab -->
+
+<!-- TAB CONTENT - Active Listings -->
 		<div class='main-panes tab-pane' id='pane-active-listings'>Active Listings</div>
+
+<!-- TAB CONTENT - Messages -->
 		<div class='main-panes tab-pane' id='pane-messages'>Messages</div>
+
 	</div>
 	</div>
 	</div>
