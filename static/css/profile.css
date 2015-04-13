@@ -1,1 +1,55 @@
+/* -----------------------------
+Better looking tabs
+----------------------------- */
 
+.main-tabs {
+  margin: 0px;
+}
+
+.main-tabs > a {
+  border-radius: 0px ! important;
+  color: #607D8B ! important;
+}
+
+.main-tabs:not(.active) > a:hover {
+  background-color: #FFFFFF ! important;
+  color: #CFD8DC ! important;
+  border-right: 1px solid rgba(255, 255, 255, 1) ! important;
+  border-left: 1px solid rgba(255, 255, 255, 1) ! important;
+  border-top: 1px solid rgba(255, 255, 255, 1) ! important;
+}
+
+.main-tabs:not(.active):hover {
+  border-top: 5px solid #CFD8DC;
+  margin-top: -5px;
+}
+
+.main-tabs.active{
+  border-top: 5px solid #607D8B;
+  margin-top: -5px;
+}
+
+.tab-container {
+  /*border: 1px solid #e7e7e7;*/
+  width: 100%;
+}
+
+/* ----------------------------
+Layout CSS
+---------------------------- */
+.panel-heading_ {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.panel-tabs {
+}
+
+.tabbed-content {
+    padding: 30px;
+    border-top: 0px ! important;
+    border-radius: 0px ! important;
+    border-right: 1px solid #e7e7e7;
+    border-left: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+}

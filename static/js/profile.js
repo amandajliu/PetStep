@@ -15,7 +15,7 @@ $(document).ready(function($){
 
 	//hide timeline blocks which are outside the viewport
 	$timeline_block.each(function(){
-		if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
+		if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.80) {
 			$(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
 		}
 	});
