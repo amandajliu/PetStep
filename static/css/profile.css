@@ -97,3 +97,12 @@ Layout CSS
   top: 160px; 
   left: 20px;
 }
+
+/* ---------------------
+Stars
+--------------------- */
+
+.glyphicon-star {
+  margin: 0px;
+  color: #00BCD4;
+}
