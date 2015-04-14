@@ -62,6 +62,12 @@ Layout CSS
   height:60px; 
   margin-right:10px;
 }
+.panel-default > .panel-heading {
+  background-color: white;
+}
+.panel-body {
+  background-color: white;
+}
 .well{
   color: black;
 }
@@ -98,6 +104,7 @@ Layout CSS
   left: 20px;
 }
 
+
 /* ---------------------
 Stars
 --------------------- */
@@ -106,3 +113,11 @@ Stars
   margin: 0px;
   color: #00BCD4;
 }
+
+#dialog {
+  font-family: Lato;
+}
+#collapse-init{
+  position: relative;
+}
+
