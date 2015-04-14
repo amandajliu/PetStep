@@ -31,3 +31,11 @@ $(document).ready(function($){
 		}
 	});
 });
+// Active Listing - Hiring dialog
+
+$(document).ready(function(){
+	$( "#dialog" ).dialog({ autoOpen: false });
+	$( "#hiringButton" ).click(function() {
+  		$( "#dialog" ).dialog( "open" );
+	});
+});

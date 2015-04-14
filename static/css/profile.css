@@ -62,6 +62,12 @@ Layout CSS
   height:60px; 
   margin-right:10px;
 }
+.panel-default > .panel-heading {
+  background-color: white;
+}
+.panel-body {
+  background-color: white;
+}
 .well{
   color: black;
 }
@@ -96,4 +102,7 @@ Layout CSS
   position: relative;
   top: 160px; 
   left: 20px;
+}
+#dialog {
+  font-family: Lato;
 }
