@@ -38,13 +38,11 @@
 
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown" style="margin-right:40px">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class='img-circle' src='static/images/Parakeet.jpg' id="headerProfPic"> Cornelio <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class='img-circle' src='static/images/Parakeet.jpg' style="width:60px; height:60px; margin-right:10px"> Johnny <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="profile.html">Go to Profile</a></li>
-              <li><a href="#">Favorites</a></li>
-              <li><a href="#">Messages</a></li>
-              <li><a href="#">History</a></li>
-              <li><a href="#">Settings</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
               <li class="divider"></li>
               <li><a href="#">Logout</a></li>
             </ul>
@@ -55,6 +53,48 @@
     </div>
   </nav>
 
+	<!-- User page header, contains logo, home button, and user drop down menu (when logged in) -->
+	<!-- <<div class='page-header' style="display:inline-block; width:100%; margin-top: 0px; background-color: #A5D6A7"> -->
+
+		<!-- Logo, in the future will link to the home page -->
+		<!-- <div class='col-md-4'>
+			<h1> PetHub </h1>
+		</div> -->
+
+		<!-- Home 'button' -->
+		<!-- <div class='col-md-2 col-md-offset-4'>
+			<h1 style='margin-left: 80px'> <a href='index.html'>Home </a></h1>
+		</div> -->
+
+		<!-- User dropdown menu, dynamically updated with username and prof pic when logged in -->
+		<!-- <div class="col-md-2 btn-group dropdown filter-dropdown" role="group" aria-label="...">
+          	<button class="btn btn-default dropdown-toggle" type="button" id="userMenu" data-toggle="dropdown" aria-expanded="true" style='background-color: #E8F5E9'>
+            <img class='mainProfilePic img-circle' src='static/images/Parakeet.jpg' style='height: 60px; width: 60px; margin-right: 3px'>
+            Cornelio
+            <span class="caret"></span>
+         	</button>
+          	<ul class="dropdown-menu" role="menu" aria-labelledby="userMenu">
+            	<li role="userMenuOptions">
+            		Favorites
+            		<span class='glyphicon glyphicon-star'></span>
+            	</li>
+            	<li role="userMenuOptions">
+            		Messages
+            		<span class='glyphicon glyphicon-envelope'></span>
+            	</li>
+            	<li role="userMenuOptions">
+            		History
+            	</li>
+            	<li role="userMenuOptions">
+            		Settings
+            	</li>
+            	<li role="userMenuOptions">
+            		Logout
+            	</li>
+          	</ul>
+		</div>
+	</div> -->
+
 	<div class='profileBar container panel panel-default' style='margin-top:130px'>
 		<div class='row'>
 			<div class='col-md-4'>
@@ -64,7 +104,7 @@
 				<div class='container-fluid'>
 					<div class='row'>
 						<div class='col-md-12'><h1>Cornelio Rosales</h1></div>
-						<div class='col-md-12' id="profTitle"><p>Owner of Fluffy (Snake)</p></div>
+						<div class='col-md-12' style="margin-bottom: 0px; left: 20px"><p>Owner of Fluffy (Snake)</p></div>
 						<div class='col-md-6'><h4>Owner Rating: <span id='ownerRating'>
 							<span class='glyphicon glyphicon-star'></span>
 							<span class='glyphicon glyphicon-star'></span>
@@ -80,12 +120,12 @@
 							<h4>Biography:</h4>
 						</div>
 						<div class='col-md-6'>
-							<button type='button' class='btn btn-default' id="editProfButton">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>
+							<button type='button' class='btn btn-default' style="margin-top: 10px;">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>
 						</div>
 					</div>
           <div class="row">
             <div class="col-md-8">
-              <div class='well well-lg'>Hi! I'm Cornelio and I have a pet snake named Fluffy.  I am looking for professional sitters who have experience with snakes. </div>
+              <div class='well well-lg' style='color: black'>Hi! I'm Cornelio and I have a pet snake named Fluffy.  I am looking for professional sitters who have experience with snakes. </div>
             </div>
           </div>
 				</div>
@@ -93,12 +133,13 @@
 		</div>
 	</div>
 
-	<!-- Tabs and their labels, default bootstrap -->
+	<!-- First set of tabs and their labels, default bootstrap -->
 	<div class='profileTabs'>
 	<!-- <div class='panel with-nav-tabs panel-default'> -->
 
 
   <div class="container">
+
 
 		<ul class='nav nav-tabs nav-justified tab-container panel-tabs'>
 			<li role='presentation' class='main-tabs active' id='tab-public-activity'><a>Public Activity</a>
@@ -110,8 +151,6 @@
 			<li role='presentation' class='main-tabs' id='tab-active-listings'><a>Active Listings</a></li>
 			<li role='presentation' class='main-tabs' id='tab-messages'><a>Messages</a></li>
 		</ul>
-
-<!-- TAB CONTENT - Public Activity -->
 	<div class='tab-content tabbed-content'>
 		<div class='main-panes tab-pane active' id='pane-public-activity'>
 
@@ -153,14 +192,8 @@
         </div>
       </div>
     </div>
-
-<!-- TAB CONTENT - Favorites -->
 		<div class='main-panes tab-pane' id='pane-favorites'>Favorites</div>
-
-<!-- TAB CONTENT - Reviews -->
 		<div class='main-panes tab-pane' id='pane-reviews'>Reviews</div>
-
-<!-- TAB CONTENT - History/Timeline -->
 		<div class='main-panes tab-pane' id='pane-history'>
       <h1>History</h1>
       <hr>
@@ -248,112 +281,13 @@
       </section>
 
     </div>
-
-<!-- TAB CONTENT - Pets -->
-		<div class='main-panes tab-pane' id='pane-pets'>
-
-    <!-- Bootstrap panel grouping of collapsable tabs for each pet -->
-      <div class="panel-group" id="accordion">
-        <div class="panel panel-default" id="panelPet1">
-          <!-- Each unexpanded tab has an expand icon, mini pet icon, and pet name -->
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-target="#collapsePetOne" class="collapsed">
-                <span class="glyphicon glyphicon-plus"></span>
-                <img class='petProfSm1 img-circle' src='static/images/fluffy0.jpg'>
-                Fluffy
-              </a>
-            </h4>
-          </div>
-          <!-- Each expanded tab has an a larger pet image, an edit button, more pet info, and add listing button-->
-          <div id="collapsePetOne" class="panel-collapse collapse">
-            <div class="panel-body">
-              <div class="petExpandLeft col-md-2"> <!-- Contains pet image and edit button-->
-                <img class='petProfLg1 img-circle' src='static/images/fluffy0.jpg'>
-                <!-- TO-DO: Link to pet edit dialog -->
-                <button type='button' class='btn btn-default' id="editPetButton">Edit Pet  <span class='glyphicon glyphicon-pencil'></span></button>
-              </div>
-              <div class="petExpandMiddle col-md-8"> <!-- Contains additional pet info -->
-                <h2>Fluffy</h2>
-                <h4>Pet Biography</h4>
-                  <div class='well well-lg'>I was found by Ever on the Internet and made into the celebrity of this website. </div>
-                <h4>Medical Needs</h4>
-                  <div class='well well-lg'>I need to be milked or else I'll nibble on your toes lovingly and kill you. :3 </div>
-                <h4>Other Notes</h4>
-                  <div class='well well-lg'>I'm adorable! ^_^ </div>
-              </div>
-              <div class="petExpandRight col-md-2"> <!-- Contains add listing button-->
-                  <!-- TO-DO: Link to listing creation dialog -->
-                  <button type='button' class='btn btn-default'><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div> <!-- End of Pet Content Tab -->
-
-<!-- TAB CONTENT - Active Listings -->
-		<div class='main-panes tab-pane' id='pane-active-listings'>
-
-    <!-- Bootstrap panel grouping of collapsable tabs for each pet -->
-      <div class="panel-group" id="accordion">
-        <div class="panel panel-default" id="panelPet1">
-          <!-- Each unexpanded tab has an expand icon, mini pet icon, pet name, and date -->
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-target="#collapseListingOne" class="collapsed">
-                <span class="glyphicon glyphicon-plus"></span>
-                <img class='petProfSm1 img-circle' src='static/images/fluffy0.jpg'>
-                Fluffy, May 24th-28th, 2015
-              </a>
-            </h4>
-          </div>
-          <!-- Each expanded tab has an a larger pet image, an edit button, more pet info, and add listing button-->
-          <div id="collapseListingOne" class="panel-collapse collapse">
-            <div class="panel-body">
-              <div class="petExpandLeft col-md-2"> <!-- Contains pet image and edit button-->
-                <img class='petProfLg1 img-circle' src='static/images/fluffy0.jpg'>
-                <!-- TO-DO: Link to pet edit dialog -->
-                <button type='button' class='btn btn-default' id="editListingButton">Edit Listing <span class='glyphicon glyphicon-pencil'></span></button>
-              </div>
-              <div class="petExpandMiddle col-md-2"> <!-- Contains listing categories -->
-                <h2>Fluffy</h2>
-                <h4 class="listingTitle"> Pet Type:</h4>
-                <h4 class="listingTitle"> Sitter Type:</h4>
-                <h4 class="listingTitle"> Duration:</h4>
-                <h4 class="listingTitle"> Payment:</h4>
-                <h4 class="listingTitle"> Distance:</h4>
-              </div>
-              <div class="petExpandRight col-md-3"> <!-- Contains listing details -->
-                <h2 id="secondColListing"> </h2>
-                <h4> Snake </h4>
-                <h4> Casual, Professional</h4>
-                <h4> May 24th-28th, 2015</h4>
-                <h4> $, $$, $$$, Negotiable</h4>
-                <h4> 25 mile radius</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="petExpandRight col-md-12"> <!-- Contains add listing button-->
-        <!-- TO-DO: Link to listing creation dialog -->
-        <button type='button' class='btn btn-default' id="addListingButton"><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
-      </div>
-
-      <br>
-    </div> <!-- End of Active Listings Tab -->
-
-<!-- TAB CONTENT - Messages -->
+		<div class='main-panes tab-pane' id='pane-pets'>Pets</div>
+		<div class='main-panes tab-pane' id='pane-active-listings'>Active Listings</div>
 		<div class='main-panes tab-pane' id='pane-messages'>Messages</div>
-
 	</div>
 	</div>
   </div>
+	<!-- </div> -->
 
 </body>
 </html>
