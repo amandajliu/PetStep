@@ -39,3 +39,56 @@ $(document).ready(function(){
   		$( "#dialog" ).dialog( "open" );
 	});
 });
+
+// Accordion js
+// Thanks to http://stackoverflow.com/questions/20347553/bootstrap-3-collapse-accordion-collapse-all-works-but-then-cannot-expand-all-wh
+// Collapse or expand all logic for Active Listing tab
+$(document).ready(function(){
+
+    var active = false;
+
+    $('#collapse-init').click(function () {
+        if (active) {
+            active = false;
+            $('.panel-collapse').collapse('show');
+            $('.panel-title').attr('data-toggle', '');
+            $(this).text('Collapse All');
+        } else {
+            active = true;
+            $('.panel-collapse').collapse('hide');
+            $('.panel-title').attr('data-toggle', 'collapse');
+            $(this).text('Expand All');
+        }
+    });
+    
+    $('#accordion').on('show.bs.collapse', function () {
+        if (active) $('#accordion .in').collapse('hide');
+    });
+
+});
+
+// Collapse or expand all logic for Pets tab
+
+$(document).ready(function(){
+
+    var active = false;
+
+    $('#collapse-init1').click(function () {
+        if (active) {
+            active = false;
+            $('.panel-collapse').collapse('show');
+            $('.panel-title').attr('data-toggle', '');
+            $(this).text('Collapse All');
+        } else {
+            active = true;
+            $('.panel-collapse').collapse('hide');
+            $('.panel-title').attr('data-toggle', 'collapse');
+            $(this).text('Expand All');
+        }
+    });
+    
+    $('#accordion').on('show.bs.collapse', function () {
+        if (active) $('#accordion .in').collapse('hide');
+    });
+
+});
