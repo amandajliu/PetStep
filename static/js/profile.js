@@ -26,13 +26,18 @@ $(document).ready(function() {
 
     });
 });
-
-// pull down class
+// Messages 
 $(document).ready(function() {
-    $('.pull-down').each(function() {
-        $(this).css('margin-top', $(this).parent().height() - $(this).height());
-        console.log('parent height', $(this).parent());
-        console.log('height', $(this).height());
+    // send button click
+    $('#message-send').click(function() {
+        var message = $('#message-text').val();
+        var newMessageHTML = "<div class='row'>\
+        <div class='col-xs-1'>\
+        <img class='img img-circle' width='40px' height='40px' src='static/images/Cornelio.png' margin='4px' />\
+        </div>\
+        <div class='well well-sm m-person-1 col-xs-10'>" + message + "</div></div>";
+        $('.messages-right').append(newMessageHTML);
+        $('#message-text').val('');
     });
 });
 
