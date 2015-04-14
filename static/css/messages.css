@@ -1,0 +1,33 @@
+.message-name {
+	border: 0px;
+	background-color: #ffffff;
+	-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+          box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.m-person-2 {
+	background-color: #ffffff;
+}
+.m-person-1 {
+	background-color: #0097A7;
+	color: #ffffff;
+}
+
+.pull-down {
+	display: table-cell;
+	vertical-align: bottom;
+	float: none;
+}
+
+
+.messages-left {
+	min-height: 300px;
+	max-height: 300px;
+	overflow-y: scroll;
+}
+
+.messages-right {
+	min-height: 250px;
+	max-height: 250px;
+	overflow-y: scroll;
+}

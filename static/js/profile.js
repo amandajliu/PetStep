@@ -9,6 +9,33 @@ $(document).ready(function() {
 	});
 });
 
+// Reviews show stars
+$(document).ready(function() {
+    var starFilled = "<span class='glyphicon glyphicon-star'></span>";
+    var starEmpty = "<span class='glyphicon glyphicon-star-empty'></span>";
+    $(".starsHere").each(function() {
+        var stars = parseInt($(this).data("stars"));
+        for (var i = 0; i < 5; i++) {
+            if (i < stars) {
+                $(this).append(starFilled);
+            }
+            else {
+                $(this).append(starEmpty);
+            }
+        }
+
+    });
+});
+
+// pull down class
+$(document).ready(function() {
+    $('.pull-down').each(function() {
+        $(this).css('margin-top', $(this).parent().height() - $(this).height());
+        console.log('parent height', $(this).parent());
+        console.log('height', $(this).height());
+    });
+});
+
 // Timeline js
 $(document).ready(function($){
 	var $timeline_block = $('.cd-timeline-block');
@@ -30,4 +57,65 @@ $(document).ready(function($){
 			});
 		}
 	});
+});
+// Active Listing - Hiring dialog
+
+// $(document).ready(function(){
+// 	$( "#dialog" ).dialog({ autoOpen: false });
+// 	$( "#hiringButton" ).click(function() {
+//   		$( "#dialog" ).dialog( "open" );
+// 	});
+// });
+
+// Accordion js
+// Thanks to http://stackoverflow.com/questions/20347553/bootstrap-3-collapse-accordion-collapse-all-works-but-then-cannot-expand-all-wh
+// Collapse or expand all logic for Active Listing tab
+$(document).ready(function(){
+
+    var active = false;
+
+    $('#collapse-init').click(function () {
+        if (active) {
+            active = false;
+            $('.panel-collapse').collapse('show');
+            $('.panel-title').attr('data-toggle', '');
+            $(this).text('Collapse All');
+        } else {
+            active = true;
+            $('.panel-collapse').collapse('hide');
+            $('.panel-title').attr('data-toggle', 'collapse');
+            $(this).text('Expand All');
+        }
+    });
+    
+    $('#accordion').on('show.bs.collapse', function () {
+        if (active) $('#accordion .in').collapse('hide');
+    });
+
+});
+
+// Collapse or expand all logic for Pets tab
+
+$(document).ready(function(){
+
+    var active = false;
+
+    $('#collapse-init1').click(function () {
+        if (active) {
+            active = false;
+            $('.panel-collapse').collapse('show');
+            $('.panel-title').attr('data-toggle', '');
+            $(this).text('Collapse All');
+        } else {
+            active = true;
+            $('.panel-collapse').collapse('hide');
+            $('.panel-title').attr('data-toggle', 'collapse');
+            $(this).text('Expand All');
+        }
+    });
+    
+    $('#accordion').on('show.bs.collapse', function () {
+        if (active) $('#accordion .in').collapse('hide');
+    });
+
 });

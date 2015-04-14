@@ -1,3 +1,15 @@
+/*------------------------------
+Layout Colors
+----------------------------- */
+body {
+  background-color: #b2ebf2;
+}
+
+.tab-content {
+  background-color: #f5f5f5;
+}
+
+
 /* -----------------------------
 Better looking tabs
 ----------------------------- */
@@ -8,9 +20,9 @@ Better looking tabs
 
 .main-tabs > a {
   border-radius: 0px ! important;
-  color: #607D8B ! important;
+  color: #0097a7 ! important;
 }
-
+/* #607D8B */
 .main-tabs:not(.active) > a:hover {
   background-color: #FFFFFF ! important;
   color: #CFD8DC ! important;
@@ -25,7 +37,7 @@ Better looking tabs
 }
 
 .main-tabs.active{
-  border-top: 5px solid #607D8B;
+  border-top: 5px solid #0097a7;
   margin-top: -5px;
 }
 
@@ -62,6 +74,12 @@ Layout CSS
   height:60px; 
   margin-right:10px;
 }
+.panel-default > .panel-heading {
+  background-color: white;
+}
+.panel-body {
+  background-color: white;
+}
 .well{
   color: black;
 }
@@ -97,3 +115,26 @@ Layout CSS
   top: 160px; 
   left: 20px;
 }
+
+
+/* ---------------------
+Stars
+--------------------- */
+
+.glyphicon-star {
+  margin: 0px;
+  color: #00BCD4;
+}
+
+.glyphicon-star-empty {
+  margin: 0px;
+  color: #727272;
+}
+
+#dialog {
+  font-family: Lato;
+}
+#collapse-init{
+  position: relative;
+}
+
