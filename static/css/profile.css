@@ -2,7 +2,8 @@
 Layout Colors
 ----------------------------- */
 body {
-  background-color: #b2ebf2;
+  background-color: #FFFFFF;
+  padding-bottom: 30px;
 }
 
 .tab-content {
@@ -66,12 +67,12 @@ Layout CSS
     border-bottom: 1px solid #e7e7e7;
 }
 #profTitle{
-  margin-bottom: 0px; 
+  margin-bottom: 0px;
   left: 20px;
 }
 #headerProfPic{
-  width:60px; 
-  height:60px; 
+  width:60px;
+  height:60px;
   margin-right:10px;
 }
 .panel-default > .panel-heading {
@@ -90,29 +91,29 @@ Layout CSS
   margin-top: 63px;
 }
 .petProfLg1{
-  height: 150px; 
-  width: 150px; 
+  height: 150px;
+  width: 150px;
   position: absolute;
-} 
+}
 .petProfSm1{
-  height: 60px; 
+  height: 60px;
   width: 60px;
 }
 #editPetButton{
   position: relative;
-  top: 160px; 
+  top: 160px;
   left: 30px;
 }
 #editProfButton{
   margin-bottom: 10px;
 }
 #addListingButton{
-  position: absolute; 
+  position: absolute;
   right: 0px;
 }
 #editListingButton{
   position: relative;
-  top: 160px; 
+  top: 160px;
   left: 20px;
 }
 
@@ -137,4 +138,3 @@ Stars
 #collapse-init{
   position: relative;
 }
-

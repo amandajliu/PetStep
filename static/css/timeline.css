@@ -48,7 +48,7 @@ Main components
   background: #303e49;
 }
 #cd-timeline > header h1 {
-  color: white;
+  color: #FFFFFF;
 }
 @media only screen and (min-width: 1170px) {
   #cd-timeline > header {
@@ -65,7 +65,7 @@ Main components
   padding: 2em 0;
   margin-top: 2em;
   margin-bottom: 2em;
-  background-color: #CFD8DC;
+  /*background-color: #CFD8DC;*/
   padding: 10px;
 }
 #cd-timeline::before {
@@ -136,11 +136,17 @@ Main components
   top: 50%;
   margin-top: -12px;
 }
+.cd-timeline-content-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
 .cd-timeline-img.cd-from {
-  background: #75ce66;
+  background: #B2EBF2;
 }
 .cd-timeline-img.cd-away {
-  background: #c03b44;
+  background: #0097A7;
 }
 @media only screen and (min-width: 1170px) {
   .cd-timeline-img {
@@ -236,23 +242,23 @@ Main components
 .cd-timeline-content h2 {
   color: #303e49;
 }
-.cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+.cd-timeline-content p, .cd-timeline-content .cd-review, .cd-timeline-content .cd-date {
 }
-.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+.cd-timeline-content .cd-review, .cd-timeline-content .cd-date {
   display: inline-block;
 }
 .cd-timeline-content p {
   margin: 1em 0;
   line-height: 1.6;
 }
-.cd-timeline-content .cd-read-more {
+.cd-timeline-content .cd-review {
   float: right;
   padding: .8em 1em;
   background: #acb7c0;
   color: white;
   border-radius: 0.25em;
 }
-.no-touch .cd-timeline-content .cd-read-more:hover {
+.no-touch .cd-timeline-content .cd-review:hover {
   background-color: #bac4cb;
 }
 .cd-timeline-content .cd-date {
@@ -283,7 +289,7 @@ Main components
     border-color: transparent;
     border-left-color: white;
   }
-  .cd-timeline-content .cd-read-more {
+  .cd-timeline-content .cd-review {
     float: left;
   }
   .cd-timeline-content .cd-date {
@@ -302,7 +308,7 @@ Main components
     border-color: transparent;
     border-right-color: white;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
+  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-review {
     float: right;
   }
   .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
