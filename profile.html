@@ -2,7 +2,7 @@
 <head>
   <!-- Default loads, native to project -->
   <script src="static/res/jquery.min.js"></script>
-  <!-- <script src="static/res/jquery-ui.min.js"></script> -->
+  <script src="static/js/jquery-ui.js"></script>
   <script src="static/js/bootstrap.min.js"></script>
   <script src="static/js/mustache.min.js"></script>
   <script src="static/js/profile.js"></script>
@@ -14,6 +14,7 @@
   <link rel="stylesheet" type="text/css" href="static/css/timeline.css">
   <link rel="stylesheet" type="text/css" href="static/css/profile.css">
   <link rel="stylesheet" type="text/css" href="static/css/messages.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <!--<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>-->
 </head>
@@ -282,21 +283,25 @@
 <!-- TAB CONTENT - Pets -->
 		<div class='main-panes tab-pane' id='pane-pets'>
 
+      <button id="collapse-init1" class="btn btn-primary">
+        Collapse All
+      </button>
+
     <!-- Bootstrap panel grouping of collapsable tabs for each pet -->
       <div class="panel-group" id="accordion">
         <div class="panel panel-default" id="panelPet1">
           <!-- Each unexpanded tab has an expand icon, mini pet icon, and pet name -->
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" data-target="#collapsePetOne" class="collapsed">
-                <span class="glyphicon glyphicon-plus"></span>
+              <a data-toggle="collapse" data-target="#collapsePetOne" class="collapsed in">
+                <span class="glyphicon glyphicon-triangle-bottom"></span>
                 <img class='petProfSm1 img-circle' src='static/images/fluffy0.jpg'>
                 Fluffy
               </a>
             </h4>
           </div>
           <!-- Each expanded tab has an a larger pet image, an edit button, more pet info, and add listing button-->
-          <div id="collapsePetOne" class="panel-collapse collapse">
+          <div id="collapsePetOne" class="panel-collapse collapse in">
             <div class="panel-body">
               <div class="petExpandLeft col-md-2"> <!-- Contains pet image and edit button-->
                 <img class='petProfLg1 img-circle' src='static/images/fluffy0.jpg'>
@@ -327,21 +332,26 @@
 <!-- TAB CONTENT - Active Listings -->
 		<div class='main-panes tab-pane' id='pane-active-listings'>
 
+      <button id="collapse-init" class="btn btn-primary">
+        Collapse All
+      </button>
+
+
     <!-- Bootstrap panel grouping of collapsable tabs for each pet -->
       <div class="panel-group" id="accordion">
         <div class="panel panel-default" id="panelPet1">
           <!-- Each unexpanded tab has an expand icon, mini pet icon, pet name, and date -->
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" data-target="#collapseListingOne" class="collapsed">
-                <span class="glyphicon glyphicon-plus"></span>
+              <a data-toggle="collapse" data-target="#collapseListingOne" class="collapsed in">
+                <span class="glyphicon glyphicon-triangle-bottom"></span>
                 <img class='petProfSm1 img-circle' src='static/images/fluffy0.jpg'>
                 Fluffy, May 24th-28th, 2015
               </a>
             </h4>
           </div>
           <!-- Each expanded tab has an a larger pet image, an edit button, more pet info, and add listing button-->
-          <div id="collapseListingOne" class="panel-collapse collapse">
+          <div id="collapseListingOne" class="panel-collapse collapse in">
             <div class="panel-body">
               <div class="petExpandLeft col-md-2"> <!-- Contains pet image and edit button-->
                 <img class='petProfLg1 img-circle' src='static/images/fluffy0.jpg'>
@@ -356,7 +366,7 @@
                 <h4 class="listingTitle"> Payment:</h4>
                 <h4 class="listingTitle"> Distance:</h4>
               </div>
-              <div class="petExpandRight col-md-3"> <!-- Contains listing details -->
+              <div class="petExpandRight col-md-6"> <!-- Contains listing details -->
                 <h2 id="secondColListing"> </h2>
                 <h4> Snake </h4>
                 <h4> Casual, Professional</h4>
@@ -364,18 +374,22 @@
                 <h4> $, $$, $$$, Negotiable</h4>
                 <h4> 25 mile radius</h4>
               </div>
+              <div class="petExpandRight col-md-2"> <!-- Contains hiring a sitter button-->
+                  <button type='button' class='btn btn-default' id="hiringButton"><span class="glyphicon glyphicon-ok"></span> Hire a Sitter</button>
+              </div>
+              <div id="dialog" title="Hire a Sitter"> <!-- Contains hiring a sitter dialog, prompts for name and user or not-->
+                <form>
+                  Sitter Name: <input type="text" name="SitterName"><br>
+                  <input type="radio" name="accountStatus" value="yesAcct">Sitter is a current user<br>
+                  <input type="radio" name="accountStatus" value="noAcct">Sitter does not yet have an account<br>
+                  <input type="submit" value="Submit">
+                </form>
+              </div>              
             </div>
           </div>
         </div>
 
       </div>
-
-      <div class="petExpandRight col-md-12"> <!-- Contains add listing button-->
-        <!-- TO-DO: Link to listing creation dialog -->
-        <button type='button' class='btn btn-default' id="addListingButton"><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
-      </div>
-
-      <br>
     </div> <!-- End of Active Listings Tab -->
 
 <!-- TAB CONTENT - Messages -->
