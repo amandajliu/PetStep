@@ -114,6 +114,11 @@ Stars
   color: #00BCD4;
 }
 
+.glyphicon-star-empty {
+  margin: 0px;
+  color: #727272;
+}
+
 #dialog {
   font-family: Lato;
 }
