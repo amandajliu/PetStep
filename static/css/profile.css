@@ -1,3 +1,14 @@
+/*------------------------------
+Layout Colors
+----------------------------- */
+body {
+  background-color: #b2ebf2;
+}
+
+.tab-content {
+  background-color: #f5f5f5;
+}
+
 /* -----------------------------
 Better looking tabs
 ----------------------------- */
