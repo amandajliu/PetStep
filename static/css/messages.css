@@ -1,13 +1,14 @@
 .message-name {
 	border: 0px;
+	background-color: #ffffff;
 	-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
           box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
 
-.m-person-1 {
+.m-person-2 {
 	background-color: #ffffff;
 }
-.m-person-2 {
-	background-color: #009787;
+.m-person-1 {
+	background-color: #0097A7;
 	color: #ffffff;
 }
