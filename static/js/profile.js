@@ -9,6 +9,24 @@ $(document).ready(function() {
 	});
 });
 
+// Reviews show stars
+$(document).ready(function() {
+    var starFilled = "<span class='glyphicon glyphicon-star'></span>";
+    var starEmpty = "<span class='glyphicon glyphicon-star-empty'></span>";
+    $(".starsHere").each(function() {
+        var stars = parseInt($(this).data("stars"));
+        for (var i = 0; i < 5; i++) {
+            if (i < stars) {
+                $(this).append(starFilled);
+            }
+            else {
+                $(this).append(starEmpty);
+            }
+        }
+
+    });
+});
+
 // Timeline js
 $(document).ready(function($){
 	var $timeline_block = $('.cd-timeline-block');

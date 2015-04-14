@@ -14,6 +14,7 @@
   <link rel="stylesheet" type="text/css" href="static/css/timeline.css">
   <link rel="stylesheet" type="text/css" href="static/css/profile.css">
   <link rel="stylesheet" type="text/css" href="static/css/messages.css">
+  <link rel="stylesheet" type="text/css" href="static/css/reviews.css">
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <!--<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>-->
@@ -70,9 +71,7 @@
 					<div class='row'>
 						<div class='col-md-12'><h1>Cornelio Rosales</h1></div>
 						<div class='col-md-12' id="profTitle"><p>Owner of Fluffy (Snake)</p></div>
-						<div class='col-md-6'><h4>Owner Rating: <span id='ownerRating'>
-							<span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star-empty'></span><span class='glyphicon glyphicon-star-empty'></span>
-							</span></h4></div>
+						<div class='col-md-6'><h4>Owner Rating: <span id='ownerRating' class='starsHere' data-stars='4'></span></h4></div>
 						<div class='col-md-6'><h4>Sitter Rating: <span id='sitterRating'><small>Not Applicable</small></span></h4>
 						</div>
           </div>
@@ -160,10 +159,124 @@
 
 <!-- TAB CONTENT - Reviews -->
 		<div class='main-panes tab-pane' id='pane-reviews'>
+      <div class='container'> <!-- outer div for review summary -->
+        <div class='row'>
+          <div class='col-md-4 col-md-offset-1 panel panel-default'>
+            <div class='panel-body'>
+              <div class='row'>
+                <div class='col-sm-11 col-sm-offset-1'>
+                <h3>Cornelio: <span class='starsHere' data-stars='4'></span></h3>
+              </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-2'>5</div>
+                <div class='col-sm-10'>
+                <div class='progress'>
+                  <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='1' aria-valuemin='0' aria-valuemax='2'style='width:50%'>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-2'>4</div>
+                <div class='col-sm-10'>
+                <div class='progress'>
+                  <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='2'style='width:0%'>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-2'>3</div>
+                <div class='col-sm-10'>
+                <div class='progress'>
+                  <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='1' aria-valuemin='0' aria-valuemax='2'style='width:50%'>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-2'>2</div>
+                <div class='col-sm-10'>
+                <div class='progress'>
+                  <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='2'style='width:0%'>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-2'>1</div>
+                <div class='col-sm-10'>
+                <div class='progress'>
+                  <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='2'style='width:0%'>
+                  </div>
+                </div>
+              </div>
+              </div>
+          </div>
+        </div>
+          <div class='col-md-4 col-md-offset-2 panel panel-default'>
+            <div class='panel-body'>
+              <div class='row'>
+                <div class='col-sm-11 col-sm-offset-1'>
+                <h3>Fluffy: <span class='starsHere' data-stars='5'></span></h3>
+              </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-2'>5</div>
+                <div class='col-sm-10'>
+                <div class='progress'>
+                  <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='2' aria-valuemin='0' aria-valuemax='2'style='width:100%'>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-2'>4</div>
+                <div class='col-sm-10'>
+                <div class='progress'>
+                  <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='2'style='width:0%'>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-2'>3</div>
+                <div class='col-sm-10'>
+                <div class='progress'>
+                  <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='2'style='width:0%'>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-2'>2</div>
+                <div class='col-sm-10'>
+                <div class='progress'>
+                  <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='2'style='width:0%'>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-2'>1</div>
+                <div class='col-sm-10'>
+                <div class='progress'>
+                  <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='2'style='width:0%'>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class='panel panel-default'> <!-- outer div for a review -->
+      <div class='panel-body'>
       <div class='container'>
         <div class='row'>
-          <div class='col-md-1'>
+          <div class='col-md-1'> 
             <div class='row'>Lily Paxton</div>
             <div class='row'><img class='reviewPic img img-circle' src='static/images/lilyPaxton.jpg' height='60px' width='60px'/></div>
             <div class='row'><h6 class='reivewTime'>a week ago</h6></div>
@@ -172,23 +285,58 @@
             <div class='container container-fluid'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <h4>Cornelio: <span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star-empty'></span><span class='glyphicon glyphicon-star-empty'></span></h4>
+                  <h4>Cornelio: <span class='starsHere' data-stars='3'></span></h4> 
                 </div>
                 <div class='col-md-6'>
                   <h4>
-                    Fluffy: <span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span>
+                    Fluffy: <span class='starsHere' data-stars='5'></span>
                   </h4>
                 </div>
               </div>
               <div class='row'>
                 <div class='col-md-12 well'>
-                  Fluffy was awesome but Cornelio wasn't that great.  Now I'm going to keep writing so that this review takes up some more lines.  
+                  Fluffy was awesome but Cornelio was not.     
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class='panel panel-default'> <!-- outer div for a review -->
+      <div class='panel-body'>
+      <div class='container'>
+        <div class='row'>
+          <div class='col-md-1'> 
+            <div class='row'>Flynn Rider</div>
+            <div class='row'><img class='reviewPic img img-circle' src='static/images/FlynnRider.jpeg' height='60px' width='60px'/></div>
+            <div class='row'><h6 class='reivewTime'>two months ago</h6></div>
+          </div>
+          <div class='col-md-11'>
+            <div class='container container-fluid'>
+              <div class='row'>
+                <div class='col-md-6'>
+                  <h4>Cornelio: <span class='starsHere' data-stars='5'></span></h4> 
+                </div>
+                <div class='col-md-6'>
+                  <h4>
+                    Fluffy: <span class='starsHere' data-stars='5'></span>
+                  </h4>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-md-12 well'>
+                  FLUFFY IS THE BEST SNAKE EVER!!!!!!!!!!!!!!! AND CORNELIO IS MY BEST FRIEND!!!!!!  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
     </div>
 
 <!-- TAB CONTENT - History/Timeline -->
