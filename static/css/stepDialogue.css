@@ -81,7 +81,7 @@ http://thecodeplayer.com/walkthrough/jquery-multi-step-form-with-progress-bar
 	line-height: 20px;
 	display: block;
 	font-size: 10px;
-	color: #333;
+	color: #00BCD4;
 	background: #FFFFFF;
 	border-radius: 3px;
 	margin: 0 auto 5px auto;
@@ -104,6 +104,6 @@ http://thecodeplayer.com/walkthrough/jquery-multi-step-form-with-progress-bar
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #steps li._active:before,  #steps li._active:after{
-	background: #607D8B;
+	background: #00BCD4;
 	color: #FFFFFF;
 }
