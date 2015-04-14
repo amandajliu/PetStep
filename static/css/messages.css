@@ -12,3 +12,22 @@
 	background-color: #0097A7;
 	color: #ffffff;
 }
+
+.pull-down {
+	display: table-cell;
+	vertical-align: bottom;
+	float: none;
+}
+
+
+.messages-left {
+	min-height: 300px;
+	max-height: 300px;
+	overflow-y: scroll;
+}
+
+.messages-right {
+	min-height: 250px;
+	max-height: 250px;
+	overflow-y: scroll;
+}

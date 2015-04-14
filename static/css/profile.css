@@ -20,9 +20,9 @@ Better looking tabs
 
 .main-tabs > a {
   border-radius: 0px ! important;
-  color: #607D8B ! important;
+  color: #0097a7 ! important;
 }
-
+/* #607D8B */
 .main-tabs:not(.active) > a:hover {
   background-color: #FFFFFF ! important;
   color: #CFD8DC ! important;
@@ -37,7 +37,7 @@ Better looking tabs
 }
 
 .main-tabs.active{
-  border-top: 5px solid #607D8B;
+  border-top: 5px solid #0097a7;
   margin-top: -5px;
 }
 
