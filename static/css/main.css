@@ -8,6 +8,85 @@ html {
 body {
   font-family: Lato, sans-serif;
 }
+#favsContainer{
+  width:100%;
+  height:100%;
+  padding:5px;
+  display:table;
+  /*margin-top: 120px ! important;*/
+}
+.petListing, .personListing{
+  /*width:500px;*/
+  margin:5px;
+  float:left;
+  border:1px solid #eee;
+  border-radius:7px;
+  overflow:hidden;
+  cursor: pointer;
+}
+.listingImgDiv{
+  border-radius:7px;
+  position:relative;
+}
+
+.listingImg{
+  width:400px;
+  height:auto;
+}
+.masonry{
+  margin:0 auto;
+}
+#pane-favorites{
+  display:table;
+}
+.hide{
+  display:none;
+  top:-9999px !important;
+  left:-9999px !important;
+}
+.switch{
+  display:inline-block;
+  padding-left:5px;
+  padding-right:5px;
+  border: 1px solid #bdbdbd;
+  margin:-1.5px;
+  cursor:pointer;
+  color:#bdbdbd;
+  background-color:white;
+  -webkit-filter: blur(.3px);
+}
+.activeSwitch{
+  background-color:#0097A7!important;
+  color:white !important;
+  border:0px;
+  padding-top:2px;
+  padding-bottom:2px;
+  box-shadow: 1px 1px 0.5px #a9a9a9;
+  z-index:5;
+  -webkit-filter: blur(0px) !important;
+}
+#sitterButton{
+  border-top-left-radius:2px;
+  border-bottom-left-radius:2px;
+}
+#petButton{
+  border-top-right-radius:2px;
+  border-bottom-right-radius:2px;
+}
+.listingInfo{
+  width:400px;
+  height:100%;
+  display:none;
+  padding:0px;
+  position:absolute;
+  background-color: black;
+  opacity:0.7;
+  bottom:0px;
+  color:white;
+  padding:10px;
+  overflow:auto;
+  border-radius:7px;
+}
 
 h1 {
   margin-left: 20px;

@@ -5,8 +5,11 @@
   <script src="static/js/jquery-ui.js"></script>
   <script src="static/js/bootstrap.min.js"></script>
   <script src="static/js/mustache.min.js"></script>
-  <script src="static/js/profile.js"></script>
+
   <script src="static/js/modernizer.js"></script>
+  <script src="static/js/jquery.masonry.min.js"></script>
+  <script src="static/js/imagesloaded.pkgd.min.js"></script>
+  <script src="static/js/profile.js"></script>
   <!-- <script src="static"></script> -->
   <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="static/css/main.css">
@@ -151,7 +154,7 @@
 			<li role='presentation' class='main-tabs' id='tab-active-listings'><a>Active Listings</a></li>
 			<li role='presentation' class='main-tabs' id='tab-messages'><a>Messages</a></li>
 		</ul>
-	<div class='tab-content tabbed-content'>
+	<div class='tab-content tabbed-content' id="tabContent">
 		<div class='main-panes tab-pane active' id='pane-public-activity'>
 
       <div class="activityFeed">
@@ -192,7 +195,32 @@
         </div>
       </div>
     </div>
-		<div class='main-panes tab-pane' id='pane-favorites'>Favorites</div>
+<!-- TAB CONTENT - Favorites -->
+    <div class='main-panes tab-pane' id='pane-favorites'>
+      <!--<div class="switchLi">
+        <div class="switch activeSwitch" id="sitterButton">Sitter</div>
+        <div class="switch" id="petButton">Pet</div>
+      </div>-->
+      <div id="favsContainer">
+
+        <div class="petListing fav">
+          <div class="listingImgDiv">
+            <img class="listingImg" src="static/images/burritoCat0.jpg">
+            <div class="listingInfo">
+              <p class="petName">Pet name: Burrito</p>
+              <p class="petType">Pet type: Cat</p>
+              <p class="ownerName">Owner name: Janet Mason <a href="#">(view profile)</a></p>
+              <p class="ownerZip">Owner zipcode: 02142</p>
+              <p class="date">
+                <span class="startDate">Start date: 5/20/2015</span>
+                <span class="endDate">End date: 5/21/2015</span>
+              </p>
+              <p class="pay">Pay: $$$</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 <!-- TAB CONTENT - Reviews -->
 		<div class='main-panes tab-pane' id='pane-reviews'>
@@ -664,7 +692,7 @@
     <div class='container' id='messages-popup-area'>
       <div class='row messages-popup-row pull-left'>
         <div class='col-xs-2'>
-          <img class='img img-circle messages-popup-image-1' src='static/images/Cornelio.png' /> 
+          <img class='img img-circle messages-popup-image-1' src='static/images/Cornelio.png' />
         </div>
         <div class='col-xs-10 messages-popup-p1'>
           Hi! This is a message.
@@ -672,7 +700,7 @@
       </div>
       <div class='row messages-popup-row pull-right'>
         <div class='col-xs-10 messages-popup-p2'>
-          Hi! This is a response. 
+          Hi! This is a response.
         </div>
         <div class='col-xs-2'>
           <img class='img img-circle messages-popup-image-2' src='static/images/lilyPaxton.jpg' />
@@ -681,16 +709,16 @@
 
       <div class='row messages-popup-row pull-left'>
         <div class='col-xs-2'>
-          <img class='img img-circle messages-popup-image-1' src='static/images/Cornelio.png' /> 
+          <img class='img img-circle messages-popup-image-1' src='static/images/Cornelio.png' />
         </div>
         <div class='col-xs-10 messages-popup-p1'>
-          Hi! 
+          Hi!
         </div>
       </div>
 
       <div class='row messages-popup-row pull-right'>
         <div class='col-xs-10 messages-popup-p2'>
-          Hi!  
+          Hi!
         </div>
         <div class='col-xs-2'>
           <img class='img img-circle messages-popup-image-2' src='static/images/lilyPaxton.jpg' />
@@ -699,10 +727,10 @@
 
       <div class='row messages-popup-row pull-left'>
         <div class='col-xs-2'>
-          <img class='img img-circle messages-popup-image-1' src='static/images/Cornelio.png' /> 
+          <img class='img img-circle messages-popup-image-1' src='static/images/Cornelio.png' />
         </div>
         <div class='col-xs-10 messages-popup-p1'>
-          Hi! This is a really long message that's going to take up multiple lines, and probably break something. 
+          Hi! This is a really long message that's going to take up multiple lines, and probably break something.
         </div>
       </div>
 
