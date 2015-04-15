@@ -39,6 +39,14 @@ $(document).ready(function() {
         $('.messages-right').append(newMessageHTML);
         $('#message-text').val('');
     });
+
+    $('#popup-messages').click(function() {
+        $('#messages-popup').css('visibility', 'visible');
+    });
+
+    $('#messages-popup-close').click(function() {
+        $('#messages-popup').css('visibility', 'hidden');
+    });
 });
 
 // Timeline js
