@@ -595,7 +595,7 @@
           <div class='row message-name well well-sm'>
             <div class='media'>
               <div class='media-left media-middle'><img class='media-object img img-circle' src='static/images/lilyPaxton.jpg' height='40px' width='40px'/> </div>
-              <div class='media-body'><h4 class='media-heading'>Lily Paxton <span class='glyphicon glyphicon-remove pull-right'></span></h4></div>
+              <div class='media-body'><h4 class='media-heading'>Lily Paxton <span class='glyphicon glyphicon-remove pull-right'></span><span class='glyphicon glyphicon-new-window pull-right' id='popup-messages'></span></h4></div>
             </div>
           </div>
           <div class='row message-name well well-sm'>
@@ -655,5 +655,72 @@
   </div>
 	<!-- </div> -->
 
+
+
+  <!-- messages popup -->
+  <div id='messages-popup'>
+    <div id='messages-popup-header'>Lily Paxton <span class='glyphicon glyphicon-remove pull-right' id='messages-popup-close'></span></div>
+
+    <div class='container' id='messages-popup-area'>
+      <div class='row messages-popup-row pull-left'>
+        <div class='col-xs-2'>
+          <img class='img img-circle messages-popup-image-1' src='static/images/Cornelio.png' /> 
+        </div>
+        <div class='col-xs-10 messages-popup-p1'>
+          Hi! This is a message.
+        </div>
+      </div>
+      <div class='row messages-popup-row pull-right'>
+        <div class='col-xs-10 messages-popup-p2'>
+          Hi! This is a response. 
+        </div>
+        <div class='col-xs-2'>
+          <img class='img img-circle messages-popup-image-2' src='static/images/lilyPaxton.jpg' />
+        </div>
+      </div>
+
+      <div class='row messages-popup-row pull-left'>
+        <div class='col-xs-2'>
+          <img class='img img-circle messages-popup-image-1' src='static/images/Cornelio.png' /> 
+        </div>
+        <div class='col-xs-10 messages-popup-p1'>
+          Hi! 
+        </div>
+      </div>
+
+      <div class='row messages-popup-row pull-right'>
+        <div class='col-xs-10 messages-popup-p2'>
+          Hi!  
+        </div>
+        <div class='col-xs-2'>
+          <img class='img img-circle messages-popup-image-2' src='static/images/lilyPaxton.jpg' />
+        </div>
+      </div>
+
+      <div class='row messages-popup-row pull-left'>
+        <div class='col-xs-2'>
+          <img class='img img-circle messages-popup-image-1' src='static/images/Cornelio.png' /> 
+        </div>
+        <div class='col-xs-10 messages-popup-p1'>
+          Hi! This is a really long message that's going to take up multiple lines, and probably break something. 
+        </div>
+      </div>
+
+      <div class='row messages-popup-row pull-right'>
+        <div class='col-xs-10 messages-popup-p2'>
+          And this is an equally long response to that thing, because breaking stuff is so much fun.
+          </div>
+          <div class='col-xs-2'>
+           <img class='img img-circle messages-popup-image-2' src='static/images/lilyPaxton.jpg' />
+         </div>
+      </div>
+    </div>
+    <div class='input-group' id='messages-popup-input'>
+      <input type='text' class='form-control' id='messages-popup-text' placeholder='Type here...' />
+      <span class='input-group-btn'>
+        <button class='btn btn-default' type='button' id='messages-popup-send'>Send</button>
+      </span>
+    </div>
+  </div>
 </body>
 </html>
