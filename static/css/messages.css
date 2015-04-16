@@ -28,6 +28,56 @@
 
 .messages-right {
 	min-height: 250px;
+}
+
+#messages-popup {
+	position: fixed;
+	right: 20px;
+	bottom: 0px;
+	width: 300px;
+	height: 300px;
+	background-color: #ffffff;
+	border: 4px solid black;
+	z-index: 3;
+	visibility: hidden;
+}
+
+#messages-popup-header {
+	background-color: #00bcd4;
+	color: #ffffff;
+}
+
+#messages-popup-input {
+	position: absolute;
+	width: 100%;
+	right: 0px;
+	bottom: 0px;
+}
+
+#messages-popup-area {
+	min-height: 250px;
 	max-height: 250px;
-	overflow-y: auto;
+	overflow-y: scroll;
+	font-size: 12px;
+}
+
+.messages-popup-row {
+	width: 100%;
+	padding: 2px;
+}
+
+.messages-popup-p1 {
+	background-color: #b6b6b6;
+	text-align: left;
+}
+
+.messages-popup-p2 {
+	background-color: #0097a7;
+	color: #ffffff;
+	text-align: right;
+}
+
+.messages-popup-image-1, .messages-popup-image-2 {
+	width: 20px;
+	height: 20px;
 }
