@@ -23,11 +23,11 @@
 .messages-left {
 	min-height: 300px;
 	max-height: 300px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .messages-right {
 	min-height: 250px;
 	max-height: 250px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
