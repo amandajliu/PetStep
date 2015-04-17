@@ -28,7 +28,10 @@ body {
   border-radius:7px;
   position:relative;
 }
-
+#collapse-init1, #collapse-init{
+  margin-bottom:10px;
+  background-color: #0097A7;
+}
 .listingImg{
   width:400px;
   height:auto;
