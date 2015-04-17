@@ -22,6 +22,8 @@
 
 .messages-left {
 	min-height: 300px;
+	max-height: 300px;
+	overflow-y: auto;
 }
 
 .messages-right {
@@ -79,10 +81,3 @@
 	width: 20px;
 	height: 20px;
 }
-
-
-
-
-
-
-
