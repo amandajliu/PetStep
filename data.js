@@ -130,41 +130,41 @@ listingsData = {
     sitterName: "Lin Mei",
     sitterImg: "LinMei.jpg",
     zipcode: 02142,
-    petTypes: [{type: "Dog"}, {type: "Cat"}]
+    petTypes: ["Dog", "Cat"]
   }, {
     sitterName: "Penny Marshall",
     sitterImg: "pennyMarshall.jpg",
     zipcode: 02139,
-    petTypes: [{type: "Dog"}]
+    petTypes: ["Dog"]
   }, {
     sitterName: "Stephanie Castle",
     sitterImg: "stephanieCastle.jpg",
     zipcode: 02142,
-    petTypes: [{type: "Dog"}, {type: "Cat"}, {type: "Hamster"}]
+    petTypes: ["Dog", "Cat", "Hamster"]
   }, {
     sitterName: "Craig Newton",
     sitterImg: "craigNewton.jpg",
     zipcode: 02142,
-    petTypes: [{type: "Dog"}]
+    petTypes: ["Dog"]
   }, {
     sitterName: "Janet Mason",
     sitterImg: "JanetMason.jpg",
     zipcode: 02459,
-    petTypes: [{type: "Cat"}, {type: "Hamster"}, {type: "Guinea Pig"}]
+    petTypes: ["Cat", "Hamster", "Guinea Pig"]
   }, {
     sitterName: "Flynn Rider",
     sitterImg: "FlynnRider.jpeg",
     zipcode: 02142,
-    petTypes: [{type: "Dog"}, {type: "Cat"}, {type: "Snake"}]
+    petTypes: ["Dog", "Cat", "Snake"]
   }, {
     sitterName: "Missy Clinton",
     sitterImg: "MissyClinton.jpg",
     zipcode: 02139,
-    petTypes: [{type: "Cat"}]
+    petTypes: ["Cat"]
   }, {
     sitterName: "Doug Schumaker",
     sitterImg: "DougSchumaker.jpg",
     zipcode: 02214,
-    petTypes: [{type: "Cat"}, {type: "Rabbit"}]
+    petTypes: ["Cat", "Rabbit"]
   }]
 }
