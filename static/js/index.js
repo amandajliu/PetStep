@@ -1,3 +1,10 @@
+var loadListings = function() {
+  var listingTemplate = $('#listingTemplate').html();
+  Mustache.parse(listingTemplate);
+  var rendered = Mustache.render(listingTemplate, listingsData);
+  $('#feedContainer').prepend(rendered);
+}
+
 var toggleUser = function() {
   // TODO: Remove pet pics and place sitters <-> Remove sitters and place pet pics
 }
@@ -36,6 +43,7 @@ var changeDist = function(){
 }
 
 $(document).ready(function(){
+  loadListings();
   $('#sortByDistance').attr('checked','checked');
   $('input').change(function(){
     $('#searchParams').html("");
