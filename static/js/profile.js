@@ -92,6 +92,12 @@ $(document).ready(function() {
     $('#messages-popup-close').click(function() {
         $('#messages-popup').css('visibility', 'hidden');
     });
+
+    $('#message-text').keyup(function(event) {
+    	if (event.keyCode === 13) {
+    		$('#message-send').click();
+    	}
+    })
 });
 
 // Timeline js
