@@ -10,7 +10,6 @@ var toggleUser = function() {
 }
 
 var changeTags = function(){
-
   var newSearchParams = [];
   var checked = $('input:checked').each(function(){
     if($(this).attr('id') == "userToggle") {
@@ -24,7 +23,7 @@ var changeTags = function(){
     }
   });
   for(var i=0; i < newSearchParams.length;  i++){
-    var newParam = '<article class="param"> '+newSearchParams[i]+" </article>"
+    var newParam = '<article class="param"> '+newSearchParams[i]+"<span class='glyphicon glyphicon-remove remove-tag'></span></article>";
     $('#searchParams').html(newParam + $('#searchParams').html());
   }
 }
