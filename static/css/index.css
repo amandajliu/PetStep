@@ -11,6 +11,12 @@
   white-space: nowrap;
   overflow-y: hidden;
 }
+
+#searchingForLabel {
+  pointer-events: none;
+  cursor: default;
+}
+
 #searchParamsLabel{
   display:inline-block;
   margin:0px auto;
