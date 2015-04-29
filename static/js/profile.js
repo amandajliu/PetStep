@@ -1,4 +1,29 @@
+var currentUser;
+
+var setUser = function(user) {
+	currentUser = $.grep(profileData.users, function(elt) {
+		return elt.username === user;
+	})[0];
+
+}
+
+var loadProfile = function() {
+	var profileTemplate = $("#profile-template").html();
+	Mustache.parse(profileTemplate);
+	var rendered = Mustache.render(profileTemplate, currentUser);
+	$("#profileBar").prepend(rendered);
+}
+
 $(document).ready(function() {
+	var user = $.getUrlVar('user');
+      if (user) {
+        setUser(user);
+      } 
+      else {
+        setUser("cornelio");
+      }
+	console.log(currentUser);
+	loadProfile();
 	$(".main-tabs").click(function() {
 		var tabid = $(this).attr('id');
 		tabid = tabid.substring(4);
@@ -14,6 +39,9 @@ $(document).ready(function() {
   var starEmpty = "<span class='glyphicon glyphicon-star-empty'></span>";
   $(".starsHere").each(function() {
       var stars = parseInt($(this).data("stars"));
+      if (!stars) {
+      	return;
+      }
       for (var i = 0; i < 5; i++) {
           if (i < stars) {
               $(this).append(starFilled);

@@ -5,7 +5,7 @@
   <script src="static/js/jquery-ui.js"></script>
   <script src="static/js/bootstrap.min.js"></script>
   <script src="static/js/mustache.min.js"></script>
-
+  <script src="data.js"></script>
   <script src="static/js/modernizer.js"></script>
   <script src="static/js/jquery.masonry.min.js"></script>
   <script src="static/js/imagesloaded.pkgd.min.js"></script>
@@ -21,7 +21,57 @@
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <!--<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>-->
+  <script id='messages-template-cornelio' type='x-tmpl-mustache'>
+    <div class='row'>
+      <div class='col-xs-1'>
+        <img class='img img-circle' width='40px' height='40px' src='static/images/Cornelio.png' padding='4px' />
+      </div>
+      <div class='well well-sm m-person-1 col-xs-10'>
+        {{content}}
+      </div>
+    </div>
+  </script>
+  <script id='messages-template-other' type='x-tmpl-mustache'>
+    <div class='row'>
+      <div class='well well-sm m-person-2 col-xs-10 col-xs-offset-1'>
+        {{content}}
+      </div>
+      <div class='col-xs-1 text-right'>
+        <img class='img img-circle' width='40px' height='40px' src='static/images/{{userImg}}' margin='4px' />
+      </div>
+    </div>
+  </script>
 
+  <script id='profile-template' type='x-tmpl-mustache'>
+    <div class='row'>
+      <div class='col-md-4'>
+        <img class='mainProfilePic img-responsive img-rounded' src='static/images/{{userImg}}' style='margin: 10px'>
+      </div>
+      <div class='col-md-8'>
+        <div class='container-fluid'>
+          <div class='row'>
+            <div class='col-md-7'><h1>{{name}}</h1></div>
+            <div class='col-md-5'>
+              <button type='button' class='btn btn-default' style="margin-top: 20px;">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>
+            </div>
+            <div class='col-md-12' id="profTitle"><p>Owner of {{#pets}}{{petName}} ({{petType}}) {{/pets}}</p></div>
+            <div class='col-md-6'><h4>Owner Rating: <span id='ownerRating' class='starsHere' data-stars='{{ownerRating}}'></span>{{^ownerRating}}<small>Not Applicable</small>{{/ownerRating}}</h4></div>
+            <div class='col-md-6'><h4>Sitter Rating: <span id='sitterRating' class='starsHere' data-stars='{{sitterRating}}'>{{^sitterRating}}<small>Not Applicable</small>{{/sitterRating}}</span></h4></div>
+          </div>
+          <div class="row">
+            <div class='col-md-6'>
+              <h4>Biography:</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="well well-lg" style="color: black">{{bio}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
   <script>
     var historyDrop = function() {
       $("#tab-history").click();
@@ -152,8 +202,8 @@
 		</div>
 	</div> -->
 
-	<div class='profileBar container panel panel-default' style='margin-top:130px'>
-		<div class='row'>
+	<div class='profileBar container panel panel-default' id='profileBar' style='margin-top:130px'>
+		<!-- <div class='row'>
 			<div class='col-md-4'>
 				<img class='mainProfilePic img-responsive img-rounded' src='static/images/Cornelio.png' style='margin: 10px'>
 			</div>
@@ -181,7 +231,7 @@
           </div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 	<!-- First set of tabs and their labels, default bootstrap -->
@@ -671,7 +721,7 @@
           <div class='row message-name well well-sm'>
             <div class='media'>
               <div class='media-left media-middle'><img class='media-object img img-circle' src='static/images/lilyPaxton.jpg' height='40px' width='40px'/> </div>
-              <div class='media-body'><h4 class='media-heading'>Lily Paxton <span class='glyphicon glyphicon-remove pull-right'></span><span class='glyphicon glyphicon-new-window pull-right' id='popup-messages'></span></h4></div>
+              <div class='media-body'><h4 class='media-heading'>Lily Paxton <span class='glyphicon glyphicon-remove pull-right'></span></h4></div>
             </div>
           </div>
           <div class='row message-name well well-sm'>
@@ -694,7 +744,7 @@
           <div class='container messages-right'>
           <div class='row'>
             <div class='col-xs-1'>
-              <img class='img img-circle' width='40px' height='40px' src='static/images/Cornelio.png' margin='4px' />
+              <img class='img img-circle' width='40px' height='40px' src='static/images/Cornelio.png' padding='4px' />
             </div>
             <div class='well well-sm m-person-1 col-xs-10'>
             Hi! This is a message.
