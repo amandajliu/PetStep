@@ -52,7 +52,8 @@
           <div class='row'>
             <div class='col-md-7'><h1>{{name}}</h1></div>
             <div class='col-md-5'>
-              <button type='button' class='btn btn-default' style="margin-top: 20px;">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>
+              {{#currentUser}}<button type='button' class='btn btn-default' style="margin-top: 20px;">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>{{/currentUser}}
+              {{^currentUser}}<button type='button' class='btn btn-default' style="margin-top: 20px;">Message  <span class='glyphicon glyphicon-envelope'></span></button>{{/currentUser}}
             </div>
             <div class='col-md-12' id="profTitle"><p>Owner of {{#pets}}{{petName}} ({{petType}}) {{/pets}}</p></div>
             <div class='col-md-6'><h4>Owner Rating: <span id='ownerRating' class='starsHere' data-stars='{{ownerRating}}'></span>{{^ownerRating}}<small>Not Applicable</small>{{/ownerRating}}</h4></div>
@@ -203,35 +204,6 @@
 	</div> -->
 
 	<div class='profileBar container panel panel-default' id='profileBar' style='margin-top:130px'>
-		<!-- <div class='row'>
-			<div class='col-md-4'>
-				<img class='mainProfilePic img-responsive img-rounded' src='static/images/Cornelio.png' style='margin: 10px'>
-			</div>
-			<div class='col-md-8'>
-				<div class='container-fluid'>
-					<div class='row'>
-						<div class='col-md-7'><h1>Cornelio Rosales</h1></div>
-            <div class='col-md-5'>
-							<button type='button' class='btn btn-default' style="margin-top: 20px;">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>
-						</div>
-						<div class='col-md-12' id="profTitle"><p>Owner of Fluffy (Snake)</p></div>
-						<div class='col-md-6'><h4>Owner Rating: <span id='ownerRating' class='starsHere' data-stars='4'></span></h4></div>
-						<div class='col-md-6'><h4>Sitter Rating: <span id='sitterRating'><small>Not Applicable</small></span></h4>
-						</div>
-          </div>
-          <div class="row">
-						<div class='col-md-6'>
-							<h4>Biography:</h4>
-						</div>
-					</div>
-          <div class="row">
-            <div class="col-md-8">
-              <div class='well well-lg' style='color: black'>Hi! I'm Cornelio and I have a pet snake named Fluffy.  I am looking for professional sitters who have experience with snakes. </div>
-            </div>
-          </div>
-				</div>
-			</div>
-		</div> -->
 	</div>
 
 	<!-- First set of tabs and their labels, default bootstrap -->
