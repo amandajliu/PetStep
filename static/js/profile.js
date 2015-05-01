@@ -211,6 +211,43 @@ $(document).ready(function(){
     });
 
 });
+
+// Change the glyphicon arrow for section collapse/expansion, active listings tab
+
+$(document).ready(function(){
+
+	var al = true;
+
+	$('#alExpandTitle').click(function () {
+		if (al) {
+			$('#menuArrow').addClass('glyphicon-triangle-right');
+			$('#menuArrow').removeClass('glyphicon-triangle-bottom');
+			al = false;
+		} else {
+			$('#menuArrow').addClass('glyphicon-triangle-bottom');
+			$('#menuArrow').removeClass('glyphicon-triangle-right');
+			al = true;
+		}
+	})
+
+
+	var petEx = true;
+
+	$('#petExpandTitle').click(function () {
+		if (petEx) {
+			$('#petArrow').addClass('glyphicon-triangle-right');
+			$('#petArrow').removeClass('glyphicon-triangle-bottom');
+			petEx = false;
+		} else {
+			$('#petArrow').addClass('glyphicon-triangle-bottom');
+			$('#petArrow').removeClass('glyphicon-triangle-right');
+			petEx = true;
+		}
+	})
+
+});
+
+
 $(window).load(function(){
 
 
