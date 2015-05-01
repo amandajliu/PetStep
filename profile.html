@@ -586,7 +586,7 @@
           <!-- Each unexpanded tab has an expand icon, mini pet icon, and pet name -->
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" data-target="#collapsePetOne" class="collapsed in">
+              <a data-toggle="collapse" data-target="#collapsePetOne" class="collapsed in" id="petExpandTitle">
                 <span class="glyphicon glyphicon-triangle-bottom"></span>
                 <img class='petProfSm1 img-circle' src='static/images/fluffy0.jpg'>
                 Fluffy
@@ -636,7 +636,7 @@
           <!-- Each unexpanded tab has an expand icon, mini pet icon, pet name, and date -->
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" data-target="#collapseListingOne" class="collapsed in">
+              <a data-toggle="collapse" data-target="#collapseListingOne" class="collapsed in" id="alExpandTitle">
                 <span class="glyphicon glyphicon-triangle-bottom"></span>
                 <img class='petProfSm1 img-circle' src='static/images/fluffy0.jpg'>
                 Fluffy, May 24th-28th, 2015
@@ -651,21 +651,12 @@
                 <!-- TO-DO: Link to pet edit dialog -->
                 <button type='button' class='btn btn-default' id="editListingButton">Edit Listing <span class='glyphicon glyphicon-pencil'></span></button>
               </div>
-              <div class="petExpandMiddle col-md-2"> <!-- Contains listing categories -->
-                <h2>Fluffy</h2>
-                <h4 class="listingTitle"> Pet Type:</h4>
-                <h4 class="listingTitle"> Sitter Type:</h4>
-                <h4 class="listingTitle"> Duration:</h4>
-                <h4 class="listingTitle"> Payment:</h4>
-                <h4 class="listingTitle"> Distance:</h4>
-              </div>
-              <div class="petExpandRight col-md-6"> <!-- Contains listing details -->
-                <h2 id="secondColListing"> </h2>
-                <h4> Snake </h4>
-                <h4> Casual, Professional</h4>
-                <h4> May 24th-28th, 2015</h4>
-                <h4> $, $$, $$$, Negotiable</h4>
-                <h4> 25 mile radius</h4>
+              <div class="petExpandMiddle col-md-8"> <!-- Contains listing categories -->
+                <h2>Fluffy<small>  (Snake)</small></h2>
+                <h4 class="listingTitle"> Sitter Type: <small> Casual, Professional </small></h4>
+                <h4 class="listingTitle"> Duration: <small> May 24th-28th, 2015</small></h4>
+                <h4 class="listingTitle"> Payment: <small> $, $$, $$$, Negotiable</small></h4>
+                <h4 class="listingTitle"> Distance: <small> 25 mile radius</small></h4>
               </div>
               <div class="petExpandRight col-md-2"> <!-- Contains hiring a sitter button-->
                   <button type='button' class='btn btn-default' id="hiringButton"><span class="glyphicon glyphicon-ok"></span> Hire a Sitter</button>
@@ -680,6 +671,8 @@
               </div>
             </div>
           </div>
+
+          <br><br>
         </div>
 
       </div>

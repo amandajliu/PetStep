@@ -150,14 +150,14 @@ $(document).ready(function($){
 		}
 	});
 });
-// Active Listing - Hiring dialog
+//Active Listing - Hiring dialog
 
-// $(document).ready(function(){
-// 	$( "#dialog" ).dialog({ autoOpen: false });
-// 	$( "#hiringButton" ).click(function() {
-//   		$( "#dialog" ).dialog( "open" );
-// 	});
-// });
+$(document).ready(function(){
+	$( "#dialog" ).dialog({ autoOpen: false });
+	$( "#hiringButton" ).click(function() {
+  		$( "#dialog" ).dialog( "open" );
+	});
+});
 
 // Accordion js
 // Thanks to http://stackoverflow.com/questions/20347553/bootstrap-3-collapse-accordion-collapse-all-works-but-then-cannot-expand-all-wh
