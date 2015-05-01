@@ -117,6 +117,13 @@ Layout CSS
   left: 20px;
 }
 
+#petExpandTitle{
+  text-decoration: none;
+}
+
+#alExpandTitle{
+  text-decoration: none;
+}
 
 /* ---------------------
 Stars
