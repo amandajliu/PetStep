@@ -24,18 +24,18 @@
       <div class="listingImgDiv">
         <img class="listingImg" src="static/images/{{petImg}}">
         <div class="listingInfo">
-          <p class="petName">Pet name: {{petName}}</p>
-          <p class="petType">Pet type: {{petType}}</p>
-          <p class="ownerName">Owner name: {{ownerFirstName}} {{ownerLastName}} <a href="">(view profile)</a></p>
-          <p class="ownerZip">Owner zipcode: {{zipcode}}</p>
+          <p class="petName">{{petName}} <small> ({{petType}})</small></p>
+          <!-- <p class="petType">Pet type: {{petType}}</p> -->
+          <p class="ownerName">{{ownerFirstName}} {{ownerLastName}} <a href="">(view profile)</a></p>
           <p class="date">
-            <span class="startDate">Start date: {{startDate}}</span>
-            <span class="endDate">End date: {{endDate}}</span>
+            {{startDate}} - {{endDate}}
           </p>
+          <p class="ownerZip">Zipcode: {{zipcode}}</p>
           <p class="pay">Pay: {{payment}} </p>
           {{#sitterType}}
           <p class="sitterType">Sitter Type: {{sitterType}}</p>
           {{/sitterType}}
+
         </div>
       </div>
     </div>
@@ -46,8 +46,8 @@
         <img class="listingImg" src="static/images/{{sitterImg}}">
         <div class="listingInfo">
           <p class="sitterName">{{sitterName}} <a href="#">(view profile)</a></p>
-          <p class="sitterZip">Zipcode: {{zipcode}}</p>
           <p class="sitsPetType">Sits: {{petTypes}} </p>
+          <p class="sitterZip">{{zipcode}}</p>
         </div>
       </div>
     </div>
@@ -217,7 +217,7 @@
               <label for="sortBySitterName">Sorted by Sitter Last Name</label>
             </li> 
             <li role="presentation">
-              <input type="radio" class="sortBy" id="sortByDistance" name="sortBy_person_menu">
+              <input type="radio" class="sortBy" id="sortByDistance" name="sortBy_person_menu" selected>
               <label for="sortByDistance">Sorted by Distance</label>
             </li>
           </ul>
