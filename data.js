@@ -2,6 +2,7 @@ listingsData = {
   "petListings": [{
     ownerFirstName: "Cornelio",
     ownerLastName: "Rosales",
+    ownerUsername: "cornelio",
     petName: "Fluffy",
     petType: "Snake",
     petTypeAttr: "snake",
@@ -14,6 +15,7 @@ listingsData = {
   }, {
     ownerFirstName: "Lily",
     ownerLastName: "Paxton",
+    ownerUsername: "lily",
     petName: "Sugar",
     petType: "Dog",
     petTypeAttr: "dog",
@@ -95,6 +97,7 @@ listingsData = {
   }, {
     ownerFirstName: "Flynn",
     ownerLastName: "Rider",
+    ownerUsername: "flynn",
     petName: "Sam the Wise",
     petType: "Rabbit",
     petTypeAttr: "rabbit",
