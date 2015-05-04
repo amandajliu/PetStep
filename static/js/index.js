@@ -35,7 +35,7 @@ var changeDist = function(){
   }else{
     var unit = "miles";
   }
-  var initDist = "< "+Math.pow(10,$('#slider').slider("value")) + " "+unit;
+  var initDist = "< "  + $('#slider').slider("value") + " "+unit;
   var initDistDiv = "<div class='param'>"+initDist+"</div>";
 
   $('#searchParams').html(initDistDiv + $('#searchParams').html());
