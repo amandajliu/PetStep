@@ -5,6 +5,25 @@ var loadListings = function() {
   $('#feedContainer').prepend(rendered);
 }
 
+var loadPetInfo = function() {
+  var petInfoTemplate = $('#petInfoTemplate').html();
+  Mustache.parse(petInfoTemplate);
+  var rendered = Mustache.render(petInfoTemplate, petInfo);
+  $("#petPreset").prepend(rendered);
+}
+
+var loadPersonalInfo = function() {
+  var personalInfoTemplate = $('#personalInfoTemplate').html();
+  Mustache.parse(personalInfoTemplate);
+  var rendered = Mustache.render(personalInfoTemplate, personalInfo);
+  $("#userPreset").prepend(rendered);
+}
+
+var loadPresets = function() {
+  loadPetInfo();
+  loadPersonalInfo();
+}
+
 var toggleUser = function() {
   // TODO: Remove pet pics and place sitters <-> Remove sitters and place pet pics
 }
@@ -43,6 +62,7 @@ var changeDist = function(){
 
 $(document).ready(function(){
   loadListings();
+  loadPresets();
   $('#sortByDistance').attr('checked','checked');
   $('input').change(function(){
     $('#searchParams').html("");
@@ -175,5 +195,21 @@ $(function(){
     });
 
   })
+})
+$(function() {
+  $('#startDate').datepicker({
+    defaultDate: "+1w",
+    minDate: 0,
+    onClose: function( selectedDate ) {
+        $( "#endDate" ).datepicker( "option", "minDate", selectedDate );
+      }
+  });
+  $('#endDate').datepicker({
+    defaultDate: "+1w",
+    minDate: 0,
+    nClose: function( selectedDate ) {
+        $( "#startDate" ).datepicker( "option", "maxDate", selectedDate );
+      }
+  });
 
 })
