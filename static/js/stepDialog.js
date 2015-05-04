@@ -90,3 +90,76 @@ $(window).load(function() {
 
   })
 });
+
+var petclick = function() {
+  var $inputs = $('#pet-fieldset :input');
+  petValues = $inputs.serializeArray();
+  petValues = JSON.parse(petValues[0].value);
+  console.log(petValues);
+  petValueList = {"petInfo": [petValues]}
+  var petReviewTemplate = $('#petReviewTemplate').html();
+  Mustache.parse(petReviewTemplate);
+  var rendered = Mustache.render(petReviewTemplate, petValueList);
+  console.log(rendered);
+  $("#petInfoReview").html(rendered);
+}
+
+var personalclick = function() {
+  var $inputs = $('#personal-fieldset :input');
+  personalValues = $inputs.serializeArray();
+  personalValues = JSON.parse(personalValues[0].value);
+  personalValueList = {"personalInfo": [personalValues]}
+  var personalReviewTemplate = $('#personalReviewTemplate').html();
+  Mustache.parse(personalReviewTemplate);
+  var rendered = Mustache.render(personalReviewTemplate, personalValueList);
+  console.log(rendered);
+  $("#personalInfoReview").html(rendered);
+  // not sure if you wanted this, but I thought I'd add it.
+  // get an associative array of just the values.
+  // personalValues = {};
+  // $inputs.each(function() {
+  //     personalValues[this.name] = $(this).val();
+  // });
+  console.log(personalValues);
+}
+
+var additionalclick = function() {
+  var $inputs = $('#additional-fieldset');
+  additionalValues = $inputs.serializeArray();
+  var tmpObject = {};
+  for (var i = 0; i < additionalValues.length; i++) {
+    var label = additionalValues[i].name;
+    var value = additionalValues[i].value;
+    if (label === "sitterType" || label ==="payment") {
+      if (tmpObject.hasOwnProperty(label)){
+        tmpObject[label].push({"type": value});
+      } else {
+        tmpObject[label] = [{"type": value}]
+      }
+    } else {
+      tmpObject[label] = value;
+    }
+  }
+  additionalValues = tmpObject;
+  console.log(additionalValues)
+  additionalValueList = {"additionalInfo": [additionalValues]}
+  var additionalReviewTemplate = $('#additionalReviewTemplate').html();
+  Mustache.parse(additionalReviewTemplate);
+  var rendered = Mustache.render(additionalReviewTemplate, additionalValueList);
+  console.log(rendered);
+  $("#additionalInfoReview").html(rendered);
+ // not sure if you wanted this, but I thought I'd add it.
+ // get an associative array of just the values.
+ // additionalValues = {};
+ // $inputs.each(function() {
+ //    if (this.name === "sitterType" || this.name === "payment") {
+ //      if (!additionalValues.hasOwnProperty(this.name)) {
+ //        additionalValues[this.name] = [];
+ //      }
+ //      additionalValues[this.name].push($(this).val());
+ //    } else {
+ //      additionalValues[this.name] = $(this).val();
+ //    }
+ // });
+ // console.log(additionalValues);
+}
