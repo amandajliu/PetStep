@@ -175,5 +175,11 @@
   padding:10px;
   overflow:auto;
   border-radius:7px;
+  /*pointer-events: all;*/
+}
+
+.listingContent {
+  display:inline-block;
+  cursor: auto;
 }
 /* Second nav bar style */
