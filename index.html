@@ -130,27 +130,27 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Pet Type <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-              <input class="petTypeFilter" type="checkbox" id="dog">
+              <input class="petTypeFilter filterOpt" type="checkbox" id="dog">
               <label for="dog">Dog</label>
             </li>
             <li role="presentation">
-              <input class="petTypeFilter" type="checkbox" id="cat">
+              <input class="petTypeFilter filterOpt" type="checkbox" id="cat">
               <label for="cat">Cat</label>
             </li>
             <li role="presentation">
-              <input class="petTypeFilter" type="checkbox" id="hamster">
+              <input class="petTypeFilter filterOpt" type="checkbox" id="hamster">
               <label for="hamster">Hamster</label>
             </li>
             <li role="presentation">
-              <input class="petTypeFilter" type="checkbox" id="bird">
+              <input class="petTypeFilter filterOpt" type="checkbox" id="bird">
               <label for="bird">Bird</label>
             </li>
             <li role="presentation">
-              <input class="petTypeFilter" type="checkbox" id="guineaPig">
+              <input class="petTypeFilter filterOpt" type="checkbox" id="guineaPig">
               <label for="guineaPig">Guinea Pig</label>
             </li>
             <li role="presentation">
-              <input class="petTypeFilter" type="checkbox" id="snake">
+              <input class="petTypeFilter filterOpt" type="checkbox" id="snake">
               <label for="snake">Snake</label>
             </li>
           </ul>
@@ -160,11 +160,11 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Sitter Type <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-              <input type="checkbox" id="professional">
+              <input class="sitterTypeFilter filterOpt" type="checkbox" id="professional">
               <label for="professional">Professional</label>
             </li>
             <li role="presentation">
-              <input type="checkbox" id="casual">
+              <input class="sitterTypeFilter filterOpt" type="checkbox" id="casual">
               <label for="casual">Casual</label>
             </li>
           </ul>
@@ -174,28 +174,28 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Duration <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-              <input type="checkbox" id="oneday">
+              <input class="durationLengthFilter filterOpt" type="checkbox" id="oneday">
               <label for="oneday">1 day</label>
             </li>
             <li role="presentation">
-              <input type="checkbox" id="1wk">
+              <input class="durationLengthFilter filterOpt" type="checkbox" id="1wk">
               <label for="1wk">Less than 1 week</label>
             </li>
             <li role="presentation">
-              <input type="checkbox" id="1wkmonth">
+              <input class="durationLengthFilter filterOpt" type="checkbox" id="1wkmonth">
               <label for="1wkmonth">1 week to 1 month</label>
             </li>
             <li role="presentation">
-              <input type="checkbox" id="halfyr">
+              <input class="durationLengthFilter filterOpt" type="checkbox" id="halfyr">
               <label for="halfyr">1 month to 6 months</label>
             </li>
             <li class="divider"></li>
             <li role="presentation">
-              <input type="checkbox" id="routine">
+              <input class="durationTypeFilter filterOpt" type="checkbox" id="routine">
               <label for="routine">Routine</label>
             </li>
             <li role="presentation">
-              <input type="checkbox" id="onetime">
+              <input class="durationTypeFilter filterOpt" type="checkbox" id="onetime">
               <label for="onetime">One-time</label>
             </li>
           </ul>
@@ -204,19 +204,19 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Payment<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-              <input type="checkbox" id="_$_">
+              <input class="payFilter filterOpt" type="checkbox" id="_$_">
               <label for="_$_">$</label>
             </li>
             <li role="presentation">
-              <input type="checkbox" id="_$$_">
+              <input class="payFilter filterOpt" type="checkbox" id="_$$_">
               <label for="_$$_">$$</label>
             </li>
             <li role="presentation">
-              <input type="checkbox" id="_$$$_">
+              <input class="payFilter filterOpt" type="checkbox" id="_$$$_">
               <label for="_$$$_">$$$</label>
             </li>
             <li role="presentation">
-              <input type="checkbox" id="negotiable">
+              <input class="payFilter filterOpt" type="checkbox" id="negotiable">
               <label for="negotiable">Negotiable</label>
             </li>
           </ul>
@@ -227,7 +227,7 @@
             <li role="presentation">
               <!--<label for="dist">Distance from your location:</label>-->
               <p style="display:block; margin-bottom:0; padding-top:3px; padding-right:20px; clear:both; white-space:nowrap; margin-left:6px; max-width:100%">Distance from your location:</p>
-              <input type="text" id="dist" readonly style="border:0; color:#00BCD4; font-weight:bold; margin:5px">
+              <input class="distanceFilter filterOpt" type="text" id="dist" readonly style="border:0; color:#00BCD4; font-weight:bold; margin:5px">
               <div id="slider" class="ui-slider"></div>
             </li>
           </ul>

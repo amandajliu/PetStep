@@ -74,7 +74,7 @@ $(document).ready(function(){
   loadPresets();
   nonBlankFilters = [];
   $('#sortByDistance').attr('checked','checked');
-  $('input').change(function(){
+  $('.filterOpt').change(function(){
     $('#searchParams').html("");
     changeDist();
     changeTags();
