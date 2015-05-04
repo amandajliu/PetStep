@@ -162,7 +162,9 @@ $(document).ready(function(){
         if($('.petTypeFilter:checked').length == 0){
           nonBlankFilters.splice($.inArray('.petTypeFilter',nonBlankFilters),1);
           var filterString = listToString(nonBlankFilters);
+          $('.petTypeFilter').removeClass('petTypeFilter');
           if($('#sitterButton').hasClass('active')){
+
             $('.petListing'+filterString).not('.petTypeFilter').removeClass('hide'); //anything that had been previously filtered by petType and that should still be filtered in by other filters is now visible
           }else{
             $('.personListing'+filterString).not('.petTypeFilter').removeClass('hide'); //anything that had been previously filtered by petType and that should still be filtered in by other filters is now visible
@@ -178,9 +180,8 @@ $(document).ready(function(){
 
         }else{
           var filterString = listToString(nonBlankFilters);
-            $('.petListing[petType="'+ $(this).attr('id')+'"]')
-            .removeClass('petTypeFilter')
-            .addClass('hide');
+            $('.petListing[petType="'+ $(this).attr('id')+'"]').removeClass('petTypeFilter');
+            $('.petListing[petType="'+ $(this).attr('id')+'"]').addClass('hide');
             $container.masonry('destroy');
             $container = $('#feedContainer');
             $container.imagesLoaded(function(){
