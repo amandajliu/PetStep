@@ -11,6 +11,12 @@
   white-space: nowrap;
   overflow-y: hidden;
 }
+.profileLink, .profileLink:hover{
+  color:#00BCD4;
+}
+.listingText{
+  opacity:1.0;
+}
 
 #searchingForLabel {
   pointer-events: none;
