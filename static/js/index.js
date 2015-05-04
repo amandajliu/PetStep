@@ -201,6 +201,20 @@ $(document).ready(function(){
     }
   );
 
+  $(".listingContent").click(function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+  })
+
+  $(".add-to-favs-button").click(function(event) {
+    $(this).parent().slideDown(300);
+    // Yeah I know this is ridiculous
+    // Used for grabing containing listing div from button click
+    $(this).parent().parent().parent().parent()[0].wasClicked = true;
+
+  })
+
   $('.filterOpt').change(
     function(){
       console.log("clicked filterOpt");
