@@ -48,7 +48,30 @@
       </div>
     </div>
     {{/personListings}}
-  </script>
+    </script>
+    <script id='petInfoTemplate' type='x-tmpl-mustache'>
+      {{#petInfo}}
+        <p><input type="radio" name="petPreset" value="{{petName}}">
+        <img class="presetImage" src="static/images/{{petImage}}" alt="Image of {{petName}}"/>
+        {{petName}} <small>({{petType}})</small></input><br>
+
+        </p>
+      {{/petInfo}}
+    </script>
+    <script id='personalInfoTemplate' type='x-tmpl-mustache'>
+      {{#personalInfo}}
+        <p><input type="radio" name="ownerPreset" value="{{presetCount}}"/>
+        <label>
+        {{ownerName}}
+        <small>{{email}}</small>
+        <div class="info-sup">
+        {{#phoneNumber}}
+          Phone: {{phoneNumber}}<br>
+        {{/phoneNumber}}
+        Zip: {{zip}}</div></label>
+        </p>
+      {{/personalInfo}}
+    </script>
 </head>
 <body>
   <div class="container">
@@ -283,39 +306,63 @@
       </ul>
 
       <!-- fieldsets for step dialogue -->
+      <span name="cancel" class="glyphicon glyphicon-remove cancel top-cancel"></span>
       <fieldset>
-        <h2 class="fieldHeader">Pet Info</h2>
-        <div class="petPreset">
+        <h2 class="fieldHeader">Pet Info</h2><hr>
+        <div id="petPreset" class="presetContent">
 
         </div>
-        <input type="button" name="addpet" class="addpet action-button" value="Add new pet"/>
         <input type="button" name="cancel" class="cancel action-button" value="Cancel"/>
+        <input type="button" name="addpet" class="addpet action-button" value="Add new pet"/>
         <input type="button" name="next" class="next action-button" value="Next"/>
       </fieldset>
 
       <fieldset>
-        <h2 class="fieldHeader">Personal Info</h2>
-        <div class="petPreset">
+        <h2 class="fieldHeader">Personal Info</h2><hr>
+        <div id="userPreset" class="presetContent">
 
         </div>
-        <input type="button" name="addpet" class="addpet action-button" value="Add new pet"/>
+        <input type="button" name="previous" class="previous action-button" value="Back"/>
+        <input type="button" name="addPersonal" class="add-personal action-button" value="Add new contact info"/>
+        <input type="button" name="next" class="next action-button" value="Next"/>
+      </fieldset>
+
+      <fieldset>
+        <h2 class="fieldHeader">Additional Info</h2><hr>
+        <div id="additionalPreset">
+          <p>
+            Start Date: <input type="text" size="10" id="startDate"/> &nbsp; &nbsp; &nbsp;
+            End Date: <input type="text" size="10" id="endDate" />
+          </p>
+          <p>
+            Job Type: &nbsp; &nbsp; &nbsp;
+            <input type="radio" name="jobType" value="onetime"/> One-Time &nbsp; &nbsp; &nbsp;
+            <input type="radio" name="jobType" value="routine"/> Routine
+          </p>
+          <p>
+            Sitter Type: &nbsp; &nbsp; &nbsp;
+            <input type="checkbox" name="sitterType" value="casual"/> Casual &nbsp; &nbsp; &nbsp;
+            <input type="checkbox" name="sitterType" value="professional"/> Professional
+          </p>
+          <p>
+            Payment:
+            <input type="checkbox" name="payment" value="$"/> $ &nbsp; &nbsp; &nbsp;
+            <input type="checkbox" name="payment" value="$$"/> $$ &nbsp; &nbsp; &nbsp;
+            <input type="checkbox" name="payment" value="$$$"/> $$$ &nbsp; &nbsp; &nbsp;
+            <input type="checkbox" name="payment" value="negotiable"/> Negotiable
+          </p>
+          <p>
+            Additional Comments:
+            <textarea id="additionalComments" rows="4" cols="45"></textarea>
+          </p>
+        </div>
         <input type="button" name="previous" class="previous action-button" value="Back"/>
         <input type="button" name="next" class="next action-button" value="Next"/>
       </fieldset>
 
       <fieldset>
-        <h2 class="fieldHeader">Additional Info</h2>
-        <div class="petPreset">
-
-        </div>
-        <input type="button" name="addpet" class="addpet action-button" value="Add new pet"/>
-        <input type="button" name="previous" class="previous action-button" value="Back"/>
-        <input type="button" name="next" class="next action-button" value="Next"/>
-      </fieldset>
-
-      <fieldset>
-        <h2 class="fieldHeader">Review</h2>
-        <div class="petPreset">
+        <h2 class="fieldHeader">Review</h2><hr>
+        <div id="reviewPreset">
 
         </div>
         <input type="button" name="addpet" class="addpet action-button" value="Add new pet"/>

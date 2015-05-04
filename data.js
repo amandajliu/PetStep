@@ -24,7 +24,7 @@ listingsData = {
     petImg: "burritoCat0.jpg",
     zipcode: "02142",
     startDate: "5/20/2015",
-    endDate: "5/21/2015", 
+    endDate: "5/21/2015",
     payment: "$$$"
   }, {
     ownerName: "Penny Marshall",
@@ -33,7 +33,7 @@ listingsData = {
     petImg: "bird0.jpg",
     zipcode: "02467",
     startDate: "9/2/2015",
-    endDate: "10/1/2015", 
+    endDate: "10/1/2015",
     payment: "$$$$"
   }, {
     ownerName: "Lin Mei",
@@ -173,8 +173,8 @@ profileData = {
     "users" : [{
         currentUser: true,
         username: "cornelio",
-        name: "Cornelio Rosales", 
-        userImg: "Cornelio.png", 
+        name: "Cornelio Rosales",
+        userImg: "Cornelio.png",
         sitsFor: [],
         zipcode: "02142",
         pets: [{
@@ -198,7 +198,7 @@ profileData = {
             ownerRating: 5,
             petRating: 5,
             message: "FLUFFY IS THE BEST SNAKE EVER!!!!!!!!!!!!AND CORNELIO IS MY BEST FRIEND!!!!!!!"
-        }], 
+        }],
         bio: "Hi! I'm Cornelio and I have a pet snake named Fluffy. I am looking for professional sitters who have experience with snakes."
     }, {
         currentUser: false,
@@ -211,7 +211,7 @@ profileData = {
             petType: "Dog",
             petName: "Sugar",
             petImg: "dog-beach.jpg"
-        }], 
+        }],
         ownerRating: 4,
         sitterRating: 5,
         reviews: [],
@@ -227,10 +227,41 @@ profileData = {
             petType: "Rabbit",
             petName: "Sam the Wise",
             petImg: "bunny0.jpg"
-        }], 
+        }],
         ownerRating: 3,
         sitterRating: 4,
-        reviews: [], 
+        reviews: [],
         bio: "Flynn Rider's biography"
+    }]
+}
+
+petInfo = {
+  "petInfo": [{
+      petName: "Fluffy",
+      petType: "Snake",
+      petImage: "fluffy0.jpg"
+
+    },
+    {
+      petName: "Napoleon",
+      petType: "Dog",
+      petImage: "puppy0.jpg"
+    }]
+}
+
+personalInfo = {
+  "personalInfo": [{
+      ownerName: "Cornelio Rosales",
+      email: "corn@gmail.com",
+      phoneNumber: "(123)456-7890",
+      zip: "02142",
+      presetCount: 0,
+    },
+    {
+      ownerName: "Cornelio Rosales",
+      email: "corn@gmail.com",
+      phoneNumber: "(999)456-7890",
+      zip: "90210",
+      presetCount: 1,
     }]
 }
