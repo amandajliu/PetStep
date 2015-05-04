@@ -2,6 +2,7 @@ listingsData = {
   "petListings": [{
     ownerFirstName: "Cornelio",
     ownerLastName: "Rosales",
+    ownerUsername: "cornelio",
     petName: "Fluffy",
     petType: "Snake",
     petTypeAttr: "snake",
@@ -10,10 +11,16 @@ listingsData = {
     startDate: "4/20/2015",
     endDate: "5/1/2015",
     payment: "$",
-    sitterType: "Casual"
+    paymentAttr:"_$_",
+    sitterType: "Casual",
+    sitterTypeAttr: "casual",
+    durationType: "One-time",
+    durationTypeAttr: "onetime",
+    durationLengthAttr: "1wkmonth"
   }, {
     ownerFirstName: "Lily",
     ownerLastName: "Paxton",
+    ownerUsername: "lily",
     petName: "Sugar",
     petType: "Dog",
     petTypeAttr: "dog",
@@ -22,7 +29,12 @@ listingsData = {
     startDate: "6/15/2015",
     endDate: "6/17/2015",
     payment: "$$",
-    sitterType: "Professional"
+    paymentAttr:"_$$_",
+    sitterType: "Professional",
+    sitterTypeAttr: "professional",
+    durationType: "One-time",
+    durationTypeAttr: "onetime",
+    durationLengthAttr: "1wk"
   }, {
     ownerFirstName: "Janet",
     ownerLastName: "Mason",
@@ -33,7 +45,12 @@ listingsData = {
     zipcode: "02142",
     startDate: "5/20/2015",
     endDate: "5/21/2015",
-    payment: "$$$"
+    payment: "$$$",
+    paymentAttr:"_$$$_",
+    sitterTypeAttr: "casual professional",
+    durationType: "One-time",
+    durationTypeAttr: "onetime",
+    durationLengthAttr: "1day"
   }, {
     ownerFirstName: "Penny",
     ownerLastName: "Marshall",
@@ -45,7 +62,12 @@ listingsData = {
     startDate: "9/2/2015",
     endDate: "10/1/2015",
     payment: "$$$$",
-    sitterType: "Professional"
+    paymentAttr:"_$$$$_",
+    sitterType: "Professional",
+    sitterTypeAttr: "professional",
+    durationType: "Routine",
+    durationTypeAttr: "routine",
+    durationLengthAttr: "halfyr"
   }, {
     ownerFirstName: "Lin",
     ownerLastName: "Mei",
@@ -56,7 +78,12 @@ listingsData = {
     zipcode: "02142",
     startDate: "4/20/2015",
     endDate: "5/10/2015",
-    payment: "$"
+    payment: "$",
+    paymentAttr:"_$_",
+    sitterTypeAttr: "casual professional",
+    durationType: "Routine",
+    durationTypeAttr: "routine",
+    durationLengthAttr: "1wkmonth"
   }, {
     ownerFirstName: "Shaila",
     ownerLastName: "Higgins",
@@ -67,7 +94,12 @@ listingsData = {
     zipcode: "02142",
     startDate: "4/15/2015",
     endDate: "5/1/2015",
-    payment: "$"
+    payment: "$",
+    paymentAttr:"_$_",
+    sitterTypeAttr: "casual professional",
+    durationType: "Routine",
+    durationTypeAttr: "routine",
+    durationLengthAttr: "1wkmonth"
   }, {
     ownerFirstName: "Doug",
     ownerLastName: "Schumaker",
@@ -79,7 +111,12 @@ listingsData = {
     startDate: "6/14/2015",
     endDate: "6/21/2015",
     payment: "$$",
-    sitterType: "Casual"
+    paymentAttr:"_$$_",
+    sitterType: "Casual",
+    sitterTypeAttr: "casual",
+    durationType: "one-time",
+    durationTypeAttr: "onetime",
+    durationLengthAttr: "1wk"
   }, {
     ownerFirstName: "Minnie",
     ownerLastName: "Preston",
@@ -91,10 +128,16 @@ listingsData = {
     startDate: "8/20/2015",
     endDate: "9/10/2015",
     payment: "$$$$",
-    sitterType: "Professional"
+    paymentAttr:"_$$$$_",
+    sitterType: "Professional",
+    sitterTypeAttr: "professional",
+    durationType: "Routine",
+    durationTypeAttr: "routine",
+    durationLengthAttr: "1wkmonth"
   }, {
     ownerFirstName: "Flynn",
     ownerLastName: "Rider",
+    ownerUsername: "flynn",
     petName: "Sam the Wise",
     petType: "Rabbit",
     petTypeAttr: "rabbit",
@@ -102,7 +145,12 @@ listingsData = {
     zipcode: "02142",
     startDate: "4/21/2015",
     endDate: "4/28/2015",
-    payment: "$"
+    payment: "$",
+    paymentAttr:"_$_",
+    sitterTypeAttr: "casual professional",
+    durationType: "One-time",
+    durationTypeAttr: "onetime",
+    durationLengthAttr: "1wk"
   }, {
     ownerFirstName: "Craig",
     ownerLastName: "Newton",
@@ -113,7 +161,12 @@ listingsData = {
     zipcode: "02142",
     startDate: "7/17/2015",
     endDate: "8/1/2015",
-    payment: "$$"
+    payment: "$$",
+    paymentAttr:"_$$_",
+    sitterTypeAttr: "casual professional",
+    durationType: "Routine",
+    durationTypeAttr: "routine",
+    durationLengthAttr: "1wkmonth"
   }, {
     ownerFirstName: "Cornelia",
     ownerLastName: "Rose",
@@ -124,7 +177,12 @@ listingsData = {
     zipcode: "02142",
     startDate: "9/20/2015",
     endDate: "11/1/2015",
-    payment: "$$"
+    payment: "$$",
+    paymentAttr:"_$$_",
+    sitterTypeAttr: "casual professional",
+    durationType: "Routine",
+    durationTypeAttr: "routine",
+    durationLengthAttr: "halfyr"
   }, {
     ownerFirstName: "Laura",
     ownerLastName: "Pine",
@@ -136,7 +194,12 @@ listingsData = {
     startDate: "4/20/2015",
     endDate: "5/1/2015",
     payment: "$",
-    sitterType: "Casual"
+    paymentAttr:"_$_",
+    sitterType: "Casual",
+    sitterTypeAttr: "casual",
+    durationType: "Routine",
+    durationTypeAttr: "routine",
+    durationLengthAttr: "1wkmonth"
   }, {
     ownerFirstName: "Stephanie",
     ownerLastName: "Castle",
@@ -147,7 +210,12 @@ listingsData = {
     zipcode: "02139",
     startDate: "5/1/2015",
     endDate: "5/2/2015",
-    payment: "$"
+    payment: "$",
+    paymentAttr:"_$_",
+    sitterTypeAttr: "casual professional",
+    durationType: "One-time",
+    durationTypeAttr: "onetime",
+    durationLengthAttr: "1day"
   }, {
     ownerFirstName: "Deng",
     ownerLastName: "Xiaoping",
@@ -158,7 +226,12 @@ listingsData = {
     zipcode: "02142",
     startDate: "4/20/2015",
     endDate: "5/1/2015",
-    payment: "Negotiable"
+    payment: "Negotiable",
+    paymentAttr:"negotiable",
+    sitterTypeAttr: "casual professional",
+    durationType: "Routine",
+    durationTypeAttr: "routine",
+    durationLengthAttr: "1wkmonth"
   }],
   "personListings": [{
     sitterName: "Lin Mei",
@@ -207,16 +280,19 @@ profileData = {
     "users" : [{
         currentUser: true,
         username: "cornelio",
-        name: "Cornelio Rosales",
+        firstName: "Cornelio",
+        lastName: "Rosales",
         userImg: "Cornelio.png",
         sitsFor: [],
         zipcode: "02142",
+        petName: "Fluffy",
         pets: [{
             petType: "Snake",
             petName: "Fluffy",
             petImg: "fluffy0.jpg"
         }],
         ownerRating: 4,
+        petRating: 5,
         sitterRating: null,
         reviews: [{
             reviewer: "Lily Paxton",
@@ -237,10 +313,12 @@ profileData = {
     }, {
         currentUser: false,
         username: "lily",
-        name: "Lily Paxton",
+        firstName: "Lily",
+        lastName: "Paxton",
         userImg: "lilyPaxton.jpg",
         sitsFor: [],
         zipcode: "02139",
+        petName: "Sugar",
         pets: [{
             petType: "Dog",
             petName: "Sugar",
@@ -248,15 +326,18 @@ profileData = {
         }],
         ownerRating: 4,
         sitterRating: 5,
+        petRating: 3,
         reviews: [],
         bio: "Lily Paxton's biography"
     }, {
         currentUser: false,
         username: "flynn",
-        name: "Flynn Rider",
+        firstName: "Flynn",
+        lastName: "Rider",
         userImg: "FlynnRider.jpeg",
         sitsFor: ["Dog", "Cat", "Snake"],
         zipcode: "02142",
+        petName: "Flynn",
         pets: [{
             petType: "Rabbit",
             petName: "Sam the Wise",

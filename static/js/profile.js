@@ -12,6 +12,37 @@ var loadProfile = function() {
 	Mustache.parse(profileTemplate);
 	var rendered = Mustache.render(profileTemplate, currentUser);
 	$("#profileBar").prepend(rendered);
+	if (currentUser.username != 'cornelio') {
+		$('.tab-private').hide();
+	}
+
+	var reviewsTemplate = $("#review-outer-template").html();
+	Mustache.parse(reviewsTemplate);
+	var rendered = Mustache.render(reviewsTemplate, currentUser);
+	$("#reviews-row").prepend(rendered);
+	var ownerReviewCounts = [0,0,0,0,0];
+	var petReviewCounts = [0,0,0,0,0];
+	var totalReviews = currentUser.reviews.length;
+	if (totalReviews > 0) {
+		for (i = 0; i < totalReviews; i++) {
+			ownerReviewCounts[currentUser.reviews[i].ownerRating-1]++;
+			petReviewCounts[currentUser.reviews[i].petRating-1]++;
+		}
+		var reviewInnerTemplate = $("#review-inner-template").html();
+		Mustache.parse(reviewInnerTemplate);
+		for (i = 1; i < 6; i++) {
+			var reviewSummary = {};
+			reviewSummary.index = i;
+			reviewSummary.totalReviews = totalReviews;
+			var owner = Mustache.render(reviewInnerTemplate, {'index': i, 'totalReviews': totalReviews, 'width': (ownerReviewCounts[i-1]/totalReviews*100)+'%'});
+			$('#owner-reviews').prepend(owner);
+			var pet = Mustache.render(reviewInnerTemplate, {'index': i, 'totalReviews': totalReviews, 'width': (petReviewCounts[i-1]/totalReviews*100)+'%'});
+			$("#pet-reviews").prepend(pet);
+		}
+	} else {
+		$("#owner-reviews").append("<h2><small>No reviews yet!<small><h2>");
+		$("#pet-reviews").append("<h2><small>No reviews yet!<small><h2>");
+	}
 }
 
 $(document).ready(function() {

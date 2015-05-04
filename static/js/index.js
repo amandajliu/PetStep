@@ -28,6 +28,84 @@ var toggleUser = function() {
   // TODO: Remove pet pics and place sitters <-> Remove sitters and place pet pics
 }
 
+var filterListings = function(filterOptClass, filterClass, filterClassNoDot,attrName, jqueryObj){
+  if(jqueryObj.is(':checked')){ //checking
+    console.log("checked");
+    if($.inArray(filterClass, nonBlankFilters) == -1){
+      nonBlankFilters.push(filterClass);
+    }
+    var filterString = listToString(nonBlankFilters);
+    console.log(filterString);
+    if($('#sitterButton').hasClass('active')){
+
+      $('.petListing['+attrName+'="'+ jqueryObj.attr('id')+'"]').addClass(filterClassNoDot);
+      $('.petListing'+filterClass).removeClass('hide');
+      $('.petListing:not('+filterString+')').addClass('hide');
+      $container.masonry('destroy');
+      $container = $('#feedContainer');
+      $container.imagesLoaded(function(){
+        $container.masonry({
+          itemSelector:filterString,
+          'isFitWidth':true
+        });
+
+      })
+    }else{
+      $('.personListing['+attrName+'="'+ jqueryObj.attr('id')+'"]').addClass(filterClassNoDot);
+      $('.personListing'+filterClass).removeClass('hide');
+      $('.personListing:not('+filterString+')').addClass('hide');
+      $container.masonry('destroy');
+      $container = $('#feedContainer');
+      $container.imagesLoaded(function(){
+        $container.masonry({
+          itemSelector:filterString,
+          'isFitWidth':true
+        });
+
+      })
+    }
+
+  }else{ //unchecking
+    console.log("not checked");
+    if($(filterOptClass+':checked').length == 0){
+      console.log("last filter");
+      nonBlankFilters.splice($.inArray(filterClass,nonBlankFilters),1);
+      var filterString = listToString(nonBlankFilters);
+      $(filterClass).removeClass(filterClassNoDot);
+      if($('#sitterButton').hasClass('active')){
+
+        $('.petListing'+filterString).not(filterClass).removeClass('hide'); //anything that had been previously filtered by petType and that should still be filtered in by other filters is now visible
+      }else{
+        $('.personListing'+filterString).not(filterClass).removeClass('hide'); //anything that had been previously filtered by petType and that should still be filtered in by other filters is now visible
+      }
+      $container.masonry('destroy');
+      $container = $('#feedContainer');
+      $container.imagesLoaded(function(){
+        $container.masonry({
+          itemSelector:filterString,
+          'isFitWidth':true
+        });
+      });
+
+    }else{
+      var filterString = listToString(nonBlankFilters);
+        $('.petListing['+attrName+'="'+ jqueryObj.attr('id')+'"]').removeClass(filterClassNoDot);
+        $('.petListing['+attrName+'="'+ jqueryObj.attr('id')+'"]').addClass('hide');
+        $container.masonry('destroy');
+        $container = $('#feedContainer');
+        $container.imagesLoaded(function(){
+          $container.masonry({
+            itemSelector:filterString,
+            'isFitWidth':true
+          });
+
+        });
+
+    }
+
+  }
+}
+
 var changeTags = function(){
   var newSearchParams = [];
   var checked = $('input:checked').each(function(){
@@ -74,7 +152,7 @@ $(document).ready(function(){
   loadPresets();
   nonBlankFilters = [];
   $('#sortByDistance').attr('checked','checked');
-  $('input').change(function(){
+  $('.filterOpt').change(function(){
     $('#searchParams').html("");
     changeDist();
     changeTags();
@@ -101,12 +179,12 @@ $(document).ready(function(){
   $('.listing').hover(
     function(){
       if (!this.wasClicked) {
-        $(this).find('div.listingInfo').slideDown();
+        $(this).find('div.listingInfo').slideDown(300);
       }
     },
     function(){
       if (!this.wasClicked) {
-        $(this).find('div.listingInfo').slideUp();
+        $(this).find('div.listingInfo').slideUp(300);
       }
     }
   );
@@ -114,87 +192,105 @@ $(document).ready(function(){
   $('.listing').click(
     function() {
       if(!this.wasClicked) {
-        $(this).find('div.listingInfo').slideDown();
+        $(this).find('div.listingInfo').slideDown(300);
         this.wasClicked = true;
       } else {
-        $(this).find('div.listingInfo').slideUp();
+        $(this).find('div.listingInfo').slideUp(300);
         this.wasClicked = false;
       }
     }
   );
 
-  $('.petTypeFilter').change(
+  $('.filterOpt').change(
     function(){
-      if($(this).is(':checked')){ //checking
-        if($.inArray('.petTypeFilter', nonBlankFilters) == -1){
-          nonBlankFilters.push(".petTypeFilter");
-        }
-        var filterString = listToString(nonBlankFilters);
-        if($('#sitterButton').hasClass('active')){
-          $('.petListing[petType="'+ $(this).attr('id')+'"]').addClass('petTypeFilter');
-          $('.petListing.petTypeFilter').removeClass('hide');
-          $('.petListing:not(.petTypeFilter)').addClass('hide');
-          $container.masonry('destroy');
-          $container = $('#feedContainer');
-          $container.imagesLoaded(function(){
-            $container.masonry({
-              itemSelector:filterString,
-              'isFitWidth':true
-            });
-
-          })
-        }else{
-          $('.personListing[petType="'+ $(this).attr('id')+'"]').addClass('petTypeFilter');
-          $('.personListing.petTypeFilter').removeClass('hide');
-          $('.personListing:not(.petTypeFilter)').addClass('hide');
-          $container.masonry('destroy');
-          $container = $('#feedContainer');
-          $container.imagesLoaded(function(){
-            $container.masonry({
-              itemSelector:filterString,
-              'isFitWidth':true
-            });
-
-          })
-        }
-
-      }else{ //unchecking
-        if($('.petTypeFilter:checked').length == 0){
-          nonBlankFilters.splice($.inArray('.petTypeFilter',nonBlankFilters),1);
-          var filterString = listToString(nonBlankFilters);
-          if($('#sitterButton').hasClass('active')){
-            $('.petListing'+filterString).not('.petTypeFilter').removeClass('hide'); //anything that had been previously filtered by petType and that should still be filtered in by other filters is now visible
-          }else{
-            $('.personListing'+filterString).not('.petTypeFilter').removeClass('hide'); //anything that had been previously filtered by petType and that should still be filtered in by other filters is now visible
-          }
-          $container.masonry('destroy');
-          $container = $('#feedContainer');
-          $container.imagesLoaded(function(){
-            $container.masonry({
-              itemSelector:filterString,
-              'isFitWidth':true
-            });
-          });
-
-        }else{
-          var filterString = listToString(nonBlankFilters);
-            $('.petListing[petType="'+ $(this).attr('id')+'"]')
-            .removeClass('petTypeFilter')
-            .addClass('hide');
-            $container.masonry('destroy');
-            $container = $('#feedContainer');
-            $container.imagesLoaded(function(){
-              $container.masonry({
-                itemSelector:filterString,
-                'isFitWidth':true
-              });
-
-            });
-
-        }
-
+      console.log("clicked filterOpt");
+      if($(this).hasClass("petTypeFilterOpt")){
+        console.log('about to call filterlistings pettype');
+        console.log($(this));
+        filterListings('.petTypeFilterOpt','.petTypeFilter','petTypeFilter','petType', $(this));
+      }else if($(this).hasClass("sitterTypeFilterOpt")){
+        filterListings('.sitterTypeFilterOpt','.sitterTypeFilter','sitterTypeFilter','sitterType', $(this));
+      }else if($(this).hasClass("payFilterOpt")){
+        filterListings('.payFilterOpt','.paymentFilter','paymentFilter','payment', $(this));
+      }else if($(this).hasClass("durationLengthFilterOpt")){
+        filterListings('.durationLengthFilterOpt','.durationLengthFilter','durationLengthFilter','durationLength', $(this));
+      }else if($(this).hasClass("durationTypeFilterOpt")){
+        filterListings('.durationTypeFilterOpt','.durationTypeFilter','durationTypeFilter','durataionType',$(this));
       }
     }
+
+    // function(){
+    //   if($(this).is(':checked')){ //checking
+    //     if($.inArray('.petTypeFilter', nonBlankFilters) == -1){
+    //       nonBlankFilters.push(".petTypeFilter");
+    //     }
+    //     var filterString = listToString(nonBlankFilters);
+    //     if($('#sitterButton').hasClass('active')){
+    //       $('.petListing[petType="'+ $(this).attr('id')+'"]').addClass('petTypeFilter');
+    //       $('.petListing.petTypeFilter').removeClass('hide');
+    //       $('.petListing:not(.petTypeFilter)').addClass('hide');
+    //       $container.masonry('destroy');
+    //       $container = $('#feedContainer');
+    //       $container.imagesLoaded(function(){
+    //         $container.masonry({
+    //           itemSelector:filterString,
+    //           'isFitWidth':true
+    //         });
+    //
+    //       })
+    //     }else{
+    //       $('.personListing[petType="'+ $(this).attr('id')+'"]').addClass('petTypeFilter');
+    //       $('.personListing.petTypeFilter').removeClass('hide');
+    //       $('.personListing:not(.petTypeFilter)').addClass('hide');
+    //       $container.masonry('destroy');
+    //       $container = $('#feedContainer');
+    //       $container.imagesLoaded(function(){
+    //         $container.masonry({
+    //           itemSelector:filterString,
+    //           'isFitWidth':true
+    //         });
+    //
+    //       })
+    //     }
+    //
+    //   }else{ //unchecking
+    //     if($('.petTypeFilter:checked').length == 0){
+    //       nonBlankFilters.splice($.inArray('.petTypeFilter',nonBlankFilters),1);
+    //       var filterString = listToString(nonBlankFilters);
+    //       $('.petTypeFilter').removeClass('petTypeFilter');
+    //       if($('#sitterButton').hasClass('active')){
+    //
+    //         $('.petListing'+filterString).not('.petTypeFilter').removeClass('hide'); //anything that had been previously filtered by petType and that should still be filtered in by other filters is now visible
+    //       }else{
+    //         $('.personListing'+filterString).not('.petTypeFilter').removeClass('hide'); //anything that had been previously filtered by petType and that should still be filtered in by other filters is now visible
+    //       }
+    //       $container.masonry('destroy');
+    //       $container = $('#feedContainer');
+    //       $container.imagesLoaded(function(){
+    //         $container.masonry({
+    //           itemSelector:filterString,
+    //           'isFitWidth':true
+    //         });
+    //       });
+    //
+    //     }else{
+    //       var filterString = listToString(nonBlankFilters);
+    //         $('.petListing[petType="'+ $(this).attr('id')+'"]').removeClass('petTypeFilter');
+    //         $('.petListing[petType="'+ $(this).attr('id')+'"]').addClass('hide');
+    //         $container.masonry('destroy');
+    //         $container = $('#feedContainer');
+    //         $container.imagesLoaded(function(){
+    //           $container.masonry({
+    //             itemSelector:filterString,
+    //             'isFitWidth':true
+    //           });
+    //
+    //         });
+    //
+    //     }
+    //
+    //   }
+    // }
   )
 });
 
