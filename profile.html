@@ -50,7 +50,7 @@
       <div class='col-md-8'>
         <div class='container-fluid'>
           <div class='row'>
-            <div class='col-md-7'><h1>{{name}}</h1></div>
+            <div class='col-md-7'><h1>{{firstName}} {{lastName}}</h1></div>
             <div class='col-md-5'>
               {{#currentUser}}<button type='button' class='btn btn-default' style="margin-top: 20px;">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>{{/currentUser}}
               {{^currentUser}}<button type='button' class='btn btn-default' style="margin-top: 20px;">Message  <span class='glyphicon glyphicon-envelope'></span></button>{{/currentUser}}
@@ -73,6 +73,44 @@
       </div>
     </div>
   </script>
+
+  <script id='review-outer-template' type='x-tmpl-mustache'>
+    <div class='col-md-4 col-md-offset-1 panel panel-default'>
+      <div class='panel-body'>
+        <div class='row'>
+          <div class='col-sm-11 col-sm-offset-1'>
+            <h3>{{firstName}}: <span class='starsHere' data-stars='{{ownerRating}}'></span>
+            </h3>
+          </div>
+        </div>
+        <div id='owner-reviews'></div>
+      </div>
+    </div>
+
+    <div class='col-md-4 col-md-offset-1 panel panel-default'>
+      <div class='panel-body'>
+        <div class='row'>
+          <div class='col-sm-11 col-sm-offset-1'>
+            <h3> {{petName}}: <span class='starsHere' data-stars='{{petRating}}'></span></h3>
+          </div>
+        </div>
+        <div id='pet-reviews'></div>
+      </div>
+    </div>
+  </script>
+
+<script id='review-inner-template' type='x-tmpl-mustache'>
+  <div class='row'>
+    <div class='col-sm-2'>{{index}}</div>
+    <div class='col-sm-10'>
+      <div class='progress'>
+        <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='{{totalReviews}}'style='width:{{width}}'>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
   <script>
     var historyDrop = function() {
       $("#tab-history").click();
@@ -220,12 +258,12 @@
 		<ul class='nav nav-tabs nav-justified tab-container panel-tabs'>
 			<li role='presentation' class='main-tabs active' id='tab-public-activity'><a>Public Activity</a>
       </li>
-			<li role='presentation' class='main-tabs' id='tab-favorites'><a>Favorites</a></li>
+			<li role='presentation' class='main-tabs tab-private' id='tab-favorites'><a>Favorites</a></li>
 			<li role='presentation' class='main-tabs' id='tab-reviews'><a>Reviews</a></li>
-			<li role='presentation' class='main-tabs' id='tab-history'><a>History</a></li>
+			<li role='presentation' class='main-tabs tab-private' id='tab-history'><a>History</a></li>
 			<li role='presentation' class='main-tabs' id='tab-pets'><a>Pets</a></li>
 			<li role='presentation' class='main-tabs' id='tab-active-listings'><a>Active Listings</a></li>
-			<li role='presentation' class='main-tabs' id='tab-messages'><a>Messages</a></li>
+			<li role='presentation' class='main-tabs tab-private' id='tab-messages'><a>Messages</a></li>
 		</ul>
 	<div class='tab-content tabbed-content' id="tabContent">
 		<div class='main-panes tab-pane active' id='pane-public-activity'>
@@ -269,7 +307,7 @@
       </div>
     </div>
 <!-- TAB CONTENT - Favorites -->
-    <div class='main-panes tab-pane' id='pane-favorites'>
+    <div class='main-panes tab-pane tab-pane-private' id='pane-favorites'>
       <!--<div class="switchLi">
         <div class="switch activeSwitch" id="sitterButton">Sitter</div>
         <div class="switch" id="petButton">Pet</div>
@@ -298,8 +336,8 @@
 <!-- TAB CONTENT - Reviews -->
 		<div class='main-panes tab-pane' id='pane-reviews'>
       <div class='container'> <!-- outer div for review summary -->
-        <div class='row'>
-          <div class='col-md-4 col-md-offset-1 panel panel-default'>
+        <div class='row' id='reviews-row'>
+<!--           <div class='col-md-4 col-md-offset-1 panel panel-default'>
             <div class='panel-body'>
               <div class='row'>
                 <div class='col-sm-11 col-sm-offset-1'>
@@ -322,8 +360,8 @@
                 <div class='progress'>
                   <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='2'style='width:0%'>
                   </div>
-                </div>
-              </div>
+                </div> -->
+<!--               </div>
               </div>
               <div class='row'>
                 <div class='col-sm-2'>3</div>
@@ -350,8 +388,8 @@
                   <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='2'style='width:0%'>
                   </div>
                 </div>
-              </div>
-              </div>
+              </div> -->
+<!--               </div>
           </div>
         </div>
           <div class='col-md-4 col-md-offset-1 panel panel-default'>
@@ -387,8 +425,8 @@
                   </div>
                 </div>
               </div>
-              </div>
-              <div class='row'>
+              </div> -->
+<!--               <div class='row'>
                 <div class='col-sm-2'>2</div>
                 <div class='col-sm-10'>
                 <div class='progress'>
@@ -407,7 +445,7 @@
               </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class='col-md-1 col-md-offset-1'>
             <button class='btn btn-default' role='button'>Write a Review <span class='glyphicon glyphicon-pencil'></span></button>
           </div>
@@ -482,7 +520,7 @@
     </div>
 
 <!-- TAB CONTENT - History/Timeline -->
-		<div class='main-panes tab-pane' id='pane-history'>
+		<div class='main-panes tab-pane tab-pane-private' id='pane-history'>
       <h1>History</h1>
       <hr>
       <section id="cd-timeline" class="cd-container">
@@ -682,7 +720,7 @@
     </div> <!-- End of Active Listings Tab -->
 
 <!-- TAB CONTENT - Messages -->
-		<div class='main-panes tab-pane' id='pane-messages'>
+		<div class='main-panes tab-pane tab-pane-private' id='pane-messages'>
       <div class='container'>
         <div class='row'>
         <div class='col-sm-3 messages-left'>

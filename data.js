@@ -210,16 +210,19 @@ profileData = {
     "users" : [{
         currentUser: true,
         username: "cornelio",
-        name: "Cornelio Rosales",
+        firstName: "Cornelio",
+        lastName: "Rosales",
         userImg: "Cornelio.png",
         sitsFor: [],
         zipcode: "02142",
+        petName: "Fluffy",
         pets: [{
             petType: "Snake",
             petName: "Fluffy",
             petImg: "fluffy0.jpg"
         }],
         ownerRating: 4,
+        petRating: 5,
         sitterRating: null,
         reviews: [{
             reviewer: "Lily Paxton",
@@ -240,10 +243,12 @@ profileData = {
     }, {
         currentUser: false,
         username: "lily",
-        name: "Lily Paxton",
+        firstName: "Lily",
+        lastName: "Paxton",
         userImg: "lilyPaxton.jpg",
         sitsFor: [],
         zipcode: "02139",
+        petName: "Sugar",
         pets: [{
             petType: "Dog",
             petName: "Sugar",
@@ -251,15 +256,18 @@ profileData = {
         }],
         ownerRating: 4,
         sitterRating: 5,
+        petRating: 3,
         reviews: [],
         bio: "Lily Paxton's biography"
     }, {
         currentUser: false,
         username: "flynn",
-        name: "Flynn Rider",
+        firstName: "Flynn",
+        lastName: "Rider",
         userImg: "FlynnRider.jpeg",
         sitsFor: ["Dog", "Cat", "Snake"],
         zipcode: "02142",
+        petName: "Flynn",
         pets: [{
             petType: "Rabbit",
             petName: "Sam the Wise",
