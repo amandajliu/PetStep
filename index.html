@@ -24,18 +24,21 @@
       <div class="listingImgDiv">
         <img class="listingImg" src="static/images/{{petImg}}">
         <div class="listingInfo">
-          <p class="petName">{{petName}} <small> ({{petType}})</small></p>
-          <!-- <p class="petType">Pet type: {{petType}}</p> -->
-          <p class="ownerName">{{ownerFirstName}} {{ownerLastName}} {{#ownerUsername}}<a href="profile.html?user={{ownerUsername}}">(view profile)</a>{{/ownerUsername}} {{^ownerUsername}}<a href="">(view profile) </a>{{/ownerUsername}}</p>
-          <p class="date">
-            {{startDate}} - {{endDate}}
-          </p>
-          <p class="ownerZip">Zipcode: {{zipcode}}</p>
-          <p class="pay">Pay: {{payment}} </p>
-          {{#sitterType}}
-          <p class="sitterType">Sitter Type: {{sitterType}}</p>
-          {{/sitterType}}
-          <button class='btn btn-default'> <span class='glyphicon glyphicon-star'></span> Add to Favorites</button>
+          <div class="listingContent">
+
+            <p class="petName">{{petName}} <small> ({{petType}})</small></p>
+            <!-- <p class="petType">Pet type: {{petType}}</p> -->
+            <p class="ownerName">{{ownerFirstName}} {{ownerLastName}} {{#ownerUsername}}<a href="profile.html?user={{ownerUsername}}">(view profile)</a>{{/ownerUsername}} {{^ownerUsername}}<a href="">(view profile) </a>{{/ownerUsername}}</p>
+            <p class="date">
+              {{startDate}} - {{endDate}}
+            </p>
+            <p class="ownerZip">Zipcode: {{zipcode}}</p>
+            <p class="pay">Pay: {{payment}} </p>
+            {{#sitterType}}
+            <p class="sitterType">Sitter Type: {{sitterType}}</p>
+            {{/sitterType}}
+            <button class='btn btn-default add-to-favs-button'> <span class='glyphicon glyphicon-star'></span> Add to Favorites</button>
+          </div>
         </div>
       </div>
     </div>
@@ -73,7 +76,7 @@
       {{#personalInfo}}
         <p><input type="radio" name="ownerPreset" value='{"ownerName" : "{{ownerName}}", "email": "{{email}}", "zip":"{{zip}}" {{#phoneNumber}}, "phoneNumber": "{{phoneNumber}}" {{/phoneNumber}} }'/>
         <label>
-        {{ownerName}}
+        {{ownerName}}142
         <small>{{email}}</small>
         <div class="info-sup">
         {{#phoneNumber}}
