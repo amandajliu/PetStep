@@ -108,7 +108,7 @@ var filterListings = function(filterOptClass, filterClass, filterClassNoDot,attr
 
 var changeTags = function(){
   var newSearchParams = [];
-  var checked = $('input:checked').each(function(){
+  var checked = $('.filterOpt:checked').each(function(){
     if($(this).attr('id') == "userToggle") {
       toggleUser();
       return;
