@@ -42,10 +42,11 @@ var changeTags = function(){
     }
   });
   for(var i=0; i < newSearchParams.length;  i++){
-    var newParam = '<article class="param"> '+newSearchParams[i]+"<span class='glyphicon glyphicon-remove remove-tag'></span></article>";
+    var newParam = '<article class="param"> '+newSearchParams[i]+"</article>";
     $('#searchParams').html(newParam + $('#searchParams').html());
   }
 }
+
 
 var changeDist = function(){
   if($('#slider').slider("value") == -1 || $('#slider').slider("value") == 0){
@@ -60,9 +61,18 @@ var changeDist = function(){
 
 }
 
+var listToString = function(list){
+  ans="";
+  for(var i=0; i < list.length; i ++){
+    ans = ans.concat(list[i]);
+  }
+  return ans;
+}
+
 $(document).ready(function(){
   loadListings();
   loadPresets();
+  nonBlankFilters = [];
   $('#sortByDistance').attr('checked','checked');
   $('input').change(function(){
     $('#searchParams').html("");
@@ -112,6 +122,80 @@ $(document).ready(function(){
       }
     }
   );
+
+  $('.petTypeFilter').change(
+    function(){
+      if($(this).is(':checked')){ //checking
+        if($.inArray('.petTypeFilter', nonBlankFilters) == -1){
+          nonBlankFilters.push(".petTypeFilter");
+        }
+        var filterString = listToString(nonBlankFilters);
+        if($('#sitterButton').hasClass('active')){
+          $('.petListing[petType="'+ $(this).attr('id')+'"]').addClass('petTypeFilter');
+          $('.petListing.petTypeFilter').removeClass('hide');
+          $('.petListing:not(.petTypeFilter)').addClass('hide');
+          $container.masonry('destroy');
+          $container = $('#feedContainer');
+          $container.imagesLoaded(function(){
+            $container.masonry({
+              itemSelector:filterString,
+              'isFitWidth':true
+            });
+
+          })
+        }else{
+          $('.personListing[petType="'+ $(this).attr('id')+'"]').addClass('petTypeFilter');
+          $('.personListing.petTypeFilter').removeClass('hide');
+          $('.personListing:not(.petTypeFilter)').addClass('hide');
+          $container.masonry('destroy');
+          $container = $('#feedContainer');
+          $container.imagesLoaded(function(){
+            $container.masonry({
+              itemSelector:filterString,
+              'isFitWidth':true
+            });
+
+          })
+        }
+
+      }else{ //unchecking
+        if($('.petTypeFilter:checked').length == 0){
+          nonBlankFilters.splice($.inArray('.petTypeFilter',nonBlankFilters),1);
+          var filterString = listToString(nonBlankFilters);
+          if($('#sitterButton').hasClass('active')){
+            $('.petListing'+filterString).not('.petTypeFilter').removeClass('hide'); //anything that had been previously filtered by petType and that should still be filtered in by other filters is now visible
+          }else{
+            $('.personListing'+filterString).not('.petTypeFilter').removeClass('hide'); //anything that had been previously filtered by petType and that should still be filtered in by other filters is now visible
+          }
+          $container.masonry('destroy');
+          $container = $('#feedContainer');
+          $container.imagesLoaded(function(){
+            $container.masonry({
+              itemSelector:filterString,
+              'isFitWidth':true
+            });
+          });
+
+        }else{
+          var filterString = listToString(nonBlankFilters);
+            $('.petListing[petType="'+ $(this).attr('id')+'"]')
+            .removeClass('petTypeFilter')
+            .addClass('hide');
+            $container.masonry('destroy');
+            $container = $('#feedContainer');
+            $container.imagesLoaded(function(){
+              $container.masonry({
+                itemSelector:filterString,
+                'isFitWidth':true
+              });
+
+            });
+
+        }
+
+      }
+    }
+  )
 });
 
 $(window).load(function() {

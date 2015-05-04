@@ -20,18 +20,22 @@
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <script id='listingTemplate' type='x-tmpl-mustache'>
   {{#petListings}}
-  <div class="petListing listing">
+  <div class="petListing listing" petType={{petTypeAttr}} ownerLastName={{ownerLastName}} zipcode={{zipcode}} startDate={{startDate}} endDate={{endDate}}>
       <div class="listingImgDiv">
         <img class="listingImg" src="static/images/{{petImg}}">
         <div class="listingInfo">
           <p class="petName">{{petName}} <small> ({{petType}})</small></p>
           <!-- <p class="petType">Pet type: {{petType}}</p> -->
-          <p class="ownerName">{{ownerName}} <a href="">(view profile)</a></p>
+          <p class="ownerName">{{ownerFirstName}} {{ownerLastName}} <a href="">(view profile)</a></p>
           <p class="date">
             {{startDate}} - {{endDate}}
           </p>
-          <p class="ownerZip">{{zipcode}}</p>
-          <p class="pay">{{payment}} </p>
+          <p class="ownerZip">Zipcode: {{zipcode}}</p>
+          <p class="pay">Pay: {{payment}} </p>
+          {{#sitterType}}
+          <p class="sitterType">Sitter Type: {{sitterType}}</p>
+          {{/sitterType}}
+
         </div>
       </div>
     </div>
@@ -126,15 +130,27 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Pet Type <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-              <input type="checkbox" id="dog">
+              <input class="petTypeFilter" type="checkbox" id="dog">
               <label for="dog">Dog</label>
             </li>
             <li role="presentation">
-              <input type="checkbox" id="cat">
+              <input class="petTypeFilter" type="checkbox" id="cat">
               <label for="cat">Cat</label>
             </li>
             <li role="presentation">
-              <input type="checkbox" id="snake">
+              <input class="petTypeFilter" type="checkbox" id="hamster">
+              <label for="hamster">Hamster</label>
+            </li>
+            <li role="presentation">
+              <input class="petTypeFilter" type="checkbox" id="bird">
+              <label for="bird">Bird</label>
+            </li>
+            <li role="presentation">
+              <input class="petTypeFilter" type="checkbox" id="guineaPig">
+              <label for="guineaPig">Guinea Pig</label>
+            </li>
+            <li role="presentation">
+              <input class="petTypeFilter" type="checkbox" id="snake">
               <label for="snake">Snake</label>
             </li>
           </ul>
