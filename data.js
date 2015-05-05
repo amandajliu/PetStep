@@ -366,14 +366,18 @@ petInfo = {
 
 personalInfo = {
   "personalInfo": [{
-      ownerName: "Cornelio Rosales",
+      // ownerName: "Cornelio Rosales",
+      ownerFirstName: "Cornelio",
+      ownerLastName: "Rosales",
       email: "corn@gmail.com",
       phoneNumber: "(123)456-7890",
       zip: "02142",
       presetCount: 0,
     },
     {
-      ownerName: "Cornelio Rosales",
+      // ownerName: "Cornelio Rosales",
+      ownerFirstName: "Cornelio",
+      ownerLastName: "Rosales",
       email: "corn@gmail.com",
       phoneNumber: "(999)456-7890",
       zip: "90210",
