@@ -236,6 +236,16 @@ $(document).ready(function(){
   /*  return false;*/
   })
 
+  $(".fav-btn").click(function() {
+    if ($(this).hasClass('clicked')) {
+      $(".btn-text", this).text("Add to Favorites");
+      $(this).removeClass('clicked');
+    } else {
+      $(".btn-text", this).text("Remove from Favorites");
+      $(this).addClass('clicked');
+    }
+  });
+
   $(".add-to-favs-button").click(function(event) {
     $(this).parent().slideDown(300);
     // Yeah I know this is ridiculous
