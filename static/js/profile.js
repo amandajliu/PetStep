@@ -139,7 +139,7 @@ var loadConversation = function(username) {
 	var receivedMessageTemp = $('#messages-template-received').html();
 	Mustache.render(receivedMessageTemp);
 	for (var i = 0; i < conversation.messages.length; i++) {
-		
+
 	}
 }
 // Messages
@@ -149,7 +149,7 @@ $(document).ready(function() {
 	// 	var messageContent = $.grep(messageData.conversations, function(elt) {
 	// 		elt.
 	// 	})
-	
+
 	    // send button click
 	    $('#message-send').click(function() {
 	        var message = $('#message-text').val();
@@ -161,21 +161,21 @@ $(document).ready(function() {
 	        $('.messages-right').append(newMessageHTML);
 	        $('#message-text').val('');
 	    });
-	
+
 	    $('#popup-messages').click(function() {
 	        $('#messages-popup').css('visibility', 'visible');
 	    });
-	
+
 	    $('#messages-popup-close').click(function() {
 	        $('#messages-popup').css('visibility', 'hidden');
 	    });
-	
+
 	    $('#message-text').keyup(function(event) {
 	    	if (event.keyCode === 13) {
 	    		$('#message-send').click();
 	    	}
 	    });
-	
+
 	    $('.message-name').click(function() {
 	    	if (!$(this).hasClass('current')) {
 	    		$('.message-name').removeClass('current');
@@ -242,7 +242,7 @@ $(document).ready(function(){
     var alflag = true;
 
 
-    // collapse or expand all 
+    // collapse or expand all
     $('#collapse-init').click(function () {
         if (active) {
             active = false;
