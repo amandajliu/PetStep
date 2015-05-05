@@ -143,12 +143,13 @@
           <p>You are a...</p>
           <!--<div class="switch active" id="sitterButton">Sitter</div>
           <div class="switch" id="ownerButton">Owner</div>-->
-
-          <div class="switchLabel" id="ownerButton" style="display:inline-block">Owner</div>
-          <div class="Switch Round Off">
-            <div class="Toggle"></div>
+          <div class="switchContainer">
+            <div class="switchLabel" id="ownerButton" style="display:inline-block">Owner</div>
+            <div class="Switch Round Off">
+              <div class="Toggle"></div>
+            </div>
+            <div class="switchLabel active" id="sitterButton" style="display:inline-block">Sitter</div>
           </div>
-          <div class="switchLabel active" id="sitterButton" style="display:inline-block">Sitter</div>
         </li>
       </ul>
 
@@ -251,15 +252,15 @@
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
               <input class="payFilterOpt filterOpt" type="checkbox" id="_$_">
-              <label for="_$_"><a href="#" data-toggle="tooltip" data-placement="right" title="$1-$10">$</a></label>
+              <label for="_$_"><a class="paytip" data-toggle="tooltip" data-placement="right" title="$1-$10">$</a></label>
             </li>
             <li role="presentation">
               <input class="payFilterOpt filterOpt" type="checkbox" id="_$$_">
-              <label for="_$$_"><a href="#" data-toggle="tooltip" data-placement="right" title="$11-$20">$$</a></label>
+              <label for="_$$_"><a class="paytip"  data-toggle="tooltip" data-placement="right" title="$11-$20">$$</a></label>
             </li>
             <li role="presentation">
               <input class="payFilterOpt filterOpt" type="checkbox" id="_$$$_">
-              <label for="_$$$_"><a href="#" data-toggle="tooltip" data-placement="right" title="$20+">$$$</a></label>
+              <label for="_$$$_"><a class="paytip" data-toggle="tooltip" data-placement="right" title="$20+">$$$</a></label>
             </li>
             <li role="presentation">
               <input class="payFilterOpt filterOpt" type="checkbox" id="negotiable">
