@@ -25,8 +25,11 @@
         <img class="listingImg" src="static/images/{{petImg}}">
         <div class="listingInfo">
           <div class="listingContent">
-            <p class="listingText petName">{{petName}} ({{petType}})</p>
-            <p class="listingText date">
+
+            <p class="petName">{{petName}} ({{petType}})</p>
+
+
+            <p class="date">
               {{startDate}} - {{endDate}}
             </p>
             <p class="listingText ownerName">Owner: {{#ownerUsername}}<a class="profileLink" href="profile.html?user={{ownerUsername}}">{{ownerFirstName}} {{ownerLastName}} </a>{{/ownerUsername}} {{^ownerUsername}}<a class="profileLink" href="">{{ownerFirstName}} {{ownerLastName}}</a>{{/ownerUsername}}</p>
@@ -73,9 +76,9 @@
     </script>
     <script id='personalInfoTemplate' type='x-tmpl-mustache'>
       {{#personalInfo}}
-        <p><input type="radio" name="ownerPreset" value='{"ownerName" : "{{ownerName}}", "email": "{{email}}", "zip":"{{zip}}" {{#phoneNumber}}, "phoneNumber": "{{phoneNumber}}" {{/phoneNumber}} }'/>
+        <p><input type="radio" name="ownerPreset" value='{"ownerFirstName" : "{{ownerFirstName}}", "ownerLastName": "{{ownerLastName}}", "email": "{{email}}", "zip":"{{zip}}" {{#phoneNumber}}, "phoneNumber": "{{phoneNumber}}" {{/phoneNumber}} }'/>
         <label>
-        {{ownerName}}142
+        {{ownerFirstName}} {{ownerLastName}}
         <small>{{email}}</small>
         <div class="info-sup">
         {{#phoneNumber}}
@@ -90,7 +93,7 @@
         <p>
 
         <div class="info-sup">
-        {{ownerName}} <small> {{email}} </small> <br>
+        {{ownerFirstName}} {{ownerLastName}} <small> {{email}} </small> <br>
         {{#phoneNumber}}
           Phone: {{phoneNumber}}<br>
         {{/phoneNumber}}
@@ -138,8 +141,14 @@
       <ul class="nav navbar-nav navbar-left" style='margin-top:20px;'>
         <li class="switchLi">
           <p>You are a...</p>
-          <div class="switch active" id="sitterButton">Sitter</div>
-          <div class="switch" id="ownerButton">Owner</div>
+          <!--<div class="switch active" id="sitterButton">Sitter</div>
+          <div class="switch" id="ownerButton">Owner</div>-->
+
+          <div class="switchLabel" id="ownerButton" style="display:inline-block">Owner</div>
+          <div class="Switch Round Off">
+            <div class="Toggle"></div>
+          </div>
+          <div class="switchLabel active" id="sitterButton" style="display:inline-block">Sitter</div>
         </li>
       </ul>
 
