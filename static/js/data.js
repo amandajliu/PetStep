@@ -1,23 +1,5 @@
 listingsData = {
-  "petListings": [{
-    ownerFirstName: "Cornelio",
-    ownerLastName: "Rosales",
-    ownerUsername: "cornelio",
-    petName: "Fluffy",
-    petType: "Snake",
-    petTypeAttr: "snake",
-    petImg: "fluffy0.jpg",
-    zipcode: "02142",
-    startDate: "4/20/2015",
-    endDate: "5/1/2015",
-    payment: "$",
-    paymentAttr:"_$_",
-    sitterType: "Casual",
-    sitterTypeAttr: "casual",
-    durationType: "One-time",
-    durationTypeAttr: "onetime",
-    durationLengthAttr: "1wkmonth"
-  }, {
+  "petListings": [ {
     ownerFirstName: "Stephanie",
     ownerLastName: "Castle",
     petName: "Pumpkin",
@@ -34,8 +16,9 @@ listingsData = {
     durationTypeAttr: "onetime",
     durationLengthAttr: "1day"
   },{
-    ownerFirstName: "Janet",
-    ownerLastName: "Mason",
+    ownerFirstName: "Lily",
+    ownerLastName: "Paxton",
+    ownerUsername: "lily",
     petName: "Burrito",
     petType: "Cat",
     petTypeAttr: "cat",
@@ -182,24 +165,6 @@ listingsData = {
     durationTypeAttr: "routine",
     durationLengthAttr: "halfyr"
   }, {
-    ownerFirstName: "Lily",
-    ownerLastName: "Paxton",
-    ownerUsername: "lily",
-    petName: "Sugar",
-    petType: "Dog",
-    petTypeAttr: "dog",
-    petImg: "dog-beach.jpg",
-    zipcode: "02139",
-    startDate: "6/15/2015",
-    endDate: "6/17/2015",
-    payment: "$$",
-    paymentAttr:"_$$_",
-    sitterType: "Professional",
-    sitterTypeAttr: "professional",
-    durationType: "One-time",
-    durationTypeAttr: "onetime",
-    durationLengthAttr: "1wk"
-  },{
     ownerFirstName: "Laura",
     ownerLastName: "Pine",
     petName: "Granny Laura",
@@ -358,9 +323,9 @@ petInfo = {
 
     },
     {
-      petName: "Napoleon",
+      petName: "Jimmy",
       petType: "Dog",
-      petImage: "puppy0.jpg"
+      petImage: "darkpup.jpeg"
     }]
 }
 

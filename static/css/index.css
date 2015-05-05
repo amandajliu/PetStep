@@ -22,13 +22,36 @@
   pointer-events: none;
   cursor: default;
 }
+.ui-datepicker-header{
+  background:none !important;
+  background-color:#00BCD4 !important;
+  border:0px !important;
+  color:white;
+}
+.ui-datepicker{
+  font-family:Lato;
+}
+.ui-datepicker-next-hover, .ui-datepicker-prev-hover, .ui-datepicker-next, .ui-datepicker-prev{
+  background:none !important;
+  border: 0px !important;
 
+  top: 2px !important;
+  cursor:pointer;
+}
+
+.ui-datepicker-next-hover{
+  right:2px !important;
+}
+.ui-datepicker-prev-hover{
+  left:2px !important;
+}
 #searchParamsLabel{
   display:inline-block;
   margin:0px auto;
   max-width:100%;
   vertical-align:middle;
 }
+
 
 #searchParamsContainer {
   height: 40px;
