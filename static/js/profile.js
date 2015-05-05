@@ -145,10 +145,10 @@ var loadConversation = function(username) {
 // Messages
 $(document).ready(function() {
 
-	if (currentUser.username ==='cornelio') {
-		var messageContent = $.grep(messageData.conversations, function(elt) {
-			elt.
-		})
+	// if (currentUser.username ==='cornelio') {
+	// 	var messageContent = $.grep(messageData.conversations, function(elt) {
+	// 		elt.
+	// 	})
 	
 	    // send button click
 	    $('#message-send').click(function() {
@@ -182,7 +182,6 @@ $(document).ready(function() {
 	    		$(this).addClass('current');
 	    	}
 	    });
-	}
 });
 
 // Timeline js
