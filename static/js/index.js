@@ -2,7 +2,7 @@ var loadListings = function() {
   var listingTemplate = $('#listingTemplate').html();
   Mustache.parse(listingTemplate);
   var rendered = Mustache.render(listingTemplate, listingsData);
-  $('#feedContainer').prepend(rendered);
+  $('#feedContainer').html(rendered);
 }
 
 var loadPetInfo = function() {
@@ -19,7 +19,7 @@ var createMasonry = function(){
   $container.imagesLoaded(function(){
     $container.masonry({
       itemSelector:'.petListing',
-      'isFitWidth':true
+      'isFitWidth': true
     });
 
   })
@@ -386,3 +386,45 @@ $(function() {
   });
 
 })
+
+reloadListeners = function() {
+  /*slideup layer on listings*/
+  $('.listing').hover(
+    function(){
+      if (!this.wasClicked) {
+        $(this).find('div.listingInfo').slideDown(300);
+      }
+    },
+    function(){
+      if (!this.wasClicked) {
+        $(this).find('div.listingInfo').slideUp(300);
+      }
+    }
+  );
+
+  $('.listing').click(
+    function() {
+      if(!this.wasClicked) {
+        $(this).find('div.listingInfo').slideDown(300);
+        this.wasClicked = true;
+      } else {
+        $(this).find('div.listingInfo').slideUp(300);
+        this.wasClicked = false;
+      }
+    }
+  );
+
+  $(".listingContent").click(function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+  })
+
+  $(".add-to-favs-button").click(function(event) {
+    $(this).parent().slideDown(300);
+    // Yeah I know this is ridiculous
+    // Used for grabing containing listing div from button click
+    $(this).parent().parent().parent().parent()[0].wasClicked = true;
+
+  })
+}

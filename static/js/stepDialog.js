@@ -138,6 +138,46 @@ $(window).load(function() {
 
 
   $(".submit").click(function(){
+    var newListingData = {};
+    newListingData['ownerFirstName'] = personalValues['ownerFirstName'];
+    newListingData['ownerLastName'] = personalValues['ownerLastName'];
+    newListingData['ownerUsername'] = "cornelio";
+    newListingData['petName'] = petValues['petName'];
+    newListingData['petType'] = petValues['petType'];
+    newListingData['petTypeAttr'] = petValues['petType'].toLowerCase().replace(/\s/g, '_');
+    newListingData['petImg'] = petValues['petImage'];
+    newListingData['zipcode'] = personalValues['zip'];
+    newListingData['startDate'] = additionalValues['startDate'];
+    newListingData['endDate'] = additionalValues['endDate'];
+    var joinedPayments = additionalValues['payment'];
+    var tmpPayments = [];
+    for (var i = 0; i < joinedPayments.length; i++) {
+      tmpPayments.push(joinedPayments[i].type)
+    }
+    joinedPayments = tmpPayments;
+    // console.log(joinedPayments);
+    joinedPaymentsFixed = joinedPayments.join(', ');
+    newListingData['payment'] = joinedPaymentsFixed;
+    var paymentString = joinedPayments.join('_ _');
+    paymentString = '_' + paymentString + '_';
+    newListingData['paymentAttr'] = paymentString;
+
+    var joinedSitterType = additionalValues['sitterType'];
+    var tmpSitterType = [];
+    for (var i = 0; i < joinedSitterType.length; i++) {
+      tmpSitterType.push(joinedSitterType[i].type)
+    }
+    joinedSitterType = tmpSitterType;
+    newListingData['sitterType'] = joinedSitterType.join(', ');
+    newListingData['sitterAttr'] = joinedSitterType.join(' ').toLowerCase();
+    newListingData['durationType'] = additionalValues['jobType']
+    newListingData['durationTypeAttr'] = additionalValues['jobType'].toLowerCase().replace('-', '');
+    newListingData['durationLengthAttr'] = '1wkmonth';
+    listingsData['petListings'].unshift(newListingData);
+    loadListings();
+    createMasonry();
+    reloadListeners();
+    $(".form-containers").addClass("hide");
   	return false;
   })
 
