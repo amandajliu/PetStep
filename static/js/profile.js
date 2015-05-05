@@ -1,11 +1,11 @@
 var currentUser;
 
-var setUser = function(user) {
-	currentUser = $.grep(profileData.users, function(elt) {
-		return elt.username === user;
-	})[0];
+// var setUser = function(user) {
+// 	currentUser = $.grep(profileData.users, function(elt) {
+// 		return elt.username === user;
+// 	})[0];
 
-}
+// }
 
 var loadProfile = function() {
 	var profileTemplate = $("#profile-template").html();
@@ -46,15 +46,15 @@ var loadProfile = function() {
 }
 
 $(document).ready(function() {
-	var user = $.getUrlVar('user');
-      if (user) {
-        setUser(user);
-      }
-      else {
-        setUser("cornelio");
-      }
-	console.log(currentUser);
-	loadProfile();
+	// var user = $.getUrlVar('user');
+ //      if (user) {
+ //        setUser(user);
+ //      }
+ //      else {
+ //        setUser("cornelio");
+ //      }
+	// console.log(currentUser);
+	// loadProfile();
 	$(".main-tabs").click(function() {
 		var tabid = $(this).attr('id');
 		tabid = tabid.substring(4);
@@ -130,33 +130,58 @@ $(document).ready(function() {
 	);
 });
 
+var loadConversation = function(username) {
+	var conversation = $.grep(messageData.conversations, function(elt) {
+		return elt.user === username;
+	})[0];
+	var sentMessageTemp = $('#messages-template-sent').html();
+	Mustache.render(sentMessageTemp);
+	var receivedMessageTemp = $('#messages-template-received').html();
+	Mustache.render(receivedMessageTemp);
+	for (var i = 0; i < conversation.messages.length; i++) {
+		
+	}
+}
 // Messages
 $(document).ready(function() {
-    // send button click
-    $('#message-send').click(function() {
-        var message = $('#message-text').val();
-        var newMessageHTML = "<div class='row'>\
-        <div class='col-xs-1'>\
-        <img class='img img-circle' width='40px' height='40px' src='static/images/Cornelio.png' margin='4px' />\
-        </div>\
-        <div class='well well-sm m-person-1 col-xs-10'>" + message + "</div></div>";
-        $('.messages-right').append(newMessageHTML);
-        $('#message-text').val('');
-    });
 
-    $('#popup-messages').click(function() {
-        $('#messages-popup').css('visibility', 'visible');
-    });
-
-    $('#messages-popup-close').click(function() {
-        $('#messages-popup').css('visibility', 'hidden');
-    });
-
-    $('#message-text').keyup(function(event) {
-    	if (event.keyCode === 13) {
-    		$('#message-send').click();
-    	}
-    })
+	// if (currentUser.username ==='cornelio') {
+	// 	var messageContent = $.grep(messageData.conversations, function(elt) {
+	// 		elt.
+	// 	})
+	
+	    // send button click
+	    $('#message-send').click(function() {
+	        var message = $('#message-text').val();
+	        var newMessageHTML = "<div class='row'>\
+	        <div class='col-xs-1'>\
+	        <img class='img img-circle' width='40px' height='40px' src='static/images/Cornelio.png' margin='4px' />\
+	        </div>\
+	        <div class='well well-sm m-person-1 col-xs-10'>" + message + "</div></div>";
+	        $('.messages-right').append(newMessageHTML);
+	        $('#message-text').val('');
+	    });
+	
+	    $('#popup-messages').click(function() {
+	        $('#messages-popup').css('visibility', 'visible');
+	    });
+	
+	    $('#messages-popup-close').click(function() {
+	        $('#messages-popup').css('visibility', 'hidden');
+	    });
+	
+	    $('#message-text').keyup(function(event) {
+	    	if (event.keyCode === 13) {
+	    		$('#message-send').click();
+	    	}
+	    });
+	
+	    $('.message-name').click(function() {
+	    	if (!$(this).hasClass('current')) {
+	    		$('.message-name').removeClass('current');
+	    		$(this).addClass('current');
+	    	}
+	    });
 });
 
 // Timeline js
@@ -189,16 +214,35 @@ $(document).ready(function(){
 	$( "#hiringButton" ).click(function() {
   		$( "#dialog" ).dialog( "open" );
 	});
+
+	$( "#dialog" ).submit(function( event ) {
+		event.preventDefault();
+		var ownerName = $("input[type='text'][name='SitterName']").val();
+  		var accountStatus = $("input[type='radio'][name='accountStatus']:checked");
+  		if (accountStatus == 'yesAcct') {
+			$( "#hiringButton" ).text("You've hired " + ownerName + " as your sitter!");
+			$( "#dialog" ).dialog( "close" );
+			$(this).dialog('destroy').remove()
+  		} else {
+  			$( "#hiringButton" ).text("You've hired " + ownerName + " as your sitter!");
+  			$( "#dialog" ).dialog( "close" );
+  			$(this).dialog('destroy').remove()
+  		};
+	});
+
 });
 
 // Accordion js
 // Thanks to http://stackoverflow.com/questions/20347553/bootstrap-3-collapse-accordion-collapse-all-works-but-then-cannot-expand-all-wh
-// Collapse or expand all logic for Active Listing tab
+
+// Active Listings tab
 $(document).ready(function(){
 
     var active = false;
     var alflag = true;
 
+
+    // collapse or expand all 
     $('#collapse-init').click(function () {
         if (active) {
             active = false;
@@ -221,6 +265,20 @@ $(document).ready(function(){
 			alflag = true;
 		}
     });
+
+    // toggle individual header things
+
+	$('#alExpandTitle').click(function () {
+		if (alflag) {
+			$('#menuArrow').addClass('glyphicon-triangle-right');
+			$('#menuArrow').removeClass('glyphicon-triangle-bottom');
+			alflag = false;
+		} else {
+			$('#menuArrow').addClass('glyphicon-triangle-bottom');
+			$('#menuArrow').removeClass('glyphicon-triangle-right');
+			alflag = true;
+		}
+	})
 
     $('#accordion').on('show.bs.collapse', function () {
         if (active) $('#accordion .in').collapse('hide');
@@ -258,44 +316,21 @@ $(document).ready(function(){
 		}
     });
 
-    $('#accordion').on('show.bs.collapse', function () {
-        if (active) $('#accordion .in').collapse('hide');
-    });
-
-});
-
-// Change the glyphicon arrow for section collapse/expansion, active listings tab
-
-$(document).ready(function(){
-
-	var al = true;
-
-	$('#alExpandTitle').click(function () {
-		if (al) {
-			$('#menuArrow').addClass('glyphicon-triangle-right');
-			$('#menuArrow').removeClass('glyphicon-triangle-bottom');
-			al = false;
-		} else {
-			$('#menuArrow').addClass('glyphicon-triangle-bottom');
-			$('#menuArrow').removeClass('glyphicon-triangle-right');
-			al = true;
-		}
-	})
-
-
-	var petEx = true;
-
 	$('#petExpandTitle').click(function () {
-		if (petEx) {
+		if (petArrowFlag) {
 			$('#petArrow').addClass('glyphicon-triangle-right');
 			$('#petArrow').removeClass('glyphicon-triangle-bottom');
-			petEx = false;
+			petArrowFlag = false;
 		} else {
 			$('#petArrow').addClass('glyphicon-triangle-bottom');
 			$('#petArrow').removeClass('glyphicon-triangle-right');
-			petEx = true;
+			petArrowFlag = true;
 		}
 	})
+
+    $('#accordion').on('show.bs.collapse', function () {
+        if (active) $('#accordion .in').collapse('hide');
+    });
 
 });
 

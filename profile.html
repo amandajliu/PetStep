@@ -5,7 +5,7 @@
   <script src="static/js/jquery-ui.js"></script>
   <script src="static/js/bootstrap.min.js"></script>
   <script src="static/js/mustache.min.js"></script>
-  <script src="data.js"></script>
+  <!--<script src="static/js/data.js"></script>-->
   <script src="static/js/modernizer.js"></script>
   <script src="static/js/jquery.masonry.min.js"></script>
   <script src="static/js/imagesloaded.pkgd.min.js"></script>
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <!--<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>-->
-  <script id='messages-template-cornelio' type='x-tmpl-mustache'>
+  <script id='messages-template-sent' type='x-tmpl-mustache'>
     <div class='row'>
       <div class='col-xs-1'>
         <img class='img img-circle' width='40px' height='40px' src='static/images/Cornelio.png' padding='4px' />
@@ -31,7 +31,7 @@
       </div>
     </div>
   </script>
-  <script id='messages-template-other' type='x-tmpl-mustache'>
+  <script id='messages-template-received' type='x-tmpl-mustache'>
     <div class='row'>
       <div class='well well-sm m-person-2 col-xs-10 col-xs-offset-1'>
         {{content}}
@@ -186,15 +186,10 @@
           <li>
             <a href="index.html" style="padding-top:35px">Home</a>
           </li>
-          <li>
-            <a href="index.html" target="_self" style="padding-top:35px"><span class="glyphicon glyphicon-plus"></span></a>
-          </li>
           <li class="dropdown" style="margin-right:40px">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class='img-circle' src='static/images/Cornelio.png' id="headerProfPic"> Cornelio <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#" onClick="favoritesDrop()">Favorites</a></li>
-              <li><a href="#" onClick="messagesDrop()">Messages</a></li>
-              <li><a href="#" onClick="historyDrop()">History</a></li>
+              <li><a href="#">Add a Listing</a></li>
               <li><a href="#">Settings</a></li>
               <li class="divider"></li>
               <li><a href="#">Logout</a></li>
@@ -584,14 +579,14 @@
                 <!-- TO-DO: Link to pet edit dialog -->
                 <button type='button' class='btn btn-default' id="editListingButton">Edit Listing <span class='glyphicon glyphicon-pencil'></span></button>
               </div>
-              <div class="petExpandMiddle col-md-8"> <!-- Contains listing categories -->
+              <div class="petExpandMiddle col-md-6"> <!-- Contains listing categories -->
                 <h2>Fluffy<small>  (Snake)</small></h2>
                 <h4 class="listingTitle"> Sitter Type: <small> Casual, Professional </small></h4>
                 <h4 class="listingTitle"> Duration: <small> May 24th-28th, 2015</small></h4>
                 <h4 class="listingTitle"> Payment: <small> $, $$, $$$, Negotiable</small></h4>
                 <h4 class="listingTitle"> Distance: <small> 25 mile radius</small></h4>
               </div>
-              <div class="petExpandRight col-md-2"> <!-- Contains hiring a sitter button-->
+              <div class="petExpandRight col-md-4"> <!-- Contains hiring a sitter button-->
                   <button type='button' class='btn btn-default' id="hiringButton"><span class="glyphicon glyphicon-ok"></span> Hire a Sitter</button>
               </div>
               <div id="dialog" title="Hire a Sitter"> <!-- Contains hiring a sitter dialog, prompts for name and user or not-->
@@ -616,22 +611,22 @@
       <div class='container'>
         <div class='row'>
         <div class='col-sm-3 messages-left'>
-          <div class='row message-name well well-sm'>
+          <div class='row message-name current panel panel-default' data-user='lily'>
             <div class='media'>
-              <div class='media-left media-middle'><img class='media-object img img-circle' src='static/images/lilyPaxton.jpg' height='40px' width='40px'/> </div>
+              <div class='media-left media-middle'><img class='media-object img img-circle' src='static/images/lilyPaxton.jpg' height='30px' width='30px'/> </div>
               <div class='media-body'><h4 class='media-heading'>Lily Paxton <span class='glyphicon glyphicon-remove pull-right'></span></h4></div>
             </div>
           </div>
-          <div class='row message-name well well-sm'>
+          <div class='row message-name panel panel-default' data-user='flynn'>
             <div class='media'>
-              <div class='media-left media-middle'><img class='media-object img img-circle' src='static/images/FlynnRider.jpeg' height='40px' width='40px' /> </div>
+              <div class='media-left media-middle'><img class='media-object img img-circle' src='static/images/FlynnRider.jpeg' height='30px' width='30px' /> </div>
 
               <div class='media-body'><h4 class='media-heading'>Flynn Rider <span class='glyphicon glyphicon-remove pull-right'></span></h4></div>
             </div>
           </div>
-          <div class='row message-name well well-sm'>
+          <div class='row message-name panel panel-default' data-user='janet'>
             <div class='media'>
-              <div class='media-left media-middle'><img class='media-object img img-circle' src='static/images/JanetMason.jpg' height='40px' width='40px' />  </div>
+              <div class='media-left media-middle'><img class='media-object img img-circle' src='static/images/JanetMason.jpg' height='30px' width='30px' />  </div>
 
               <div class='media-body'><h4 class='media-heading'>Janet Mason <span class='glyphicon glyphicon-remove pull-right'></span></h4></div>
             </div>
@@ -682,7 +677,7 @@
 
 
   <!-- messages popup -->
-  <div id='messages-popup'>
+<!--   <div id='messages-popup'>
     <div id='messages-popup-header'>Lily Paxton <span class='glyphicon glyphicon-remove pull-right' id='messages-popup-close'></span></div>
 
     <div class='container' id='messages-popup-area'>
@@ -709,6 +704,6 @@
         <button class='btn btn-default' type='button' id='messages-popup-send'>Send</button>
       </span>
     </div>
-  </div>
+  </div> -->
 </body>
 </html>

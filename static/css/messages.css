@@ -1,8 +1,18 @@
 .message-name {
 	border: 0px;
-	background-color: #ffffff;
+	margin:2px;
+	padding: 5px;
+	background-color: #f5f5f5;
 	-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
           box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.message-name.current {
+	background-color: #dddddd;
+}
+
+.message-name:hover {
+	background-color: #dddddd;
 }
 
 .m-person-2 {
