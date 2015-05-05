@@ -25,8 +25,10 @@
         <img class="listingImg" src="static/images/{{petImg}}">
         <div class="listingInfo">
           <div class="listingContent">
-            <p class="listingText petName">{{petName}} ({{petType}})</p>
-            <p class="listingText date">
+            <p class="petName">{{petName}} <small> ({{petType}})</small></p>
+            <!-- <p class="petType">Pet type: {{petType}}</p> -->
+            <p class="ownerName">{{ownerFirstName}} {{ownerLastName}} {{#ownerUsername}}<a href="profile.html?user={{ownerUsername}}">(view profile)</a>{{/ownerUsername}} {{^ownerUsername}}<a href="">(view profile) </a>{{/ownerUsername}}</p>
+            <p class="date">
               {{startDate}} - {{endDate}}
             </p>
             <p class="listingText ownerName">Owner: {{#ownerUsername}}<a class="profileLink" href="profile.html?user={{ownerUsername}}">{{ownerFirstName}} {{ownerLastName}} </a>{{/ownerUsername}} {{^ownerUsername}}<a class="profileLink" href="">{{ownerFirstName}} {{ownerLastName}}</a>{{/ownerUsername}}</p>
@@ -73,9 +75,9 @@
     </script>
     <script id='personalInfoTemplate' type='x-tmpl-mustache'>
       {{#personalInfo}}
-        <p><input type="radio" name="ownerPreset" value='{"ownerName" : "{{ownerName}}", "email": "{{email}}", "zip":"{{zip}}" {{#phoneNumber}}, "phoneNumber": "{{phoneNumber}}" {{/phoneNumber}} }'/>
+        <p><input type="radio" name="ownerPreset" value='{"ownerFirstName" : "{{ownerFirstName}}", "ownerLastName": "{{ownerLastName}}", "email": "{{email}}", "zip":"{{zip}}" {{#phoneNumber}}, "phoneNumber": "{{phoneNumber}}" {{/phoneNumber}} }'/>
         <label>
-        {{ownerName}}142
+        {{ownerFirstName}} {{ownerLastName}}
         <small>{{email}}</small>
         <div class="info-sup">
         {{#phoneNumber}}
@@ -90,7 +92,7 @@
         <p>
 
         <div class="info-sup">
-        {{ownerName}} <small> {{email}} </small> <br>
+        {{ownerFirstName}} {{ownerLastName}} <small> {{email}} </small> <br>
         {{#phoneNumber}}
           Phone: {{phoneNumber}}<br>
         {{/phoneNumber}}
