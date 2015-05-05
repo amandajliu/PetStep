@@ -13,6 +13,7 @@ var loadPetInfo = function() {
 }
 var createMasonry = function(){
   //recreates the masonry with the pet listings
+  $container.masonry('destroy'); //destroys the previous masonry object (if this errors, just delete it)
   $container = $('#feedContainer');
   $container.imagesLoaded(function(){
     $container.masonry({
