@@ -24,6 +24,17 @@ var createMasonry = function(){
 
   })
 }
+var sortByOwnerLastName = function(a,b){
+  var aName = a.ownerLastName.toLowerCase();
+  var bName = b.ownerLastName.toLowerCase();
+  return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+}
+
+var sortByZipcode = function(a,b){
+  var aName = parseInt(a.zipcode);
+  var bName = parseInt(b.zipcode);
+  return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+}
 
 
 var loadPersonalInfo = function() {
@@ -168,7 +179,7 @@ $(document).ready(function(){
   $('.Switch').click(function() {
 		$(this).toggleClass('On').toggleClass('Off');
 	});
-  $('#sortByDistance').attr('checked','checked');
+  $('#sortByDistance').trigger('click');
   $('.filterOpt').change(function(){
     $('#searchParams').html("");
     changeDist();
@@ -219,9 +230,9 @@ $(document).ready(function(){
   );
 
   $(".listingContent").click(function(event) {
-    event.preventDefault();
+  /*  event.preventDefault();*/
     event.stopPropagation();
-    return false;
+  /*  return false;*/
   })
 
   $(".add-to-favs-button").click(function(event) {
@@ -252,13 +263,14 @@ $(document).ready(function(){
   )
 
 // Toggles tooltips for the price ranges on the cost dropdown search filter
-  $('[data-toggle="tooltip"]').tooltip(); 
+  $('[data-toggle="tooltip"]').tooltip();
 
 });
 
 $(window).load(function() {
   var marg = $('#_header').css('height');
   $('#feedContainer').css('margin-top', marg);
+  $('#sortByDistance').trigger('click');
 
   $('.personListing').addClass('hide');
   $('.Switch').click(function(){
@@ -419,9 +431,9 @@ reloadListeners = function() {
   );
 
   $(".listingContent").click(function(event) {
-    event.preventDefault();
+  /*  event.preventDefault();*/
     event.stopPropagation();
-    return false;
+  /*  return false;*/
   })
 
   $(".add-to-favs-button").click(function(event) {
