@@ -2,7 +2,7 @@ var loadListings = function() {
   var listingTemplate = $('#listingTemplate').html();
   Mustache.parse(listingTemplate);
   var rendered = Mustache.render(listingTemplate, listingsData);
-  $('#feedContainer').prepend(rendered);
+  $('#feedContainer').html(rendered);
 }
 
 var loadPetInfo = function() {

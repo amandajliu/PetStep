@@ -138,6 +138,30 @@ $(window).load(function() {
 
 
   $(".submit").click(function(){
+    var newListingData = {};
+    newListingData['ownerFirstName'] = personalValues['ownerFirstName'];
+    newListingData['ownerLastName'] = personalValues['ownerLastName'];
+    newListingData['ownerUsername'] = "cornelio";
+    newListingData['petName'] = petValues['petName'];
+    newListingData['petType'] = petValues['petType'];
+    newListingData['petTypeAttr'] = petValues['petType'].toLowerCase().replace(/\s/g, '_');
+    newListingData['petImg'] = petValues['petImage'];
+    newListingData['zipcode'] = personalValues['zip'];
+    newListingData['startDate'] = additionalValues['startDate'];
+    newListingData['endDate'] = additionalValues['endDate'];
+    newListingData['payment'] = additionalValues['payment'].join(' ');
+
+    var paymentString = additionalValues['payment'].join('_ _');
+    paymentString = '_' + paymentString + '_';
+    newListingData['paymentAttr'] = paymentString;
+    newListingData['sitterType'] = additionalValues['sitterType'].join(' ');
+    newListingData['sitterAttr'] = additionalValues['sitterType'].join(' ').toLowerCase();
+    newListingData['durationType'] = additionalValues['jobType']
+    newListingData['durationTypeAttr'] = additionalValues['jobType'].toLowerCase().replace('-', '');
+    newListingData['durationLengthAttr'] = '1wkmonth';
+    listingsData['petListings'].unshift(newListingData);
+    loadListings();
+    $(".form-containers").addClass("hide");
   	return false;
   })
 

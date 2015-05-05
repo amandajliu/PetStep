@@ -49,7 +49,7 @@ $(document).ready(function() {
 	var user = $.getUrlVar('user');
       if (user) {
         setUser(user);
-      } 
+      }
       else {
         setUser("cornelio");
       }
@@ -181,6 +181,7 @@ $(document).ready(function($){
 		}
 	});
 });
+
 //Active Listing - Hiring dialog
 
 $(document).ready(function(){
