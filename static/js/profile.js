@@ -214,6 +214,22 @@ $(document).ready(function(){
 	$( "#hiringButton" ).click(function() {
   		$( "#dialog" ).dialog( "open" );
 	});
+
+	$( "#dialog" ).submit(function( event ) {
+		event.preventDefault();
+		var ownerName = $("input[type='text'][name='SitterName']").val();
+  		var accountStatus = $("input[type='radio'][name='accountStatus']:checked");
+  		if (accountStatus == 'yesAcct') {
+			$( "#hiringButton" ).text("You've hired " + ownerName + " as your sitter!");
+			$( "#dialog" ).dialog( "close" );
+			$(this).dialog('destroy').remove()
+  		} else {
+  			$( "#hiringButton" ).text("You've hired " + ownerName + " as your sitter!");
+  			$( "#dialog" ).dialog( "close" );
+  			$(this).dialog('destroy').remove()
+  		};
+	});
+
 });
 
 // Accordion js
