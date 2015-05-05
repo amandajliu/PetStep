@@ -161,6 +161,7 @@ $(window).load(function() {
     newListingData['durationLengthAttr'] = '1wkmonth';
     listingsData['petListings'].unshift(newListingData);
     loadListings();
+    createMasonry();
     $(".form-containers").addClass("hide");
   	return false;
   })
