@@ -96,6 +96,9 @@
   overflow:hidden;
   cursor: pointer;
 }
+.param .paytip{
+  color:white !important;
+}
 .paytip, .paytip:hover{
   text-decoration:none;
   color:#333333;
