@@ -179,7 +179,7 @@ $(document).ready(function(){
   $('.Switch').click(function() {
 		$(this).toggleClass('On').toggleClass('Off');
 	});
-  $('#sortByDistance').trigger('click');
+  $('#sortByDistance_pet').trigger('click');
   $('.filterOpt').change(function(){
     $('#searchParams').html("");
     changeDist();
@@ -270,7 +270,6 @@ $(document).ready(function(){
 $(window).load(function() {
   var marg = $('#_header').css('height');
   $('#feedContainer').css('margin-top', marg);
-  $('#sortByDistance').trigger('click');
 
   $('.personListing').addClass('hide');
   $('.Switch').click(function(){
