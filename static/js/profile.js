@@ -1,11 +1,11 @@
 var currentUser;
 
-var setUser = function(user) {
-	currentUser = $.grep(profileData.users, function(elt) {
-		return elt.username === user;
-	})[0];
+// var setUser = function(user) {
+// 	currentUser = $.grep(profileData.users, function(elt) {
+// 		return elt.username === user;
+// 	})[0];
 
-}
+// }
 
 var loadProfile = function() {
 	var profileTemplate = $("#profile-template").html();
@@ -46,15 +46,15 @@ var loadProfile = function() {
 }
 
 $(document).ready(function() {
-	var user = $.getUrlVar('user');
-      if (user) {
-        setUser(user);
-      }
-      else {
-        setUser("cornelio");
-      }
-	console.log(currentUser);
-	loadProfile();
+	// var user = $.getUrlVar('user');
+ //      if (user) {
+ //        setUser(user);
+ //      }
+ //      else {
+ //        setUser("cornelio");
+ //      }
+	// console.log(currentUser);
+	// loadProfile();
 	$(".main-tabs").click(function() {
 		var tabid = $(this).attr('id');
 		tabid = tabid.substring(4);
@@ -218,12 +218,15 @@ $(document).ready(function(){
 
 // Accordion js
 // Thanks to http://stackoverflow.com/questions/20347553/bootstrap-3-collapse-accordion-collapse-all-works-but-then-cannot-expand-all-wh
-// Collapse or expand all logic for Active Listing tab
+
+// Active Listings tab
 $(document).ready(function(){
 
     var active = false;
     var alflag = true;
 
+
+    // collapse or expand all 
     $('#collapse-init').click(function () {
         if (active) {
             active = false;
@@ -246,6 +249,20 @@ $(document).ready(function(){
 			alflag = true;
 		}
     });
+
+    // toggle individual header things
+
+	$('#alExpandTitle').click(function () {
+		if (alflag) {
+			$('#menuArrow').addClass('glyphicon-triangle-right');
+			$('#menuArrow').removeClass('glyphicon-triangle-bottom');
+			alflag = false;
+		} else {
+			$('#menuArrow').addClass('glyphicon-triangle-bottom');
+			$('#menuArrow').removeClass('glyphicon-triangle-right');
+			alflag = true;
+		}
+	})
 
     $('#accordion').on('show.bs.collapse', function () {
         if (active) $('#accordion .in').collapse('hide');
@@ -283,44 +300,21 @@ $(document).ready(function(){
 		}
     });
 
-    $('#accordion').on('show.bs.collapse', function () {
-        if (active) $('#accordion .in').collapse('hide');
-    });
-
-});
-
-// Change the glyphicon arrow for section collapse/expansion, active listings tab
-
-$(document).ready(function(){
-
-	var al = true;
-
-	$('#alExpandTitle').click(function () {
-		if (al) {
-			$('#menuArrow').addClass('glyphicon-triangle-right');
-			$('#menuArrow').removeClass('glyphicon-triangle-bottom');
-			al = false;
-		} else {
-			$('#menuArrow').addClass('glyphicon-triangle-bottom');
-			$('#menuArrow').removeClass('glyphicon-triangle-right');
-			al = true;
-		}
-	})
-
-
-	var petEx = true;
-
 	$('#petExpandTitle').click(function () {
-		if (petEx) {
+		if (petArrowFlag) {
 			$('#petArrow').addClass('glyphicon-triangle-right');
 			$('#petArrow').removeClass('glyphicon-triangle-bottom');
-			petEx = false;
+			petArrowFlag = false;
 		} else {
 			$('#petArrow').addClass('glyphicon-triangle-bottom');
 			$('#petArrow').removeClass('glyphicon-triangle-right');
-			petEx = true;
+			petArrowFlag = true;
 		}
 	})
+
+    $('#accordion').on('show.bs.collapse', function () {
+        if (active) $('#accordion .in').collapse('hide');
+    });
 
 });
 
