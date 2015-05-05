@@ -39,7 +39,7 @@
             {{#sitterType}}
             <p class="listingText sitterType">Sitter Type: {{sitterType}}</p>
             {{/sitterType}}
-            <button class='listingText btn btn-default'> <span class='glyphicon glyphicon-star'></span> Add to Favorites</button>
+            <button class='listingText btn btn-default fav-btn'> <span class='glyphicon glyphicon-star'></span> <span class='btn-text'>Add to Favorites</span></button>
           </div>
         </div>
       </div>
@@ -53,6 +53,7 @@
           <p class="sitterName">{{sitterName}} <a href="#">(view profile)</a></p>
           <p class="sitsPetType">Sits: {{petTypes}} </p>
           <p class="sitterZip">Zipcode: {{zipcode}}</p>
+          <button class='listingText btn btn-default fav-btn' data-user='{{sitterName}}'><span class='glyphicon glyphicon-star'></span> <span class='btn-text'>Add to Favorites</span></button>
         </div>
       </div>
     </div>
