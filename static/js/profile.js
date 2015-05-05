@@ -130,33 +130,59 @@ $(document).ready(function() {
 	);
 });
 
+var loadConversation = function(username) {
+	var conversation = $.grep(messageData.conversations, function(elt) {
+		return elt.user === username;
+	})[0];
+	var sentMessageTemp = $('#messages-template-sent').html();
+	Mustache.render(sentMessageTemp);
+	var receivedMessageTemp = $('#messages-template-received').html();
+	Mustache.render(receivedMessageTemp);
+	for (var i = 0; i < conversation.messages.length; i++) {
+		
+	}
+}
 // Messages
 $(document).ready(function() {
-    // send button click
-    $('#message-send').click(function() {
-        var message = $('#message-text').val();
-        var newMessageHTML = "<div class='row'>\
-        <div class='col-xs-1'>\
-        <img class='img img-circle' width='40px' height='40px' src='static/images/Cornelio.png' margin='4px' />\
-        </div>\
-        <div class='well well-sm m-person-1 col-xs-10'>" + message + "</div></div>";
-        $('.messages-right').append(newMessageHTML);
-        $('#message-text').val('');
-    });
 
-    $('#popup-messages').click(function() {
-        $('#messages-popup').css('visibility', 'visible');
-    });
-
-    $('#messages-popup-close').click(function() {
-        $('#messages-popup').css('visibility', 'hidden');
-    });
-
-    $('#message-text').keyup(function(event) {
-    	if (event.keyCode === 13) {
-    		$('#message-send').click();
-    	}
-    })
+	if (currentUser.username ==='cornelio') {
+		var messageContent = $.grep(messageData.conversations, function(elt) {
+			elt.
+		})
+	
+	    // send button click
+	    $('#message-send').click(function() {
+	        var message = $('#message-text').val();
+	        var newMessageHTML = "<div class='row'>\
+	        <div class='col-xs-1'>\
+	        <img class='img img-circle' width='40px' height='40px' src='static/images/Cornelio.png' margin='4px' />\
+	        </div>\
+	        <div class='well well-sm m-person-1 col-xs-10'>" + message + "</div></div>";
+	        $('.messages-right').append(newMessageHTML);
+	        $('#message-text').val('');
+	    });
+	
+	    $('#popup-messages').click(function() {
+	        $('#messages-popup').css('visibility', 'visible');
+	    });
+	
+	    $('#messages-popup-close').click(function() {
+	        $('#messages-popup').css('visibility', 'hidden');
+	    });
+	
+	    $('#message-text').keyup(function(event) {
+	    	if (event.keyCode === 13) {
+	    		$('#message-send').click();
+	    	}
+	    });
+	
+	    $('.message-name').click(function() {
+	    	if (!$(this).hasClass('current')) {
+	    		$('.message-name').removeClass('current');
+	    		$(this).addClass('current');
+	    	}
+	    });
+	}
 });
 
 // Timeline js

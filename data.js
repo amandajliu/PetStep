@@ -380,3 +380,32 @@ personalInfo = {
       presetCount: 1,
     }]
 }
+
+messageData = {
+    "conversations": [{
+        user: "lily",
+        firstName: "Lily",
+        lastName: "Paxton",
+        userImg: "lilyPaxton.jpg",
+        messages: [{
+            messageType: "sent",
+            messageText: "message1"
+        }, {
+            messageType: "received",
+            messageText: "message2"
+        }]
+    }, 
+    {
+        user: "flynn",
+        firstName: "Flynn",
+        lastName: "Rider",
+        userImg: "FlynnRider.jpg",
+        messages: [{
+            messageType: "sent",
+            messageText: "message3"
+        }, {
+            messageType: "received",
+            messageText: "message4"
+        }]
+    }]
+}
