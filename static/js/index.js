@@ -2,7 +2,7 @@ var loadListings = function() {
   var listingTemplate = $('#listingTemplate').html();
   Mustache.parse(listingTemplate);
   var rendered = Mustache.render(listingTemplate, listingsData);
-  $('#feedContainer').prepend(rendered);
+  $('#feedContainer').html(rendered);
 }
 
 var loadPetInfo = function() {
@@ -11,6 +11,20 @@ var loadPetInfo = function() {
   var rendered = Mustache.render(petInfoTemplate, petInfo);
   $("#petPreset").prepend(rendered);
 }
+var createMasonry = function(){
+  //recreates the masonry with the pet listings
+  $('.personListing').addClass('hide');
+  $container.masonry('destroy'); //destroys the previous masonry object (if this errors, just delete it)
+  $container = $('#feedContainer');
+  $container.imagesLoaded(function(){
+    $container.masonry({
+      itemSelector:'.petListing',
+      'isFitWidth': true
+    });
+
+  })
+}
+
 
 var loadPersonalInfo = function() {
   var personalInfoTemplate = $('#personalInfoTemplate').html();
@@ -151,6 +165,9 @@ $(document).ready(function(){
   loadListings();
   loadPresets();
   nonBlankFilters = [];
+  $('.Switch').click(function() {
+		$(this).toggleClass('On').toggleClass('Off');
+	});
   $('#sortByDistance').attr('checked','checked');
   $('.filterOpt').change(function(){
     $('#searchParams').html("");
@@ -240,7 +257,42 @@ $(window).load(function() {
   $('#feedContainer').css('margin-top', marg);
 
   $('.personListing').addClass('hide');
-  $('#sitterButton').click(function(){
+  $('.Switch').click(function(){
+    if($('#sitterButton').hasClass('active')){ //switch to owner
+      $('#ownerButton').addClass('active');
+      $('#sitterButton').removeClass('active');
+      $('.sortPerson').css('display','block');
+      $('.sortPet').css('display','none');
+      $('.personListing').removeClass('hide');
+      $('.petListing').addClass('hide');
+      $container.masonry('destroy');
+      $container = $('#feedContainer');
+      $container.imagesLoaded(function(){
+        $container.masonry({
+          itemSelector:'.personListing',
+          'isFitWidth':true
+        });
+      });
+    }else{
+      $('#sitterButton').addClass('active');
+      $('#ownerButton').removeClass('active');
+
+      $('.sortPet').css('display','block');
+      $('.sortPerson').css('display','none');
+      $('.petListing').removeClass('hide');
+      $('.personListing').addClass('hide');
+      $container.masonry('destroy');
+      $container = $('#feedContainer');
+      $container.imagesLoaded(function(){
+        $container.masonry({
+          itemSelector:'.petListing',
+          'isFitWidth':true
+        });
+
+      })
+    }
+  })
+  /*$('#sitterButton').click(function(){
     $(this).addClass('active');
     $('#ownerButton').removeClass('active');
 
@@ -278,7 +330,7 @@ $(window).load(function() {
     })
 
 
-  })
+  })*/
 
   $("#addListing").click(function() {
     $('.form-containers').removeClass("hide");
@@ -334,3 +386,45 @@ $(function() {
   });
 
 })
+
+reloadListeners = function() {
+  /*slideup layer on listings*/
+  $('.listing').hover(
+    function(){
+      if (!this.wasClicked) {
+        $(this).find('div.listingInfo').slideDown(300);
+      }
+    },
+    function(){
+      if (!this.wasClicked) {
+        $(this).find('div.listingInfo').slideUp(300);
+      }
+    }
+  );
+
+  $('.listing').click(
+    function() {
+      if(!this.wasClicked) {
+        $(this).find('div.listingInfo').slideDown(300);
+        this.wasClicked = true;
+      } else {
+        $(this).find('div.listingInfo').slideUp(300);
+        this.wasClicked = false;
+      }
+    }
+  );
+
+  $(".listingContent").click(function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+  })
+
+  $(".add-to-favs-button").click(function(event) {
+    $(this).parent().slideDown(300);
+    // Yeah I know this is ridiculous
+    // Used for grabing containing listing div from button click
+    $(this).parent().parent().parent().parent()[0].wasClicked = true;
+
+  })
+}
