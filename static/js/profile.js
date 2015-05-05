@@ -1,11 +1,11 @@
 var currentUser;
 
-// var setUser = function(user) {
-// 	currentUser = $.grep(profileData.users, function(elt) {
-// 		return elt.username === user;
-// 	})[0];
+var setUser = function(user) {
+	currentUser = $.grep(profileData.users, function(elt) {
+		return elt.username === user;
+	})[0];
 
-// }
+}
 
 var loadProfile = function() {
 	var profileTemplate = $("#profile-template").html();
@@ -46,15 +46,15 @@ var loadProfile = function() {
 }
 
 $(document).ready(function() {
-	// var user = $.getUrlVar('user');
- //      if (user) {
- //        setUser(user);
- //      }
- //      else {
- //        setUser("cornelio");
- //      }
-	// console.log(currentUser);
-	// loadProfile();
+	var user = $.getUrlVar('user');
+      if (user) {
+        setUser(user);
+      }
+      else {
+        setUser("cornelio");
+      }
+	console.log(currentUser);
+	loadProfile();
 	$(".main-tabs").click(function() {
 		var tabid = $(this).attr('id');
 		tabid = tabid.substring(4);
