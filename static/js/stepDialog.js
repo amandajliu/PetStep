@@ -149,19 +149,34 @@ $(window).load(function() {
     newListingData['zipcode'] = personalValues['zip'];
     newListingData['startDate'] = additionalValues['startDate'];
     newListingData['endDate'] = additionalValues['endDate'];
-    newListingData['payment'] = additionalValues['payment'].join(' ');
-
-    var paymentString = additionalValues['payment'].join('_ _');
+    var joinedPayments = additionalValues['payment'];
+    var tmpPayments = [];
+    for (var i = 0; i < joinedPayments.length; i++) {
+      tmpPayments.push(joinedPayments[i].type)
+    }
+    joinedPayments = tmpPayments;
+    // console.log(joinedPayments);
+    joinedPaymentsFixed = joinedPayments.join(', ');
+    newListingData['payment'] = joinedPaymentsFixed;
+    var paymentString = joinedPayments.join('_ _');
     paymentString = '_' + paymentString + '_';
     newListingData['paymentAttr'] = paymentString;
-    newListingData['sitterType'] = additionalValues['sitterType'].join(' ');
-    newListingData['sitterAttr'] = additionalValues['sitterType'].join(' ').toLowerCase();
+
+    var joinedSitterType = additionalValues['sitterType'];
+    var tmpSitterType = [];
+    for (var i = 0; i < joinedSitterType.length; i++) {
+      tmpSitterType.push(joinedSitterType[i].type)
+    }
+    joinedSitterType = tmpSitterType;
+    newListingData['sitterType'] = joinedSitterType.join(', ');
+    newListingData['sitterAttr'] = joinedSitterType.join(' ').toLowerCase();
     newListingData['durationType'] = additionalValues['jobType']
     newListingData['durationTypeAttr'] = additionalValues['jobType'].toLowerCase().replace('-', '');
     newListingData['durationLengthAttr'] = '1wkmonth';
     listingsData['petListings'].unshift(newListingData);
     loadListings();
     createMasonry();
+    reloadListeners();
     $(".form-containers").addClass("hide");
   	return false;
   })
