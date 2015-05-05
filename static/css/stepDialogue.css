@@ -120,7 +120,9 @@ http://thecodeplayer.com/walkthrough/jquery-multi-step-form-with-progress-bar
 }
 
 .presetImage {
-  width: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100px;
 }
 
 .action-button {
