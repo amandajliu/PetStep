@@ -180,6 +180,7 @@ $(document).ready(function(){
 		$(this).toggleClass('On').toggleClass('Off');
 	});
   $('#sortByDistance_pet').trigger('click');
+  $('#sortByDistance_person').trigger('click');
   $('.filterOpt').change(function(){
     $('#searchParams').html("");
     changeDist();
