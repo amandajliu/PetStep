@@ -96,6 +96,10 @@
   overflow:hidden;
   cursor: pointer;
 }
+.paytip, .paytip:hover{
+  text-decoration:none;
+  color:#333333;
+}
 .hide{
   display:none;
   top:-9999px !important;
