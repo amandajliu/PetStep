@@ -250,6 +250,10 @@ $(document).ready(function(){
       }
     }
   )
+
+// Toggles tooltips for the price ranges on the cost dropdown search filter
+  $('[data-toggle="tooltip"]').tooltip(); 
+
 });
 
 $(window).load(function() {
