@@ -220,12 +220,14 @@ $(document).ready(function(){
 		var ownerName = $("input[type='text'][name='SitterName']").val();
   		var accountStatus = $("input[type='radio'][name='accountStatus']:checked");
   		if (accountStatus == 'yesAcct') {
-			$( "#hiringButton" ).text("You've hired " + ownerName + " as your sitter!");
+			$( "#hiringButton" ).remove();
+			$(".petExpandRight").append("<p>You've hired" + " <a href='profile.html?user=" + ownerName + "'>" + ownerName + "</a> as your sitter!</p>");
 			$( "#dialog" ).dialog( "close" );
 			$(this).dialog('destroy').remove()
   		} else {
-  			$( "#hiringButton" ).text("You've hired " + ownerName + " as your sitter!");
-  			$( "#dialog" ).dialog( "close" );
+			$( "#hiringButton" ).remove();
+			$(".petExpandRight").append("<p>You've hired" + " <a href='profile.html?user=" + ownerName + "'>" + ownerName + "</a> as your sitter!</p>");  			
+			$( "#dialog" ).dialog( "close" );
   			$(this).dialog('destroy').remove()
   		};
 	});
