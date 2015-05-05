@@ -31,12 +31,14 @@
             <p class="date">
               {{startDate}} - {{endDate}}
             </p>
-            <p class="ownerZip">Zipcode: {{zipcode}}</p>
-            <p class="pay">Pay: {{payment}} </p>
+            <p class="listingText ownerName">Owner: {{#ownerUsername}}<a class="profileLink" href="profile.html?user={{ownerUsername}}">{{ownerFirstName}} {{ownerLastName}} </a>{{/ownerUsername}} {{^ownerUsername}}<a class="profileLink" href="">{{ownerFirstName}} {{ownerLastName}}</a>{{/ownerUsername}}</p>
+
+            <p class="listingText ownerZip">Zipcode: {{zipcode}}</p>
+            <p class="listingText pay">Pay: {{payment}} </p>
             {{#sitterType}}
-            <p class="sitterType">Sitter Type: {{sitterType}}</p>
+            <p class="listingText sitterType">Sitter Type: {{sitterType}}</p>
             {{/sitterType}}
-            <button class='btn btn-default add-to-favs-button'> <span class='glyphicon glyphicon-star'></span> Add to Favorites</button>
+            <button class='listingText btn btn-default'> <span class='glyphicon glyphicon-star'></span> Add to Favorites</button>
           </div>
         </div>
       </div>
@@ -49,7 +51,7 @@
         <div class="listingInfo">
           <p class="sitterName">{{sitterName}} <a href="#">(view profile)</a></p>
           <p class="sitsPetType">Sits: {{petTypes}} </p>
-          <p class="sitterZip">{{zipcode}}</p>
+          <p class="sitterZip">Zipcode: {{zipcode}}</p>
         </div>
       </div>
     </div>

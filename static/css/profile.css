@@ -25,15 +25,15 @@ Better looking tabs
 }
 /* #607D8B */
 .main-tabs:not(.active) > a:hover {
-  background-color: #FFFFFF ! important;
-  color: #CFD8DC ! important;
+  background-color: #FFFFFF !important;
+  color: #a9b1b4! important;
   border-right: 1px solid rgba(255, 255, 255, 1) ! important;
   border-left: 1px solid rgba(255, 255, 255, 1) ! important;
   border-top: 1px solid rgba(255, 255, 255, 1) ! important;
 }
 
 .main-tabs:not(.active):hover {
-  border-top: 5px solid #CFD8DC;
+  border-top: 5px solid #a9b1b4;
   margin-top: -5px;
 }
 

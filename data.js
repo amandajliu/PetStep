@@ -18,24 +18,22 @@ listingsData = {
     durationTypeAttr: "onetime",
     durationLengthAttr: "1wkmonth"
   }, {
-    ownerFirstName: "Lily",
-    ownerLastName: "Paxton",
-    ownerUsername: "lily",
-    petName: "Sugar",
-    petType: "Dog",
-    petTypeAttr: "dog",
-    petImg: "dog-beach.jpg",
+    ownerFirstName: "Stephanie",
+    ownerLastName: "Castle",
+    petName: "Pumpkin",
+    petType: "Hamster",
+    petTypeAttr: "hamster",
+    petImg: "hamster0.jpg",
     zipcode: "02139",
-    startDate: "6/15/2015",
-    endDate: "6/17/2015",
-    payment: "$$",
-    paymentAttr:"_$$_",
-    sitterType: "Professional",
-    sitterTypeAttr: "professional",
+    startDate: "5/1/2015",
+    endDate: "5/2/2015",
+    payment: "$",
+    paymentAttr:"_$_",
+    sitterTypeAttr: "casual professional",
     durationType: "One-time",
     durationTypeAttr: "onetime",
-    durationLengthAttr: "1wk"
-  }, {
+    durationLengthAttr: "1day"
+  },{
     ownerFirstName: "Janet",
     ownerLastName: "Mason",
     petName: "Burrito",
@@ -100,7 +98,7 @@ listingsData = {
     durationType: "Routine",
     durationTypeAttr: "routine",
     durationLengthAttr: "1wkmonth"
-  }, {
+  },  {
     ownerFirstName: "Doug",
     ownerLastName: "Schumaker",
     petName: "Porky",
@@ -184,6 +182,24 @@ listingsData = {
     durationTypeAttr: "routine",
     durationLengthAttr: "halfyr"
   }, {
+    ownerFirstName: "Lily",
+    ownerLastName: "Paxton",
+    ownerUsername: "lily",
+    petName: "Sugar",
+    petType: "Dog",
+    petTypeAttr: "dog",
+    petImg: "dog-beach.jpg",
+    zipcode: "02139",
+    startDate: "6/15/2015",
+    endDate: "6/17/2015",
+    payment: "$$",
+    paymentAttr:"_$$_",
+    sitterType: "Professional",
+    sitterTypeAttr: "professional",
+    durationType: "One-time",
+    durationTypeAttr: "onetime",
+    durationLengthAttr: "1wk"
+  },{
     ownerFirstName: "Laura",
     ownerLastName: "Pine",
     petName: "Granny Laura",
@@ -200,23 +216,7 @@ listingsData = {
     durationType: "Routine",
     durationTypeAttr: "routine",
     durationLengthAttr: "1wkmonth"
-  }, {
-    ownerFirstName: "Stephanie",
-    ownerLastName: "Castle",
-    petName: "Pumpkin",
-    petType: "Hamster",
-    petTypeAttr: "hamster",
-    petImg: "hamster0.jpg",
-    zipcode: "02139",
-    startDate: "5/1/2015",
-    endDate: "5/2/2015",
-    payment: "$",
-    paymentAttr:"_$_",
-    sitterTypeAttr: "casual professional",
-    durationType: "One-time",
-    durationTypeAttr: "onetime",
-    durationLengthAttr: "1day"
-  }, {
+  },  {
     ownerFirstName: "Deng",
     ownerLastName: "Xiaoping",
     petName: "Mao Zedong",
