@@ -11,6 +11,18 @@ var loadPetInfo = function() {
   var rendered = Mustache.render(petInfoTemplate, petInfo);
   $("#petPreset").prepend(rendered);
 }
+var createMasonry = function(){
+  //recreates the masonry with the pet listings
+  $container = $('#feedContainer');
+  $container.imagesLoaded(function(){
+    $container.masonry({
+      itemSelector:'.petListing',
+      'isFitWidth':true
+    });
+
+  })
+}
+
 
 var loadPersonalInfo = function() {
   var personalInfoTemplate = $('#personalInfoTemplate').html();
