@@ -16,9 +16,34 @@ var loadProfile = function() {
 		$('.tab-private').hide();
 	}
 
+}
+
+var loadFavorites = function() {
+	var favorites = $('#favoritesTemplate').html();
+	Mustache.parse(favorites);
+	var petListings = $.grep(listingsData.petListings, function(elt) {
+		return elt.favorite === true;
+	});
+	var personListings = $.grep(listingsData.personListings, function(elt) {
+		return elt.favorite === true;
+	});
+	var favRendered = Mustache.render(favorites, {'petListings': petListings, 'personListings': personListings});
+	$("#favsContainer").append(favRendered);
+}
+
+var hideFavorites = function() {
+	$('#favsContainer').hide();
+}
+
+var showFavorites = function() {
+	$('#favsContainer').show();
+}
+
+var loadReviews = function() {
 	var reviewsTemplate = $("#review-outer-template").html();
 	Mustache.parse(reviewsTemplate);
 	var rendered = Mustache.render(reviewsTemplate, currentUser);
+	$('#reviews-row').empty();
 	$("#reviews-row").prepend(rendered);
 	var ownerReviewCounts = [0,0,0,0,0];
 	var petReviewCounts = [0,0,0,0,0];
@@ -43,30 +68,33 @@ var loadProfile = function() {
 		$("#owner-reviews").append("<h2><small>No reviews yet!<small><h2>");
 		$("#pet-reviews").append("<h2><small>No reviews yet!<small><h2>");
 	}
+	var reviewsTemplate = $('#review-template').html();
+	Mustache.parse(reviewsTemplate);
+	var rendered = Mustache.render(reviewsTemplate, {'reviews': currentUser.reviews});
+	$('#reviews-area').empty();
+	$('#reviews-area').append(rendered);
+	console.log(currentUser.reviews);
 }
 
-var loadFavorites = function() {
-	var favorites = $('#favoritesTemplate').html();
-	Mustache.parse(favorites);
-	var petListings = $.grep(listingsData.petListings, function(elt) {
-		return elt.favorite === true;
-	});
-	var personListings = $.grep(listingsData.personListings, function(elt) {
-		return elt.favorite === true;
-	});
-	console.log(petListings);
-	var favRendered = Mustache.render(favorites, {'petListings': petListings, 'personListings': personListings});
-	$("#favsContainer").append(favRendered);
-}
+var loadStars = function() {
+	var starFilled = "<span class='glyphicon glyphicon-star'></span>";
+  var starEmpty = "<span class='glyphicon glyphicon-star-empty'></span>";
+  $(".starsHere").each(function() {
+      var stars = parseInt($(this).data("stars"));
+      if (!stars) {
+      	return;
+      }
+      for (var i = 0; i < 5; i++) {
+          if (i < stars) {
+              $(this).append(starFilled);
+          }
+          else {
+              $(this).append(starEmpty);
+          }
+      }
 
-var hideFavorites = function() {
-	$('#favsContainer').hide();
+  });
 }
-
-var showFavorites = function() {
-	$('#favsContainer').show();
-}
-
 $(document).ready(function() {
 	var user = $.getUrlVar('user');
       if (user) {
@@ -75,7 +103,6 @@ $(document).ready(function() {
       else {
         setUser("cornelio");
       }
-	console.log(currentUser);
 	loadProfile();
 	loadFavorites();
 	hideFavorites();
@@ -98,24 +125,9 @@ $(document).ready(function() {
 	});
 
 
-// Reviews show stars
-  var starFilled = "<span class='glyphicon glyphicon-star'></span>";
-  var starEmpty = "<span class='glyphicon glyphicon-star-empty'></span>";
-  $(".starsHere").each(function() {
-      var stars = parseInt($(this).data("stars"));
-      if (!stars) {
-      	return;
-      }
-      for (var i = 0; i < 5; i++) {
-          if (i < stars) {
-              $(this).append(starFilled);
-          }
-          else {
-              $(this).append(starEmpty);
-          }
-      }
-
-  });
+	// load reviews 
+	loadReviews();
+	loadStars();
 
   $('#submit-review-form').click(function() {
   	var ownerRating = $('input[name=rating-input-owner]:checked').val();
@@ -123,6 +135,8 @@ $(document).ready(function() {
   	var message = $('#review-text').val();
   	var review = {
   		'reviewer': "Cornelio",
+  		'reviewerImg': "Cornelio.png",
+  		'reviewTime': "just now",
   		'owner': currentUser.firstName,
   		'pet': currentUser.pets[0].petName,
   		'ownerRating': parseInt(ownerRating),
@@ -130,6 +144,9 @@ $(document).ready(function() {
   		'message': message
   	};
   	currentUser.reviews.push(review);
+  	loadReviews();
+  	console.log(currentUser.reviews);
+  	loadStars();
   	$('#add-review-form').modal('hide');
   });
 
@@ -219,11 +236,9 @@ $(document).ready(function() {
 		$('.message-name').removeClass('current');
 		$(name).addClass('current');
 	}
-	console.log(messaging);
 	var user = $.grep(profileData.users, function(elt) {
 		return elt.username === messaging
 	})[0];
-	console.log(user);
 
 	loadConversation(messaging);
 
