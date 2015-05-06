@@ -106,11 +106,12 @@ $(document).ready(function() {
 	var favorites = $('#favoritesTemplate').html();
 	Mustache.parse(favorites);
 	var petListings = $.grep(listingsData.petListings, function(elt) {
-		elt.favorite === true;
+		return elt.favorite === true;
 	});
 	var personListings = $.grep(listingsData.personListings, function(elt) {
-		elt.favorite === true;
+		return elt.favorite === true;
 	});
+	console.log(petListings);
 	var favRendered = Mustache.render(favorites, {'petListings': petListings, 'personListings': personListings});
 	$("#favsContainer").append(favRendered);
 
@@ -181,7 +182,22 @@ $(document).ready(function() {
 	// 		elt.
 	// 	})
 	
-	
+	var messaging = $.getUrlVar('messaging');
+	if (!messaging) {
+		messaging = 'lily';
+	}
+	var name = $('.message-name[data-user='+messaging+']')[0];
+	if (!$(name).hasClass('current')) {
+		$('.message-name').removeClass('current');
+		$(name).addClass('current');
+	}
+	console.log(messaging);
+	var user = $.grep(profileData.users, function(elt) {
+		return elt.username === messaging
+	})[0];
+	console.log(user);
+	$('#message-2-img').attr('src', 'static/images/'+user.userImg);
+
 	    // send button click
 	    $('#message-send').click(function() {
 	        var message = $('#message-text').val();
