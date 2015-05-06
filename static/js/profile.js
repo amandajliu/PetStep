@@ -166,6 +166,9 @@ $(document).ready(function() {
 
 	loadFavorites();
 	hideFavorites();
+	$('#lilyCornelioRev').click(function(){
+		$('#tab-reviews').trigger('click');
+	})
 
 	var tab = $.getUrlVar('tab');
 	if (tab === 2) {
@@ -206,7 +209,7 @@ $(document).ready(function() {
   });
 
 
-	// load reviews 
+	// load reviews
 	loadReviews();
 	loadStars();
 
