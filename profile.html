@@ -121,7 +121,7 @@
 </script>
 <script id='favoritesTemplate' type='x-tmpl-mustache'>
   {{#petListings}}
-  <div class="petListing listing" petType={{petTypeAttr}} ownerLastName={{ownerLastName}} zipcode={{zipcode}} startDate={{startDate}} endDate={{endDate}} payment = {{paymentAttr}} sitterType={{sitterTypeAttr}} durationLength={{durationLengthAttr}} durationType={{durationTypeAttr}}>
+  <div class="petListing listing fav" petType={{petTypeAttr}} ownerLastName={{ownerLastName}} distance={{distance}} zipcode={{zipcode}} startDate={{startDate}} endDate={{endDate}} payment = "{{paymentAttr}}" sitterType="{{sitterTypeAttr}}" durationLength={{durationLengthAttr}} durationType={{durationTypeAttr}}>
       <div class="listingImgDiv">
         <img class="listingImg" src="static/images/{{petImg}}">
         <div class="listingInfo">
@@ -136,25 +136,27 @@
             <p class="listingText ownerName">Owner: {{#ownerUsername}}<a class="profileLink" href="profile.html?user={{ownerUsername}}">{{ownerFirstName}} {{ownerLastName}} </a>{{/ownerUsername}} {{^ownerUsername}}<a class="profileLink" href="">{{ownerFirstName}} {{ownerLastName}}</a>{{/ownerUsername}}</p>
 
             <p class="listingText ownerZip">Zipcode: {{zipcode}}</p>
-            <p class="listingText pay">Pay: {{payment}} </p>
+            <p class="listingText pay">Pay: {{payment}}{{#durationType}}, {{durationType}}{{/durationType}} </p>
             {{#sitterType}}
             <p class="listingText sitterType">Sitter Type: {{sitterType}}</p>
             {{/sitterType}}
-            <button class='listingText btn btn-default fav-btn'> <span class='glyphicon glyphicon-star'></span> <span class='btn-text'>Add to Favorites</span></button>
+            <button class='listingText btn btn-default fav-btn'> <span class='glyphicon glyphicon-star'></span> <span class='btn-text clicked'>Remove from Favorites</span></button>
           </div>
         </div>
       </div>
     </div>
     {{/petListings}}
     {{#personListings}}
-    <div class="personListing listing">
+    <div class="personListing listing fav" petType="{{petTypeAttr}}" sitterType="{{sitterTypeAttr}}" distance = {{distance}}>
       <div class="listingImgDiv">
         <img class="listingImg" src="static/images/{{sitterImg}}">
         <div class="listingInfo">
-          <p class="sitterName">{{sitterName}} <a href="#">(view profile)</a></p>
+          <p class="sitterName">{{#sitterUsername}}<a class="profileLink" href="profile.html?user={{sitterUsername}}">{{sitterFirstName}} {{sitterLastName}} </a>{{/sitterUsername}} {{^sitterUsername}}<a class="profileLink" href="">{{sitterFirstName}} {{sitterLastName}}</a>{{/sitterUsername}}
+          </p>
+          {{#sitterType}}<p>Sitter Type: {{sitterType}}</p>{{/sitterType}}
           <p class="sitsPetType">Sits: {{petTypes}} </p>
           <p class="sitterZip">Zipcode: {{zipcode}}</p>
-          <button class='listingText btn btn-default fav-btn' data-user='{{sitterName}}'><span class='glyphicon glyphicon-star'></span> <span class='btn-text'>Add to Favorites</span></button>
+          <button class='listingText btn btn-default fav-btn' data-user='{{sitterName}}'><span class='glyphicon glyphicon-star clicked'></span> <span class='btn-text'>Remove from Favorites</span></button>
         </div>
       </div>
     </div>
@@ -510,29 +512,7 @@
 <!-- TAB CONTENT - Favorites -->
     <div class='main-panes tab-pane tab-pane-private' id='pane-favorites'>
       <div id="favsContainer">
-<!--         <div class="switchContainer">
-            <div class="switchLabel" id="ownerButton" style="display:inline-block">Owner</div>
-            <div class="Switch Round Off">
-              <div class="Toggle"></div>
-            </div>
-            <div class="switchLabel switch-active" id="sitterButton" style="display:inline-block">Sitter</div>
-          </div> -->
-<!--         <div class="petListing fav">
-          <div class="listingImgDiv">
-            <img class="listingImg" src="static/images/burritoCat0.jpg">
-            <div class="listingInfo">
-              <p class="petName">Pet name: Burrito</p>
-              <p class="petType">Pet type: Cat</p>
-              <p class="ownerName">Owner name: Janet Mason <a href="#">(view profile)</a></p>
-              <p class="ownerZip">Owner zipcode: 02142</p>
-              <p class="date">
-                <span class="startDate">Start date: 5/20/2015</span>
-                <span class="endDate">End date: 5/21/2015</span>
-              </p>
-              <p class="pay">Pay: $$$</p>
-            </div>
-          </div>
-        </div> -->
+
       </div>
     </div>
 

@@ -15,7 +15,7 @@ listingsData = {
     durationType: "One-time",
     durationTypeAttr: "onetime",
     durationLengthAttr: "1day",
-    favorite: true
+    favorite: false
   },{
     ownerFirstName: "Lily",
     ownerLastName: "Paxton",
@@ -35,24 +35,6 @@ listingsData = {
     durationTypeAttr: "onetime",
     durationLengthAttr: "1day",
     distance: "lessThan5",
-    favorite: false
-  }, {
-    ownerFirstName: "Stephanie",
-    ownerLastName: "Castle",
-    petName: "Pumpkin",
-    petType: "Hamster",
-    petTypeAttr: "hamster",
-    petImg: "hamster0.jpg",
-    zipcode: "02142",
-    startDate: "5/1/2015",
-    endDate: "5/2/2015",
-    payment: "$",
-    paymentAttr:"_$_",
-    distance: "lessThan5",
-    sitterTypeAttr: "casual professional",
-    durationType: "One-time",
-    durationTypeAttr: "onetime",
-    durationLengthAttr: "1day",
     favorite: true
   }, {
     ownerFirstName: "Penny",
@@ -90,7 +72,7 @@ listingsData = {
     durationType: "Routine",
     durationTypeAttr: "routine",
     durationLengthAttr: "1wkmonth",
-    favorite: true
+    favorite: false
 
   }, {
     ownerFirstName: "Shaila",
@@ -166,7 +148,7 @@ listingsData = {
     durationType: "One-time",
     durationTypeAttr: "onetime",
     durationLengthAttr: "1wk",
-    favorite: true
+    favorite: false
   }, {
     ownerFirstName: "Craig",
     ownerLastName: "Newton",
@@ -275,7 +257,7 @@ listingsData = {
     distance: "lessThan1",
     petTypes: "Dog",
     petTypeAttr: "dog",
-    favorite: true
+    favorite: false
 
   }, {
     sitterFirstName: "Stephanie",
@@ -297,7 +279,7 @@ listingsData = {
     sitterTypeAttr: "casual professional",
     petTypes: "Dog, Bird",
     petTypeAttr: "dog bird",
-    favorite: true
+    favorite: false
 
   }, {
     sitterFirstName: "Janet",
@@ -315,7 +297,8 @@ listingsData = {
     sitterLastName: "Rider",
     sitterImg: "FlynnRider.jpeg",
     sitterUsername: "flynn",
-    sitterTypeAttr: "casual professional",
+    sitterType:"Professional",
+    sitterTypeAttr: "professional",
     zipcode: "02142",
     distance: "lessThan5",
     petTypes: "Dog, Cat, Snake",
@@ -341,7 +324,7 @@ listingsData = {
     petTypes: "Cat, Rabbit",
     distance: "lessThan20",
     petTypeAttr: "cat rabbit",
-    favorite: true
+    favorite: false
   }]
 }
 
