@@ -47,11 +47,12 @@
     </div>
   </script>
 
-    distance: "lessThan1",
+    <!-- distance: "lessThan1",
     startDate: "6/14/2015",
     endDate: "6/21/2015",
     payment: "$$",
-    paymentAttr:"_$$_",
+    paymentAttr:"_$$_", -->
+
   <script id='profile-template' type='x-tmpl-mustache'>
     <div class='row'>
       <div class='col-md-4'>
@@ -734,12 +735,7 @@
     				<p>You sat <a class="activityLink" href="profile.html?user=flynn">Sam the Wise</a> for <a class="activityLink" href="profile.html?user=flynn">Flynn Rider</a></p>
     				<a href="#0" class="cd-review">Review</a>
     				<span class="cd-date">Feb 26</span>
-    			</div> <!-- cd-timeline-content -<p class="sitterName">{{#sitterUsername}}<a class="profileLink" href="profile.html?user={{sitterUsername}}">{{sitterFirstName}} {{sitterLastName}} </a>{{/sitterUsername}} {{^sitterUsername}}<a class="profileLink" href="">{{sitterFirstName}} {{sitterLastName}}</a>{{/sitterUsername}}
-            </p>
-            {{#sitterType}}<p>Sitter Type: {{sitterType}}</p>{{/sitterType}}
-            <p class="sitsPetType">Sits: {{petTypes}} </p>
-            <p class="sitterZip">Zipcode: {{zipcode}}</p>
-            ->
+    			</div>
     		</div> <!-- cd-timeline-block -->
 
     		<div class="cd-timeline-block cd-timeline-block-right">
@@ -909,6 +905,17 @@
               <div id="dialog" title="Hire a Sitter"> <!-- Contains hiring a sitter dialog, prompts for name and user or not-->
                 <!-- <form> -->
                   <!-- Sitter Name: <input id="hireSitter" type="text" name="SitterName"><br><br>
+                <h2>Fluffy<small>  (Snake)</small></h2>
+                <h4 class="listingTitle"> Sitter Type: <small> Professional </small></h4>
+                <h4 class="listingTitle"> Duration: <small> May 24th-28th, 2015</small></h4>
+                <h4 class="listingTitle"> Payment: <small> $, $$, $$$, Negotiable</small></h4>
+              </div>
+              <div class="petExpandRight col-md-4"> <!-- Contains hiring a sitter button-->
+                  <!-- <button type='button' class='btn btn-default' id="hiringButton"><span class="glyphicon glyphicon-ok"></span> Hire a Sitter</button>
+              </div>
+              <div id="dialog" title="Hire a Sitter"> <!-- Contains hiring a sitter dialog, prompts for name and user or not--> -->
+                <!-- <form>
+                  Sitter Name: <input id="hireSitter" type="text" name="SitterName"><br><br>
                   <input type="radio" name="accountStatus" value="yesAcct"> Sitter is a current user<br>
                   <input type="radio" name="accountStatus" value="noAcct"> Sitter does not yet have an account<br><br>
                   <input class='btn btn-default' id="submitHire" type="submit" value="Submit">

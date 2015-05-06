@@ -213,6 +213,13 @@ $(window).load(function() {
     activeListing['activeListing'].unshift(newListingData);
     loadActiveListings();
 
+    $('.hiringButton').click(function() {
+      // hiringContainer = this.parent().parent();
+      hiringButton = this;
+      $('#hireDialogBackground').show();
+      $('#hireDialogDiv').show();
+    });
+    
     $(".form-containers").addClass("hide");
     return false;
   })

@@ -257,9 +257,6 @@ $(document).ready(function() {
 	});
 
 
-
-
-
 	$('.fav').hover(
 		function(){
 			if (!this.wasClicked) {
@@ -429,6 +426,43 @@ $(document).ready(function(){
   // 			$(this).dialog('destroy').remove()
   // 		};
 	// });
+	// $( "#dialog" ).dialog({ autoOpen: false });
+	// $( "#hiringButton" ).click(function() {
+  // 		$( "#dialog" ).dialog( "open" );
+	// });
+	// $('.ui-dialog-titlebar-close').html('<span class="glyphicon glyphicon-remove"></span>')
+	// $('#hireSitter').autocomplete({
+	// 	source:[
+	// 		'Flynn Rider',
+	// 		'Lily Paxton',
+	// 		'Penny Marshall',
+	// 		'Missy Clinton',
+	// 		'Lin Mei',
+	// 		'Stephanie Castle',
+	// 		'Doug Schumaker',
+	// 		'Janet Mason',
+	// 		'Craig Newton'
+	// 	],
+	// 	minLength:2,
+	//
+	// });
+	//
+	// $( "#dialog" ).submit(function( event ) {
+	// 	event.preventDefault();
+	// 	var ownerName = $("input[type='text'][name='SitterName']").val();
+  // 		var accountStatus = $("input[type='radio'][name='accountStatus']:checked");
+  // 		if (accountStatus == 'yesAcct') {
+	// 		$( "#hiringButton" ).remove();
+	// 		$(".petExpandRight").append("<p>You've hired" + " <a href='profile.html?user=" + ownerName + "'>" + ownerName + "</a> as your sitter!</p>");
+	// 		$( "#dialog" ).dialog( "close" );
+	// 		$(this).dialog('destroy').remove()
+  // 		} else {
+	// 		$( "#hiringButton" ).remove();
+	// 		$(".petExpandRight").append("<p>You've hired" + " <a href='profile.html?user=" + ownerName + "'>" + ownerName + "</a> as your sitter!</p>");
+	// 		$( "#dialog" ).dialog( "close" );
+  // 			$(this).dialog('destroy').remove()
+  // 		};
+	// });
 
 });
 
@@ -489,7 +523,6 @@ $(document).ready(function(){
 // Collapse or expand all logic for Pets tab
 
 $(document).ready(function(){
-
 
   var active = false;
 	var petArrowFlag = true;
