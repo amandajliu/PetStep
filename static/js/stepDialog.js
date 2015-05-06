@@ -179,6 +179,15 @@ $(window).load(function() {
     newListingData['durationLengthAttr'] = '1wkmonth';
     listingsData['petListings'].unshift(newListingData);
     loadListings();
+    $('#sitterButton').addClass('active');
+    $('#ownerButton').removeClass('active');
+    nonBlankFilters = ['.petListing'];
+    $('.sortPet').css('display','block');
+    $('.sortPerson').css('display','none');
+    $('.durationDrop').css('display','block');
+    $('.paymentDrop').css('display','block');
+    $('.petListing').removeClass('hide');
+    $('.personListing').addClass('hide');
     createMasonry();
     reloadListeners();
     $(".form-containers").addClass("hide");
@@ -219,7 +228,7 @@ $(window).load(function() {
       $('#hireDialogBackground').show();
       $('#hireDialogDiv').show();
     });
-    
+
     $(".form-containers").addClass("hide");
     return false;
   })
