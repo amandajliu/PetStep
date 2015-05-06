@@ -15,6 +15,9 @@ body {
   display:table;
   /*margin-top: 120px ! important;*/
 }
+.profileLink, .profileLink:hover{
+  color:#00BCD4;
+}
 .petListing, .personListing{
   /*width:500px;*/
   margin:5px;
