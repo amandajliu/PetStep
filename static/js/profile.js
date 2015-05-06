@@ -229,13 +229,18 @@ $(document).ready(function() {
 
 	    // send button click
 	    $('#message-send').click(function() {
-	        var message = $('#message-text').val();
-	        var newMessageHTML = "<div class='row'>\
-	        <div class='col-xs-1'>\
-	        <img class='img img-circle' width='40px' height='40px' src='static/images/Cornelio.png' margin='4px' />\
-	        </div>\
-	        <div class='well well-sm m-person-1 col-xs-10'>" + message + "</div></div>";
-	        $('.messages-right').append(newMessageHTML);
+	        // var message = $('#message-text').val();
+	        // var newMessageHTML = "<div class='row'>\
+	        // <div class='col-xs-1'>\
+	        // <img class='img img-circle' width='40px' height='40px' src='static/images/Cornelio.png' margin='4px' />\
+	        // </div>\
+	        // <div class='well well-sm m-person-1 col-xs-10'>" + message + "</div></div>";
+	        // $('.messages-right').append(newMessageHTML);
+	        var conversation = $.grep(messageData.conversations, function(elt) {
+	        	return elt.user === messaging;
+	        })[0];
+	        conversation.messages.push({'messageType': 'sent', 'messageText': $('#message-text').val()});
+	        loadConversation(messaging);
 	        $('#message-text').val('');
 	    });
 
