@@ -180,7 +180,8 @@ $(document).ready(function() {
 	// 	var messageContent = $.grep(messageData.conversations, function(elt) {
 	// 		elt.
 	// 	})
-
+	
+	
 	    // send button click
 	    $('#message-send').click(function() {
 	        var message = $('#message-text').val();
