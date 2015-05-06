@@ -108,64 +108,64 @@
     </div>
   </script>
 
-<script id='review-inner-template' type='x-tmpl-mustache'>
-  <div class='row'>
-    <div class='col-sm-2'>{{index}}</div>
-    <div class='col-sm-10'>
-      <div class='progress'>
-        <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='{{totalReviews}}'style='width:{{width}}'>
-        </div>
-      </div>
-    </div>
-  </div>
-</script>
-<script id='favoritesTemplate' type='x-tmpl-mustache'>
-  {{#petListings}}
-  <div class="petListing listing fav" petType={{petTypeAttr}} ownerLastName={{ownerLastName}} distance={{distance}} zipcode={{zipcode}} startDate={{startDate}} endDate={{endDate}} payment = "{{paymentAttr}}" sitterType="{{sitterTypeAttr}}" durationLength={{durationLengthAttr}} durationType={{durationTypeAttr}}>
-      <div class="listingImgDiv">
-        <img class="listingImg" src="static/images/{{petImg}}">
-        <div class="listingInfo">
-          <div class="listingContent">
-
-            <p class="petName">{{petName}} ({{petType}})</p>
-
-
-            <p class="date">
-              {{startDate}} - {{endDate}}
-            </p>
-            <p class="listingText ownerName">Owner: {{#ownerUsername}}<a class="profileLink" href="profile.html?user={{ownerUsername}}">{{ownerFirstName}} {{ownerLastName}} </a>{{/ownerUsername}} {{^ownerUsername}}<a class="profileLink" href="">{{ownerFirstName}} {{ownerLastName}}</a>{{/ownerUsername}}</p>
-
-            <p class="listingText ownerZip">Zipcode: {{zipcode}}</p>
-            <p class="listingText pay">Pay: {{payment}}{{#durationType}}, {{durationType}}{{/durationType}} </p>
-            {{#sitterType}}
-            <p class="listingText sitterType">Sitter Type: {{sitterType}}</p>
-            {{/sitterType}}
-            <button class='listingText btn btn-default fav-btn'> <span class='glyphicon glyphicon-star'></span> <span class='btn-text clicked'>Remove from Favorites</span></button>
+  <script id='review-inner-template' type='x-tmpl-mustache'>
+    <div class='row'>
+      <div class='col-sm-2'>{{index}}</div>
+      <div class='col-sm-10'>
+        <div class='progress'>
+          <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='{{totalReviews}}'style='width:{{width}}'>
           </div>
         </div>
       </div>
     </div>
-    {{/petListings}}
-    {{#personListings}}
-    <div class="personListing listing fav" petType="{{petTypeAttr}}" sitterType="{{sitterTypeAttr}}" distance = {{distance}}>
-      <div class="listingImgDiv">
-        <img class="listingImg" src="static/images/{{sitterImg}}">
-        <div class="listingInfo">
-          <p class="sitterName">{{#sitterUsername}}<a class="profileLink" href="profile.html?user={{sitterUsername}}">{{sitterFirstName}} {{sitterLastName}} </a>{{/sitterUsername}} {{^sitterUsername}}<a class="profileLink" href="">{{sitterFirstName}} {{sitterLastName}}</a>{{/sitterUsername}}
-          </p>
-          {{#sitterType}}<p>Sitter Type: {{sitterType}}</p>{{/sitterType}}
-          <p class="sitsPetType">Sits: {{petTypes}} </p>
-          <p class="sitterZip">Zipcode: {{zipcode}}</p>
-          <button class='listingText btn btn-default fav-btn' data-user='{{sitterName}}'><span class='glyphicon glyphicon-star clicked'></span> <span class='btn-text'>Remove from Favorites</span></button>
+  </script>
+  <script id='favoritesTemplate' type='x-tmpl-mustache'>
+    {{#petListings}}
+    <div class="petListing listing fav" petType={{petTypeAttr}} ownerLastName={{ownerLastName}} distance={{distance}} zipcode={{zipcode}} startDate={{startDate}} endDate={{endDate}} payment = "{{paymentAttr}}" sitterType="{{sitterTypeAttr}}" durationLength={{durationLengthAttr}} durationType={{durationTypeAttr}}>
+        <div class="listingImgDiv">
+          <img class="listingImg" src="static/images/{{petImg}}">
+          <div class="listingInfo">
+            <div class="listingContent">
+
+              <p class="petName">{{petName}} ({{petType}})</p>
+
+
+              <p class="date">
+                {{startDate}} - {{endDate}}
+              </p>
+              <p class="listingText ownerName">Owner: {{#ownerUsername}}<a class="profileLink" href="profile.html?user={{ownerUsername}}">{{ownerFirstName}} {{ownerLastName}} </a>{{/ownerUsername}} {{^ownerUsername}}<a class="profileLink" href="">{{ownerFirstName}} {{ownerLastName}}</a>{{/ownerUsername}}</p>
+
+              <p class="listingText ownerZip">Zipcode: {{zipcode}}</p>
+              <p class="listingText pay">Pay: {{payment}}{{#durationType}}, {{durationType}}{{/durationType}} </p>
+              {{#sitterType}}
+              <p class="listingText sitterType">Sitter Type: {{sitterType}}</p>
+              {{/sitterType}}
+              <button class='listingText btn btn-default fav-btn'> <span class='glyphicon glyphicon-star'></span> <span class='btn-text clicked'>Remove from Favorites</span></button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    {{/personListings}}
+      {{/petListings}}
+      {{#personListings}}
+      <div class="personListing listing fav" petType="{{petTypeAttr}}" sitterType="{{sitterTypeAttr}}" distance = {{distance}}>
+        <div class="listingImgDiv">
+          <img class="listingImg" src="static/images/{{sitterImg}}">
+          <div class="listingInfo">
+            <p class="sitterName">{{#sitterUsername}}<a class="profileLink" href="profile.html?user={{sitterUsername}}">{{sitterFirstName}} {{sitterLastName}} </a>{{/sitterUsername}} {{^sitterUsername}}<a class="profileLink" href="">{{sitterFirstName}} {{sitterLastName}}</a>{{/sitterUsername}}
+            </p>
+            {{#sitterType}}<p>Sitter Type: {{sitterType}}</p>{{/sitterType}}
+            <p class="sitsPetType">Sits: {{petTypes}} </p>
+            <p class="sitterZip">Zipcode: {{zipcode}}</p>
+            <button class='listingText btn btn-default fav-btn' data-user='{{sitterName}}'><span class='glyphicon glyphicon-star clicked'></span> <span class='btn-text'>Remove from Favorites</span></button>
+          </div>
+        </div>
+      </div>
+      {{/personListings}}
     </script>
 
     <script id='review-template' type='x-tmpl-mustache'>
     {{#reviews}}
-    <div class='panel panel-default'> 
+    <div class='panel panel-default'>
       <div class='panel-body'>
       <div class='container'>
         <div class='row'>
@@ -560,7 +560,7 @@
         </div>
       </div>
       <div id='reviews-area'>
-      <!-- <div class='panel panel-default'>  outer div for a review 
+      <!-- <div class='panel panel-default'>  outer div for a review
       <div class='panel-body'>
       <div class='container'>
         <div class='row'>
@@ -593,7 +593,7 @@
     </div>
   </div> -->
 
-  <!-- <div class='panel panel-default'> outer div for a review 
+  <!-- <div class='panel panel-default'> outer div for a review
       <div class='panel-body'>
       <div class='container'>
         <div class='row'>
@@ -778,7 +778,7 @@
       <button type="button" id="collapse-init" class='btn btn-default'>
         Collapse All
       </button>
-      <button type='button' id="activeListingsAdd" class='btn btn-default'><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
+      <button type='button' id="activeListingsAdd" class='btn btn-default addListing'><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
 
 
     <!-- Bootstrap panel grouping of collapsable tabs for each pet -->
