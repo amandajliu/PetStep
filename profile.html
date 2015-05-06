@@ -10,6 +10,11 @@
   <script src="static/js/jquery.masonry.min.js"></script>
   <script src="static/js/imagesloaded.pkgd.min.js"></script>
   <script src="static/js/profile.js"></script>
+  <script src="static/js/stepDialog.js"></script>
+  <script>
+    // Used in stepDialogue.js
+    currentPageProfile = true;
+  </script>
   <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="static/css/main.css">
   <link rel="stylesheet" type="text/css" href="static/css/activityFeed.css">
@@ -17,6 +22,7 @@
   <link rel="stylesheet" type="text/css" href="static/css/profile.css">
   <link rel="stylesheet" type="text/css" href="static/css/messages.css">
   <link rel="stylesheet" type="text/css" href="static/css/reviews.css">
+  <link rel="stylesheet" type="text/css" href="static/css/stepDialogue.css">
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <!--<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>-->
@@ -154,6 +160,67 @@
     </div>
     {{/personListings}}
     </script>
+    <script id='petInfoTemplate' type='x-tmpl-mustache'>
+      {{#petInfo}}
+        <p><input type="radio" name="petPreset" value='{"petName": "{{petName}}", "petType": "{{petType}}", "petImage": "{{petImage}}" }'>
+        <img class="presetImage" src="static/images/{{petImage}}" alt="Image of {{petName}}"/>
+        {{petName}} <small>({{petType}})</small></input><br>
+        </p>
+      {{/petInfo}}
+    </script>
+    <script id='petReviewTemplate' type='x-tmpl-mustache'>
+      {{#petInfo}}
+        <p>
+        <img class="presetImage" src="static/images/{{petImage}}" alt="Image of {{petName}}"/>
+        {{petName}} <small>({{petType}})</small></input><br>
+        </p>
+      {{/petInfo}}
+    </script>
+    <script id='personalInfoTemplate' type='x-tmpl-mustache'>
+      {{#personalInfo}}
+        <p><input type="radio" name="ownerPreset" value='{"ownerFirstName" : "{{ownerFirstName}}", "ownerLastName": "{{ownerLastName}}", "email": "{{email}}", "zip":"{{zip}}" {{#phoneNumber}}, "phoneNumber": "{{phoneNumber}}" {{/phoneNumber}} }'/>
+        <label>
+        {{ownerFirstName}} {{ownerLastName}}
+        <small>{{email}}</small>
+        <div class="info-sup">
+        {{#phoneNumber}}
+          Phone: {{phoneNumber}}<br>
+        {{/phoneNumber}}
+        Zip: {{zip}}</div></label>
+        </p>
+      {{/personalInfo}}
+    </script>
+    <script id='personalReviewTemplate' type='x-tmpl-mustache'>
+      {{#personalInfo}}
+        <p>
+
+        <div class="info-sup">
+        {{ownerFirstName}} {{ownerLastName}} <small> {{email}} </small> <br>
+        {{#phoneNumber}}
+          Phone: {{phoneNumber}}<br>
+        {{/phoneNumber}}
+        Zip: {{zip}}</div>
+        </p>
+      {{/personalInfo}}
+    </script>
+    <script id="additionalReviewTemplate" type='x-tmpl-mustache'>
+    {{#additionalInfo}}
+      <br>
+      <div class="info-sup">
+        <label>Start Date: </label> {{startDate}} &nbsp; <label>End Date: </label> {{endDate}} <br>
+        <label>Job Type: &nbsp; </label> {{jobType}} <br>
+        <label>Sitter Type:</label> {{#sitterType}} {{type}} &nbsp; {{/sitterType}} <br>
+        <label>Payment: &nbsp; </label> {{#payment}} {{type}} &nbsp; {{/payment}} <br>
+        {{#additionalComments}}
+        <label>Additional Comments: </label><br>
+        <p class="info-sup-p">
+          {{additionalComments}}
+        </p>
+        {{/additionalComments}}
+      </div>
+    {{/additionalInfo}}
+    </script>
+
   <script>
     var historyDrop = function() {
       $("#tab-history").click();
@@ -228,7 +295,7 @@
           <li class="dropdown" style="margin-right:40px">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class='img-circle' src='static/images/Cornelio.png' id="headerProfPic"> Cornelio <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Add a Listing</a></li>
+              <li><a href="#" class="addListing">Add a Listing</a></li>
               <li><a href="#">Settings</a></li>
               <li class="divider"></li>
               <li><a href="#">Logout</a></li>
@@ -239,6 +306,102 @@
 
     </div>
   </nav>
+
+  <!-- MultiStep Form and its container -->
+  <div class="container form-containers hide">
+    <form id="newListingForm">
+      <ul id="steps">
+        <li class="_active">
+          Pet Info
+        </li>
+        <li>
+          Personal Info
+        </li>
+        <li>
+           Additional Info
+        </li>
+        <li>
+          Review
+        </li>
+      </ul>
+
+      <!-- fieldsets for step dialogue -->
+      <span name="cancel" class="glyphicon glyphicon-remove cancel top-cancel"></span>
+      <fieldset name="petInfo" id="pet-fieldset">
+        <h2 class="fieldHeader">Pet Info</h2><hr>
+        <div id="petPreset" class="presetContent">
+
+        </div>
+        <input type="button" name="cancel" class="cancel action-button" value="Cancel"/>
+        <input type="button" name="addpet" class="addpet action-button" value="Add new pet"/>
+        <input type="button" name="next" class="next action-button" id="pet-next" value="Next"/>
+      </fieldset>
+
+      <fieldset name="personalInfo" id="personal-fieldset">
+        <h2 class="fieldHeader">Personal Info</h2><hr>
+        <div id="userPreset" class="presetContent">
+
+        </div>
+        <input type="button" name="previous" class="previous action-button" value="Back"/>
+        <input type="button" name="addPersonal" class="add-personal action-button" value="Add new contact info"/>
+        <input type="button" name="next" class="next action-button" id="personal-next" value="Next"/>
+      </fieldset>
+
+      <fieldset name="additionalInfo" id="additional-fieldset">
+        <h2 class="fieldHeader">Additional Info</h2><hr>
+        <div id="additionalPreset">
+          <p>
+            Start Date: <input type="text" size="10" name="startDate" id="startDate"/> &nbsp; &nbsp; &nbsp;
+            End Date: <input type="text" size="10" name="endDate" id="endDate" />
+          </p>
+          <p>
+            Job Type: &nbsp; &nbsp; &nbsp;
+            <input type="radio" name="jobType" value="One-time"/> One-Time &nbsp; &nbsp; &nbsp;
+            <input type="radio" name="jobType" value="Routine"/> Routine
+          </p>
+          <p>
+            Sitter Type: &nbsp; &nbsp; &nbsp;
+            <input type="checkbox" name="sitterType" value="Casual"/> Casual &nbsp; &nbsp; &nbsp;
+            <input type="checkbox" name="sitterType" value="Professional"/> Professional
+          </p>
+          <p>
+            Payment:
+            <input type="checkbox" name="payment" value="$"/> $ &nbsp; &nbsp; &nbsp;
+            <input type="checkbox" name="payment" value="$$"/> $$ &nbsp; &nbsp; &nbsp;
+            <input type="checkbox" name="payment" value="$$$"/> $$$ &nbsp; &nbsp; &nbsp;
+            <input type="checkbox" name="payment" value="Negotiable"/> Negotiable
+          </p>
+          <p>
+            Additional Comments:
+            <textarea id="additionalComments" name="additionalComments" rows="4" cols="45"></textarea>
+          </p>
+        </div>
+        <input type="button" name="previous" class="previous action-button" value="Back"/>
+        <input type="button" name="next" class="next action-button" id="additional-next" value="Next"/>
+      </fieldset>
+
+      <fieldset name="reviewInfo" id="review-fieldset">
+        <h2 class="fieldHeader">Review</h2><hr>
+        <div id="reviewPreset" class="reviewContent">
+          <label>Pet Info</label><br>
+          <p id="petInfoReview">
+
+          </p>
+          <label>Personal Info</label><br>
+          <p id="personalInfoReview">
+
+          </p>
+          <label>Additional Info</label><br>
+          <p id="additionalInfoReview">
+
+          </p>
+        </div>
+        <input type="button" name="previous" class="previous action-button" value="Back"/>
+        <input type="button" name="submit" class="submitProfile action-button" value="Submit"/>
+      </fieldset>
+
+    </form>
+  </div>
 
 	<!-- User page header, contains logo, home button, and user drop down menu (when logged in) -->
 	<!-- <<div class='page-header' style="display:inline-block; width:100%; margin-top: 0px; background-color: #A5D6A7"> -->
@@ -581,7 +744,7 @@
               </div>
               <div class="petExpandRight col-md-2"> <!-- Contains add listing button-->
                   <!-- TO-DO: Link to listing creation dialog -->
-                  <button type='button' class='btn btn-default'><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
+                  <button type='button' class='btn btn-default addListing'><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
               </div>
             </div>
           </div>
@@ -712,7 +875,7 @@
             <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-owner" value='5'>
               <label for="rating-input-1-1" class="rating-star" value='5'></label>
           </span></p>
-        <p>Pet Rating: 
+        <p>Pet Rating:
         <span class="rating">
             <input type="radio" class="rating-input" id="rating-input-2-5" name="rating-input-pet" value='1'>
               <label for="rating-input-2-5" class="rating-star" value='1'></label>

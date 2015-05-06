@@ -460,7 +460,7 @@ $(window).load(function() {
 
   })*/
 
-  $("#addListing").click(function() {
+  $(".addListing").click(function() {
     $('.form-containers').removeClass("hide");
     return false;
   })
@@ -475,23 +475,6 @@ $(function(){
     });
 
   })
-})
-$(function() {
-  $('#startDate').datepicker({
-    defaultDate: "+1w",
-    minDate: 0,
-    onClose: function( selectedDate ) {
-        $( "#endDate" ).datepicker( "option", "minDate", selectedDate );
-      }
-  });
-  $('#endDate').datepicker({
-    defaultDate: "+1w",
-    minDate: 0,
-    nClose: function( selectedDate ) {
-        $( "#startDate" ).datepicker( "option", "maxDate", selectedDate );
-      }
-  });
-
 })
 
 reloadListeners = function() {

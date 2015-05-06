@@ -3,6 +3,12 @@ Listings stuff
 Original Designs for the dialogue box inspired and built from
 http://thecodeplayer.com/walkthrough/jquery-multi-step-form-with-progress-bar
 -------------------------------*/
+body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
 
 #addListing {
   z-index: 2;
@@ -161,4 +167,29 @@ http://thecodeplayer.com/walkthrough/jquery-multi-step-form-with-progress-bar
 
 .info-sup-p {
   margin-left: 20px;
+}
+
+/* Custom calendar styling */
+.ui-datepicker-header{
+  background:none !important;
+  background-color:#00BCD4 !important;
+  border:0px !important;
+  color:white ! important;
+}
+.ui-datepicker{
+  font-family:Lato;
+}
+.ui-datepicker-next-hover, .ui-datepicker-prev-hover, .ui-datepicker-next, .ui-datepicker-prev{
+  background:none !important;
+  border: 0px !important;
+
+  top: 2px !important;
+  cursor:pointer;
+}
+
+.ui-datepicker-next-hover{
+  right:2px !important;
+}
+.ui-datepicker-prev-hover{
+  left:2px !important;
 }
