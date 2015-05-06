@@ -380,9 +380,9 @@ profileData = {
             petName: "Sugar",
             petImg: "dog-beach.jpg"
         }],
-        ownerRating: 4,
-        sitterRating: 5,
-        petRating: 3,
+        ownerRating: 0,
+        sitterRating: 0,
+        petRating: 0,
         reviews: [],
         bio: "Lily Paxton's biography"
     }, {
@@ -399,8 +399,8 @@ profileData = {
             petName: "Sam the Wise",
             petImg: "bunny0.jpg"
         }],
-        ownerRating: 3,
-        sitterRating: 4,
+        ownerRating: 0,
+        sitterRating: 0,
         reviews: [],
         bio: "Flynn Rider's biography"
     }]
