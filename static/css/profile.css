@@ -200,3 +200,41 @@ Owner/Sitter switch
 }
 .Switch.Round.On .Toggle { left: 3%; background: #00BCD4; }
 .Switch.Round.Off .Toggle { left: 58%; background: #00BCD4}
+
+/* ------------------
+Review Modal 
+rating input code from http://everythingfrontend.com/posts/star-rating-input-pure-css.html
+------------------- */
+
+.rating {
+    overflow: hidden;
+    display: inline-block;
+    font-size: 0;
+    position: relative;
+  }
+.rating-input {
+    float: right;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0 0 0 -16px;
+    opacity: 0;
+}
+
+.rating:hover .rating-star:hover, 
+.rating:hover .rating-star:hover ~ .rating-star,
+.rating-input:checked ~ .rating-star {
+  background-position: 0 0;
+}
+.rating-star, 
+.rating:hover .rating-star  {
+  position: relative;
+  float: right;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: url('../images/star.png') 0 -16px;
+}
+
+
+

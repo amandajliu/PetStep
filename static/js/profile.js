@@ -83,6 +83,23 @@ $(document).ready(function() {
       }
 
   });
+
+  $('#submit-review-form').click(function() {
+  	var ownerRating = $('input[name=rating-input-owner]:checked').val();
+  	var petRating = $('input[name=rating-input-pet]:checked').val();
+  	var message = $('#review-text').val();
+  	var review = {
+  		'reviewer': "Cornelio",
+  		'owner': currentUser.firstName,
+  		'pet': currentUser.pets[0].petName,
+  		'ownerRating': parseInt(ownerRating),
+  		'petRating': parseInt(petRating),
+  		'message': message
+  	};
+  	currentUser.reviews.push(review);
+  	$('#add-review-form').modal('hide');
+  });
+
   	$('.Switch').click(function() {
 		$(this).toggleClass('On').toggleClass('Off');
 	});
