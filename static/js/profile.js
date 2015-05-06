@@ -14,7 +14,13 @@ var loadProfile = function() {
 	if (currentUser.username != 'cornelio') {
 		$('.tab-private').hide();
 	}
+}
 
+var loadActiveListings = function() {
+	var activeTemplate = $("#activeListingTemplate").html();
+	Mustache.parse(activeTemplate);
+	rendered = Mustache.render(activeTemplate, activeListing);
+	$("#activeListingsContent").html(rendered);
 }
 
 var loadFavorites = function() {
@@ -157,6 +163,7 @@ $(document).ready(function() {
 	loadProfile();
 
 	loadFavorites();
+	loadActiveListings();
 	hideFavorites();
 
 	var tab = $.getUrlVar('tab');
@@ -376,43 +383,30 @@ $(document).ready(function($){
 //Active Listing - Hiring dialog
 
 $(document).ready(function(){
-	$( "#dialog" ).dialog({ autoOpen: false });
-	$( "#hiringButton" ).click(function() {
-  		$( "#dialog" ).dialog( "open" );
-	});
-	$('.ui-dialog-titlebar-close').html('<span class="glyphicon glyphicon-remove"></span>')
-	$('#hireSitter').autocomplete({
-		source:[
-			'Flynn Rider',
-			'Lily Paxton',
-			'Penny Marshall',
-			'Missy Clinton',
-			'Lin Mei',
-			'Stephanie Castle',
-			'Doug Schumaker',
-			'Janet Mason',
-			'Craig Newton'
-		],
-		minLength:2,
+	// $( "#dialog" ).dialog({ autoOpen: false });
+	// $( ".hiringButton" ).click(function() {
+	// 	console.log("this is happening");
+  // 		$( "#dialog" ).dialog( "open" );
+	// });
+	// $('.ui-dialog-titlebar-close').html('<span class="glyphicon glyphicon-remove"></span>')
 
-	});
-
-	$( "#dialog" ).submit(function( event ) {
-		event.preventDefault();
-		var ownerName = $("input[type='text'][name='SitterName']").val();
-  		var accountStatus = $("input[type='radio'][name='accountStatus']:checked");
-  		if (accountStatus == 'yesAcct') {
-			$( "#hiringButton" ).remove();
-			$(".petExpandRight").append("<p>You've hired" + " <a href='profile.html?user=" + ownerName + "'>" + ownerName + "</a> as your sitter!</p>");
-			$( "#dialog" ).dialog( "close" );
-			$(this).dialog('destroy').remove()
-  		} else {
-			$( "#hiringButton" ).remove();
-			$(".petExpandRight").append("<p>You've hired" + " <a href='profile.html?user=" + ownerName + "'>" + ownerName + "</a> as your sitter!</p>");
-			$( "#dialog" ).dialog( "close" );
-  			$(this).dialog('destroy').remove()
-  		};
-	});
+	//
+	// $( "#dialog" ).submit(function( event ) {
+	// 	event.preventDefault();
+	// 	var ownerName = $("input[type='text'][name='SitterName']").val();
+  // 		var accountStatus = $("input[type='radio'][name='accountStatus']:checked");
+  // 		if (accountStatus == 'yesAcct') {
+	// 		$( ".hiringButton" ).remove();
+	// 		$(".petExpandRight").append("<p>You've hired" + " <a href='profile.html?user=" + ownerName + "'>" + ownerName + "</a> as your sitter!</p>");
+	// 		$( "#dialog" ).dialog( "close" );
+	// 		$(this).dialog('destroy').remove()
+  // 		} else {
+	// 		$( ".hiringButton" ).remove();
+	// 		$(".petExpandRight").append("<p>You've hired" + " <a href='profile.html?user=" + ownerName + "'>" + ownerName + "</a> as your sitter!</p>");
+	// 		$( "#dialog" ).dialog( "close" );
+  // 			$(this).dialog('destroy').remove()
+  // 		};
+	// });
 
 });
 
@@ -464,8 +458,8 @@ $(document).ready(function(){
 		}
 	})
 
-    $('#accordion').on('show.bs.collapse', function () {
-        if (active) $('#accordion .in').collapse('hide');
+    $('.accordion').on('show.bs.collapse', function () {
+        if (active) $('.accordion .in').collapse('hide');
     });
 
 });
@@ -474,7 +468,8 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 
-    var active = false;
+
+  var active = false;
 	var petArrowFlag = true;
 
     $('#collapse-init1').click(function () {
@@ -515,8 +510,8 @@ $(document).ready(function(){
 		}
 	})
 
-    $('#accordion').on('show.bs.collapse', function () {
-        if (active) $('#accordion .in').collapse('hide');
+    $('.accordion').on('show.bs.collapse', function () {
+        if (active) $('.accordion .in').collapse('hide');
     });
 
 		$(".addListing").click(function() {
@@ -527,6 +522,72 @@ $(document).ready(function(){
 			return false;
 		})
 
+	$('.hiringButton').click(function() {
+		// hiringContainer = this.parent().parent();
+		hiringButton = this;
+		$('#hireDialogBackground').show();
+		$('#hireDialogDiv').show();
+	})
+
+	$('#submitHire').click(function( event ) {
+		event.preventDefault();
+		var parent = $(hiringButton).parent().parent();
+
+		var ownerName = $('#hireSitterName').val();
+		var asYes = $('#accountStatusYes')[0];
+		var asNo = $('#accountStatusNo')[0];
+		if (!ownerName) {
+			alert("You need to pick someone to sit for your pet");
+			return false;
+		} else if (!asYes.checked && !asNo.checked) {
+			alert("You need to select one option for account status");
+			return false;
+		}
+
+		if (asYes.checked) {
+			if (ownerName === 'Flynn Rider') {
+				ownerUserName = 'flynn';
+			} else {
+				ownerUserName = 'lily';
+			}
+			parent.find(".petExpandRight").html("<p>You've hired" + " <a href='profile.html?user=" + ownerUserName + "'>" + ownerName + "</a> as your sitter!</p>");
+			$('#hireDialogBackground').hide();
+			$('#hireDialogDiv').hide();
+		} else {
+			parent.find(".petExpandRight").html("<p>You've hired "  + ownerName + " as your sitter!</p>");
+			$('#hireDialogBackground').hide();
+			$('#hireDialogDiv').hide();
+
+		}
+
+		return false;
+	})
+
+
+  $('#cancelHire').click(function() {
+		console.log("im clicking this");
+		$('#hireDialogBackground').hide();
+		$('#hireDialogDiv').hide();
+	})
+
+	$('#hireSitterName').autocomplete({
+		source:[
+			'Flynn Rider',
+			'Lily Paxton',
+			'Penny Marshall',
+			'Missy Clinton',
+			'Lin Mei',
+			'Stephanie Castle',
+			'Doug Schumaker',
+			'Janet Mason',
+			'Craig Newton'
+		],
+		minLength:1,
+
+	});
+
+	$('#hireDialogBackground').hide();
+	$('#hireDialogDiv').hide();
 });
 
 

@@ -186,6 +186,33 @@ $(window).load(function() {
   })
 
   $(".submitProfile").click(function(){
+    var newListingData = {};
+    newListingData['petName'] = petValues['petName'];
+    newListingData['petType'] = petValues['petType'];
+    newListingData['petImage'] = petValues['petImage'];
+    newListingData['startDate'] = additionalValues['startDate'];
+    newListingData['endDate'] = additionalValues['endDate'];
+    var joinedPayments = additionalValues['payment'];
+    var tmpPayments = [];
+    for (var i = 0; i < joinedPayments.length; i++) {
+      tmpPayments.push(joinedPayments[i].type)
+    }
+    joinedPayments = tmpPayments;
+    // console.log(joinedPayments);
+    joinedPaymentsFixed = joinedPayments.join(', ');
+    newListingData['payment'] = joinedPaymentsFixed;
+
+    var joinedSitterType = additionalValues['sitterType'];
+    var tmpSitterType = [];
+    for (var i = 0; i < joinedSitterType.length; i++) {
+      tmpSitterType.push(joinedSitterType[i].type)
+    }
+    joinedSitterType = tmpSitterType;
+    newListingData['sitterType'] = joinedSitterType.join(', ');
+    newListingData['durationType'] = additionalValues['jobType']
+    activeListing['activeListing'].unshift(newListingData);
+    loadActiveListings();
+
     $(".form-containers").addClass("hide");
     return false;
   })
