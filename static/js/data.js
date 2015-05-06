@@ -382,9 +382,8 @@ profileData = {
         pets: [{
             petType: "Cat",
             petName: "Burrito",
-            petImg: "burritoCat0.jpg"
-            petNameShort: "Burrito",
             petImg: "burritoCat0.jpg",
+            petNameShort: "Burrito",
             petBio: "I have mysterious past",
             petNeeds: "I eat a ton of burritos",
             petNotes: "I also bite people"
