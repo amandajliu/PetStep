@@ -250,6 +250,11 @@ $(document).ready(function() {
 	    	if (!$(this).hasClass('current')) {
 	    		$('.message-name').removeClass('current');
 	    		$(this).addClass('current');
+	    		var name = $(this).data('user');
+	    		var user = $.grep(profileData.users, function(elt) {
+					return elt.username === name;
+				})[0];
+				$('#message-2-img').attr('src', 'static/images/'+user.userImg);
 	    	}
 	    });
 });
