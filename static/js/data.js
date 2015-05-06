@@ -445,23 +445,23 @@ messageData = {
         userImg: "lilyPaxton.jpg",
         messages: [{
             messageType: "sent",
-            messageText: "message1"
+            messageText: "Hi Lily, I'm going to be traveling next weekend. Could you watch Fluffy for me? "
         }, {
             messageType: "received",
-            messageText: "message2"
+            messageText: "Yes, definitely! When are you leaving?"
         }]
     },
     {
         user: "flynn",
         firstName: "Flynn",
         lastName: "Rider",
-        userImg: "FlynnRider.jpg",
+        userImg: "FlynnRider.jpeg",
         messages: [{
-            messageType: "sent",
-            messageText: "message3"
-        }, {
             messageType: "received",
-            messageText: "message4"
+            messageText: "HI CORNELIO! TELL FLUFFY HAPPY BIRTHDAY FROM ME!!!"
+        }, {
+            messageType: "sent",
+            messageText: "His birthday was last month, but thanks..."
         }]
     }]
 }

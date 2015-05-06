@@ -189,15 +189,21 @@ $(document).ready(function() {
 });
 
 var loadConversation = function(username) {
+	$('.messages-right').empty();
 	var conversation = $.grep(messageData.conversations, function(elt) {
 		return elt.user === username;
 	})[0];
 	var sentMessageTemp = $('#messages-template-sent').html();
-	Mustache.render(sentMessageTemp);
+	Mustache.parse(sentMessageTemp);
 	var receivedMessageTemp = $('#messages-template-received').html();
-	Mustache.render(receivedMessageTemp);
+	Mustache.parse(receivedMessageTemp);
 	for (var i = 0; i < conversation.messages.length; i++) {
-
+		if (conversation.messages[i].messageType === 'sent') {
+			var newMessage = Mustache.render(sentMessageTemp, {"content": conversation.messages[i].messageText});
+		} else {
+			var newMessage = Mustache.render(receivedMessageTemp, {"content": conversation.messages[i].messageText, "userImg": conversation.userImg});
+		}
+		$('.messages-right').append(newMessage);
 	}
 }
 // Messages
@@ -222,17 +228,23 @@ $(document).ready(function() {
 		return elt.username === messaging
 	})[0];
 	console.log(user);
-	$('#message-2-img').attr('src', 'static/images/'+user.userImg);
+
+	loadConversation(messaging);
 
 	    // send button click
 	    $('#message-send').click(function() {
-	        var message = $('#message-text').val();
-	        var newMessageHTML = "<div class='row'>\
-	        <div class='col-xs-1'>\
-	        <img class='img img-circle' width='40px' height='40px' src='static/images/Cornelio.png' margin='4px' />\
-	        </div>\
-	        <div class='well well-sm m-person-1 col-xs-10'>" + message + "</div></div>";
-	        $('.messages-right').append(newMessageHTML);
+	        // var message = $('#message-text').val();
+	        // var newMessageHTML = "<div class='row'>\
+	        // <div class='col-xs-1'>\
+	        // <img class='img img-circle' width='40px' height='40px' src='static/images/Cornelio.png' margin='4px' />\
+	        // </div>\
+	        // <div class='well well-sm m-person-1 col-xs-10'>" + message + "</div></div>";
+	        // $('.messages-right').append(newMessageHTML);
+	        var conversation = $.grep(messageData.conversations, function(elt) {
+	        	return elt.user === messaging;
+	        })[0];
+	        conversation.messages.push({'messageType': 'sent', 'messageText': $('#message-text').val()});
+	        loadConversation(messaging);
 	        $('#message-text').val('');
 	    });
 
@@ -258,7 +270,7 @@ $(document).ready(function() {
 	    		var user = $.grep(profileData.users, function(elt) {
 					return elt.username === name;
 				})[0];
-				$('#message-2-img').attr('src', 'static/images/'+user.userImg);
+				loadConversation(name);
 	    	}
 	    });
 });
