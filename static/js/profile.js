@@ -90,6 +90,13 @@ var loadReviews = function() {
 	console.log(currentUser.reviews);
 }
 
+var loadPets = function() {
+	var pets = currentUser.pets;
+	var petTemplate = $('#petProfileTemplate').html();
+	Mustache.parse(petTemplate);
+	var rendered = Mustache.render(petTemplate, {"pets": pets, "currentUser": currentUser.currentUser});
+	$('#pane-pets').append(rendered);
+}
 
 var loadStars = function() {
 	console.log('loading stars');
@@ -111,6 +118,7 @@ var loadStars = function() {
 
   });
 }
+
 
 var loadPetInfo = function() {
   var petInfoTemplate = $('#petInfoTemplate').html();
@@ -165,6 +173,9 @@ $(document).ready(function() {
 	loadFavorites();
 	loadActiveListings();
 	hideFavorites();
+	$('#lilyCornelioRev').click(function(){
+		$('#tab-reviews').trigger('click');
+	})
 
 	var tab = $.getUrlVar('tab');
 	if (tab === 2) {
@@ -191,6 +202,17 @@ $(document).ready(function() {
 			hideFavorites();
 		}
 	});
+
+	$('.publicProfile').hide();
+	if (currentUser.username === 'cornelio') {
+		$('#publicProfileCornelio').show();
+	}
+	else if (currentUser.username === 'lily') {
+		$('#publicProfileLily').show();
+	}
+	else if (currentUser.username === 'flynn') {
+		$('#publicProfileFlynn').show();
+	}
 	$(".fav-btn").click(function() {
 		console.log($(this).closest('.listing'));
     $(this).closest('.listing').addClass('hide');
@@ -418,7 +440,7 @@ $(document).ready(function(){
 
     var active = false;
     var alflag = true;
-
+    loadPets();
 
     // collapse or expand all
     $('#collapse-init').click(function () {
@@ -503,7 +525,7 @@ $(document).ready(function(){
 			$('#petArrow').addClass('glyphicon-triangle-right');
 			$('#petArrow').removeClass('glyphicon-triangle-bottom');
 			petArrowFlag = false;
-		} else {addListing
+		} else {
 			$('#petArrow').addClass('glyphicon-triangle-bottom');
 			$('#petArrow').removeClass('glyphicon-triangle-right');
 			petArrowFlag = true;

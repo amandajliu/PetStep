@@ -306,6 +306,48 @@
     {{/activeListing}}
     </script>
 
+    <script id="petProfileTemplate" type='x-tmpl-mustache'>
+    <div class="panel-group" id="accordion">
+        {{#pets}}
+        <div class="panel panel-default" id="panel{{petNameShort}}">
+          <!-- Each unexpanded tab has an expand icon, mini pet icon, and pet name -->
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-target="#collapsePet{{petNameShort}}" class="collapsed in" id="petExpandTitle">
+                <span id="petArrow" class="glyphicon glyphicon-triangle-bottom"></span>
+                <img class='petProfSm1 img-circle' src='static/images/{{petImg}}'>
+                {{petName}}
+              </a>
+            </h4>
+          </div>
+          <!-- Each expanded tab has an a larger pet image, an edit button, more pet info, and add listing button-->
+          <div id="collapsePet{{petNameShort}}" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <div class="petExpandLeft col-md-2"> <!-- Contains pet image and edit button-->
+                <img class='petProfLg1 img-circle' src='static/images/{{petImg}}'>
+                <!-- TO-DO: Link to pet edit dialog -->
+                {{#currentUser}}<button type='button' class='btn btn-default' id="editPetButton">Edit Pet  <span class='glyphicon glyphicon-pencil'></span></button>{{/currentUser}}
+              </div>
+              <div class="petExpandMiddle col-md-8"> <!-- Contains additional pet info -->
+                <h2>{{petName}}</h2>
+                <h4>Pet Biography</h4>
+                  <div class='well well-lg'>{{petBio}}</div>
+                <h4>Medical Needs</h4>
+                  <div class='well well-lg'>{{petNeeds}}</div>
+                <h4>Other Notes</h4>
+                  <div class='well well-lg'>{{petNotes}}</div>
+              </div>
+              <div class="petExpandRight col-md-2"> <!-- Contains add listing button-->
+                  <!-- TO-DO: Link to listing creation dialog -->
+                  {{#currentUser}}<button type='button' class='btn btn-default addListing'><span class="glyphicon glyphicon-plus"></span>Add Listing</button>{{/currentUser}}
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/pets}}
+      </div>
+    </script>
+
   <script>
     var historyDrop = function() {
       $("#tab-history").click();
@@ -380,6 +422,7 @@
           <li class="dropdown" style="margin-right:40px">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class='img-circle' src='static/images/Cornelio.png' id="headerProfPic"> Cornelio <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
+              <li><a href="profile.html">Your Profile</a></li>
               <li><a href="#" class="addListing">Add a Listing</a></li>
               <li><a href="#">Settings</a></li>
               <li class="divider"></li>
@@ -567,7 +610,7 @@
 		</ul>
 	<div class='tab-content tabbed-content' id="tabContent">
 		<div class='main-panes tab-pane active' id='pane-public-activity'>
-
+      <div class='publicProfile' id='publicProfileCornelio'>
       <div class="activityFeed">
 
         <div class="feedInfo">
@@ -588,7 +631,7 @@
           <div class="profileFeedDiv">
             <img class="profileFeed" src="static/images/lilyPaxton.jpg"/>
           </div>
-          <h4 class="feedText"><a>Lily Paxton</a> wrote a <a>review</a> about Cornelio and Fluffy.</h4>
+          <h4 class="feedText"><a href="profile.html?user=lily" class="activityLink">Lily Paxton</a> wrote a <a class="activityLink" id="lilyCornelioRev">review</a> about Cornelio and Fluffy.</h4>
           <br>
           <h6 class="feedTime">a week ago</h6>
         </div>
@@ -606,6 +649,57 @@
         </div>
       </div>
     </div>
+    <div class='publicProfile' id='publicProfileLily'>
+      <div class="activityFeed">
+        <div class="feedInfo">
+          <div class="profileFeedDiv">
+            <img class="profileFeed" src="static/images/lilyPaxton.jpg"/>
+          </div>
+          <h4 class="feedText"><a href="profile.html?user=lily" class="activityLink">Lily Paxton</a> wrote a <a class="activityLink">review</a> about Cornelio and Fluffy.</h4>
+          <br>
+          <h6 class="feedTime">a week ago</h6>
+        </div>
+      </div>
+      <div class='activityFeed'>
+        <div class="feedInfo">
+          <div class="profileFeedDiv">
+            <img class="profileFeed" src="static/images/lilyPaxton.jpg"/>
+          </div>
+          <h4 class="feedText">Lily just posted a new listing!</h4>
+          <br>
+          <h6 class="feedTime">3 weeks ago</h6>
+        </div>
+        <div class="feedImgDiv">
+          <img class="feedImg" src="static/images/burritoCat0.jpg"/>
+        </div>
+      </div>
+    </div>
+    <div class='publicProfile' id='publicProfileFlynn'>
+      <div class='activityFeed'>
+        <div class="feedInfo">
+          <div class="profileFeedDiv">
+            <img class="profileFeed" src="static/images/FlynnRider.jpeg"/>
+          </div>
+          <h4 class="feedText">Flynn just posted a new listing!</h4>
+          <br>
+          <h6 class="feedTime">an hour ago</h6>
+        </div>
+        <div class="feedImgDiv">
+          <img class="feedImg" src="static/images/bunny0.jpg"/>
+        </div>
+      </div>
+      <div class="activityFeed">
+        <div class="feedInfo">
+          <div class="profileFeedDiv">
+            <img class="profileFeed" src="static/images/FlynnRider.jpeg"/>
+          </div>
+          <h4 class="feedText"><a href="profile.html?user=flynn" class="activityLink">Flynn Rider</a> wrote a <a class="activityLink">review</a> about Cornelio and Fluffy.</h4>
+          <br>
+          <h6 class="feedTime">two months ago</h6>
+        </div>
+      </div>
+    </div>
+    </div>
 <!-- TAB CONTENT - Favorites -->
     <div class='main-panes tab-pane tab-pane-private' id='pane-favorites'>
       <div id="favsContainer">
@@ -620,71 +714,7 @@
         </div>
       </div>
       <div id='reviews-area'>
-      <!-- <div class='panel panel-default'>  outer div for a review
-      <div class='panel-body'>
-      <div class='container'>
-        <div class='row'>
-          <div class='col-md-1'>
-            <div class='row'>Lily Paxton</div>
-            <div class='row'><img class='reviewPic img img-circle' src='static/images/lilyPaxton.jpg' height='60px' width='60px'/></div>
-            <div class='row'><h6 class='reivewTime'>a week ago</h6></div>
-          </div>
-          <div class='col-md-11'>
-            <div class='container container-fluid'>
-              <div class='row'>
-                <div class='col-md-6'>
-                  <h4>Cornelio: <span class='starsHere' data-stars='3'></span></h4>
-                </div>
-                <div class='col-md-6'>
-                  <h4>
-                    Fluffy: <span class='starsHere' data-stars='5'></span>
-                  </h4>
-                </div>
-              </div>
-              <div class='row'>
-                <div class='col-md-12 well'>
-                  Fluffy was awesome but Cornelio was not.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
-  <!-- <div class='panel panel-default'> outer div for a review
-      <div class='panel-body'>
-      <div class='container'>
-        <div class='row'>
-          <div class='col-md-1'>
-            <div class='row'>Flynn Rider</div>
-            <div class='row'><img class='reviewPic img img-circle' src='static/images/FlynnRider.jpeg' height='60px' width='60px'/></div>
-            <div class='row'><h6 class='reivewTime'>two months ago</h6></div>
-          </div>
-          <div class='col-md-11'>
-            <div class='container container-fluid'>
-              <div class='row'>
-                <div class='col-md-6'>
-                  <h4>Cornelio: <span class='starsHere' data-stars='5'></span></h4>
-                </div>
-                <div class='col-md-6'>
-                  <h4>
-                    Fluffy: <span class='starsHere' data-stars='5'></span>
-                  </h4>
-                </div>
-              </div>
-              <div class='row'>
-                <div class='col-md-12 well'>
-                  FLUFFY IS THE BEST SNAKE EVER!!!!!!!!!!!!!!! AND CORNELIO IS MY BEST FRIEND!!!!!!
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 </div>
     </div>
 
@@ -699,9 +729,9 @@
     			</div> <!-- cd-timeline-img -->
 
     			<div class="cd-timeline-content">
-    				<h2>Porky <small>Doug Schumaker</small></h2>
-            <img class="cd-timeline-content-img" src="static/images/puppy1.jpg"/>
-    				<p>You sat <a href="#">Porky</a> for <a href="#">Doug Schumaker</a></p>
+    				<h2>Sam the Wise<small> Flynn Rider</small></h2>
+            <img class="cd-timeline-content-img" src="static/images/bunny0.jpg"/>
+    				<p>You sat <a class="activityLink" href="profile.html?user=flynn">Sam the Wise</a> for <a class="activityLink" href="profile.html?user=flynn">Flynn Rider</a></p>
     				<a href="#0" class="cd-review">Review</a>
     				<span class="cd-date">Feb 26</span>
     			</div> <!-- cd-timeline-content -<p class="sitterName">{{#sitterUsername}}<a class="profileLink" href="profile.html?user={{sitterUsername}}">{{sitterFirstName}} {{sitterLastName}} </a>{{/sitterUsername}} {{^sitterUsername}}<a class="profileLink" href="">{{sitterFirstName}} {{sitterLastName}}</a>{{/sitterUsername}}
@@ -718,9 +748,9 @@
     			</div> <!-- cd-timeline-img -->
 
     			<div class="cd-timeline-content">
-    				<h2>Penny Marshall <small>Fluffy</small></h2>
-            <img class="cd-timeline-content-img" src="static/images/pennyMarshall.jpg"/>
-    				<p><a href="#">Penny Marshall</a> sat <a href="#">Fluffy</a> for you.</p>
+    				<h2>Lily Paxton <small>Fluffy</small></h2>
+            <img class="cd-timeline-content-img" src="static/images/lilyPaxton.jpg"/>
+    				<p><a class="activityLink" href="profile.html?user=lily">Lily Paxton</a> sat Fluffy for you.</p>
     				<a href="#0" class="cd-review">Review</a>
     				<span class="cd-date">Feb 18</span>
     			</div> <!-- cd-timeline-content -->
@@ -732,9 +762,9 @@
     			</div> <!-- cd-timeline-img -->
 
     			<div class="cd-timeline-content">
-            <h2>Penny Marshall <small>Fluffy</small></h2>
-            <img class="cd-timeline-content-img" src="static/images/pennyMarshall.jpg"/>
-    				<p><a href="#">Penny Marshall</a> sat <a href="#">Fluffy</a> for you.</p>
+            <h2>Lily Paxton <small>Fluffy</small></h2>
+            <img class="cd-timeline-content-img" src="static/images/lilyPaxton.jpg"/>
+    				<p><a class="activityLink" href="profile.html?user=lily">Lily Paxton</a> sat Fluffy for you.</p>
     				<a href="#0" class="cd-review">Review</a>
     				<span class="cd-date">Feb 14</span>
     			</div> <!-- cd-timeline-content -->
@@ -746,9 +776,9 @@
     			</div> <!-- cd-timeline-img -->
 
     			<div class="cd-timeline-content">
-    				<h2>Sugar <small>Lily Paxton</small></h2>
-            <img class="cd-timeline-content-img" src="static/images/dog-beach.jpg"/>
-    				<p>You sat Sugar for <a href="#">Lily Paxton</a></p>
+    				<h2>Burrito <small>Lily Paxton</small></h2>
+            <img class="cd-timeline-content-img" src="static/images/burritoCat0.jpg"/>
+    				<p>You sat <a href="profile.html?user=lily" class="activityLink">Burrito</a> for <a class="activityLink" href="profile.html?user=lily">Lily Paxton</a></p>
     				<a href="#0" class="cd-review">Review</a>
     				<span class="cd-date">Jan 24</span>
     			</div> <!-- cd-timeline-content -->
@@ -760,9 +790,9 @@
     			</div> <!-- cd-timeline-img -->
 
     			<div class="cd-timeline-content">
-    				<h2>Porky <small>Doug Schumaker</small></h2>
-            <img class="cd-timeline-content-img" src="static/images/puppy1.jpg"/>
-    				<p>You sat <a href="#">Porky</a> for <a href="#">Doug Schumaker</a></p>
+    				<h2>Sam the Wise <small>Flynn Rider</small></h2>
+            <img class="cd-timeline-content-img" src="static/images/bunny0.jpg"/>
+    				<p>You sat <a class="activityLink" href="profile.html?user=flynn">Sam the Wise</a> for <a class="activityLink" href="profile.html?user=flynn">Flynn Rider</a></p>
     				<a href="#0" class="cd-review">Review</a>
     				<span class="cd-date">Jan 18</span>
     			</div> <!-- cd-timeline-content -->
@@ -776,7 +806,7 @@
     			<div class="cd-timeline-content">
     				<h2>Flynn Rider <small>Fluffy</small></h2>
             <img class="cd-timeline-content-img" src="static/images/FlynnRider.jpeg"/>
-    				<p><a href="#">Flynn Rider</a> sat <a href="#">Fluffy</a> for you.</p>
+    				<p><a class="activityLink" href="profile.html/flynn">Flynn Rider</a> sat Fluffy for you.</p>
     				<a href="#0" class="cd-review">Review</a>
     				<span class="cd-date">Jan 14</span>
     			</div> <!-- cd-timeline-content -->
@@ -796,9 +826,9 @@
       </button>
 
     <!-- Bootstrap panel grouping of collapsable tabs for each pet -->
-      <div class="panel-group" class="accordion">
+      <!-- <div class="panel-group" id="accordion">
         <div class="panel panel-default" id="panelPet1">
-          <!-- Each unexpanded tab has an expand icon, mini pet icon, and pet name -->
+          Each unexpanded tab has an expand icon, mini pet icon, and pet name
           <div class="panel-heading">
             <h4 class="panel-title">
               <a data-toggle="collapse" data-target="#collapsePetOne" class="collapsed in" id="petExpandTitle">
@@ -808,15 +838,15 @@
               </a>
             </h4>
           </div>
-          <!-- Each expanded tab has an a larger pet image, an edit button, more pet info, and add listing button-->
+          Each expanded tab has an a larger pet image, an edit button, more pet info, and add listing button
           <div id="collapsePetOne" class="panel-collapse collapse in">
             <div class="panel-body">
-              <div class="petExpandLeft col-md-2"> <!-- Contains pet image and edit button-->
+              <div class="petExpandLeft col-md-2"> Contains pet image and edit button
                 <img class='petProfLg1 img-circle' src='static/images/fluffy0.jpg'>
-                <!-- TO-DO: Link to pet edit dialog -->
+                TO-DO: Link to pet edit dialog
                 <button type='button' class='btn btn-default' id="editPetButton">Edit Pet  <span class='glyphicon glyphicon-pencil'></span></button>
               </div>
-              <div class="petExpandMiddle col-md-8"> <!-- Contains additional pet info -->
+              <div class="petExpandMiddle col-md-8"> Contains additional pet info
                 <h2>Fluffy</h2>
                 <h4>Pet Biography</h4>
                   <div class='well well-lg'>I am loved dearly by Cornelio and was made into the celebrity of this website. </div>
@@ -825,15 +855,15 @@
                 <h4>Other Notes</h4>
                   <div class='well well-lg'>I'm adorable! ^_^ </div>
               </div>
-              <div class="petExpandRight col-md-2"> <!-- Contains add listing button-->
-                  <!-- TO-DO: Link to listing creation dialog -->
+              <div class="petExpandRight col-md-2"> Contains add listing button
+                  TO-DO: Link to listing creation dialog
                   <button type='button' class='btn btn-default addListing'><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
               </div>
             </div>
           </div>
         </div>
 
-      </div>
+      </div> -->
 
     </div> <!-- End of Pet Content Tab -->
 
@@ -898,6 +928,8 @@
       <div class='container'>
         <div class='row'>
         <div class='col-sm-3 messages-left'>
+          <h4 id="yourConvo">Inbox</h4>
+
           <div class='row message-name current panel panel-default' data-user='lily'>
             <div class='media'>
               <div class='media-left media-middle'><img class='media-object img img-circle' src='static/images/lilyPaxton.jpg' height='30px' width='30px'/> </div>

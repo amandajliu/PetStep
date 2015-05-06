@@ -18,6 +18,12 @@ body {
 .profileLink, .profileLink:hover{
   color:#00BCD4;
 }
+.activityLink, .activityLink:hover{
+  color: #0097A7;
+}
+.cd-review:hover, .cd-review:visited, .cd-review:focus{
+  text-decoration:none
+}
 #collapse-init:hover, #collapse-init-1:hover{
   color:#333 !important;
   background-color: #e6e6e6 !important;
@@ -69,6 +75,7 @@ body {
 #pane-favorites{
   display:table;
 }
+
 .hide{
   display:none;
   top:-9999px !important;
