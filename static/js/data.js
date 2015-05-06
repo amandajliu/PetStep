@@ -338,6 +338,7 @@ profileData = {
         sitsFor: [],
         zipcode: "02142",
         petName: "Fluffy",
+        petNameShort:"Fluffy",
         pets: [{
             petType: "Snake",
             petName: "Fluffy",
