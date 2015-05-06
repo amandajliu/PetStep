@@ -198,7 +198,7 @@ $(document).ready(function() {
   });
 
 
-	// load reviews 
+	// load reviews
 	loadReviews();
 	loadStars();
 
@@ -255,6 +255,12 @@ $(document).ready(function() {
 			}
 		}
 	);
+
+	$(".listingContent").click(function(event) {
+	/*  event.preventDefault();*/
+		event.stopPropagation();
+	/*  return false;*/
+	})
 });
 
 var loadConversation = function(username) {

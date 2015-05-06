@@ -151,12 +151,14 @@
         <div class="listingImgDiv">
           <img class="listingImg" src="static/images/{{sitterImg}}">
           <div class="listingInfo">
-            <p class="sitterName">{{#sitterUsername}}<a class="profileLink" href="profile.html?user={{sitterUsername}}">{{sitterFirstName}} {{sitterLastName}} </a>{{/sitterUsername}} {{^sitterUsername}}<a class="profileLink" href="">{{sitterFirstName}} {{sitterLastName}}</a>{{/sitterUsername}}
-            </p>
-            {{#sitterType}}<p>Sitter Type: {{sitterType}}</p>{{/sitterType}}
-            <p class="sitsPetType">Sits: {{petTypes}} </p>
-            <p class="sitterZip">Zipcode: {{zipcode}}</p>
-            <button class='listingText btn btn-default fav-btn' data-user='{{sitterName}}'><span class='glyphicon glyphicon-star clicked'></span> <span class='btn-text'>Remove from Favorites</span></button>
+            <div class="listingContent">
+              <p class="sitterName">{{#sitterUsername}}<a class="profileLink" href="profile.html?user={{sitterUsername}}">{{sitterFirstName}} {{sitterLastName}} </a>{{/sitterUsername}} {{^sitterUsername}}<a class="profileLink" href="">{{sitterFirstName}} {{sitterLastName}}</a>{{/sitterUsername}}
+              </p>
+              {{#sitterType}}<p>Sitter Type: {{sitterType}}</p>{{/sitterType}}
+              <p class="sitsPetType">Sits: {{petTypes}} </p>
+              <p class="sitterZip">Zipcode: {{zipcode}}</p>
+              <button class='listingText btn btn-default fav-btn' data-user='{{sitterName}}'><span class='glyphicon glyphicon-star clicked'></span> <span class='btn-text'>Remove from Favorites</span></button>
+            </div>
           </div>
         </div>
       </div>
@@ -644,7 +646,12 @@
     				<p>You sat <a href="#">Porky</a> for <a href="#">Doug Schumaker</a></p>
     				<a href="#0" class="cd-review">Review</a>
     				<span class="cd-date">Feb 26</span>
-    			</div> <!-- cd-timeline-content -->
+    			</div> <!-- cd-timeline-content -<p class="sitterName">{{#sitterUsername}}<a class="profileLink" href="profile.html?user={{sitterUsername}}">{{sitterFirstName}} {{sitterLastName}} </a>{{/sitterUsername}} {{^sitterUsername}}<a class="profileLink" href="">{{sitterFirstName}} {{sitterLastName}}</a>{{/sitterUsername}}
+            </p>
+            {{#sitterType}}<p>Sitter Type: {{sitterType}}</p>{{/sitterType}}
+            <p class="sitsPetType">Sits: {{petTypes}} </p>
+            <p class="sitterZip">Zipcode: {{zipcode}}</p>
+            ->
     		</div> <!-- cd-timeline-block -->
 
     		<div class="cd-timeline-block cd-timeline-block-right">

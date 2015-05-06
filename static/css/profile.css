@@ -146,7 +146,7 @@ Stars
   position: relative;
 }
 /*------------------
-Owner/Sitter switch 
+Owner/Sitter switch
 -------------------- */
 .Switch {
   position: relative;
@@ -202,7 +202,7 @@ Owner/Sitter switch
 .Switch.Round.Off .Toggle { left: 58%; background: #00BCD4}
 
 /* ------------------
-Review Modal 
+Review Modal
 rating input code from http://everythingfrontend.com/posts/star-rating-input-pure-css.html
 ------------------- */
 
@@ -221,12 +221,12 @@ rating input code from http://everythingfrontend.com/posts/star-rating-input-pur
     opacity: 0;
 }
 
-.rating:hover .rating-star:hover, 
+.rating:hover .rating-star:hover,
 .rating:hover .rating-star:hover ~ .rating-star,
 .rating-input:checked ~ .rating-star {
   background-position: 0 16px;
 }
-.rating-star, 
+.rating-star,
 .rating:hover .rating-star  {
   position: relative;
   float: right;
@@ -237,5 +237,7 @@ rating input code from http://everythingfrontend.com/posts/star-rating-input-pur
   background-size: 16px 32px;
 }
 
-
-
+.listingContent {
+  display:inline-block;
+  cursor: auto;
+}
