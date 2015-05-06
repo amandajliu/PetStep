@@ -373,12 +373,12 @@ profileData = {
         lastName: "Paxton",
         userImg: "lilyPaxton.jpg",
         sitsFor: [],
-        zipcode: "02139",
-        petName: "Sugar",
+        zipcode: "02142",
+        petName: "Burrito",
         pets: [{
-            petType: "Dog",
-            petName: "Sugar",
-            petImg: "dog-beach.jpg"
+            petType: "Cat",
+            petName: "Burrito",
+            petImg: "burritoCat0.jpg"
         }],
         ownerRating: 0,
         sitterRating: 0,
