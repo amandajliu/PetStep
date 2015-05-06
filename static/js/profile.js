@@ -195,6 +195,17 @@ $(document).ready(function() {
 			hideFavorites();
 		}
 	});
+
+	$('.publicProfile').hide();
+	if (currentUser.username === 'cornelio') {
+		$('#publicProfileCornelio').show();
+	}
+	else if (currentUser.username === 'lily') {
+		$('#publicProfileLily').show();
+	}
+	else if (currentUser.username === 'flynn') {
+		$('#publicProfileFlynn').show();
+	}
 	$(".fav-btn").click(function() {
 		console.log($(this).closest('.listing'));
     $(this).closest('.listing').addClass('hide');
