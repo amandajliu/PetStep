@@ -15,7 +15,7 @@ listingsData = {
     durationType: "One-time",
     durationTypeAttr: "onetime",
     durationLengthAttr: "1day",
-    favorite: false
+    favorite: true
   },{
     ownerFirstName: "Lily",
     ownerLastName: "Paxton",
@@ -33,7 +33,7 @@ listingsData = {
     durationType: "One-time",
     durationTypeAttr: "onetime",
     durationLengthAttr: "1day",
-    favorite: false
+    favorite: true
   }, {
     ownerFirstName: "Penny",
     ownerLastName: "Marshall",
@@ -68,7 +68,7 @@ listingsData = {
     durationType: "Routine",
     durationTypeAttr: "routine",
     durationLengthAttr: "1wkmonth", 
-    favorite: false
+    favorite: true
   }, {
     ownerFirstName: "Shaila",
     ownerLastName: "Higgins",
@@ -139,7 +139,7 @@ listingsData = {
     durationType: "One-time",
     durationTypeAttr: "onetime",
     durationLengthAttr: "1wk",
-    favorite: false
+    favorite: true
   }, {
     ownerFirstName: "Craig",
     ownerLastName: "Newton",
@@ -221,7 +221,7 @@ listingsData = {
     sitterImg: "pennyMarshall.jpg",
     zipcode: "02139",
     petTypes: ["Dog"],
-    favorite: false
+    favorite: true
   }, {
     sitterName: "Stephanie Castle",
     sitterImg: "stephanieCastle.jpg",
@@ -233,7 +233,7 @@ listingsData = {
     sitterImg: "craigNewton.jpg",
     zipcode: "02142",
     petTypes: ["Dog"],
-    favorite: false
+    favorite: true
   }, {
     sitterName: "Janet Mason",
     sitterImg: "JanetMason.jpg",
@@ -245,7 +245,7 @@ listingsData = {
     sitterImg: "FlynnRider.jpeg",
     zipcode: "02142",
     petTypes: ["Dog", "Cat", "Snake"],
-    favorite: false
+    favorite: true
   }, {
     sitterName: "Missy Clinton",
     sitterImg: "MissyClinton.jpg",
@@ -257,7 +257,7 @@ listingsData = {
     sitterImg: "DougSchumaker.jpg",
     zipcode: "02214",
     petTypes: ["Cat", "Rabbit"],
-    favorite: false
+    favorite: true
   }]
 }
 
