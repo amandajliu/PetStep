@@ -348,6 +348,8 @@ profileData = {
         sitterRating: null,
         reviews: [{
             reviewer: "Lily Paxton",
+            reviewerImg: "lilyPaxton.jpg",
+            reviewTime: "a week ago",
             owner: "Cornelio",
             pet: "Fluffy",
             ownerRating: 3,
@@ -355,6 +357,8 @@ profileData = {
             message: "Fluffy was awesome but Cornelio was not."
         }, {
             reviewer: "Flynn Rider",
+            reviewerImg: "FlynnRider.jpeg",
+            reviewTime: "two months ago",
             owner: "Cornelio",
             pet: "Fluffy",
             ownerRating: 5,
