@@ -20,7 +20,7 @@
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <script id='listingTemplate' type='x-tmpl-mustache'>
   {{#petListings}}
-  <div class="petListing listing" petType={{petTypeAttr}} ownerLastName={{ownerLastName}} zipcode={{zipcode}} startDate={{startDate}} endDate={{endDate}} payment = {{paymentAttr}} sitterType={{sitterTypeAttr}} durationLength={{durationLengthAttr}} durationType={{durationTypeAttr}}>
+  <div class="petListing listing" petType={{petTypeAttr}} ownerLastName={{ownerLastName}} distance={{distance}} zipcode={{zipcode}} startDate={{startDate}} endDate={{endDate}} payment = "{{paymentAttr}}" sitterType="{{sitterTypeAttr}}" durationLength={{durationLengthAttr}} durationType={{durationTypeAttr}}>
       <div class="listingImgDiv">
         <img class="listingImg" src="static/images/{{petImg}}">
         <div class="listingInfo">
@@ -35,7 +35,7 @@
             <p class="listingText ownerName">Owner: {{#ownerUsername}}<a class="profileLink" href="profile.html?user={{ownerUsername}}">{{ownerFirstName}} {{ownerLastName}} </a>{{/ownerUsername}} {{^ownerUsername}}<a class="profileLink" href="">{{ownerFirstName}} {{ownerLastName}}</a>{{/ownerUsername}}</p>
 
             <p class="listingText ownerZip">Zipcode: {{zipcode}}</p>
-            <p class="listingText pay">Pay: {{payment}} </p>
+            <p class="listingText pay">Pay: {{payment}}{{#durationType}}, {{durationType}}{{/durationType}} </p>
             {{#sitterType}}
             <p class="listingText sitterType">Sitter Type: {{sitterType}}</p>
             {{/sitterType}}
@@ -46,11 +46,13 @@
     </div>
     {{/petListings}}
     {{#personListings}}
-    <div class="personListing listing">
+    <div class="personListing listing" petType="{{petTypeAttr}}" sitterType="{{sitterTypeAttr}}" distance = {{distance}}>
       <div class="listingImgDiv">
         <img class="listingImg" src="static/images/{{sitterImg}}">
         <div class="listingInfo">
-          <p class="sitterName">{{sitterName}} <a href="#">(view profile)</a></p>
+          <p class="sitterName">{{#sitterUsername}}<a class="profileLink" href="profile.html?user={{sitterUsername}}">{{sitterFirstName}} {{sitterLastName}} </a>{{/sitterUsername}} {{^sitterUsername}}<a class="profileLink" href="">{{sitterFirstName}} {{sitterLastName}}</a>{{/sitterUsername}}
+          </p>
+          {{#sitterType}}<p>Sitter Type: {{sitterType}}</p>{{/sitterType}}
           <p class="sitsPetType">Sits: {{petTypes}} </p>
           <p class="sitterZip">Zipcode: {{zipcode}}</p>
           <button class='listingText btn btn-default fav-btn' data-user='{{sitterName}}'><span class='glyphicon glyphicon-star'></span> <span class='btn-text'>Add to Favorites</span></button>
@@ -223,7 +225,7 @@
         </li>
 
         <li class="dropdown filter">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Duration <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle durationDrop" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Duration <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
               <input class="durationLengthFilterOpt filterOpt" type="checkbox" id="1day">
@@ -253,19 +255,19 @@
           </ul>
         </li>
         <li class="dropdown filter">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Payment<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle paymentDrop" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Payment<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
               <input class="payFilterOpt filterOpt" type="checkbox" id="_$_">
-              <label for="_$_"><a class="paytip" data-toggle="tooltip" data-placement="right" title="$1-$10">$</a></label>
+              <label for="_$_"><a class="paytip" data-toggle="tooltip" data-placement="right" title="$1-$10/hr">$</a></label>
             </li>
             <li role="presentation">
               <input class="payFilterOpt filterOpt" type="checkbox" id="_$$_">
-              <label for="_$$_"><a class="paytip"  data-toggle="tooltip" data-placement="right" title="$11-$20">$$</a></label>
+              <label for="_$$_"><a class="paytip"  data-toggle="tooltip" data-placement="right" title="$11-$20/hr">$$</a></label>
             </li>
             <li role="presentation">
               <input class="payFilterOpt filterOpt" type="checkbox" id="_$$$_">
-              <label for="_$$$_"><a class="paytip" data-toggle="tooltip" data-placement="right" title="$20+">$$$</a></label>
+              <label for="_$$$_"><a class="paytip" data-toggle="tooltip" data-placement="right" title="$20+/hr">$$$</a></label>
             </li>
             <li role="presentation">
               <input class="payFilterOpt filterOpt" type="checkbox" id="negotiable">
@@ -277,10 +279,23 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placeholder="false" role="button" aria-expanded="false">Distance <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-              <!--<label for="dist">Distance from your location:</label>-->
-              <p style="display:block; margin-bottom:0; padding-top:3px; padding-right:20px; clear:both; white-space:nowrap; margin-left:6px; max-width:100%">Distance from your location:</p>
-              <input class="distanceFilter filterOpt" type="text" id="dist" readonly style="border:0; color:#00BCD4; font-weight:bold; margin:5px">
-              <div id="slider" class="ui-slider"></div>
+              <li role="presentation">
+                <input class="distanceFilterOpt filterOpt" type="checkbox" id="lessThan1">
+                <label for="lessThan1"> < 1 mi away</label>
+              </li>
+              <li role="presentation">
+                <input class="distanceFilterOpt filterOpt" type="checkbox" id="lessThan5">
+                <label for="lessThan5"> < 5 mi away</label>
+              </li>
+              <li role="presentation">
+                <input class="distanceFilterOpt filterOpt" type="checkbox" id="lessThan10">
+                <label for="lessThan10"> < 10 mi away</label>
+              </li>
+              <li role="presentation">
+                <input class="distanceFilterOpt filterOpt" type="checkbox" id="lessThan20">
+                <label for="lessThan20"> < 20 mi away</label>
+              </li>
+
             </li>
           </ul>
         </li>
@@ -288,11 +303,11 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sort by <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-              <input type="radio" class="sortBy" id="sortBySitterName" name="sortBy_person_menu">
+              <input type="radio" class="sortBy sortPersonBy" id="sortBySitterName" name="sortBy_person_menu">
               <label for="sortBySitterName">Sorted by Sitter Last Name</label>
             </li>
             <li role="presentation">
-              <input type="radio" class="sortBy" id="sortByDistance_person" name="sortBy_person_menu">
+              <input type="radio" class="sortBy sortPersonBy" id="sortByDistance_person" name="sortBy_person_menu">
               <label for="sortByDistance_person">Sorted by Distance</label>
             </li>
           </ul>
@@ -301,27 +316,27 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sort by <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation">
-              <input type="radio" class="sortBy" id="sortByOwnerName" name="sortBy_pet_menu">
+              <input type="radio" class="sortBy sortPetBy" id="sortByOwnerName" name="sortBy_pet_menu">
               <label for="sortByOwnerName">Sorted by Owner Last Name A-Z</label>
             </li>
             <li role="presentation">
-              <input type="radio" class="sortBy" id="sortByDistance_pet" name="sortBy_pet_menu">
+              <input type="radio" class="sortBy sortPetBy" id="sortByDistance_pet" name="sortBy_pet_menu">
               <label for="sortByDistance_pet">Sorted by Distance</label>
             </li>
             <li role="presentation">
-              <input type="radio" class="sortBy" id="sortByStart" name="sortBy_pet_menu">
+              <input type="radio" class="sortBy sortPetBy" id="sortByStart" name="sortBy_pet_menu">
               <label for="sortByStart">Sorted by Start Date</label>
             </li>
             <li role="presentation">
-              <input type="radio" class="sortBy" id="sortByEnd" name="sortBy_pet_menu">
+              <input type="radio" class="sortBy sortPetBy" id="sortByEnd" name="sortBy_pet_menu">
               <label for="sortByEnd">Sorted by End Date</label>
             </li>
             <li role="presentation">
-              <input type="radio" class="sortBy" id="sortByPetType" name="sortBy_pet_menu">
+              <input type="radio" class="sortBy sortPetBy" id="sortByPetType" name="sortBy_pet_menu">
               <label for="sortByPetType">Sorted by Pet Type A-Z</label>
             </li>
             <li role="presentation">
-              <input type="radio" class="sortBy" id="sortByDuration" name="sortBy_pet_menu">
+              <input type="radio" class="sortBy sortPetBy" id="sortByDuration" name="sortBy_pet_menu">
               <label for="sortByDuration">Sorted by Duration</label>
             </li>
           </ul>

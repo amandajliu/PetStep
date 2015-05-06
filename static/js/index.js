@@ -24,10 +24,77 @@ var createMasonry = function(){
 
   })
 }
+var createMasonryPerson = function(){
+  //recreates the masonry with the pet listings
+  $('.petListing').addClass('hide');
+  $container.masonry('destroy'); //destroys the previous masonry object (if this errors, just delete it)
+  $container = $('#feedContainer');
+  $container.imagesLoaded(function(){
+    $container.masonry({
+      itemSelector:'.personListing',
+      'isFitWidth': true
+    });
+
+  })
+}
+
+var sortByStartDate = function(a,b){
+  var aStart = a.startDate;
+  var bStart = b.startDate;
+  var aStartArray = aStart.split('/');
+  var bStartArray = bStart.split('/');
+  var a = [];
+  var b = [];
+  for(var i=0; i<aStartArray.length;i++){
+    a.push(parseInt(aStartArray[i]));
+    b.push(parseInt(bStartArray[i]));
+  }
+  return((a[2]<b[2]) ? -1 : ((a[2] > b[2]) ? 1 : ((a[0] < b[0]) ? -1 : ((a[0] > b[0]) ? 1 : ((a[1] < b[1]) ? -1 : ((a[1] > b[1]) ? 1 : 0))))));
+}
+var sortByEndDate = function(a,b){
+  var aStart = a.endDate;
+  var bStart = b.endDate;
+  var aStartArray = aStart.split('/');
+  var bStartArray = bStart.split('/');
+  var a = [];
+  var b = [];
+  for(var i=0; i<aStartArray.length;i++){
+    a.push(parseInt(aStartArray[i]));
+    b.push(parseInt(bStartArray[i]));
+  }
+  return((a[2]<b[2]) ? -1 : ((a[2] > b[2]) ? 1 : ((a[0] < b[0]) ? -1 : ((a[0] > b[0]) ? 1 : ((a[1] < b[1]) ? -1 : ((a[1] > b[1]) ? 1 : 0))))));
+}
 var sortByOwnerLastName = function(a,b){
   var aName = a.ownerLastName.toLowerCase();
   var bName = b.ownerLastName.toLowerCase();
   return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+}
+var sortBySitterLastName = function(a,b){
+  var aName = a.sitterLastName.toLowerCase();
+  var bName = b.sitterLastName.toLowerCase();
+  return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+}
+var sortByPetType = function(a,b){
+  var aName = a.petType.toLowerCase();
+  var bName = b.petType.toLowerCase();
+  return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+}
+var durationToNum = function(p){
+  if(p == "1day"){
+    return 0;
+  }else if(p == "1wk"){
+    return 1;
+  }else if(p == "1wkmonth"){
+    return 2;
+  }else{
+    return 3;
+  }
+}
+var sortByDuration = function(a,b){
+  var aDuration = durationToNum(a.durationLengthAttr);
+  var bDuration = durationToNum(b.durationLengthAttr);
+  return ((aDuration < bDuration) ? -1 : ((aDuration > bDuration) ? 1 : 0))
+
 }
 
 var sortByZipcode = function(a,b){
@@ -54,6 +121,8 @@ var toggleUser = function() {
 }
 
 var filterListings = function(filterOptClass, filterClass, filterClassNoDot,attrName, jqueryObj){
+  console.log(attrName);
+  console.log(jqueryObj.attr('id'));
   if(jqueryObj.is(':checked')){ //checking
     console.log("checked");
     if($.inArray(filterClass, nonBlankFilters) == -1){
@@ -63,7 +132,7 @@ var filterListings = function(filterOptClass, filterClass, filterClassNoDot,attr
     console.log(filterString);
     if($('#sitterButton').hasClass('active')){
 
-      $('.petListing['+attrName+'="'+ jqueryObj.attr('id')+'"]').addClass(filterClassNoDot);
+      $('.petListing['+attrName+'~="'+ jqueryObj.attr('id')+'"]').addClass(filterClassNoDot);
       $('.petListing'+filterClass).removeClass('hide');
       $('.petListing:not('+filterString+')').addClass('hide');
       $container.masonry('destroy');
@@ -76,7 +145,7 @@ var filterListings = function(filterOptClass, filterClass, filterClassNoDot,attr
 
       })
     }else{
-      $('.personListing['+attrName+'="'+ jqueryObj.attr('id')+'"]').addClass(filterClassNoDot);
+      $('.personListing['+attrName+'~="'+ jqueryObj.attr('id')+'"]').addClass(filterClassNoDot);
       $('.personListing'+filterClass).removeClass('hide');
       $('.personListing:not('+filterString+')').addClass('hide');
       $container.masonry('destroy');
@@ -91,18 +160,18 @@ var filterListings = function(filterOptClass, filterClass, filterClassNoDot,attr
     }
 
   }else{ //unchecking
-    console.log("not checked");
     if($(filterOptClass+':checked').length == 0){
-      console.log("last filter");
       nonBlankFilters.splice($.inArray(filterClass,nonBlankFilters),1);
       var filterString = listToString(nonBlankFilters);
       $(filterClass).removeClass(filterClassNoDot);
       if($('#sitterButton').hasClass('active')){
-
+        filterString = filterString.concat('.petListing');
         $('.petListing'+filterString).not(filterClass).removeClass('hide'); //anything that had been previously filtered by petType and that should still be filtered in by other filters is now visible
       }else{
+        filterString = filterString.concat('.personListing');
         $('.personListing'+filterString).not(filterClass).removeClass('hide'); //anything that had been previously filtered by petType and that should still be filtered in by other filters is now visible
       }
+      console.log(filterString);
       $container.masonry('destroy');
       $container = $('#feedContainer');
       $container.imagesLoaded(function(){
@@ -113,18 +182,34 @@ var filterListings = function(filterOptClass, filterClass, filterClassNoDot,attr
       });
 
     }else{
-      var filterString = listToString(nonBlankFilters);
-        $('.petListing['+attrName+'="'+ jqueryObj.attr('id')+'"]').removeClass(filterClassNoDot);
-        $('.petListing['+attrName+'="'+ jqueryObj.attr('id')+'"]').addClass('hide');
-        $container.masonry('destroy');
-        $container = $('#feedContainer');
-        $container.imagesLoaded(function(){
-          $container.masonry({
-            itemSelector:filterString,
-            'isFitWidth':true
-          });
+      if($('#sitterButton').hasClass('active')){
+        var filterString = listToString(nonBlankFilters);
+          $('.petListing['+attrName+'~="'+ jqueryObj.attr('id')+'"]').removeClass(filterClassNoDot);
+          $('.petListing['+attrName+'~="'+ jqueryObj.attr('id')+'"]').addClass('hide');
+          $container.masonry('destroy');
+          $container = $('#feedContainer');
+          $container.imagesLoaded(function(){
+            $container.masonry({
+              itemSelector:filterString,
+              'isFitWidth':true
+            });
 
-        });
+          });
+      }else{
+        var filterString = listToString(nonBlankFilters);
+          $('.personListing['+attrName+'~="'+ jqueryObj.attr('id')+'"]').removeClass(filterClassNoDot);
+          $('.personListing['+attrName+'~="'+ jqueryObj.attr('id')+'"]').addClass('hide');
+          $container.masonry('destroy');
+          $container = $('#feedContainer');
+          $container.imagesLoaded(function(){
+            $container.masonry({
+              itemSelector:filterString,
+              'isFitWidth':true
+            });
+
+          });
+      }
+
 
     }
 
@@ -151,18 +236,6 @@ var changeTags = function(){
 }
 
 
-var changeDist = function(){
-  if($('#slider').slider("value") == -1 || $('#slider').slider("value") == 0){
-    var unit = "mile";
-  }else{
-    var unit = "miles";
-  }
-  var initDist = "< "  + $('#slider').slider("value") + " "+unit;
-  var initDistDiv = "<div class='param'>"+initDist+"</div>";
-
-  $('#searchParams').html(initDistDiv + $('#searchParams').html());
-
-}
 
 var listToString = function(list){
   ans="";
@@ -173,17 +246,19 @@ var listToString = function(list){
 }
 
 $(document).ready(function(){
+  listingsData['petListings'].sort(sortByZipcode);
+  listingsData['personListings'].sort(sortByZipcode);
   loadListings();
+  /*createMasonry();*/
   loadPresets();
   nonBlankFilters = [];
   $('.Switch').click(function() {
 		$(this).toggleClass('On').toggleClass('Off');
 	});
   $('#sortByDistance_pet').trigger('click');
-  $('#sortByDistance_person').trigger('click');
+
   $('.filterOpt').change(function(){
     $('#searchParams').html("");
-    changeDist();
     changeTags();
 
   });
@@ -194,14 +269,35 @@ $(document).ready(function(){
   function(){
     $(this).css('background-color','#f8f8f8');
   });
-
-
-
-  $("#slider").on('slidechange', function(event, ui){
-    $('#searchParams').html("");
-    changeTags();
-    changeDist();
-  });
+  $('.sortBy').change(function(){
+    if($(this).hasClass('sortPetBy')){
+      if($(this).attr('id') == "sortByOwnerName"){
+        listingsData['petListings'].sort(sortByOwnerLastName);
+      }else if($(this).attr('id') == 'sortByDistance_pet'){
+        listingsData['petListings'].sort(sortByZipcode);
+      }else if($(this).attr('id') == 'sortByStart'){
+        listingsData['petListings'].sort(sortByStartDate);
+      }else if($(this).attr('id') == 'sortByEnd'){
+        listingsData['petListings'].sort(sortByEndDate);
+      }else if($(this).attr('id') == 'sortByDuration'){
+        listingsData['petListings'].sort(sortByDuration);
+      }else if($(this).attr('id') == "sortByPetType"){
+        listingsData['petListings'].sort(sortByPetType);
+      }
+      loadListings();
+      createMasonry();
+      reloadListeners();
+    }else{
+      if($(this).attr('id') == 'sortBySitterName'){
+        listingsData['personListings'].sort(sortBySitterLastName);
+      }else if($(this).attr('id') == 'sortByDistance_person'){
+        listingsData['personListings'].sort(sortByZipcode);
+      }
+      loadListings();
+      createMasonryPerson();
+      reloadListeners();
+    }
+  })
 
 
   /*slideup layer on listings*/
@@ -256,10 +352,7 @@ $(document).ready(function(){
 
   $('.filterOpt').change(
     function(){
-      console.log("clicked filterOpt");
       if($(this).hasClass("petTypeFilterOpt")){
-        console.log('about to call filterlistings pettype');
-        console.log($(this));
         filterListings('.petTypeFilterOpt','.petTypeFilter','petTypeFilter','petType', $(this));
       }else if($(this).hasClass("sitterTypeFilterOpt")){
         filterListings('.sitterTypeFilterOpt','.sitterTypeFilter','sitterTypeFilter','sitterType', $(this));
@@ -268,7 +361,9 @@ $(document).ready(function(){
       }else if($(this).hasClass("durationLengthFilterOpt")){
         filterListings('.durationLengthFilterOpt','.durationLengthFilter','durationLengthFilter','durationLength', $(this));
       }else if($(this).hasClass("durationTypeFilterOpt")){
-        filterListings('.durationTypeFilterOpt','.durationTypeFilter','durationTypeFilter','durataionType',$(this));
+        filterListings('.durationTypeFilterOpt','.durationTypeFilter','durationTypeFilter','durationType',$(this));
+      }else if($(this).hasClass("distanceFilterOpt")){
+        filterListings('.distanceFilterOpt','.distanceFilter','distanceFilter','distance', $(this));
       }
     }
   )
@@ -285,10 +380,15 @@ $(window).load(function() {
   $('.personListing').addClass('hide');
   $('.Switch').click(function(){
     if($('#sitterButton').hasClass('active')){ //switch to owner
+
+      nonBlankFilters = ['.personListing'];
       $('#ownerButton').addClass('active');
       $('#sitterButton').removeClass('active');
       $('.sortPerson').css('display','block');
       $('.sortPet').css('display','none');
+      //delete duration and payment dropdowns
+      $('.durationDrop').css('display','none');
+      $('.paymentDrop').css('display','none');
       $('.personListing').removeClass('hide');
       $('.petListing').addClass('hide');
       $container.masonry('destroy');
@@ -302,9 +402,11 @@ $(window).load(function() {
     }else{
       $('#sitterButton').addClass('active');
       $('#ownerButton').removeClass('active');
-
+      nonBlankFilters = ['.petListing'];
       $('.sortPet').css('display','block');
       $('.sortPerson').css('display','none');
+      $('.durationDrop').css('display','block');
+      $('.paymentDrop').css('display','block');
       $('.petListing').removeClass('hide');
       $('.personListing').addClass('hide');
       $container.masonry('destroy');
@@ -364,27 +466,6 @@ $(window).load(function() {
   })
 })
 
-$(function(){
-  $('#slider').slider({
-    value:10,
-    min:1,
-    max:100,
-    step:1,
-    slide: function(event, ui){
-      if(ui.value == 1){
-        $('#dist').val("< "+ ui.value + " mile");
-
-      }else{
-        $('#dist').val("< "+ ui.value + " miles");
-      }
-    },
-    change: function(event, ui){}
-  });
-  var initDist = "< "+ $('#slider').slider("value") + " mile";
-  var initDistDiv = "<div class='param'>"+initDist+"</div>";
-  $('#dist').val("< "+ $('#slider').slider("value") + " mile");
-  $('#searchParams').html(initDistDiv);
-});
 $(function(){
   $container = $('#feedContainer');
   $container.imagesLoaded(function(){
