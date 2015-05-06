@@ -198,6 +198,7 @@
     </div>
   </div>
   {{/reviews}}
+  </script>
     <script id='petInfoTemplate' type='x-tmpl-mustache'>
       {{#petInfo}}
         <p><input type="radio" name="petPreset" value='{"petName": "{{petName}}", "petType": "{{petType}}", "petImage": "{{petImage}}" }'>
@@ -501,7 +502,7 @@
 			<li role='presentation' class='main-tabs' id='tab-reviews'><a>Reviews</a></li>
 			<li role='presentation' class='main-tabs tab-private' id='tab-history'><a>History</a></li>
 			<li role='presentation' class='main-tabs' id='tab-pets'><a>Pets</a></li>
-			<li role='presentation' class='main-tabs' id='tab-active-listings'><a>Active Listings</a></li>
+			<li role='presentation' class='main-tabs tab-private' id='tab-active-listings'><a>Active Listings</a></li>
 			<li role='presentation' class='main-tabs tab-private' id='tab-messages'><a>Messages</a></li>
 		</ul>
 	<div class='tab-content tabbed-content' id="tabContent">
@@ -772,7 +773,7 @@
     </div> <!-- End of Pet Content Tab -->
 
 <!-- TAB CONTENT - Active Listings -->
-		<div class='main-panes tab-pane' id='pane-active-listings'>
+		<div class='main-panes tab-pane tab-pane-private' id='pane-active-listings'>
 
       <button type="button" id="collapse-init" class='btn btn-default'>
         Collapse All

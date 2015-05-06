@@ -41,17 +41,23 @@ var showFavorites = function() {
 var loadReviews = function() {
 	var reviewsTemplate = $("#review-outer-template").html();
 	Mustache.parse(reviewsTemplate);
-	var rendered = Mustache.render(reviewsTemplate, currentUser);
-	$('#reviews-row').empty();
-	$("#reviews-row").prepend(rendered);
 	var ownerReviewCounts = [0,0,0,0,0];
 	var petReviewCounts = [0,0,0,0,0];
 	var totalReviews = currentUser.reviews.length;
+	var totalOwnerRating = 0;
+	var totalPetRating = 0;
 	if (totalReviews > 0) {
 		for (i = 0; i < totalReviews; i++) {
 			ownerReviewCounts[currentUser.reviews[i].ownerRating-1]++;
 			petReviewCounts[currentUser.reviews[i].petRating-1]++;
+			totalOwnerRating += currentUser.reviews[i].ownerRating;
+			totalPetRating += currentUser.reviews[i].petRating;
 		}
+		currentUser.ownerRating = totalOwnerRating / totalReviews;
+		currentUser.petRating = totalPetRating / totalReviews;
+		var rendered = Mustache.render(reviewsTemplate, currentUser);
+		$('#reviews-row').empty();
+		$("#reviews-row").prepend(rendered);
 		var reviewInnerTemplate = $("#review-inner-template").html();
 		Mustache.parse(reviewInnerTemplate);
 		for (i = 1; i < 6; i++) {
@@ -64,6 +70,9 @@ var loadReviews = function() {
 			$("#pet-reviews").prepend(pet);
 		}
 	} else {
+		var rendered = Mustache.render(reviewsTemplate, currentUser);
+		$('#reviews-row').empty();
+		$("#reviews-row").prepend(rendered);
 		$("#owner-reviews").append("<h2><small>No reviews yet!<small><h2>");
 		$("#pet-reviews").append("<h2><small>No reviews yet!<small><h2>");
 	}
@@ -77,6 +86,7 @@ var loadReviews = function() {
 
 
 var loadStars = function() {
+	console.log('loading stars');
 	var starFilled = "<span class='glyphicon glyphicon-star'></span>";
   var starEmpty = "<span class='glyphicon glyphicon-star-empty'></span>";
   $(".starsHere").each(function() {
