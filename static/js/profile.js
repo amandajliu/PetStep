@@ -79,11 +79,11 @@ var loadFavorites = function() {
 }
 
 var hideFavorites = function() {
-	$('#favsContainer').hide();
+	$('.fav').hide();
 }
 
 var showFavorites = function() {
-	$('#favsContainer').show();
+	$('.fav').show();
 }
 
 $(document).ready(function() {
@@ -94,10 +94,11 @@ $(document).ready(function() {
       else {
         setUser("cornelio");
       }
-	console.log(currentUser);
 	loadProfile();
+
 	loadFavorites();
 	hideFavorites();
+
 	var tab = $.getUrlVar('tab');
 	if (tab === 2) {
 		showFavorites();
@@ -111,10 +112,30 @@ $(document).ready(function() {
 		$("#pane-" + tabid).addClass('active');
 		if (tabid === 'favorites') {
 			showFavorites();
+			/*$container.masonry('destroy');
+			$container = $('#feedContainer');
+	    $container.imagesLoaded(function(){
+	      $container.masonry({
+	        itemSelector:'.fav',
+	        'isFitWidth':true
+	      });
+	    });*/
 		} else {
 			hideFavorites();
 		}
 	});
+	$(".fav-btn").click(function() {
+		console.log($(this).closest('.listing'));
+    $(this).closest('.listing').addClass('hide');
+    /*$container.masonry('destroy');
+    $container = $('#feedContainer');
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector:'.fav',
+        'isFitWidth':true
+      });
+    });*/
+  });
 
 
 // Reviews show stars
@@ -156,24 +177,7 @@ $(document).ready(function() {
 		$(this).toggleClass('On').toggleClass('Off');
 	});
 
-	$('.fav').addClass('hide');
-	// $('.main-tabs').click(function(){
-	// 	if($(this).attr('id')=='tab-favorites'){
-	// 		$('.fav').removeClass('hide');
-	// 		$container.masonry('destroy');
-	// 		$container = $('favsContainer');
-	// 		$container.imagesLoaded(function(){
-	// 			$container.masonry({
-	// 				itemSelector:'.petListing',
-	// 				'isFitWidth':true
-	// 			});
 
-	// 		})
-	// 	}else{
-	// 		$('.fav').addClass('hide');
-	// 	}
-
-	// });
 
 
 
@@ -431,7 +435,7 @@ $(document).ready(function(){
 			$('#petArrow').addClass('glyphicon-triangle-right');
 			$('#petArrow').removeClass('glyphicon-triangle-bottom');
 			petArrowFlag = false;
-		} else {
+		} else {addListing
 			$('#petArrow').addClass('glyphicon-triangle-bottom');
 			$('#petArrow').removeClass('glyphicon-triangle-right');
 			petArrowFlag = true;
@@ -453,50 +457,12 @@ $(document).ready(function(){
 });
 
 
-$(window).load(function(){
-
-
-	$('#sitterButton').click(function(){
-		$(this).addClass('activeSwitch');
-		$('#petButton').removeClass('activeSwitch');
-		$('.petListing').removeClass('hide');
-		$('.personListing').addClass('hide');
-		$container.masonry('destroy');
-		$container = $('favsContainer');
-		$container.imagesLoaded(function(){
-			$container.masonry({
-				itemSelector:'.petListing',
-				'isFitWidth':true
-			});
-
-		})
-	})
-
-	$('#petButton').click(function(){
-		$(this).addClass('activeSwitch');
-		$('#sitterButton').removeClass('activeSwitch');
-		$('.personListing').removeClass('hide');
-		$('.petListing').addClass('hide');
-		$container.masonry('destroy');
-		$container = $('#favsContainer');
-		$container.imagesLoaded(function(){
-			$container.masonry({
-				itemSelector:'.personListing',
-				'isFitWidth':true
-			});
-
-		})
-
-
-	})
-})
-
-// $(function(){
-//   $container = $('#favsContainer');
-//   $container.imagesLoaded(function(){
-//     $container.masonry({
-//       itemSelector:'.petListing',
-//       'isFitWidth':true
-//     });
-//   })
-// });
+/*$(function(){
+  $container = $('#favsContainer');
+  $container.imagesLoaded(function(){
+    $container.masonry({
+      itemSelector:'.fav',
+      'isFitWidth':true
+    });
+  })
+});*/
