@@ -98,7 +98,7 @@
     </div>
 
     <div class='col-md-1 col-md-offset-1'>
-      {{^currentUser}}<button class='btn btn-default' role='button'>Write a Review <span class='glyphicon glyphicon-pencil'></span></button>{{/currentUser}}
+      {{^currentUser}}<button class='btn btn-default' role='button' data-toggle='modal' data-target='#add-review-form'>Write a Review <span class='glyphicon glyphicon-pencil'></span></button>{{/currentUser}}
     </div>
   </script>
 
@@ -113,7 +113,47 @@
     </div>
   </div>
 </script>
+<script id='favoritesTemplate' type='x-tmpl-mustache'>
+  {{#petListings}}
+  <div class="petListing listing" petType={{petTypeAttr}} ownerLastName={{ownerLastName}} zipcode={{zipcode}} startDate={{startDate}} endDate={{endDate}} payment = {{paymentAttr}} sitterType={{sitterTypeAttr}} durationLength={{durationLengthAttr}} durationType={{durationTypeAttr}}>
+      <div class="listingImgDiv">
+        <img class="listingImg" src="static/images/{{petImg}}">
+        <div class="listingInfo fav">
+          <div class="listingContent">
 
+            <p class="petName">{{petName}} ({{petType}})</p>
+
+
+            <p class="date">
+              {{startDate}} - {{endDate}}
+            </p>
+            <p class="listingText ownerName">Owner: {{#ownerUsername}}<a class="profileLink" href="profile.html?user={{ownerUsername}}">{{ownerFirstName}} {{ownerLastName}} </a>{{/ownerUsername}} {{^ownerUsername}}<a class="profileLink" href="">{{ownerFirstName}} {{ownerLastName}}</a>{{/ownerUsername}}</p>
+
+            <p class="listingText ownerZip">Zipcode: {{zipcode}}</p>
+            <p class="listingText pay">Pay: {{payment}} </p>
+            {{#sitterType}}
+            <p class="listingText sitterType">Sitter Type: {{sitterType}}</p>
+            {{/sitterType}}
+            <button class='listingText btn btn-default fav-btn'> <span class='glyphicon glyphicon-star'></span> <span class='btn-text'>Add to Favorites</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/petListings}}
+    {{#personListings}}
+    <div class="personListing listing">
+      <div class="listingImgDiv">
+        <img class="listingImg" src="static/images/{{sitterImg}}">
+        <div class="listingInfo fav">
+          <p class="sitterName">{{sitterName}} <a href="#">(view profile)</a></p>
+          <p class="sitsPetType">Sits: {{petTypes}} </p>
+          <p class="sitterZip">Zipcode: {{zipcode}}</p>
+          <button class='listingText btn btn-default fav-btn' data-user='{{sitterName}}'><span class='glyphicon glyphicon-star'></span> <span class='btn-text'>Add to Favorites</span></button>
+        </div>
+      </div>
+    </div>
+    {{/personListings}}
+    </script>
   <script>
     var historyDrop = function() {
       $("#tab-history").click();
@@ -306,13 +346,15 @@
     </div>
 <!-- TAB CONTENT - Favorites -->
     <div class='main-panes tab-pane tab-pane-private' id='pane-favorites'>
-      <!--<div class="switchLi">
-        <div class="switch activeSwitch" id="sitterButton">Sitter</div>
-        <div class="switch" id="petButton">Pet</div>
-      </div>-->
       <div id="favsContainer">
-
-        <div class="petListing fav">
+        <div class="switchContainer">
+            <div class="switchLabel" id="ownerButton" style="display:inline-block">Owner</div>
+            <div class="Switch Round Off">
+              <div class="Toggle"></div>
+            </div>
+            <div class="switchLabel switch-active" id="sitterButton" style="display:inline-block">Sitter</div>
+          </div>
+<!--         <div class="petListing fav">
           <div class="listingImgDiv">
             <img class="listingImg" src="static/images/burritoCat0.jpg">
             <div class="listingInfo">
@@ -327,7 +369,7 @@
               <p class="pay">Pay: $$$</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -673,7 +715,24 @@
   </div>
 	<!-- </div> -->
 
-
+<div id='add-review-form' class='modal fade'>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h4 class='modal-title'>Write a Review</h4>
+      </div>
+      <div class='modal-body'>
+        <p>Owner Rating: </p>
+        <p>Pet Rating: </p>
+        <input type='text' class='form-control' id='review-text' placeholder='Type here...' />
+      </div>
+      <div class='modal-footer'>
+        <button type="button" class='btn btn-default' data-dismiss="modal">Close</button>
+        <button type="button" class='btn btn-default'>Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- messages popup -->
 <!--   <div id='messages-popup'>

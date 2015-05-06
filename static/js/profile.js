@@ -83,6 +83,20 @@ $(document).ready(function() {
       }
 
   });
+  	$('.Switch').click(function() {
+		$(this).toggleClass('On').toggleClass('Off');
+	});
+	var favorites = $('#favoritesTemplate').html();
+	Mustache.parse(favorites);
+	var petListings = $.grep(listingsData.petListings, function(elt) {
+		elt.favorite === true;
+	});
+	var personListings = $.grep(listingsData.personListings, function(elt) {
+		elt.favorite === true;
+	});
+	var favRendered = Mustache.render(favorites, {'petListings': petListings, 'personListings': personListings});
+	$("#favsContainer").append(favRendered);
+
 	$('.fav').addClass('hide');
 	$('.main-tabs').click(function(){
 		if($(this).attr('id')=='tab-favorites'){
