@@ -138,6 +138,10 @@ $(window).load(function() {
 
 
   $(".submit").click(function(){
+    // currentPageProfile is defined in profile.html/index.html
+    // if (!currentPageProfile) {
+    console.log("adding stuff");
+    // Do stuff to landing page
     var newListingData = {};
     newListingData['ownerFirstName'] = personalValues['ownerFirstName'];
     newListingData['ownerLastName'] = personalValues['ownerLastName'];
@@ -181,6 +185,11 @@ $(window).load(function() {
   	return false;
   })
 
+  $(".submitProfile").click(function(){
+    $(".form-containers").addClass("hide");
+    return false;
+  })
+
   $(".cancel").click(function() {
     $(".form-containers").addClass("hide");
     return false;
@@ -222,3 +231,21 @@ var nextStep = function(target){
     easing: 'easeInOutBack'
   });
 };
+
+$(function() {
+  $('#startDate').datepicker({
+    defaultDate: "+1w",
+    minDate: 0,
+    onClose: function( selectedDate ) {
+        $( "#endDate" ).datepicker( "option", "minDate", selectedDate );
+      }
+  });
+  $('#endDate').datepicker({
+    defaultDate: "+1w",
+    minDate: 0,
+    nClose: function( selectedDate ) {
+        $( "#startDate" ).datepicker( "option", "maxDate", selectedDate );
+      }
+  });
+
+})

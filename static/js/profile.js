@@ -1,5 +1,4 @@
-var currentUser;
-
+var currentUser = null;
 var setUser = function(user) {
 	currentUser = $.grep(profileData.users, function(elt) {
 		return elt.username === user;
@@ -16,9 +15,34 @@ var loadProfile = function() {
 		$('.tab-private').hide();
 	}
 
+}
+
+var loadFavorites = function() {
+	var favorites = $('#favoritesTemplate').html();
+	Mustache.parse(favorites);
+	var petListings = $.grep(listingsData.petListings, function(elt) {
+		return elt.favorite === true;
+	});
+	var personListings = $.grep(listingsData.personListings, function(elt) {
+		return elt.favorite === true;
+	});
+	var favRendered = Mustache.render(favorites, {'petListings': petListings, 'personListings': personListings});
+	$("#favsContainer").append(favRendered);
+}
+
+var hideFavorites = function() {
+	$('#favsContainer').hide();
+}
+
+var showFavorites = function() {
+	$('#favsContainer').show();
+}
+
+var loadReviews = function() {
 	var reviewsTemplate = $("#review-outer-template").html();
 	Mustache.parse(reviewsTemplate);
 	var rendered = Mustache.render(reviewsTemplate, currentUser);
+	$('#reviews-row').empty();
 	$("#reviews-row").prepend(rendered);
 	var ownerReviewCounts = [0,0,0,0,0];
 	var petReviewCounts = [0,0,0,0,0];
@@ -43,6 +67,52 @@ var loadProfile = function() {
 		$("#owner-reviews").append("<h2><small>No reviews yet!<small><h2>");
 		$("#pet-reviews").append("<h2><small>No reviews yet!<small><h2>");
 	}
+	var reviewsTemplate = $('#review-template').html();
+	Mustache.parse(reviewsTemplate);
+	var rendered = Mustache.render(reviewsTemplate, {'reviews': currentUser.reviews});
+	$('#reviews-area').empty();
+	$('#reviews-area').append(rendered);
+	console.log(currentUser.reviews);
+}
+
+
+var loadStars = function() {
+	var starFilled = "<span class='glyphicon glyphicon-star'></span>";
+  var starEmpty = "<span class='glyphicon glyphicon-star-empty'></span>";
+  $(".starsHere").each(function() {
+      var stars = parseInt($(this).data("stars"));
+      if (!stars) {
+      	return;
+      }
+      for (var i = 0; i < 5; i++) {
+          if (i < stars) {
+              $(this).append(starFilled);
+          }
+          else {
+              $(this).append(starEmpty);
+          }
+      }
+
+  });
+}
+
+var loadPetInfo = function() {
+  var petInfoTemplate = $('#petInfoTemplate').html();
+  Mustache.parse(petInfoTemplate);
+  var rendered = Mustache.render(petInfoTemplate, petInfo);
+  $("#petPreset").prepend(rendered);
+}
+
+var loadPersonalInfo = function() {
+  var personalInfoTemplate = $('#personalInfoTemplate').html();
+  Mustache.parse(personalInfoTemplate);
+  var rendered = Mustache.render(personalInfoTemplate, personalInfo);
+  $("#userPreset").prepend(rendered);
+}
+
+var loadPresets = function() {
+  loadPetInfo();
+  loadPersonalInfo();
 }
 
 var loadFavorites = function() {
@@ -66,7 +136,6 @@ var hideFavorites = function() {
 var showFavorites = function() {
 	$('.fav').show();
 }
-
 $(document).ready(function() {
 	var user = $.getUrlVar('user');
       if (user) {
@@ -119,24 +188,9 @@ $(document).ready(function() {
   });
 
 
-// Reviews show stars
-  var starFilled = "<span class='glyphicon glyphicon-star'></span>";
-  var starEmpty = "<span class='glyphicon glyphicon-star-empty'></span>";
-  $(".starsHere").each(function() {
-      var stars = parseInt($(this).data("stars"));
-      if (!stars) {
-      	return;
-      }
-      for (var i = 0; i < 5; i++) {
-          if (i < stars) {
-              $(this).append(starFilled);
-          }
-          else {
-              $(this).append(starEmpty);
-          }
-      }
-
-  });
+	// load reviews 
+	loadReviews();
+	loadStars();
 
   $('#submit-review-form').click(function() {
   	var ownerRating = $('input[name=rating-input-owner]:checked').val();
@@ -144,6 +198,8 @@ $(document).ready(function() {
   	var message = $('#review-text').val();
   	var review = {
   		'reviewer': "Cornelio",
+  		'reviewerImg': "Cornelio.png",
+  		'reviewTime': "just now",
   		'owner': currentUser.firstName,
   		'pet': currentUser.pets[0].petName,
   		'ownerRating': parseInt(ownerRating),
@@ -151,6 +207,9 @@ $(document).ready(function() {
   		'message': message
   	};
   	currentUser.reviews.push(review);
+  	loadReviews();
+  	console.log(currentUser.reviews);
+  	loadStars();
   	$('#add-review-form').modal('hide');
   });
 
@@ -213,6 +272,8 @@ $(document).ready(function() {
 	// 	var messageContent = $.grep(messageData.conversations, function(elt) {
 	// 		elt.
 	// 	})
+	// Used for add listing dialogue
+	loadPresets();
 
 	var messaging = $.getUrlVar('messaging');
 	if (!messaging) {
@@ -223,11 +284,9 @@ $(document).ready(function() {
 		$('.message-name').removeClass('current');
 		$(name).addClass('current');
 	}
-	console.log(messaging);
 	var user = $.grep(profileData.users, function(elt) {
 		return elt.username === messaging
 	})[0];
-	console.log(user);
 
 	loadConversation(messaging);
 
@@ -433,7 +492,7 @@ $(document).ready(function(){
 			$('#petArrow').addClass('glyphicon-triangle-right');
 			$('#petArrow').removeClass('glyphicon-triangle-bottom');
 			petArrowFlag = false;
-		} else {
+		} else {addListing
 			$('#petArrow').addClass('glyphicon-triangle-bottom');
 			$('#petArrow').removeClass('glyphicon-triangle-right');
 			petArrowFlag = true;
@@ -443,6 +502,14 @@ $(document).ready(function(){
     $('#accordion').on('show.bs.collapse', function () {
         if (active) $('#accordion .in').collapse('hide');
     });
+
+		$(".addListing").click(function() {
+			// console.log("Trying to add a listing");
+			// e.preventDefault();
+			$('.form-containers').removeClass("hide");
+			// console.log($('.form-containers')[0]);
+			return false;
+		})
 
 });
 
