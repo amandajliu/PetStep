@@ -174,11 +174,11 @@ $(document).ready(function() {
 		if (tab === 'review') {
 			setTimeout(function() {
 				$('#tab-reviews').trigger('click');
-			}, 50)
+			}, 100)
 		} else if (tab === 'pet') {
 			setTimeout(function() {
 				$('#tab-pets').trigger('click');
-			}, 50)
+			}, 100)
 		}
 	}
 
