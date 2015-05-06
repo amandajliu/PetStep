@@ -52,7 +52,7 @@
             <div class='col-md-7'><h1>{{firstName}} {{lastName}}</h1></div>
             <div class='col-md-5'>
               {{#currentUser}}<button type='button' class='btn btn-default' style="margin-top: 20px;">Edit Profile <span class='glyphicon glyphicon-pencil'></span></button>{{/currentUser}}
-              {{^currentUser}}<button type='button' class='btn btn-default' style="margin-top: 20px;">Message  <span class='glyphicon glyphicon-envelope'></span></button>{{/currentUser}}
+              {{^currentUser}}<a type='button' class='btn btn-default' style="margin-top: 20px;" href='profile.html?tab=1&messaging={{username}}'>Message  <span class='glyphicon glyphicon-envelope'></span></a>{{/currentUser}}
             </div>
             <div class='col-md-12' id="profTitle"><p>Owner of {{#pets}}{{petName}} ({{petType}}) {{/pets}}</p></div>
             <div class='col-md-6'><h4>Owner Rating: <span id='ownerRating' class='starsHere' data-stars='{{ownerRating}}'></span>{{^ownerRating}}<small>Not Applicable</small>{{/ownerRating}}</h4></div>
@@ -347,13 +347,13 @@
 <!-- TAB CONTENT - Favorites -->
     <div class='main-panes tab-pane tab-pane-private' id='pane-favorites'>
       <div id="favsContainer">
-        <div class="switchContainer">
+<!--         <div class="switchContainer">
             <div class="switchLabel" id="ownerButton" style="display:inline-block">Owner</div>
             <div class="Switch Round Off">
               <div class="Toggle"></div>
             </div>
             <div class="switchLabel switch-active" id="sitterButton" style="display:inline-block">Sitter</div>
-          </div>
+          </div> -->
 <!--         <div class="petListing fav">
           <div class="listingImgDiv">
             <img class="listingImg" src="static/images/burritoCat0.jpg">
