@@ -1,5 +1,4 @@
-var currentUser;
-
+var currentUser = null;
 var setUser = function(user) {
 	currentUser = $.grep(profileData.users, function(elt) {
 		return elt.username === user;
@@ -76,6 +75,7 @@ var loadReviews = function() {
 	console.log(currentUser.reviews);
 }
 
+
 var loadStars = function() {
 	var starFilled = "<span class='glyphicon glyphicon-star'></span>";
   var starEmpty = "<span class='glyphicon glyphicon-star-empty'></span>";
@@ -95,6 +95,47 @@ var loadStars = function() {
 
   });
 }
+
+var loadPetInfo = function() {
+  var petInfoTemplate = $('#petInfoTemplate').html();
+  Mustache.parse(petInfoTemplate);
+  var rendered = Mustache.render(petInfoTemplate, petInfo);
+  $("#petPreset").prepend(rendered);
+}
+
+var loadPersonalInfo = function() {
+  var personalInfoTemplate = $('#personalInfoTemplate').html();
+  Mustache.parse(personalInfoTemplate);
+  var rendered = Mustache.render(personalInfoTemplate, personalInfo);
+  $("#userPreset").prepend(rendered);
+}
+
+var loadPresets = function() {
+  loadPetInfo();
+  loadPersonalInfo();
+}
+
+var loadFavorites = function() {
+	var favorites = $('#favoritesTemplate').html();
+	Mustache.parse(favorites);
+	var petListings = $.grep(listingsData.petListings, function(elt) {
+		return elt.favorite === true;
+	});
+	var personListings = $.grep(listingsData.personListings, function(elt) {
+		return elt.favorite === true;
+	});
+	console.log(petListings);
+	var favRendered = Mustache.render(favorites, {'petListings': petListings, 'personListings': personListings});
+	$("#favsContainer").append(favRendered);
+}
+
+var hideFavorites = function() {
+	$('.fav').hide();
+}
+
+var showFavorites = function() {
+	$('.fav').show();
+}
 $(document).ready(function() {
 	var user = $.getUrlVar('user');
       if (user) {
@@ -104,8 +145,10 @@ $(document).ready(function() {
         setUser("cornelio");
       }
 	loadProfile();
+
 	loadFavorites();
 	hideFavorites();
+
 	var tab = $.getUrlVar('tab');
 	if (tab === 2) {
 		showFavorites();
@@ -119,10 +162,30 @@ $(document).ready(function() {
 		$("#pane-" + tabid).addClass('active');
 		if (tabid === 'favorites') {
 			showFavorites();
+			/*$container.masonry('destroy');
+			$container = $('#feedContainer');
+	    $container.imagesLoaded(function(){
+	      $container.masonry({
+	        itemSelector:'.fav',
+	        'isFitWidth':true
+	      });
+	    });*/
 		} else {
 			hideFavorites();
 		}
 	});
+	$(".fav-btn").click(function() {
+		console.log($(this).closest('.listing'));
+    $(this).closest('.listing').addClass('hide');
+    /*$container.masonry('destroy');
+    $container = $('#feedContainer');
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector:'.fav',
+        'isFitWidth':true
+      });
+    });*/
+  });
 
 
 	// load reviews 
@@ -154,24 +217,7 @@ $(document).ready(function() {
 		$(this).toggleClass('On').toggleClass('Off');
 	});
 
-	$('.fav').addClass('hide');
-	// $('.main-tabs').click(function(){
-	// 	if($(this).attr('id')=='tab-favorites'){
-	// 		$('.fav').removeClass('hide');
-	// 		$container.masonry('destroy');
-	// 		$container = $('favsContainer');
-	// 		$container.imagesLoaded(function(){
-	// 			$container.masonry({
-	// 				itemSelector:'.petListing',
-	// 				'isFitWidth':true
-	// 			});
 
-	// 		})
-	// 	}else{
-	// 		$('.fav').addClass('hide');
-	// 	}
-
-	// });
 
 
 
@@ -226,7 +272,9 @@ $(document).ready(function() {
 	// 	var messageContent = $.grep(messageData.conversations, function(elt) {
 	// 		elt.
 	// 	})
-	
+	// Used for add listing dialogue
+	loadPresets();
+
 	var messaging = $.getUrlVar('messaging');
 	if (!messaging) {
 		messaging = 'lily';
@@ -328,7 +376,7 @@ $(document).ready(function(){
 			$(this).dialog('destroy').remove()
   		} else {
 			$( "#hiringButton" ).remove();
-			$(".petExpandRight").append("<p>You've hired" + " <a href='profile.html?user=" + ownerName + "'>" + ownerName + "</a> as your sitter!</p>");  			
+			$(".petExpandRight").append("<p>You've hired" + " <a href='profile.html?user=" + ownerName + "'>" + ownerName + "</a> as your sitter!</p>");
 			$( "#dialog" ).dialog( "close" );
   			$(this).dialog('destroy').remove()
   		};
@@ -425,7 +473,7 @@ $(document).ready(function(){
 			$('#petArrow').addClass('glyphicon-triangle-right');
 			$('#petArrow').removeClass('glyphicon-triangle-bottom');
 			petArrowFlag = false;
-		} else {
+		} else {addListing
 			$('#petArrow').addClass('glyphicon-triangle-bottom');
 			$('#petArrow').removeClass('glyphicon-triangle-right');
 			petArrowFlag = true;
@@ -436,53 +484,23 @@ $(document).ready(function(){
         if (active) $('#accordion .in').collapse('hide');
     });
 
+		$(".addListing").click(function() {
+			// console.log("Trying to add a listing");
+			// e.preventDefault();
+			$('.form-containers').removeClass("hide");
+			// console.log($('.form-containers')[0]);
+			return false;
+		})
+
 });
 
 
-$(window).load(function(){
-
-
-	$('#sitterButton').click(function(){
-		$(this).addClass('activeSwitch');
-		$('#petButton').removeClass('activeSwitch');
-		$('.petListing').removeClass('hide');
-		$('.personListing').addClass('hide');
-		$container.masonry('destroy');
-		$container = $('favsContainer');
-		$container.imagesLoaded(function(){
-			$container.masonry({
-				itemSelector:'.petListing',
-				'isFitWidth':true
-			});
-
-		})
-	})
-
-	$('#petButton').click(function(){
-		$(this).addClass('activeSwitch');
-		$('#sitterButton').removeClass('activeSwitch');
-		$('.personListing').removeClass('hide');
-		$('.petListing').addClass('hide');
-		$container.masonry('destroy');
-		$container = $('#favsContainer');
-		$container.imagesLoaded(function(){
-			$container.masonry({
-				itemSelector:'.personListing',
-				'isFitWidth':true
-			});
-
-		})
-
-
-	})
-})
-
-// $(function(){
-//   $container = $('#favsContainer');
-//   $container.imagesLoaded(function(){
-//     $container.masonry({
-//       itemSelector:'.petListing',
-//       'isFitWidth':true
-//     });
-//   })
-// });
+/*$(function(){
+  $container = $('#favsContainer');
+  $container.imagesLoaded(function(){
+    $container.masonry({
+      itemSelector:'.fav',
+      'isFitWidth':true
+    });
+  })
+});*/
