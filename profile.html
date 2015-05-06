@@ -778,6 +778,7 @@
       <button type="button" id="collapse-init" class='btn btn-default'>
         Collapse All
       </button>
+      <button type='button' id="activeListingsAdd" class='btn btn-default'><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
 
 
     <!-- Bootstrap panel grouping of collapsable tabs for each pet -->
@@ -803,20 +804,19 @@
               </div>
               <div class="petExpandMiddle col-md-6"> <!-- Contains listing categories -->
                 <h2>Fluffy<small>  (Snake)</small></h2>
-                <h4 class="listingTitle"> Sitter Type: <small> Casual, Professional </small></h4>
+                <h4 class="listingTitle"> Sitter Type: <small> Professional </small></h4>
                 <h4 class="listingTitle"> Duration: <small> May 24th-28th, 2015</small></h4>
                 <h4 class="listingTitle"> Payment: <small> $, $$, $$$, Negotiable</small></h4>
-                <h4 class="listingTitle"> Distance: <small> 25 mile radius</small></h4>
               </div>
               <div class="petExpandRight col-md-4"> <!-- Contains hiring a sitter button-->
                   <button type='button' class='btn btn-default' id="hiringButton"><span class="glyphicon glyphicon-ok"></span> Hire a Sitter</button>
               </div>
               <div id="dialog" title="Hire a Sitter"> <!-- Contains hiring a sitter dialog, prompts for name and user or not-->
                 <form>
-                  Sitter Name: <input type="text" name="SitterName"><br><br>
+                  Sitter Name: <input id="hireSitter" type="text" name="SitterName"><br><br>
                   <input type="radio" name="accountStatus" value="yesAcct"> Sitter is a current user<br>
                   <input type="radio" name="accountStatus" value="noAcct"> Sitter does not yet have an account<br><br>
-                  <input type="submit" value="Submit">
+                  <input class='btn btn-default' id="submitHire" type="submit" value="Submit">
                 </form>
               </div>
             </div>

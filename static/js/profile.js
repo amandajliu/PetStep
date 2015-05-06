@@ -374,6 +374,22 @@ $(document).ready(function(){
 	$( "#hiringButton" ).click(function() {
   		$( "#dialog" ).dialog( "open" );
 	});
+	$('.ui-dialog-titlebar-close').html('<span class="glyphicon glyphicon-remove"></span>')
+	$('#hireSitter').autocomplete({
+		source:[
+			'Flynn Rider',
+			'Lily Paxton',
+			'Penny Marshall',
+			'Missy Clinton',
+			'Lin Mei',
+			'Stephanie Castle',
+			'Doug Schumaker',
+			'Janet Mason',
+			'Craig Newton'
+		],
+		minLength:2,
+
+	});
 
 	$( "#dialog" ).submit(function( event ) {
 		event.preventDefault();
@@ -477,6 +493,9 @@ $(document).ready(function(){
 			petArrowFlag = true;
 		}
     });
+
+
+
 
 	$('#petExpandTitle').click(function () {
 		if (petArrowFlag) {
