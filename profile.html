@@ -165,7 +165,7 @@
 
     <script id='review-template' type='x-tmpl-mustache'>
     {{#reviews}}
-    <div class='panel panel-default'> 
+    <div class='panel panel-default'>
       <div class='panel-body'>
       <div class='container'>
         <div class='row'>
@@ -559,7 +559,7 @@
         </div>
       </div>
       <div id='reviews-area'>
-      <!-- <div class='panel panel-default'>  outer div for a review 
+      <!-- <div class='panel panel-default'>  outer div for a review
       <div class='panel-body'>
       <div class='container'>
         <div class='row'>
@@ -592,7 +592,7 @@
     </div>
   </div> -->
 
-  <!-- <div class='panel panel-default'> outer div for a review 
+  <!-- <div class='panel panel-default'> outer div for a review
       <div class='panel-body'>
       <div class='container'>
         <div class='row'>
@@ -881,7 +881,8 @@
       </div>
       <div class='modal-body'>
         <!-- rating input from http://everythingfrontend.com/posts/star-rating-input-pure-css.html -->
-        <p>Owner Rating: <span class="rating">
+        <div class="ownerRatingReview">Owner Rating: </div>
+        <span class="rating">
             <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-owner" value='1'>
               <label for="rating-input-1-5" class="rating-star"></label>
             <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-owner" value='2'>
@@ -892,8 +893,9 @@
               <label for="rating-input-1-2" class="rating-star" value='4'></label>
             <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-owner" value='5'>
               <label for="rating-input-1-1" class="rating-star" value='5'></label>
-          </span></p>
-        <p>Pet Rating:
+          </span>
+        <br>
+        <div class="petRatingReview">Pet Rating: </div>
         <span class="rating">
             <input type="radio" class="rating-input" id="rating-input-2-5" name="rating-input-pet" value='1'>
               <label for="rating-input-2-5" class="rating-star" value='1'></label>
@@ -905,7 +907,7 @@
               <label for="rating-input-2-2" class="rating-star" value='4'></label>
             <input type="radio" class="rating-input" id="rating-input-2-1" name="rating-input-pet" value='5'>
               <label for="rating-input-2-1" class="rating-star" value='5'></label>
-          </span></p>
+          </span>
         <textarea class='form-control' rows="3" id='review-text' placeholder='Type comments here...'></textarea>
       </div>
       <div class='modal-footer'>
