@@ -88,7 +88,7 @@ var loadPets = function() {
 	var pets = currentUser.pets;
 	var petTemplate = $('#petProfileTemplate').html();
 	Mustache.parse(petTemplate);
-	var rendered = Mustache.render(petTemplate, {"pets": pets});
+	var rendered = Mustache.render(petTemplate, {"pets": pets, "currentUser": currentUser.currentUser});
 	$('#pane-pets').append(rendered);
 }
 
