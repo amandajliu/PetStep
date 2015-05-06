@@ -162,12 +162,26 @@ var showFavorites = function() {
 }
 $(document).ready(function() {
 	var user = $.getUrlVar('user');
-      if (user) {
-        setUser(user);
-      }
-      else {
-        setUser("cornelio");
-      }
+  if (user) {
+    setUser(user);
+  }
+  else {
+    setUser("cornelio");
+  }
+	var tab = $.getUrlVar('tab');
+	console.log(tab);
+	if (tab) {
+		if (tab === 'review') {
+			setTimeout(function() {
+				$('#tab-reviews').trigger('click');
+			}, 50)
+		} else if (tab === 'pet') {
+			setTimeout(function() {
+				$('#tab-pets').trigger('click');
+			}, 50)
+		}
+	}
+
 	loadProfile();
 
 	loadFavorites();

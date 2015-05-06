@@ -401,7 +401,7 @@ profileData = {
         userImg: "FlynnRider.jpeg",
         sitsFor: ["Dog", "Cat", "Snake"],
         zipcode: "02142",
-        petName: "Flynn",
+        petName: "Sam the Wise",
         pets: [{
             petType: "Rabbit",
             petName: "Sam the Wise",
