@@ -1,5 +1,22 @@
 listingsData = {
   "petListings": [ {
+    ownerFirstName: "Stephanie",
+    ownerLastName: "Castle",
+    petName: "Pumpkin",
+    petType: "Hamster",
+    petTypeAttr: "hamster",
+    petImg: "hamster0.jpg",
+    zipcode: "02139",
+    startDate: "5/1/2015",
+    endDate: "5/2/2015",
+    payment: "$",
+    paymentAttr:"_$_",
+    sitterTypeAttr: "casual professional",
+    durationType: "One-time",
+    durationTypeAttr: "onetime",
+    durationLengthAttr: "1day",
+    favorite: true
+  },{
     ownerFirstName: "Lily",
     ownerLastName: "Paxton",
     ownerUsername: "lily",
@@ -36,7 +53,7 @@ listingsData = {
     durationType: "One-time",
     durationTypeAttr: "onetime",
     durationLengthAttr: "1day",
-    favorite: false
+    favorite: true
   }, {
     ownerFirstName: "Penny",
     ownerLastName: "Marshall",
@@ -73,7 +90,8 @@ listingsData = {
     durationType: "Routine",
     durationTypeAttr: "routine",
     durationLengthAttr: "1wkmonth",
-    favorite: false
+    favorite: true
+
   }, {
     ownerFirstName: "Shaila",
     ownerLastName: "Higgins",
@@ -148,7 +166,7 @@ listingsData = {
     durationType: "One-time",
     durationTypeAttr: "onetime",
     durationLengthAttr: "1wk",
-    favorite: false
+    favorite: true
   }, {
     ownerFirstName: "Craig",
     ownerLastName: "Newton",
@@ -257,7 +275,8 @@ listingsData = {
     distance: "lessThan1",
     petTypes: "Dog",
     petTypeAttr: "dog",
-    favorite: false
+    favorite: true
+
   }, {
     sitterFirstName: "Stephanie",
     sitterLastName: "Castle",
@@ -278,7 +297,8 @@ listingsData = {
     sitterTypeAttr: "casual professional",
     petTypes: "Dog, Bird",
     petTypeAttr: "dog bird",
-    favorite: false
+    favorite: true
+
   }, {
     sitterFirstName: "Janet",
     sitterLastName: "Mason",
@@ -300,7 +320,7 @@ listingsData = {
     distance: "lessThan5",
     petTypes: "Dog, Cat, Snake",
     petTypeAttr: "dog cat snake",
-    favorite: false
+    favorite: true
   }, {
     sitterFirstName: "Missy",
     sitterLastName: "Clinton",
@@ -321,7 +341,7 @@ listingsData = {
     petTypes: "Cat, Rabbit",
     distance: "lessThan20",
     petTypeAttr: "cat rabbit",
-    favorite: false
+    favorite: true
   }]
 }
 
