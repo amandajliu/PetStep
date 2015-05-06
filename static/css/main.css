@@ -18,6 +18,23 @@ body {
 .profileLink, .profileLink:hover{
   color:#00BCD4;
 }
+#collapse-init:hover, #collapse-init-1:hover{
+  color:#333 !important;
+  background-color: #e6e6e6 !important;
+  border-color: #adadad !important;
+}
+.ui-dialog-titlebar-close{
+  border:0px !important;
+  background: none !important;
+}
+.ui-dialog-titlebar{
+  background: none !important;
+  background-color: #0097A7 !important;
+  color:white !important;
+}
+.ui-dialog, .ui-dialog-title{
+  font-family:Lato !important;
+}
 .petListing, .personListing{
   /*width:500px;*/
   margin:5px;
@@ -30,6 +47,13 @@ body {
 .listingImgDiv{
   border-radius:7px;
   position:relative;
+}
+#activeListingsAdd{
+  margin-bottom:10px;
+  float:right;
+}
+#collapseListingOne{
+  height:35%;
 }
 #collapse-init1, #collapse-init{
   margin-bottom:10px;
@@ -137,8 +161,12 @@ h1 {
 .divider-color {
   color: #B6B6B6;
 }
+#submitHire{
+  font-size:14px;
+}
 
 .btn-default {
   background-color: #0097A7;
   color: #ffffff;
+  font-family:Lato;
 }
