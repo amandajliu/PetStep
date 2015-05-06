@@ -260,6 +260,48 @@
     {{/additionalInfo}}
     </script>
 
+    <script id="petProfileTemplate" type='x-tmpl-mustache'>
+    <div class="panel-group" id="accordion">
+        {{#pets}}
+        <div class="panel panel-default" id="panel{{petNameShort}}">
+          <!-- Each unexpanded tab has an expand icon, mini pet icon, and pet name -->
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-target="#collapsePet{{petNameShort}}" class="collapsed in" id="petExpandTitle">
+                <span id="petArrow" class="glyphicon glyphicon-triangle-bottom"></span>
+                <img class='petProfSm1 img-circle' src='static/images/{{petImg}}'>
+                {{petName}}
+              </a>
+            </h4>
+          </div>
+          <!-- Each expanded tab has an a larger pet image, an edit button, more pet info, and add listing button-->
+          <div id="collapsePet{{petNameShort}}" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <div class="petExpandLeft col-md-2"> <!-- Contains pet image and edit button-->
+                <img class='petProfLg1 img-circle' src='static/images/{{petImg}}'>
+                <!-- TO-DO: Link to pet edit dialog -->
+                {{#currentUser}}<button type='button' class='btn btn-default' id="editPetButton">Edit Pet  <span class='glyphicon glyphicon-pencil'></span></button>{{/currentUser}}
+              </div>
+              <div class="petExpandMiddle col-md-8"> <!-- Contains additional pet info -->
+                <h2>{{petName}}</h2>
+                <h4>Pet Biography</h4>
+                  <div class='well well-lg'>{{petBio}}</div>
+                <h4>Medical Needs</h4>
+                  <div class='well well-lg'>{{petNeeds}}</div>
+                <h4>Other Notes</h4>
+                  <div class='well well-lg'>{{petNotes}}</div>
+              </div>
+              <div class="petExpandRight col-md-2"> <!-- Contains add listing button-->
+                  <!-- TO-DO: Link to listing creation dialog -->
+                  {{#currentUser}}<button type='button' class='btn btn-default addListing'><span class="glyphicon glyphicon-plus"></span>Add Listing</button>{{/currentUser}}
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/pets}}
+      </div>
+    </script>
+
   <script>
     var historyDrop = function() {
       $("#tab-history").click();
@@ -731,9 +773,9 @@
       </button>
 
     <!-- Bootstrap panel grouping of collapsable tabs for each pet -->
-      <div class="panel-group" id="accordion">
+      <!-- <div class="panel-group" id="accordion">
         <div class="panel panel-default" id="panelPet1">
-          <!-- Each unexpanded tab has an expand icon, mini pet icon, and pet name -->
+          Each unexpanded tab has an expand icon, mini pet icon, and pet name
           <div class="panel-heading">
             <h4 class="panel-title">
               <a data-toggle="collapse" data-target="#collapsePetOne" class="collapsed in" id="petExpandTitle">
@@ -743,15 +785,15 @@
               </a>
             </h4>
           </div>
-          <!-- Each expanded tab has an a larger pet image, an edit button, more pet info, and add listing button-->
+          Each expanded tab has an a larger pet image, an edit button, more pet info, and add listing button
           <div id="collapsePetOne" class="panel-collapse collapse in">
             <div class="panel-body">
-              <div class="petExpandLeft col-md-2"> <!-- Contains pet image and edit button-->
+              <div class="petExpandLeft col-md-2"> Contains pet image and edit button
                 <img class='petProfLg1 img-circle' src='static/images/fluffy0.jpg'>
-                <!-- TO-DO: Link to pet edit dialog -->
+                TO-DO: Link to pet edit dialog 
                 <button type='button' class='btn btn-default' id="editPetButton">Edit Pet  <span class='glyphicon glyphicon-pencil'></span></button>
               </div>
-              <div class="petExpandMiddle col-md-8"> <!-- Contains additional pet info -->
+              <div class="petExpandMiddle col-md-8"> Contains additional pet info 
                 <h2>Fluffy</h2>
                 <h4>Pet Biography</h4>
                   <div class='well well-lg'>I am loved dearly by Cornelio and was made into the celebrity of this website. </div>
@@ -760,15 +802,15 @@
                 <h4>Other Notes</h4>
                   <div class='well well-lg'>I'm adorable! ^_^ </div>
               </div>
-              <div class="petExpandRight col-md-2"> <!-- Contains add listing button-->
-                  <!-- TO-DO: Link to listing creation dialog -->
+              <div class="petExpandRight col-md-2"> Contains add listing button
+                  TO-DO: Link to listing creation dialog 
                   <button type='button' class='btn btn-default addListing'><span class="glyphicon glyphicon-plus"></span>Add Listing</button>
               </div>
             </div>
           </div>
         </div>
 
-      </div>
+      </div> -->
 
     </div> <!-- End of Pet Content Tab -->
 

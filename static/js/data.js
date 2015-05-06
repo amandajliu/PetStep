@@ -341,7 +341,11 @@ profileData = {
         pets: [{
             petType: "Snake",
             petName: "Fluffy",
-            petImg: "fluffy0.jpg"
+            petNameShort: "Fluffy",
+            petImg: "fluffy0.jpg",
+            petBio: "I am loved dearly by Cornelio and was made into the celebrity of this website",
+            petNeeds: "I need to be milked or else I'll nibble on your toes lovingly and kill you. :3",
+            petNotes: "I'm adorable! ^_^"
         }],
         ownerRating: 4,
         petRating: 5,
@@ -379,6 +383,11 @@ profileData = {
             petType: "Cat",
             petName: "Burrito",
             petImg: "burritoCat0.jpg"
+            petNameShort: "Burrito",
+            petImg: "burritoCat0.jpg",
+            petBio: "I have mysterious past",
+            petNeeds: "I eat a ton of burritos",
+            petNotes: "I also bite people"
         }],
         ownerRating: 0,
         sitterRating: 0,
@@ -397,7 +406,11 @@ profileData = {
         pets: [{
             petType: "Rabbit",
             petName: "Sam the Wise",
-            petImg: "bunny0.jpg"
+            petNameShort: "Sam",
+            petImg: "bunny0.jpg",
+            petBio: "I basically just hang around my cage all day",
+            petNeeds: "I'm pretty boring on the inside too",
+            petNotes: "My owner is weird"
         }],
         ownerRating: 0,
         sitterRating: 0,
