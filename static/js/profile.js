@@ -45,6 +45,25 @@ var loadProfile = function() {
 	}
 }
 
+var loadPetInfo = function() {
+  var petInfoTemplate = $('#petInfoTemplate').html();
+  Mustache.parse(petInfoTemplate);
+  var rendered = Mustache.render(petInfoTemplate, petInfo);
+  $("#petPreset").prepend(rendered);
+}
+
+var loadPersonalInfo = function() {
+  var personalInfoTemplate = $('#personalInfoTemplate').html();
+  Mustache.parse(personalInfoTemplate);
+  var rendered = Mustache.render(personalInfoTemplate, personalInfo);
+  $("#userPreset").prepend(rendered);
+}
+
+var loadPresets = function() {
+  loadPetInfo();
+  loadPersonalInfo();
+}
+
 var loadFavorites = function() {
 	var favorites = $('#favoritesTemplate').html();
 	Mustache.parse(favorites);
@@ -209,7 +228,9 @@ $(document).ready(function() {
 	// 	var messageContent = $.grep(messageData.conversations, function(elt) {
 	// 		elt.
 	// 	})
-	
+	// Used for add listing dialogue
+	loadPresets();
+
 	var messaging = $.getUrlVar('messaging');
 	if (!messaging) {
 		messaging = 'lily';
@@ -313,7 +334,7 @@ $(document).ready(function(){
 			$(this).dialog('destroy').remove()
   		} else {
 			$( "#hiringButton" ).remove();
-			$(".petExpandRight").append("<p>You've hired" + " <a href='profile.html?user=" + ownerName + "'>" + ownerName + "</a> as your sitter!</p>");  			
+			$(".petExpandRight").append("<p>You've hired" + " <a href='profile.html?user=" + ownerName + "'>" + ownerName + "</a> as your sitter!</p>");
 			$( "#dialog" ).dialog( "close" );
   			$(this).dialog('destroy').remove()
   		};
@@ -420,6 +441,14 @@ $(document).ready(function(){
     $('#accordion').on('show.bs.collapse', function () {
         if (active) $('#accordion .in').collapse('hide');
     });
+
+		$(".addListing").click(function() {
+			// console.log("Trying to add a listing");
+			// e.preventDefault();
+			$('.form-containers').removeClass("hide");
+			// console.log($('.form-containers')[0]);
+			return false;
+		})
 
 });
 
