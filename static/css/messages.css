@@ -8,7 +8,21 @@
 }
 
 .message-name.current {
-	background-color: #dddddd;
+	background-color: #0097A7;
+	color:white;
+}
+.message-name.current:hover{
+	background-color: #0097A7 !important;
+}
+
+.message-name{
+	cursor:pointer;
+	border-radius:0px !important;
+	margin: 0px !important;
+}
+#yourConvo{
+	padding:5px;
+	border-bottom:1px solid #ddd;
 }
 
 .message-name:hover {
@@ -34,6 +48,11 @@
 	min-height: 300px;
 	max-height: 300px;
 	overflow-y: auto;
+	background-color:white;
+	/*padding-top:5px;*/
+	border-radius: 5px;
+	border: 1px solid #eee;
+	padding:0px !important;
 }
 
 .messages-right {
