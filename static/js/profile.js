@@ -251,7 +251,7 @@ $(document).ready(function() {
   	var message = $('#review-text').val();
   	var review = {
   		'reviewer': "Cornelio",
-  		'reviewerImg': "Cornelio.png",
+  		'reviewerImg': "Cornelio.jpg",
   		'reviewTime': "just now",
   		'owner': currentUser.firstName,
   		'pet': currentUser.pets[0].petName,

@@ -334,7 +334,7 @@ profileData = {
         username: "cornelio",
         firstName: "Cornelio",
         lastName: "Rosales",
-        userImg: "Cornelio.png",
+        userImg: "Cornelio.jpg",
         sitsFor: [],
         zipcode: "02142",
         petName: "Fluffy",

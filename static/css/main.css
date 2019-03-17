@@ -123,8 +123,8 @@ body {
   display:none;
   padding:0px;
   position:absolute;
-  background-color: black;
-  opacity:0.7;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* opacity:0.7; */
   bottom:0px;
   color:white;
   padding:10px;
